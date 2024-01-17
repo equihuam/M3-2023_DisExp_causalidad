@@ -1,1 +1,3 @@
-# M3-2023_DisExp_causalidad
+# M3-2024 Causalidad y Diseño de Estudios Ecológicos
+
+Contiene notas, escripts y el Blog de clase para el **Módulo III** del curso de _Estadística_ del posgrado del **Inecol**
