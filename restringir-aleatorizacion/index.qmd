@@ -1,0 +1,183 @@
+---
+title: "Restricciones a la aleatorización"
+author: ["Miguel Equihua", "Alan Aguirre"]
+date: "2023-01-27"
+draft: true
+lang: es
+categories: [clase]
+---
+
+### Restricciones a la aleatorización
+
+Imaginemos que tenemos las dos situaciones experimentales que se ilustran en la figura. El análisis de estas situaciones experimentales sugiere dos posible aproximaciones, aproximaciones prácticas, pero
+
+[**¿qué modelos propondrías para analizarlos?**]{style="color:GoldenRod"}
+
+![](images/retricciones_a_la_aleatorizaci%C3%B3n_1.png)
+
+Si se supone ausencia de interacción entre Z y β, ambos casos se podría analizar con el mismo modelo:
+
+$$
+y_{ij} = \mu + Z_{i} + B_{j} + \varepsilon_{(ij)}
+$$
+
+En donde: \* $\mu$ es la media general \* $Z_{i}$ es el efecto del tratamiento $i,\dots, t$ \* $B_{j}$ es el efecto del tratamiento $j,\dots, b$ \* $\varepsilon_{(ij)}$ es el error aleatorio
+
+### Errores de restricción a la aleatorización
+
+Anderson (1970, 1974) notó que no podía ser que el mismo modelo fuera apropiado para dos situaciones tan distintas. Razonó que no se podían hacer inferencias sobre los bloques pues cada uno de ellosaparece sólo una vez.
+
+[**¿Concuerdas en que no es posible estimar su efecto?**]{style="color:GoldenRod"}
+
+[**¿Cuál es el efecto de restringir la aleatorización en la asignación de los tratamientos?**]{style="color:GoldenRod"}.
+
+Anderson propuso incorporar en el modelo términos que dieran cuenta de restricciones en la aleatorización de las unidades experimentales. Llamó a estos términos "errores de restricción", pues también sugirió que deberían ser considerados términos de *efectos aleatorios*.
+
+Así, el modelo de bloques se escribiría así:
+
+$$
+y_{ijkm} = \mu + Z_{i} + B_{j} + \delta_{k(j)} + \varepsilon_{m(ijk)}
+$$
+
+En donde los términos tienen la misma interpretación de arriba, y lo que aregamoses:
+
+-   $\delta_{k(j)}$ , el componente de variación aleatoria introducido por la restricción a la aleatorización al formar bloques. Este error por lo pronto no es estimable.
+
+-   $\varepsilon_{m(ijk)}$ es el componente aleatorio derivado de la presición de las mediciones.
+
+El error de restricción de bloques representa las características particulares y aleatorias de cada conjunto de unidades que formen el bloque *j* (cosas como errores de medición, condiciones ambientales comunes, manipulación común, etc.). Este nuevo término tiene estas características:
+
+-   Es aleatorio (se asume se distribuye como una normal e independientemente: \~normal(0, $\sigma_{k}^2$)
+-   No es estimable ni sus combinaciones porque no hay grados de libertad.
+-   Se incluye para facilitar identificar qué efectos se pueden poner a prueba mediante razones *F*. Esto se determina al examinar las *esperanzas de cuadrados medios* (**ECM**).
+-   Es un *efecto confundido* (no se puede separar) del efecto de bloque o grupo de unidades experimentales.
+
+Consideremos el caso de la ganancia de peso en un grupo de orugas que declina conforme se incrementa el contenido de taninos en su dieta, esta condición puede describirse en forma abreviada así:
+
+ganancia de peso de cada oruga = ganancia de peso base en general + efecto del contenido de taninos en la dieta + Efecto de otros factores que fluctúan aleatoriamente
+
+¿Cómo se ve el análisis del modelo en un cuadro de ANOVA?
+
+<img src="../Figuras/Anova_caso_1.png" width="70%"/>
+
+[¿Qué tipo de efecto tienen los factores? ¿Qué se puede probar comparando cuadrados medios?]{style="color:GoldenRod"}
+
+Con la propuesta de Anderson de incluir términos para representar el efecto de no aplicar aleatorización en forma completa, el cuadro de ANOVA se vería como se muestra enseguida.
+
+[¿Qué tipo de efecto tienen los factores? ¿Qué se puede probar]{style="color:GoldenRod"}
+
+<img src="../Figuras/Anova_Anderson.png" width="70%"/>
+
+La idea de Anderson tiene validez general para experimentos *completos y balanceados*. Se puede utilizar para analizar con claridad el efecto de distintos arreglos experiementales que puedan intereesar al investigador.
+
+#### Ejemplo de aplicación del error de restricción en la planeación de experimentos
+
+Se quieren probar 3 raciones (**A**, **B**, **C**) sobre el desempeño de las vacas. Se dispone de 12 animales para realizar el ensayo. Se cuenta con corrales donde caben 4 animales.
+
+<img src="../Figuras/Diseño_vacas_1.png" width="70%"/>
+
+[¿Qué inconvenientes encuentras a esta situación experimental?]{style="color:GoldenRod"}\_
+
+El modelo que razonablemente describe esta situación sería:
+
+$$
+Y_{ijk} =  \mu + T_{i} + \delta_{k(i)} + \varepsilon_{j(ik)}
+$$
+
+El cuadro de ANOVA se vería así:
+
+<img src="../Figuras/ANOVA_Modelo_vacas_1.png" width="60%"/>
+
+[¿Qué piensan de este otro arreglo experimental?]{style="color:GoldenRod"}
+
+<img src="../Figuras/Diseño_vacas_2.png" width="60%"/>
+
+El modelo es semejante al anterior, pero ahora varían los términos estimables:
+
+$$
+Y_{ijk} =  \mu + T_{i} + \delta_{k(i)} + \varepsilon_{j(ik)}
+$$
+
+El cuadro de ANOVA se verí así:
+
+<img src="../Figuras/ANOVA_Modelo_vacas_2.png" width="70%"/>
+
+Como [referencia sugerida encontré este artículo](http://www.scielo.org.co/pdf/rccp/v20n2/v20n2a11.pdf) que describe como hacer el análisis necesario para determinar las *esperanzas de cuadrados medios* (**EMC**).
+
+## Manos
+
+Considera que estamos midiendo la mano izquierda y la derecha de varios individuos, las medidas están emparejadas dentro de cada individuo. Es decir, queremos controlar estadísticamente las diferencias entre individuos, así nos aseguramos que la mano izquierda del *individuo A* sea analizada en conjunto con la mano derecha del *individuo A*, ya que suponemos que alguien con una mano izquierda grande tendrá una mano derecha grande. Por lo tanto, la variable *Individuo* se incluirá en el modelo como una variable aleatoria. Se podría pensar que cada Individuo representa un **bloque** que incluye una medida para la mano izquierda y una medida para la mano derecha.
+
+```{r}
+manos <- read.table("../manos.dat", sep = ",", header = T, stringsAsFactors = T)
+head(manos)
+```
+
+### Inspección de los datos
+
+```{r}
+tapply(manos$Length, list(manos$Hand, manos$Individual), mean)
+```
+
+```{r}
+interaction.plot(manos$Individual,manos$Hand, manos$Length)
+```
+
+```{r}
+manos_modelo_1 <- lm(Length ~ 1, data = manos)
+summary(manos_modelo_1)
+```
+
+```{r}
+manos_modelo_2 <- lm(Length ~ Hand, data = manos)
+summary(manos_modelo_2)
+```
+
+```{r}
+manos_modelo_3 <- lm(Length ~ Hand + Individual, data = manos)
+summary(manos_modelo_3)
+```
+
+```{r}
+anova(manos_modelo_3)
+```
+
+```{r}
+manos_modelo_4 <- lm(Length ~ Hand + Individual, data = manos)
+summary(manos_modelo_4)
+```
+
+```{r}
+anova(manos_modelo_3)
+```
+
+## Tarea
+
+Es un experimento con un arreglo espacial así:
+
+<img src="../Figuras/Diseño de bloques_tarea.png" width="60%"/>
+
+La figura muestra el rendimiento de 4 cultivares en t/ha que se ensayaron en un experimento en campo. Los cultivares fueronsembrados en cuatro camos distintos como se muestra en la ilustración.
+
+Los dato son los siguientes:
+
+| Field | cultivar | yield |
+|-------|----------|-------|
+| B1    | C1       | 7.4   |
+| B1    | C2       | 9.8   |
+| B1    | C3       | 7.3   |
+| B1    | C4       | 9.5   |
+| B2    | C1       | 6.5   |
+| B2    | C2       | 6.8   |
+| B2    | C3       | 6.1   |
+| B2    | C4       | 8     |
+| B3    | C1       | 5.6   |
+| B3    | C2       | 6.2   |
+| B3    | C3       | 6.4   |
+| B3    | C4       | 7.4   |
+
+Por favor analiza estos datos y ofrece tus conclusiones.
+
+1.  Identifica el tipo de experimento que se hizo
+2.  Comenta las decisiones que orienten tu elección de modelo y pruebas estadísticas que realices.
+3.  Argumenta tus conclusiones.

@@ -1,0 +1,18 @@
+---
+title: "El Modelo estadístico lineal"
+author: ["Miguel Equihua", "Alan Aguirre"]
+date: "2023-01-28"
+lang: es
+categories: [clase]
+format:
+  html:
+    code-fold: true
+---
+
+![](mathematics.jpg){width="400"}
+
+El diseño, análisis y reporte de los resultados de experimentos o estudios en general tiene un vínculo muy estrecho con la modelación estadística. Las hipótesis de investigación deben ser expresadas de modo tal que sean suceptibles de ser valoradas con apoyo estadístico y a partir de ahí, el análiisis de los datos y el reporte de resultados hacen referencia obligada a los atributos de los modelos estudiados, desde luego considerando su correspondencia o falta de ella, con los datos obtenidos en el estudio y las ideas que el equipo de investigación se ha propuesto desentrañar. Es así como usualmente se aplica la llamada *prueba de hipótesis* que se basa en la comparación y selección de modelos, buscando encontrar aquellos que ofrezcan la mejor correspondencia con una explicación plausible del proceso que genera datos semejantes a los que se utilizaron en el estudio. En esta sesión abordaremos esta temática.
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRlyYSTfgePGNT4Xk4J6HcNu0DsPtc3jbutAbSv0bSnnX3yHG5NfCbRiiP9pl8yBw/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="645px" height="400px" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+
+</iframe>

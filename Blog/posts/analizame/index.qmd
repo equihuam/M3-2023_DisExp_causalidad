@@ -1,0 +1,52 @@
+---
+title: "Analízame"
+author: ["Miguel Equihua", "Alan Aguirre"]
+date: "2023-02-6"
+lang: es
+categories: [taller]
+format:
+  html:
+    code-fold: true
+---
+
+![](chemistry.jpg){width="400"}
+
+Hagamos el análisis de un par de ejemplos.
+
+## Preparación de Masa para Pizza
+
+![](pizza-masa.jpg){width="300"}
+
+Para encontrar una mejor manera de hacer su pizza favorita, Marcelo se propuso reducir el tiempo que tarda en preparar la masa. Para hacerlo siguió el camino de la ciencia y diseñó un experimento para poner a prueba el efecto de la cantidad de azúcar y de leche en los tiempos de activación de la levadura. En concreto, probó cuatro recetas diferentes y midió cuántos segundos tardaba la misma cantidad de masa en llenar un recipiente hasta una marca que fijo como referencia. Aleatorizó el orden de las recetas y repitió cada tratamiento 4 veces.
+
+[Descargar los datos en formato de texto simple](masa-para-pizza.txt)
+
+1.  [¿Diseño experimental?]{style="color:GoldenRod"}
+2.  [¿Arreglo de tratamientos?]{style="color:GoldenRod"}
+3.  [¿Modelo que corresponde a este experimento?]{style="color:GoldenRod"}
+4.  [¿Supuestos qe harás para apoyar tu análisis estadístico?]{style="color:GoldenRod"}
+5.  [¿Define tu criterio o nivel de significancia?]{style="color:GoldenRod"}
+6.  [Realiza una exploración de los datos, numérica y gráfica, comenta]{style="color:GoldenRod"}
+7.  [Construye los modelos necesarios y selecciona el mínimo adecuado]{style="color:GoldenRod"}
+8.  [Valora la calidad del modelo, incluyendo el análisis de los residuos]{style="color:GoldenRod"}
+9.  [Resuelve que tratamientos difieren de los demás]{style="color:GoldenRod"}
+10. [Argumenta tus conclusiones]{style="color:GoldenRod"}
+
+## Venenos
+
+![](bottles-5579576_1920.jpg){width="300"}
+
+El cuadro que sigue muestra el tiempo de sobrevivencia, en unidades de 10 horas, de animales a los que se administró uno de tres tipos de veneno (I II, III), seguido de uno de cuatro antídotos (A, B, C y D). Se usaron cuatro animales asignados al azar a las combinación de veneno y antídoto **¿Alguno de los antídotos es más eficaz que los otros?**
+
+1.  [¿Diseño experimental?]{style="color:GoldenRod"}
+2.  [¿Arreglo de tratamientos?]{style="color:GoldenRod"}
+3.  [¿Modelo que corresponde a este experimento?]{style="color:GoldenRod"}
+4.  [¿Supuestos qe harás para apoyar tu análisis estadístico?]{style="color:GoldenRod"}
+5.  [¿Define tu criterio o nivel de significancia?]{style="color:GoldenRod"}
+6.  [Realiza una exploración de los datos, numérica y gráfica, comenta]{style="color:GoldenRod"}
+7.  [Construye los modelos necesarios y selecciona el mínimo adecuado]{style="color:GoldenRod"}
+8.  [Valora la calidad del modelo, incluyendo el análisis de los residuos]{style="color:GoldenRod"}
+9.  [Resuelve que tratamientos difieren de los demás]{style="color:GoldenRod"}
+10. [Argumenta tus conclusiones]{style="color:GoldenRod"}
+
+[Descargar datos en libro Excel](Venenos.xlsx)

@@ -1,0 +1,20 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/bienvenida/index.html",
+      "/posts/analizame/index.html",
+      "/posts/experimentar/index.html",
+      "/posts/medidas-repetidas/index.html",
+      "/posts/modelos-mixtos/index.html",
+      "/posts/experimentos-anidados/index.html",
+      "/posts/restringir-aleatorizacion/index.html",
+      "/posts/diagramas-causales/index.html",
+      "/posts/dis-comp-aleat/index.html",
+      "/posts/modelo-lineal/index.html",
+      "/posts/concepto-y-modelos-experimentar/index.html",
+      "/posts/leyes-de-la-ciencia/index.html",
+      "/posts/evaluacion/index.html"
+    ]
+  }
+]
