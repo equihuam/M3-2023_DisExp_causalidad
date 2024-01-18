@@ -2,18 +2,18 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/08-modelos-mixtos/index.html",
+      "/posts/09-medidas-repetidas/index.html",
       "/posts/10-analizame/index.html",
       "/posts/11-experimentar/index.html",
-      "/posts/8-modelos-mixtos/index.html",
-      "/posts/9-medidas-repetidas/index.html",
-      "/posts/7-experimentos-anidados/index.html",
-      "/posts/6-Restringir-aleatorizacion/index.html",
-      "/posts/5-dis-comp-aleat/index.html",
-      "/posts/1-concepto-y-modelos-experimentar/index.html",
-      "/posts/4-diagramas-causales/index.html",
-      "/posts/3-modelo-lineal/index.html",
-      "/posts/0-Bienvenida/index.html",
-      "/posts/2-leyes-de-la-ciencia/index.html"
+      "/posts/07-experimentos-anidados/index.html",
+      "/posts/06-Restringir-aleatorizacion/index.html",
+      "/posts/05-dis-comp-aleat/index.html",
+      "/posts/01-concepto-y-modelos-experimentar/index.html",
+      "/posts/04-diagramas-causales/index.html",
+      "/posts/03-modelo-lineal/index.html",
+      "/posts/00-Bienvenida/index.html",
+      "/posts/02-leyes-de-la-ciencia/index.html"
     ]
   }
 ]
