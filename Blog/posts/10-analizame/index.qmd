@@ -1,8 +1,9 @@
 ---
 title: "Analízame"
 author: ["Miguel Equihua", "Elio Lagunes"]
-date: "2023-02-6"
+date: "2024-02-08"
 lang: es
+draft: FALSE
 categories: [taller]
 format:
   html:

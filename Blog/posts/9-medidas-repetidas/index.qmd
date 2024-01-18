@@ -1,8 +1,9 @@
 ---
 title: "Modelos de medidas repetidas"
 author: ["Miguel Equihua", "Elio Lagunes"]
-date: "2023-02-3"
+date: "2024-02-08"
 lang: es
+draft: FALSE
 categories: [clase]
 format:
   html:

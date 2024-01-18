@@ -1,8 +1,9 @@
 ---
 title: "El Modelo estadístico lineal"
 author: ["Miguel Equihua", "Elio Lagunes"]
-date: "2023-01-28"
+date: "2024-01-30"
 lang: es
+draft: FALSE
 categories: [clase]
 format:
   html:

@@ -3,6 +3,7 @@ title: "Bienvenidos al Módulo 3 de estadística"
 author: ["Miguel Equihua", "Elio Lagunes"]
 date: "2024-01-29"
 lang: es
+draft: FALSE
 code-fold: true
 categories: [operación]
 ---
@@ -12,6 +13,7 @@ suppressPackageStartupMessages(library(tidyverse))
 library(flextable)
 library(readr)
 library(tidyverse)
+library(readxl)
 
 ```
 
@@ -46,3 +48,15 @@ contenido %>% flextable(col_keys = c("dia", "tema")) %>%
 ![](virtual-5663279_1280.png){width="400"}
 
 El Módulo III será evaluado a través de las tareas y controles de lectura que les pediremos que hagan conforme se desarrolle el curso. La participación en *quizes* y preguntas en línea será considerada como una oportunidad de mejora, aunque la no participación no se considerará para disminuir la calificación.
+
+## Estudiantes
+
+```{r}
+estudiantes_2024 <- read_excel("Estudiantes Curso Estadística y Diseño Experimental 2024.xlsx", skip = 6)
+
+estudiantes_2024 %>% 
+  arrange(Estudiante) %>% 
+  flextable(col_keys = c("Matrícula", "Estudiante")) %>% 
+  autofit()
+
+```
