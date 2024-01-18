@@ -21,7 +21,7 @@ library(readxl)
 
 ## Objetivos del Módulo 3
 
-Durante las últimas semanas revisaron conceptos de probabilidad y matemáticas, que necesitamos como un **lenguaje eficiente de comunicación**. También empezaron a explorar como es que se pueden analizar proposiciones sobre la existencia de asociación o incluso relaciones de dependencia entre dos variables: **modelos de regresión simple**. Ahora vamos aplicar y extender estos aprendizajes para abordar el desafío de producir conocimiento que nos permita comprender como funciona el mundo.
+Durante las últimas semanas revisaron conceptos de probabilidad y matemáticas que necesitamos como un **lenguaje eficiente de comunicación**. También empezaron a explorar como es que se pueden analizar proposiciones sobre la existencia de asociación o incluso relaciones de dependencia entre dos variables: **modelos de regresión simple**. Ahora vamos aplicar y extender estos aprendizajes para abordar el desafío de producir conocimiento que nos permita comprender como funciona el mundo.
 
 Utilizaremos el lenguaje de programación **R** como plataforma de cómputo para el análisis de datos. Aspiramos a ofrecerles así un curso introductorio para su uso. También nos interesa acercarnos a los enfoques formales para el análisis causal actual, mediante la formulación de *Grafos Acíclicos Dirigidos* (**DAG**). Los invitamos a hacer explícitas y a dibujar las relaciones causales de sus proyectos para comprenderlas, comunicarlas y analizarlas con mayor eficiencia.
 
