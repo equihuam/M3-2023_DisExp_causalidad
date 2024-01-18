@@ -1,5 +1,5 @@
 ---
-title: "Acerca del módulo III"
+title: "Acerca del módulo 3"
 about:
   template: jolla
   links:
