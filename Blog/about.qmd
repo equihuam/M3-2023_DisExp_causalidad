@@ -5,7 +5,7 @@ about:
   links:
     - icon: github
       text: Github
-      href: https://github.com/equihuam/M3-2023_DiseExp_anova
+      href: https://github.com/equihuam/M3-2024_causalidad
 ---
 
 ![](images/stained-glass-1181864_1920.jpg){width="400"}
