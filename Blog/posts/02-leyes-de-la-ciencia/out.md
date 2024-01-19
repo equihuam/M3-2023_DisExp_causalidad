@@ -43,6 +43,7 @@ title-slide-attributes:
 
 **Escribe una palabra y oprime enviar**
 
+::: {.smaller}
 # Bacon y la la ciencia occidental
 
 -   Es frecuente que se relacione el origen de la ciencia con el estadista y filósofo británico **Sir Francis Bacon (1561-1626)** .
@@ -50,15 +51,18 @@ title-slide-attributes:
 -   Bacon, sin modestia alguna, intentaba:
     -   [“Iniciar una reconstrucción total de las ciencias, las artes prácticas y todo el conocimiento humano, erigida sobre fundamentos apropiados”]{style="color:#A61C00"} .
 -   El elemento crítico en sus fundamentos fue el **método de experimentación** . Así, una manipulación deliberada de variables debería reemplazar el tipo de empirismo prevaleciente que consistía en “ *observar y nombrar* ”, inducido por el enfoque aristotélico.
+:::
 
 # Consecuencias baconianas
 
+::: {.r-fit-text}
 -   La naturaleza de la reconstrucción baconiana, sin embargo, habría de tener consecuencias positivas lo mismo que negativas sobre la concepción de ciencia que predominó los casi 400 años hasta hoy.
 -   El ideal baconiano de ciencia consiste en lo siguiente:
     -   [Al principio de su investigación, los experimentadores habrán de eliminar de sus pensamientos “todos los ‘ídolos’ o ilusiones seculares y las falacias nacidas de las idiosincrasias personales de sus juicios o de las creencias tradicionales y de los dogmas de su grupo”.]{style="color:#1155CC"}
     -   [En la visión baconiana, las observaciones se realizan en una forma puramente objetiva por individuos que no tienen lealtad alguna a ninguna hipótesis o creencia que les pueda causar ceguera hacia alguna porción de la evidencia empírica.]{style="color:#A64D79"}
     -   [Las conclusiones correctas y los principios explicativos emergen de las pruebas en una forma relativamente automática y sin que los preconceptos filosóficos del experimentador jueguen papel alguno.]{style="color:#1155CC"}
     -   [La naturaleza misma dictaría sin ambigüedades, por así decirlo, la adopción de teorías verdaderas. El conjunto total de las ciencia, pensaba, sería puramente objetivo, empírico y racional.]{style="color:#A64D79"}
+:::
 
 # Bacon hoy....
 
