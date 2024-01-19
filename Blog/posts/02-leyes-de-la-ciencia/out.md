@@ -23,14 +23,19 @@ title-slide-attributes:
 
 # Joining Instructions
 
+:::{.columns}
+:::{.column width="40%"}
 ![](img%5Cclase_1%20-%20Leyes%20en%20ecolog%C3%ADa0.png){width="300"}
+:::
 
-**Participa en tu computadora con** [vevox.app]{style="color:#00AEEF"}
-
-**Para usar el celular installa** [Vevox]{style="color:#00AEEF"} 
-**desde la tienda de** *apps*
-
+:::{.column width="60%"}
 ![](img%5Cclase_1%20-%20Leyes%20en%20ecolog%C3%ADa1.png){width="200"}
+:::
+:::
+
+- **Participa en tu computadora con** [vevox.app]{style="color:#00AEEF"} 
+- **Para usar el celular installa** [Vevox]{style="color:#00AEEF"}
+  **desde la tienda de** *apps* \  
 
 # 1. Para ti, ¿qué es la ciencia?
 
