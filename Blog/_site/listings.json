@@ -2,7 +2,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/02-leyes-de-la-ciencia/Miguel_3/Miguel_3.html",
       "/posts/02-leyes-de-la-ciencia/Miguel_2.html",
       "/posts/00-Bienvenida/index.html",
       "/posts/02-leyes-de-la-ciencia/index.html",
@@ -16,8 +15,7 @@
       "/posts/08-modelos-mixtos/index.html",
       "/posts/09-medidas-repetidas/index.html",
       "/posts/10-analizame/index.html",
-      "/posts/11-experimentar/index.html",
-      "/posts/02-leyes-de-la-ciencia/Miguel/Miguel.html"
+      "/posts/11-experimentar/index.html"
     ]
   }
 ]
