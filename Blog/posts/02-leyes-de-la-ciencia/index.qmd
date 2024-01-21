@@ -26,4 +26,6 @@ A continuación encontraran la presentación que usaremos como apoyo audiovisual
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTCdUcwWh31T-1oxX_etqljMcHVmH3AfaLMbmA8gUtiaX52VXNnOpzXnDRaosXjdg/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="645px" height="400px" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
 </iframe>
 
+[Presentación](Pres-leyes-ciencia.qmd)
+
 
