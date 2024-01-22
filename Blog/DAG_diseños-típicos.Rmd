@@ -5,7 +5,7 @@ output:
     df_print: paged
 ---
 
-Un experimento con asignación de tratamientos en forma completamente al azar, garantiza que no haya vías de influencia ocultas (backdoor). Técnicamente, se trata del recurso usualmente más confiable y práctico para reducir a un valor de probabilidad teóricamente controlable, la posibilidad de confusión inadvertida (backdoor). Esa proabilidad se relaaciona de manera inversamente proporciona con el tamaño del experimento. Por diseño, la respuesta de las unidades experimentales, _Y_, al tratamiento _T_ sólo tiene a la asignación aleatoria _A_ como única causa que antecede al tratamiento.
+Un experimento con asignación de tratamientos en forma completamente al azar, garantiza que no haya vías de influencia ocultas (backdoor). Técnicamente, se trata del recurso usualmente más confiable y práctico para reducir a un valor de probabilidad teóricamente controlable, la posibilidad de confusión inadvertida (backdoor). Esa proabilidad se relaaciona de manera inversamente proporciona con el tamaño del experimento. Por diseño, la respuesta de las unidades experimentales, *Y*, al tratamiento *T* sólo tiene a la asignación aleatoria *A* como única causa que antecede al tratamiento.
 
 $$
 \fbox{A} \rightarrow T \rightarrow Y
@@ -17,7 +17,4 @@ Este DAG nos conduce al modelo linear siguiente
 
 $$
 y = \mu + T +  \varepsilon
-$$
-En donde _y_ son las mediciones de la variable _Y_ en respuesta al efecto de _T_, $\mu$ es un valor de referencia general (tradicionalmente la media general de la variale _Y_, aunque puede elegirse cualquier otro valor de referencia que convenga al estudio) y la épsilon da cuenta del efecto aleatorio inducido por $\fbox{A}$, por lo que es necesario postular una distribción de probabilidades apropiada para caracterizar su comportamiento.
-
-
+$$ En donde *y* son las mediciones de la variable *Y* en respuesta al efecto de *T*, $\mu$ es un valor de referencia general (tradicionalmente la media general de la variale *Y*, aunque puede elegirse cualquier otro valor de referencia que convenga al estudio) y la épsilon da cuenta del efecto aleatorio inducido por $\fbox{A}$, por lo que es necesario postular una distribción de probabilidades apropiada para caracterizar su comportamiento.
