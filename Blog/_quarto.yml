@@ -6,9 +6,13 @@ website:
   favicon: images/bar-chart.png
   navbar:
     right:
-      - about.qmd
+      - text: "Algo más"
+        menu:
+          - presentaciones.qmd
+          - about.qmd
       - icon: github
         href: https://github.com/equihuam/M3-2024_causalidad
+
 format:
   html:
     theme: sketchy
