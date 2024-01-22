@@ -1,7 +1,8 @@
 ---
 title: "M3 - Diseño de Experimentos"
 listing:
-  contents: posts
+  contents:
+    - "posts/*/*index.qmd"
   sort: "date"
   type: default
   categories: true

@@ -9,6 +9,7 @@ format:
   html:
     code-fold: true
 ---
+
 ![](images/abstract-95721_1920.jpg)
 
 En esta primera sesión les proponemos reflexionar sobre la intención o incluso necesidad de recurrir a enfoques numéricos o matemáticos para hacer ciencia. También, debemos considerar el propósito mismo de la actividad científica en la que estamos involucrados. Cuando hablamos de generación de conocimiento, ¿realmente a qué nos estamos refiriendo?. Podríamos considerar que la producción de conocimiento involucra la formulación de expresiones matemáticas. Con estas expresiones podemos describir la existencia de relaciones específicas entre procesos que observamos. ¿es esto así? Si es el caso, ¿es la única manera de hacerlo?. Si consideramos que nos es la única, entonces cabe preguntarnos ¿es la mejor manera de hacerlo?. Estas y otras inquietudes de este tipo serán el tema de reflexión y hasta debate si quieren en esta primera sesión.
@@ -21,11 +22,11 @@ Hemos previsto tener frecuentes eventos interactivos para dar seguimiento a los 
 
 # Apoyo audiovisual de la sesión
 
-A continuación encontraran la presentación que usaremos como apoyo audiovisual para conducir la exploración de los temas que discutiremos en esta sesión.
-
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTCdUcwWh31T-1oxX_etqljMcHVmH3AfaLMbmA8gUtiaX52VXNnOpzXnDRaosXjdg/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="645px" height="400px" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
-</iframe>
-
-[Presentación](Pres-leyes-ciencia.qmd)
+A continuación encontraran la presentación que usamos como apoyo audiovisual para conducir la exploración de los temas que discutimos en esta sesión (_haz click en la imágen_).
 
 
+:::{layout="[[-20, 60, -20]]" layout-valign="top"}
+
+[![](images/mathematics-1233876_1280.jpg){width="300"}](Pres-leyes-ciencia.qmd)
+
+:::
