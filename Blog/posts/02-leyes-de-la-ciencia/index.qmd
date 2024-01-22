@@ -27,6 +27,6 @@ A continuación encontraran la presentación que usamos como apoyo audiovisual p
 
 :::{layout="[[-20, 60, -20]]" layout-valign="top"}
 
-[![](images/Carátula-1.png){width="800"}](Pres-leyes-ciencia.qmd)
+[![](images/Carátula-1.png){width="800"}](pres-leyes-ciencia.qmd)
 
 :::

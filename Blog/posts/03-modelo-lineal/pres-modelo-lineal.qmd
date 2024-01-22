@@ -1,0 +1,164 @@
+---
+title: "Modelo Estadístico Lineal"
+subtitle: "modelación y prueba de hipótesis"
+author: 
+  - name: "Miguel Equihua"
+    email: "equihuam@gmail.com"
+  - name: "Elio Lagunes"
+    email: "elio.lagunes.mx"
+date: "2024-01-29"
+date-format: "[Xalapa, Ver.,] D MMMM YYYY"
+categories: [presentación]
+lang: es
+footer: "[M3-Causalidad](https://m3-causalidad-2024.netlify.app/)"
+logo:  "images/Logo-Inecol.png"
+title-slide-attributes:
+    data-background-image: "images/Gamma plantillas_alfa.png"
+    data-background-size: "100%"
+    data-background-opacity: "60%"
+format: 
+    metropolis-revealjs: default
+reveal-header:
+    sc-sb-title: false
+    header: .
+transition: convex
+execute: 
+  eval: true
+  echo: true
+embed-resources: true
+preload-iframes: true
+---
+
+
+
+# Al planear un estudio
+
+¿Descriptivo o comparativo?
+
+¿Cómo se miden las variables (escalas)?
+
+¿Cómo se definen los tratamientos?
+
+¿Cómo se asignan los tratamientos a las unidades de observación?
+
+¿Procesos de confusión?
+
+¿Se usó aleatorización en algún punto?
+
+# Procesos de confusión
+
+Hacen aparecer una asociación que no existe.
+
+Ocultan o enmascaran la existencia de una asociación
+
+![](images%5Cclase_3%20-%20Modelo%20lineal0.png)
+
+# Sesgo por selección
+
+Cuando una variable explicativa y alguna otra variable actúan simultáneamente sobre la de respuesta.
+
+En este caso la variable de respuesta es un “colisionador”.
+
+Si no se maneja adecuadamente en el diseño del estudio o en el análisis, pueden producir resultados sesgados.
+
+![](images%5Cclase_3%20-%20Modelo%20lineal1.png)
+
+# Clasificación y medición
+
+**La obtención de datos cuantitativos puede realizarse de muchas formas distintas, pero siempre se parte de alguna forma de clasificación.**
+
+**Aunque clasificar puede parecer una tarea simple, muchas cosas dependen justamente de como se hace.**
+
+# Medición cualitativa
+
+**El tipo más simple de medición es aquel en el que las categorías sólo se etiquetan.**
+
+**Esta es la denominada escala de medición** *categórica* \_\_ o \_\_ *nominal* **.**
+
+**A veces resulta útil expresar mediciones continuas en forma nominal.**
+
+# El modelo estadístico lineal general
+
+[ **Estructura general** ]{style="color:#A5A5A5"}
+
+![](images%5Cclase_3%20-%20Modelo%20lineal2.png)
+
+![](images%5Cclase_3%20-%20Modelo%20lineal3.png)
+
+**Ejemplo de modelo lineal**
+
+[Ganancia de peso en un grupo de orugas que declina conforme se incrementa el contenido de taninos en la dieta. ]{style="color:#7F7F7F"}
+
+[Esta condición puede describirse en forma abreviada así:]{style="color:#7F7F7F"}
+
+[Como modelo lineal se puede escribir así :]{style="color:#7F7F7F"}
+
+![](images%5Cclase_3%20-%20Modelo%20lineal4.png)
+
+**Interpretación de términos**
+
+[las ]{style="color:#595959"} [ *X* ]{style="color:#595959"} ['s proporcionan información sobre el nivel del individuo ]{style="color:#595959"} [ *i* ]{style="color:#595959"} [ en los factores que estamos considerando.]{style="color:#595959"}
+
+[Las ]{style="color:#595959"} [ *β* ]{style="color:#595959"} [ son incógnitas que debemos estimar (en eso consiste ajustar el modelo).]{style="color:#595959"}
+
+[La primera incógnita y la variable ]{style="color:#595959"} [ *X* ]{style="color:#595959"} [ *0* ]{style="color:#595959"} [ que la acompaña típicamente juegan el papel especial de reflejar el efecto de los factores constantes, esto es, los factores que son comunes a todas las unidades experimentales, para esto usualmente ]{style="color:#595959"} [ *X* ]{style="color:#595959"} [ *0* ]{style="color:#595959"} [ toma simplemente el valor de 1 para todas las unidades experimentales observadas.]{style="color:#595959"}
+
+![](images%5Cclase_3%20-%20Modelo%20lineal5.png)
+
+# Modelos con variables explicativas cualitativas
+
+# ¿qué es esto?
+
+[Un agrónomo planea estudiar las tasas de producción de cuatro híbridos de trigo en tres regiones geográficas con clima árido, representantes de diferentes condiciones de sequía. Los sitios se escogen según la cantidad de lluvia y la respuesta es el rendimiento por hectárea.]{style="color:#000000"}
+
+# El modelo asociado es:
+
+![](images%5Cclase_3%20-%20Modelo%20lineal6.png)
+
+![](images%5Cclase_3%20-%20Modelo%20lineal7.png)
+
+# ¿Qué valores toman las X y las H?
+
+[Una forma de modelar datos cualitativos como los indicados en el ejemplo es emplear variables indicadoras (o ]{style="color:#000000"} [“]{style="color:#000000"} [dummy]{style="color:#000000"} [”]{style="color:#000000"} [). Todo lo que hay que hacer es definir para cada variable las condiciones bajo las que toma uno de dos valores posible, usualmente ]{style="color:#000000"} [“]{style="color:#000000"} [1]{style="color:#000000"} [”]{style="color:#000000"} [ o ]{style="color:#000000"} [“]{style="color:#000000"} [0]{style="color:#000000"} [”]{style="color:#000000"} [. Por ejemplo:]{style="color:#000000"}
+
+![](images%5Cclase_3%20-%20Modelo%20lineal8.png)
+
+# Dependencia lineal
+
+[Cuando los valores de una variable pueden expresarse como combinaciones lineales (sumas o restas de múltiplos o submúltiplos) de las otras variables en el conjunto, ]{style="color:#000000"}
+
+[se habla de dependencia lineal.]{style="color:#000000"}
+
+[A esto, como ya hemos dicho, se le denomina colinealidad o]{style="color:#000000"}
+
+[Multicolinealidad.]{style="color:#000000"}
+
+[¿]{style="color:#000000"} [por qué?]{style="color:#000000"}
+
+# ...ejemplo de dependencia...
+
+![](images%5Cclase_3%20-%20Modelo%20lineal9.png)
+
+[¿Cuál es la dependencia lineal en esta tabla de datos?]{style="color:#000000"}
+
+![](images%5Cclase_3%20-%20Modelo%20lineal10.png)
+
+# Y... ¿qué tenemos aquí?
+
+![](images%5Cclase_3%20-%20Modelo%20lineal11.png)
+
+[¡La colinealidad impide resolver el ajuste de modelos!]{style="color:#000000"}
+
+[Para resolver este problema hay que reparametrizar.]{style="color:#000000"}
+
+# Otro caso
+
+# Y ahora ¿qué es esto?
+
+[Un ecólogo desea probar los efectos relativos de 8 tratamientos (“Xs”) sobre la sobrevivencia de plántulas de ]{style="color:#000000"} [ *Phaseolus vulgaris* ]{style="color:#000000"} [. Supongamos que se cuenta con 64 plántulas relativamente homogéneas. ¿qué solución proponen?]{style="color:#000000"}
+
+# ...que tal si....
+
+**...se enteran que las 64 plántulas provienen en lotes de 8 de distintas cámaras y sustratos de germinación.**
+
+**¿modificaría esto el diseño y al (los) modelo(s) asociado(s)?**

@@ -1,13 +1,17 @@
 ---
 title: "Leyes de la Ciencia"
 subtitle: "Diseño de estudios y experimentos"
-author: "Miguel Equihua y Elio Lagunes"
-email: "equihuam@gmail.com y elio.lagunes.mx"
+author: 
+  - name: "Miguel Equihua"
+    email: "equihuam@gmail.com"
+  - name: "Elio Lagunes"
+    email: "elio.lagunes.mx"
 date: "2024-01-29"
 date-format: "[Xalapa, Ver.,] D MMMM YYYY"
 categories: [presentación]
 lang: es
 footer: "[M3-Causalidad](https://m3-causalidad-2024.netlify.app/)"
+logo:  "images/Logo-Inecol.png"
 title-slide-attributes:
     data-background-image: "images/Gamma plantillas_alfa.png"
     data-background-size: "100%"
@@ -34,9 +38,9 @@ preload-iframes: true
 -   **Para usar el celular instala** [Vevox]{style="color:#00AEEF"} **desde la tienda de** *apps*
 
 ::: {layout="[[25, -40, 15]]" layout-valign="top"}
-![](images/clase_1%20-%20Leyes%20en%20ecología0.png)
+![](images/clase_1 - Leyes en ecología0.png)
 
-![](images/clase_1%20-%20Leyes%20en%20ecología1.png)
+![](images/clase_1 - Leyes en ecología1.png)
 :::
 :::
 
@@ -51,7 +55,7 @@ Participa: vevox.app ID: 152-551-925
 
 **Escribe una palabra y oprime enviar**
 
-![](images/clase_1%20-%20Leyes%20en%20ecología1.png){width="200"}
+![](images/clase_1 - Leyes en ecología1.png){width="200"}
 :::
 
 ##  {background-iframe="https://vevox.app/#/m/152551925?integration=embed" background-interactive="true"}
@@ -114,7 +118,7 @@ Aunque esta visión de la ciencia todavía está presente en algunos círculos, 
 
 **Escribe una palabra y oprime enviar**
 
-![](images/clase_1%20-%20Leyes%20en%20ecología1.png){width="200"}
+![](images/clase_1 - Leyes en ecología1.png){width="200"}
 :::
 
 ##  {background-iframe="https://vevox.app/#/m/152551925?integration=embed" background-interactive="true"}
@@ -159,7 +163,7 @@ Aunque esta visión de la ciencia todavía está presente en algunos círculos, 
 
 Elije la respuesta que consideres más apropiada
 
-![](images/clase_1%20-%20Leyes%20en%20ecología1.png){width="200"}
+![](images/clase_1 - Leyes en ecología1.png){width="200"}
 :::
 
 ##  {background-iframe="https://vevox.app/#/m/152551925?integration=embed" background-interactive="true"}
