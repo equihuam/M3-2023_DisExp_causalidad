@@ -164,7 +164,7 @@ Elije la respuesta que consideres más apropiada
 
 ##  {background-iframe="https://vevox.app/#/m/152551925?integration=embed" background-interactive="true"}
 
-# Positivísmo
+# Positivismo
 
 -   Las ideas de Hume permean en el positivismo del siglo XIX de Auguste Comte (1798-1857), que empujó al quehacer científico bajo su influencia a tomar una actitud temerosa para proponer relaciones causales como base de la construcción de hipótesis.
 
