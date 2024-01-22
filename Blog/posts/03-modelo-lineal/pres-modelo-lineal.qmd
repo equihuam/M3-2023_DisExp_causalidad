@@ -13,7 +13,7 @@ lang: es
 footer: "[M3-Causalidad](https://m3-causalidad-2024.netlify.app/)"
 logo:  "images/Logo-Inecol.png"
 title-slide-attributes:
-    data-background-image: "images/Gamma plantillas_alfa.png"
+    data-background-image: "images/Gamma plantilla_alfa.png"
     data-background-size: "100%"
     data-background-opacity: "60%"
 format: 
@@ -28,8 +28,6 @@ execute:
 embed-resources: true
 preload-iframes: true
 ---
-
-
 
 # Al planear un estudio
 
@@ -79,7 +77,7 @@ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, puede
 
 # El modelo estadístico lineal general
 
-[ **Estructura general** ]{style="color:#A5A5A5"}
+[**Estructura general**]{style="color:#A5A5A5"}
 
 ![](images%5Cclase_3%20-%20Modelo%20lineal2.png)
 
@@ -87,7 +85,7 @@ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, puede
 
 **Ejemplo de modelo lineal**
 
-[Ganancia de peso en un grupo de orugas que declina conforme se incrementa el contenido de taninos en la dieta. ]{style="color:#7F7F7F"}
+[Ganancia de peso en un grupo de orugas que declina conforme se incrementa el contenido de taninos en la dieta.]{style="color:#7F7F7F"}
 
 [Esta condición puede describirse en forma abreviada así:]{style="color:#7F7F7F"}
 
@@ -97,11 +95,11 @@ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, puede
 
 **Interpretación de términos**
 
-[las ]{style="color:#595959"} [ *X* ]{style="color:#595959"} ['s proporcionan información sobre el nivel del individuo ]{style="color:#595959"} [ *i* ]{style="color:#595959"} [ en los factores que estamos considerando.]{style="color:#595959"}
+[las]{style="color:#595959"} [*X*]{style="color:#595959"} ['s proporcionan información sobre el nivel del individuo]{style="color:#595959"} [*i*]{style="color:#595959"} [en los factores que estamos considerando.]{style="color:#595959"}
 
-[Las ]{style="color:#595959"} [ *β* ]{style="color:#595959"} [ son incógnitas que debemos estimar (en eso consiste ajustar el modelo).]{style="color:#595959"}
+[Las]{style="color:#595959"} [*β*]{style="color:#595959"} [son incógnitas que debemos estimar (en eso consiste ajustar el modelo).]{style="color:#595959"}
 
-[La primera incógnita y la variable ]{style="color:#595959"} [ *X* ]{style="color:#595959"} [ *0* ]{style="color:#595959"} [ que la acompaña típicamente juegan el papel especial de reflejar el efecto de los factores constantes, esto es, los factores que son comunes a todas las unidades experimentales, para esto usualmente ]{style="color:#595959"} [ *X* ]{style="color:#595959"} [ *0* ]{style="color:#595959"} [ toma simplemente el valor de 1 para todas las unidades experimentales observadas.]{style="color:#595959"}
+[La primera incógnita y la variable]{style="color:#595959"} [*X*]{style="color:#595959"} [*0*]{style="color:#595959"} [que la acompaña típicamente juegan el papel especial de reflejar el efecto de los factores constantes, esto es, los factores que son comunes a todas las unidades experimentales, para esto usualmente]{style="color:#595959"} [*X*]{style="color:#595959"} [*0*]{style="color:#595959"} [toma simplemente el valor de 1 para todas las unidades experimentales observadas.]{style="color:#595959"}
 
 ![](images%5Cclase_3%20-%20Modelo%20lineal5.png)
 
@@ -119,13 +117,13 @@ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, puede
 
 # ¿Qué valores toman las X y las H?
 
-[Una forma de modelar datos cualitativos como los indicados en el ejemplo es emplear variables indicadoras (o ]{style="color:#000000"} [“]{style="color:#000000"} [dummy]{style="color:#000000"} [”]{style="color:#000000"} [). Todo lo que hay que hacer es definir para cada variable las condiciones bajo las que toma uno de dos valores posible, usualmente ]{style="color:#000000"} [“]{style="color:#000000"} [1]{style="color:#000000"} [”]{style="color:#000000"} [ o ]{style="color:#000000"} [“]{style="color:#000000"} [0]{style="color:#000000"} [”]{style="color:#000000"} [. Por ejemplo:]{style="color:#000000"}
+[Una forma de modelar datos cualitativos como los indicados en el ejemplo es emplear variables indicadoras (o]{style="color:#000000"} [“]{style="color:#000000"} [dummy]{style="color:#000000"} [”]{style="color:#000000"} [). Todo lo que hay que hacer es definir para cada variable las condiciones bajo las que toma uno de dos valores posible, usualmente]{style="color:#000000"} [“]{style="color:#000000"} [1]{style="color:#000000"} [”]{style="color:#000000"} [o]{style="color:#000000"} [“]{style="color:#000000"} [0]{style="color:#000000"} [”]{style="color:#000000"} [. Por ejemplo:]{style="color:#000000"}
 
 ![](images%5Cclase_3%20-%20Modelo%20lineal8.png)
 
 # Dependencia lineal
 
-[Cuando los valores de una variable pueden expresarse como combinaciones lineales (sumas o restas de múltiplos o submúltiplos) de las otras variables en el conjunto, ]{style="color:#000000"}
+[Cuando los valores de una variable pueden expresarse como combinaciones lineales (sumas o restas de múltiplos o submúltiplos) de las otras variables en el conjunto,]{style="color:#000000"}
 
 [se habla de dependencia lineal.]{style="color:#000000"}
 
@@ -155,7 +153,7 @@ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, puede
 
 # Y ahora ¿qué es esto?
 
-[Un ecólogo desea probar los efectos relativos de 8 tratamientos (“Xs”) sobre la sobrevivencia de plántulas de ]{style="color:#000000"} [ *Phaseolus vulgaris* ]{style="color:#000000"} [. Supongamos que se cuenta con 64 plántulas relativamente homogéneas. ¿qué solución proponen?]{style="color:#000000"}
+[Un ecólogo desea probar los efectos relativos de 8 tratamientos (“Xs”) sobre la sobrevivencia de plántulas de]{style="color:#000000"} [*Phaseolus vulgaris*]{style="color:#000000"} [. Supongamos que se cuenta con 64 plántulas relativamente homogéneas. ¿qué solución proponen?]{style="color:#000000"}
 
 # ...que tal si....
 
