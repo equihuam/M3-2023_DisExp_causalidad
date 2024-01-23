@@ -52,7 +52,7 @@ Hacen aparecer una asociación que no existe.
 
 Ocultan o enmascaran la existencia de una asociación
 
-![](images/clase-3- Modelo-lineal0B.png)
+![](images/clase3-Modelo-lineal0.png)
 
 # Sesgo por selección
 
@@ -62,7 +62,7 @@ En este caso la variable de respuesta es un “colisionador”.
 
 Si no se maneja adecuadamente en el diseño del estudio o en el análisis, pueden producir resultados sesgados.
 
-![](images/clase_3 -  Modelo lineal1.png)
+![](images/clase3-modelo-lineal1.png)
 
 # Clasificación y medición
 
@@ -82,9 +82,9 @@ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, puede
 
 [**Estructura general**]{style="color:#A5A5A5"}
 
-![](images%5Cclase_3%20-%20Modelo%20lineal2.png)
+![](images/clase3-Modelo-lineal2.png)
 
-![](images%5Cclase_3%20-%20Modelo%20lineal3.png)
+![](images/clase3-modelo-lineal3.png)
 
 **Ejemplo de modelo lineal**
 
@@ -94,7 +94,7 @@ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, puede
 
 [Como modelo lineal se puede escribir así :]{style="color:#7F7F7F"}
 
-![](images%5Cclase_3%20-%20Modelo%20lineal4.png)
+![](images/clase3-modelo-lineal4.png)
 
 **Interpretación de términos**
 
@@ -104,7 +104,7 @@ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, puede
 
 [La primera incógnita y la variable]{style="color:#595959"} [*X*]{style="color:#595959"} [*0*]{style="color:#595959"} [que la acompaña típicamente juegan el papel especial de reflejar el efecto de los factores constantes, esto es, los factores que son comunes a todas las unidades experimentales, para esto usualmente]{style="color:#595959"} [*X*]{style="color:#595959"} [*0*]{style="color:#595959"} [toma simplemente el valor de 1 para todas las unidades experimentales observadas.]{style="color:#595959"}
 
-![](images%5Cclase_3%20-%20Modelo%20lineal5.png)
+![](images/clase3-Modelo-lineal5.png)
 
 # Modelos con variables explicativas cualitativas
 
@@ -114,15 +114,22 @@ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, puede
 
 # El modelo asociado es:
 
-![](images%5Cclase_3%20-%20Modelo%20lineal6.png)
+![](images/clase3-Modelo-lineal6.png)
 
-![](images%5Cclase_3%20-%20Modelo%20lineal7.png)
+![](images/clase3-Modelo-lineal7.png)
 
 # ¿Qué valores toman las X y las H?
 
 [Una forma de modelar datos cualitativos como los indicados en el ejemplo es emplear variables indicadoras (o]{style="color:#000000"} [“]{style="color:#000000"} [dummy]{style="color:#000000"} [”]{style="color:#000000"} [). Todo lo que hay que hacer es definir para cada variable las condiciones bajo las que toma uno de dos valores posible, usualmente]{style="color:#000000"} [“]{style="color:#000000"} [1]{style="color:#000000"} [”]{style="color:#000000"} [o]{style="color:#000000"} [“]{style="color:#000000"} [0]{style="color:#000000"} [”]{style="color:#000000"} [. Por ejemplo:]{style="color:#000000"}
 
-![](images%5Cclase_3%20-%20Modelo%20lineal8.png)
+:::{.larger}
+$$
+
+H_1 : \begin{Bmatrix} \text{1 si es del híbrido "a"} \\ 
+         \text{0 si no es del híbrido "a"}\end{Bmatrix}
+$$
+:::
+![](images/clase3-Modelo-lineal8.png)
 
 # Dependencia lineal
 
@@ -138,15 +145,20 @@ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, puede
 
 # ...ejemplo de dependencia...
 
-![](images%5Cclase_3%20-%20Modelo%20lineal9.png)
+$$
+y = \mu + \beta_1x_1 + \beta_2x_2
+$$
+
+![](images/clase3-Modelo-lineal9.png)
+
 
 [¿Cuál es la dependencia lineal en esta tabla de datos?]{style="color:#000000"}
 
-![](images%5Cclase_3%20-%20Modelo%20lineal10.png)
+![](images/clase3-Modelo-lineal10.png)
 
 # Y... ¿qué tenemos aquí?
 
-![](images%5Cclase_3%20-%20Modelo%20lineal11.png)
+![](images/clase3-Modelo-lineal11.png)
 
 [¡La colinealidad impide resolver el ajuste de modelos!]{style="color:#000000"}
 
