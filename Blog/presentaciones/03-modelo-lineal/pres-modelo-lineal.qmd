@@ -106,11 +106,11 @@ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, puede
 
 ![](images/clase3-Modelo-lineal5.png)
 
-# Modelos con variables explicativas cualitativas
+## Modelos con variables explicativas cualitativas
 
-# ¿qué es esto?
+### ¿qué es esto?
 
-[Un agrónomo planea estudiar las tasas de producción de cuatro híbridos de trigo en tres regiones geográficas con clima árido, representantes de diferentes condiciones de sequía. Los sitios se escogen según la cantidad de lluvia y la respuesta es el rendimiento por hectárea.]{style="color:#000000"}
+Un agrónomo planea estudiar las tasas de producción de cuatro híbridos de trigo en tres regiones geográficas con clima árido, representantes de diferentes condiciones de sequía. Los sitios se escogen según la cantidad de lluvia y la respuesta es el rendimiento por hectárea.
 
 # El modelo asociado es:
 
@@ -118,12 +118,23 @@ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, puede
 
 ![](images/clase3-Modelo-lineal7.png)
 
-# ¿Qué valores toman las X y las H?
+## ¿Qué valores toman las X y las H?
 
 Una forma de modelar datos cualitativos como los indicados en el ejemplo es emplear variables indicadoras o dummy. Todo lo que hay que hacer es definir para cada variable las condiciones bajo las que toma uno de dos valores posible, usualmente 1 o 0. Por ejemplo:
 
 ::::columns
 :::{.column width="40%"}
+$$
+
+H_1 : \left\{ 
+      \begin{gather*}
+         \text{1 si es del híbrido "a"} \\ 
+         \text{0 si no es del híbrido "a"}
+      \end{gather*}
+      \right\}
+$$
+
+
 ```{=tex}
 
 H_1 : \left\{ 

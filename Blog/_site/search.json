@@ -355,5 +355,19 @@
     "title": "DAG experiments aleatorizados",
     "section": "",
     "text": "Un experimento con asignación de tratamientos en forma completamente al azar, garantiza que no haya vías de influencia ocultas (backdoor). Técnicamente, se trata del recurso usualmente más confiable y práctico para reducir a un valor de probabilidad teóricamente controlable, la posibilidad de confusión inadvertida (backdoor). Esa proabilidad se relaaciona de manera inversamente proporciona con el tamaño del experimento. Por diseño, la respuesta de las unidades experimentales, Y, al tratamiento T sólo tiene a la asignación aleatoria A como única causa que antecede al tratamiento.\n\\[\n\\fbox{A} \\rightarrow T \\rightarrow Y\n\\]\nEn este DAG, el marcoque rodea a la A indica aleatorización, y como sugiere el diagrama, es la única causa que actua sore el tratamiento. Si hubiera una vía de influencia alternativa (backdoor), a través de alguna tercera variable como podría ser en un caso de germinación de semillas, la luminosidad del sitio o el grado de humendad en el sustrato, entonces la aleatorización no sería el único factor que influiría sore el tratamiento. El recuadro alrededor de A (el proceso de aleatorización) indica que no existen factores actuando sobre T, es decir, A es una influencia puramente estocástica. Esta idea y el proceso de realización de un experimento controlado con aleatorización, da cuenta con toda claridad del valor de esta forma de realizar estudios para desentrañar relaciones de causalidad.\nEste DAG nos conduce al modelo linear siguiente\n\\[\ny = \\mu + T +  \\varepsilon\n\\] En donde y son las mediciones de la variable Y en respuesta al efecto de T, \\(\\mu\\) es un valor de referencia general (tradicionalmente la media general de la variale Y, aunque puede elegirse cualquier otro valor de referencia que convenga al estudio) y la épsilon da cuenta del efecto aleatorio inducido por \\(\\fbox{A}\\), por lo que es necesario postular una distribción de probabilidades apropiada para caracterizar su comportamiento."
+  },
+  {
+    "objectID": "presentaciones/03-modelo-lineal/pres-modelo-lineal.html#modelos-con-variables-explicativas-cualitativas",
+    "href": "presentaciones/03-modelo-lineal/pres-modelo-lineal.html#modelos-con-variables-explicativas-cualitativas",
+    "title": "Modelo Estadístico Lineal",
+    "section": "Modelos con variables explicativas cualitativas",
+    "text": "Modelos con variables explicativas cualitativas\n¿qué es esto?\nUn agrónomo planea estudiar las tasas de producción de cuatro híbridos de trigo en tres regiones geográficas con clima árido, representantes de diferentes condiciones de sequía. Los sitios se escogen según la cantidad de lluvia y la respuesta es el rendimiento por hectárea."
+  },
+  {
+    "objectID": "presentaciones/03-modelo-lineal/pres-modelo-lineal.html#qué-valores-toman-las-x-y-las-h",
+    "href": "presentaciones/03-modelo-lineal/pres-modelo-lineal.html#qué-valores-toman-las-x-y-las-h",
+    "title": "Modelo Estadístico Lineal",
+    "section": "¿Qué valores toman las X y las H?",
+    "text": "¿Qué valores toman las X y las H?\nUna forma de modelar datos cualitativos como los indicados en el ejemplo es emplear variables indicadoras o dummy. Todo lo que hay que hacer es definir para cada variable las condiciones bajo las que toma uno de dos valores posible, usualmente 1 o 0. Por ejemplo:\n\n\n$$\nH_1 : { \\[\\begin{gather*}\n         \\text{1 si es del híbrido \"a\"} \\\\\n         \\text{0 si no es del híbrido \"a\"}\n      \\end{gather*}\\] } $$"
   }
 ]
