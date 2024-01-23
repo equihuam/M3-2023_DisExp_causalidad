@@ -25,5 +25,5 @@ Hemos previsto tener frecuentes eventos interactivos para dar seguimiento a los 
 A continuación encontraran la presentación que usamos como apoyo audiovisual para conducir la exploración de los temas que discutimos en esta sesión (*haz click en la imágen*).
 
 ::: {layout="[[-20, 60, -20]]" layout-valign="top"}
-[![](images/Carátula-1.png){width="800"}](pres-leyes-ciencia.html)
+[![](images/Caratula-1.png){width="800"}](../../presentaciones/02-leyes-de-la-ciencia/pres-leyes-ciencia.qmd)
 :::
