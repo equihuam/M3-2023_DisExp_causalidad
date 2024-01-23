@@ -20,7 +20,7 @@ format:
     metropolis-revealjs: default
 reveal-header:
     sc-sb-title: false
-    header: .
+    header: "."
 transition: convex
 execute: 
   eval: true
