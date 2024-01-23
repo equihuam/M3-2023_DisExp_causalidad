@@ -1,8 +1,8 @@
 ---
-title: "M3 - Presentaciones"
+title: "M3-Presentaciones"
 listing:
   contents:
-    - "posts/*/*.qmd"
+    - "presentaciones/*/*.qmd"
     - "!posts/*/index.qmd"
   sort: "date"
   type: default
