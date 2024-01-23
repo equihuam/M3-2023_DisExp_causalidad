@@ -1,0 +1,8 @@
+---
+title: "Ecuaciones"
+format: revealjs
+---
+
+$$
+\lambda = x + f_1
+$$

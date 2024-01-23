@@ -64,19 +64,22 @@ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, puede
 
 ![](images/clase3-modelo-lineal1.png)
 
+
 # Clasificación y medición
 
 **La obtención de datos cuantitativos puede realizarse de muchas formas distintas, pero siempre se parte de alguna forma de clasificación.**
 
 **Aunque clasificar puede parecer una tarea simple, muchas cosas dependen justamente de como se hace.**
 
+
 # Medición cualitativa
 
 **El tipo más simple de medición es aquel en el que las categorías sólo se etiquetan.**
 
-**Esta es la denominada escala de medición** *categórica* \_\_ o \_\_ *nominal* **.**
+**Esta es la denominada escala de medición** *categórica* o *nominal* **.**
 
 **A veces resulta útil expresar mediciones continuas en forma nominal.**
+
 
 # El modelo estadístico lineal general
 
@@ -84,27 +87,42 @@ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, puede
 
 ![](images/clase3-Modelo-lineal2.png)
 
-![](images/clase3-modelo-lineal3.png)
 
-**Ejemplo de modelo lineal**
+## Ejemplo de modelo lineal
 
 [Ganancia de peso en un grupo de orugas que declina conforme se incrementa el contenido de taninos en la dieta.]{style="color:#7F7F7F"}
 
 [Esta condición puede describirse en forma abreviada así:]{style="color:#7F7F7F"}
 
+
+```{r results='asis', echo=FALSE}
+library(tidyverse)
+library(flextable)
+mod_txt <- tibble(a = "ganancia de peso de cada oruga", b = "=", 
+                  c = "ganancia de peso base en general", d = "+",
+                  e = "efecto del contenido de taninos en la dieta", f = "+",
+                  g = "efecto de otros factores que fluctuan aleatoriamente")
+flextable(mod_txt) %>% 
+  delete_part(part = "header") %>% 
+  border_remove() %>% 
+  align_text_col(align = "center")
+
+```
+
+
 [Como modelo lineal se puede escribir así :]{style="color:#7F7F7F"}
 
-![](images/clase3-modelo-lineal4.png)
 
-**Interpretación de términos**
+$$
+y_{ij} = \beta_0 x_0j + \sum_{i=1}^{k}\beta_i x_{ij} + \varepsilon_{j(i)}  
+$$
 
-[las]{style="color:#595959"} [*X*]{style="color:#595959"} ['s proporcionan información sobre el nivel del individuo]{style="color:#595959"} [*i*]{style="color:#595959"} [en los factores que estamos considerando.]{style="color:#595959"}
+# Interpretación de términos
 
-[Las]{style="color:#595959"} [*β*]{style="color:#595959"} [son incógnitas que debemos estimar (en eso consiste ajustar el modelo).]{style="color:#595959"}
++ las *X* 's proporcionan información sobre el nivel del individuo *i* en los factores que estamos considerando.
++ Las *β* son incógnitas que debemos estimar (en eso consiste ajustar el modelo).
++ La primera incógnita y la variable $X_0$ que la acompaña, típicamente juegan el papel especial de reflejar el efecto de los factores constantes. Esto es, los factores que son comunes a todas las unidades experimentales. Para esto, usualmente $X_0$ toma simplemente el valor de 1 para todas las unidades experimentales observadas.
 
-[La primera incógnita y la variable]{style="color:#595959"} [*X*]{style="color:#595959"} [*0*]{style="color:#595959"} [que la acompaña típicamente juegan el papel especial de reflejar el efecto de los factores constantes, esto es, los factores que son comunes a todas las unidades experimentales, para esto usualmente]{style="color:#595959"} [*X*]{style="color:#595959"} [*0*]{style="color:#595959"} [toma simplemente el valor de 1 para todas las unidades experimentales observadas.]{style="color:#595959"}
-
-![](images/clase3-Modelo-lineal5.png)
 
 ## Modelos con variables explicativas cualitativas
 
@@ -112,57 +130,50 @@ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, puede
 
 Un agrónomo planea estudiar las tasas de producción de cuatro híbridos de trigo en tres regiones geográficas con clima árido, representantes de diferentes condiciones de sequía. Los sitios se escogen según la cantidad de lluvia y la respuesta es el rendimiento por hectárea.
 
-# El modelo asociado es:
+### El modelo asociado es:
 
-![](images/clase3-Modelo-lineal6.png)
 
-![](images/clase3-Modelo-lineal7.png)
-
-## ¿Qué valores toman las X y las H?
-
-Una forma de modelar datos cualitativos como los indicados en el ejemplo es emplear variables indicadoras o dummy. Todo lo que hay que hacer es definir para cada variable las condiciones bajo las que toma uno de dos valores posible, usualmente 1 o 0. Por ejemplo:
-
-::::columns
-:::{.column width="40%"}
 $$
-
-H_1 : \left\{ 
-      \begin{gather*}
-         \text{1 si es del híbrido "a"} \\ 
-         \text{0 si no es del híbrido "a"}
-      \end{gather*}
-      \right\}
+y_{ijk} = \mu + R_i + H_j + RH_{ij} +  \varepsilon_{k(ij)}
 $$
 
 
-```{=tex}
-
-H_1 : \left\{ 
-      \begin{gather*}
-         \text{1 si es del híbrido "a"} \\ 
-         \text{0 si no es del híbrido "a"}
-      \end{gather*}
-      \right\}
-```
-:::
+## En todo su esplendor 
 
 
-:::{.column width="60%"}
-![](images/clase3-Modelo-lineal8.png)
-:::
-::::
+$$
+\begin{gather*}
+y_{ijk} = \mu + \beta_{1k}R_{1k} + \beta_{2k}R_{2k} + \beta_{3k}R_{3k} + \\
+          \beta_{4k}H_{1k}   + \beta_{5k}H_{2k}   + \beta_{6k}H_{3k}   + \beta_{7k}H_{ik} + \\
+          \beta_{8k}RH_{1k}  + \beta_{9k}RH_{2k}  + \beta_{10k}RH_{3k} + \beta_{11k}RH_{ik}+ \\ 
+          \beta_{12k}RH_{1k} + \beta_{13k}RH_{2k} + \beta_{14k}RH_{3k} + \beta_{15k}RH_{ik}+\\ 
+          \beta_{16k}RH_{1k} + \beta_{17k}RH_{2k} + \beta_{18k}RH_{3k} + \beta_{19k}RH_{ik}+ 
+          \varepsilon_{k(ij)}
+\end{gather*}
+$$
+
+
+## ¿Qué valores toman las X, las R o las H?
+
+Una forma de modelar datos cualitativos como los indicados en el ejemplo es emplear variables indicadoras o ***dummy***. Todo lo que hay que hacer es definir para cada variable las condiciones bajo las que toma uno de dos valores posible, usualmente 1 o 0. Por ejemplo:
+
+
+$$
+H_1 = \left\{ 
+         \begin{align*}
+           \text{si } \color{red}{SÍ} \text{ es híbrido del tipo } a &: 1 \\ 
+           \text{si } \color{red}{NO} \text{ es híbrido del tipo } a &: 0
+         \end{align*} 
+      \right\} 
+$$ 
+
 
 # Dependencia lineal
 
-[Cuando los valores de una variable pueden expresarse como combinaciones lineales (sumas o restas de múltiplos o submúltiplos) de las otras variables en el conjunto,]{style="color:#000000"}
++ Ocurre cuando los valores de una variable pueden expresarse como combinaciones lineales (sumas o restas de múltiplos o submúltiplos) de las otras variables en el conjunto.
++ También se le denomina colinealidad o multicolinealidad.
 
-[se habla de dependencia lineal.]{style="color:#000000"}
-
-[A esto, como ya hemos dicho, se le denomina colinealidad o]{style="color:#000000"}
-
-[Multicolinealidad.]{style="color:#000000"}
-
-[¿]{style="color:#000000"} [por qué?]{style="color:#000000"}
+¿a qué hace referencia este nombre?
 
 # ...ejemplo de dependencia...
 
@@ -171,7 +182,6 @@ y = \mu + \beta_1x_1 + \beta_2x_2
 $$
 
 ![](images/clase3-Modelo-lineal9.png)
-
 
 [¿Cuál es la dependencia lineal en esta tabla de datos?]{style="color:#000000"}
 
