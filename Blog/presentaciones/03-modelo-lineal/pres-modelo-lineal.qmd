@@ -22,11 +22,14 @@ reveal-header:
     sc-sb-title: false
     header: "."
 transition: convex
+filters:
+   - lightbox
 execute: 
   eval: true
   echo: true
 embed-resources: true
 preload-iframes: true
+lightbox: true
 ---
 
 # Al planear un estudio
@@ -49,7 +52,7 @@ Hacen aparecer una asociación que no existe.
 
 Ocultan o enmascaran la existencia de una asociación
 
-![](images%5Cclase_3%20-%20Modelo%20lineal0.png)
+![](images/clase-3- Modelo-lineal0B.png)
 
 # Sesgo por selección
 
@@ -59,7 +62,7 @@ En este caso la variable de respuesta es un “colisionador”.
 
 Si no se maneja adecuadamente en el diseño del estudio o en el análisis, pueden producir resultados sesgados.
 
-![](images%5Cclase_3%20-%20Modelo%20lineal1.png)
+![](images/clase_3 -  Modelo lineal1.png)
 
 # Clasificación y medición
 

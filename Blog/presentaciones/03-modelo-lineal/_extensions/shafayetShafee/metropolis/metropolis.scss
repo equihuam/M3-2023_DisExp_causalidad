@@ -337,11 +337,16 @@ h1.title {
 /*********************************************
  * IMAGES
  *********************************************/
+/*--------
+    background: rgba(255, 255, 255, 0.12);
+    border-color: 4px solid #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+----------*/
 .reveal section img {
     margin: 15px 0px;
-    background: rgba(255, 255, 255, 0.12);
-    border: 4px solid #000;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+    background: none;
+    border: none;
+    box-shadow: none; }
 
 .reveal section img.plain {
     border: 0;
@@ -363,10 +368,10 @@ h1.title {
  *********************************************/
 
 section[data-background-image] {
-  color: white;
+  color: $ligero;
   
   h1, h2, h3, h4, h5, h5 {
-    color: white;
+    color: $ligero;
   }
   
   code {
