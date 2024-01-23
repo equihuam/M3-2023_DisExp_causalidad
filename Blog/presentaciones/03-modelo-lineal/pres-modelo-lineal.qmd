@@ -120,16 +120,26 @@ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, puede
 
 # ¿Qué valores toman las X y las H?
 
-[Una forma de modelar datos cualitativos como los indicados en el ejemplo es emplear variables indicadoras (o]{style="color:#000000"} [“]{style="color:#000000"} [dummy]{style="color:#000000"} [”]{style="color:#000000"} [). Todo lo que hay que hacer es definir para cada variable las condiciones bajo las que toma uno de dos valores posible, usualmente]{style="color:#000000"} [“]{style="color:#000000"} [1]{style="color:#000000"} [”]{style="color:#000000"} [o]{style="color:#000000"} [“]{style="color:#000000"} [0]{style="color:#000000"} [”]{style="color:#000000"} [. Por ejemplo:]{style="color:#000000"}
+Una forma de modelar datos cualitativos como los indicados en el ejemplo es emplear variables indicadoras o dummy. Todo lo que hay que hacer es definir para cada variable las condiciones bajo las que toma uno de dos valores posible, usualmente 1 o 0. Por ejemplo:
 
-:::{.larger}
-$$
+::::columns
+:::{.column width="40%"}
+```{=tex}
 
-H_1 : \begin{Bmatrix} \text{1 si es del híbrido "a"} \\ 
-         \text{0 si no es del híbrido "a"}\end{Bmatrix}
-$$
+H_1 : \left\{ 
+      \begin{gather*}
+         \text{1 si es del híbrido "a"} \\ 
+         \text{0 si no es del híbrido "a"}
+      \end{gather*}
+      \right\}
+```
 :::
+
+
+:::{.column width="60%"}
 ![](images/clase3-Modelo-lineal8.png)
+:::
+::::
 
 # Dependencia lineal
 
