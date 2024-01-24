@@ -4,7 +4,7 @@
     "href": "presentaciones.html",
     "title": "M3-Presentaciones",
     "section": "",
-    "text": "Leyes de la Ciencia\n\n\nDiseño de estudios y experimentos\n\n\n\n\npresentación\n\n\n\n\n\n\n\n\n\n\n\n29 ene 2024\n\n\nMiguel Equihua, Elio Lagunes\n\n\n\n\n\n\n  \n\n\n\n\nModelo Estadístico Lineal\n\n\nmodelación y prueba de hipótesis\n\n\n\n\npresentación\n\n\n\n\n\n\n\n\n\n\n\n29 ene 2024\n\n\nMiguel Equihua, Elio Lagunes\n\n\n\n\n\n\n  \n\n\n\n\nDAG experiments aleatorizados\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo hay resultados"
+    "text": "Leyes de la Ciencia\n\n\nDiseño de estudios y experimentos\n\n\n\n\npresentación\n\n\n\n\n\n\n\n\n\n\n\n29 ene 2024\n\n\nMiguel Equihua, Elio Lagunes\n\n\n\n\n\n\n  \n\n\n\n\nModelo Estadístico Lineal\n\n\nmodelación y prueba de hipótesis\n\n\n\n\npresentación\n\n\n\n\n\n\n\n\n\n\n\n29 ene 2024\n\n\nMiguel Equihua, Elio Lagunes\n\n\n\n\n\n\n  \n\n\n\n\nInfraestructura de Experimentación\n\n\nalgunos ejemplos\n\n\n\n\npresentación\n\n\n\n\n\n\n\n\n\n\n\n29 ene 2024\n\n\nMiguel Equihua, Elio Lagunes\n\n\n\n\n\n\n  \n\n\n\n\nDAG experiments aleatorizados\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo hay resultados"
   },
   {
     "objectID": "posts/11-experimentar/index.html",
@@ -354,7 +354,7 @@
     "href": "presentaciones/04-diagramas-causales/DAG_diseños-típicos.html",
     "title": "DAG experiments aleatorizados",
     "section": "",
-    "text": "Un experimento con asignación de tratamientos en forma completamente al azar, garantiza que no haya vías de influencia ocultas (backdoor). Técnicamente, se trata del recurso usualmente más confiable y práctico para reducir a un valor de probabilidad teóricamente controlable, la posibilidad de confusión inadvertida (backdoor). Esa proabilidad se relaaciona de manera inversamente proporciona con el tamaño del experimento. Por diseño, la respuesta de las unidades experimentales, Y, al tratamiento T sólo tiene a la asignación aleatoria A como única causa que antecede al tratamiento.\n\\[\n\\fbox{A} \\rightarrow T \\rightarrow Y\n\\]\nEn este DAG, el marcoque rodea a la A indica aleatorización, y como sugiere el diagrama, es la única causa que actua sore el tratamiento. Si hubiera una vía de influencia alternativa (backdoor), a través de alguna tercera variable como podría ser en un caso de germinación de semillas, la luminosidad del sitio o el grado de humendad en el sustrato, entonces la aleatorización no sería el único factor que influiría sore el tratamiento. El recuadro alrededor de A (el proceso de aleatorización) indica que no existen factores actuando sobre T, es decir, A es una influencia puramente estocástica. Esta idea y el proceso de realización de un experimento controlado con aleatorización, da cuenta con toda claridad del valor de esta forma de realizar estudios para desentrañar relaciones de causalidad.\nEste DAG nos conduce al modelo linear siguiente\n\\[\ny = \\mu + T +  \\varepsilon\n\\] En donde y son las mediciones de la variable Y en respuesta al efecto de T, \\(\\mu\\) es un valor de referencia general (tradicionalmente la media general de la variale Y, aunque puede elegirse cualquier otro valor de referencia que convenga al estudio) y la épsilon da cuenta del efecto aleatorio inducido por \\(\\fbox{A}\\), por lo que es necesario postular una distribción de probabilidades apropiada para caracterizar su comportamiento."
+    "text": "Un experimento con asignación de tratamientos en forma completamente al azar, garantiza que no haya vías de influencia ocultas (backdoor). Técnicamente, se trata del recurso usualmente más confiable y práctico para reducir a un valor de probabilidad teóricamente controlable, la posibilidad de confusión inadvertida (backdoor). Esa proabilidad se relaaciona de manera inversamente proporciona con el tamaño del experimento. Por diseño, la respuesta de las unidades experimentales, Y, al tratamiento T sólo tiene a la asignación aleatoria A como única causa que antecede al tratamiento.\n\\[\n\\fbox{A} \\rightarrow T \\rightarrow Y\n\\]\nEn este DAG, el marco que rodea a la A indica aleatorización, y como sugiere el diagrama, es la única causa que actua sore el tratamiento. Si hubiera una vía de influencia alternativa (backdoor), a través de alguna tercera variable como podría ser en un caso de germinación de semillas, la luminosidad del sitio o el grado de humendad en el sustrato, entonces la aleatorización no sería el único factor que influiría sore el tratamiento. El recuadro alrededor de A (el proceso de aleatorización) indica que no existen factores actuando sobre T, es decir, A es una influencia puramente estocástica. Esta idea y el proceso de realización de un experimento controlado con aleatorización, da cuenta con toda claridad del valor de esta forma de realizar estudios para desentrañar relaciones de causalidad.\nEste DAG nos conduce al modelo linear siguiente\n\\[\ny = \\mu + T +  \\varepsilon\n\\] En donde y son las mediciones de la variable Y en respuesta al efecto de T, \\(\\mu\\) es un valor de referencia general (tradicionalmente la media general de la variale Y, aunque puede elegirse cualquier otro valor de referencia que convenga al estudio) y la épsilon da cuenta del efecto aleatorio inducido por \\(\\fbox{A}\\), por lo que es necesario postular una distribción de probabilidades apropiada para caracterizar su comportamiento."
   },
   {
     "objectID": "presentaciones/03-modelo-lineal/pres-modelo-lineal.html#modelos-con-variables-explicativas-cualitativas",
@@ -593,5 +593,208 @@
     "title": "Modelo Estadístico Lineal",
     "section": "El modelo estadístico lineal general",
     "text": "El modelo estadístico lineal general\nEstructura general"
+  },
+  {
+    "objectID": "presentaciones/11-experimentar/experimentar.html",
+    "href": "presentaciones/11-experimentar/experimentar.html",
+    "title": "Infraestructura de Experimentación",
+    "section": "",
+    "text": "Infraestructura de Experimentación\n\n\nAlgunos ejemplos\n\n\n\n\nThe Marcell Experimental Forest\nEl experimento es una colaboración entre el Servicio Forestal de los Estados Unidos y el Laboratorio Nacional Oak Ridge del Departamento de Energía,\nCuenta con 10 cámaras de vidrio abiertas. Cada uno tiene 10 m de altura, 12 mde diámetro\nDiseñado para controlar la temperatura y los niveles de CO 2 , para imitar lo que sucedería con las turberas boreales en varios escenarios de calentamiento global. Se ensaya desde ningún cambio hasta un aumento muy realista de 2°C, a 4°C, e incluso a unos aterradores 7°C o más.\nAcross the Boreal Forest, Scientists Are Tracking Warming’s Toll - Inside Climate News\n\n\n\nEl Experimento Aspen FACE\nFree-Air Carbon Dioxide Enrichment\nEs un estudio multidisciplinar para evaluar los efectos del aumento de los niveles de ozono troposférico y dióxido de carbono en la estructura y función de los ecosistemas forestales del norte.\nDispone de doce anillos de 30 m en los que se pueden controlar las concentraciones de dióxido de carbono y ozono troposférico.\nEl diseño permite evaluar los efectos de estos gases solos y combinados en muchos atributos del ecosistema, como el crecimiento, el desarrollo de las hojas, las características de las raíces y el carbono del suelo. Al no haber confinamiento, no se produce ningún cambio significativo en el entorno natural, aparte de la elevación de las concentraciones de los gases traza añadidos.\nAspenFACE Home Page (mtu.edu)\n\n\n\n\nAgricultura Sostenible del Rancho Russell\nEs una instalación única de 300 acres cerca del campus de UC Davis dedicada a investigar la agricultura de regadío y de secano en un clima mediterráneo.\nLa investigación se centra en experimentos de campo a escala de producción, en un esfuerzo por producir conocimientos que sean relevantes para los agricultores, los asesores agrícolas y los profesionales de la política.\nEvalua los resultados agronómicos, económicos y medioambientales de diversas técnicas de gestión agrícola.\nAbout Russell Ranch | Agricultural Sustainability Institute (ucdavis.edu)\n\n\n\nBasque Research and Technology Alliance\nCuantificar el efecto del pastoreo rotacional regenerativo en diferentes servicios ecosistémicos edáficos (producción de hierba, almacenamiento de carbono, regulación del flujo de agua, reciclaje de nutrientes y biodiversidad microbiana),\nEstudio a medio plazo comparando dos sistemas de pastoreo diferentes: Pastoreo regenerativo rotacional (PRR) basado en cargas ganaderas puntuales altas y periodos de descanso suficientes frente a pastoreo rotacional convencional (PRC) basado en cargas ganaderas más bajas y periodos de descanso más cortos, en los que los animales vuelven con mayor frecuencia a la zona de pastoreo.\nGanadería sostenible: El pastoreo regenerativo rotacional como herramienta de mitigación al cambio climático (redremedia.org)\n\n\n\nEcotrón iDiv\nEs una plataforma de investigación conjunta del Centro Alemán de Investigación Integrativa de la Biodiversidad (iDiv) Halle-Jena-Leipzig y el Centro Helmholtz de Investigación Medioambiental - UFZ.\nLa instalación de investigación cubierta alberga 24 unidades experimentales idénticas, las llamadas EcoUnits, cada una de las cuales puede contener de uno a cuatro ecosistemas independientes, separados por encima o por debajo del suelo, o ambos.\nLa composición faunística de estos ecosistemas puede manipularse en función del número de especies de un mismo nivel trófico (diversidad horizontal) y del número de niveles tróficos (diversidad vertical).\nEl principal objetivo del Ecotrón iDiv es manipular la diversidad multitrófica en redes tróficas por encima y por debajo del suelo y estudiar las consecuencias para muchas funciones del ecosistema.\n\n\n\n\nIISD Experimental Lakes Area\nContaminar deliberadamente un lago puede parecer una forma extraña de proteger el medio ambiente.\nEl Área de Lagos Experimentales del Instituto Internacional de Desarrollo Sostenible (IISD-ELA), donde se lleva a cabo la investigación, es famosa por ello.\nLa zona consta de 58 pequeñas masas de agua situadas en una franja de bosque boreal de cerca de 200 km2\nDurante más de 50 años, los investigadores han utilizado estos lagos como verdaderos laboratorios.\nHan vertido todo tipo de contaminantes en sus aguas, incluidos fertilizantes, mercurio, ácido sulfúrico y, estrógenos.\nIISD Experimental Lakes Area – IISD-ELA is one of the world’s most influential freshwater research facilities.\n\n\n\n\nMAE mesocosmos\nLa ecología de animales marinos se explora mediante diversos experimentos en el laboratorio.\nPor ejemplo, utiliza la acuicultura marina existente de corales adultos y larvas para comprobar los efectos de factores externos de estrés en su rendimiento ecofisiológico.\nOtro proyecto estudia los efectos de la sedimentación en combinación con el aumento de la temperatura del agua del mar sobre las esponjas de aguas profundas, con el fin de conservar mejor los territorios de esponjas.\nMAE: Field, mesocosm & lab experiments - WUR\n\n\n\n\n\nInstituto Bermuda de Ciencias Oceánicas\n\nSus experimentos se preguntan:\n\n¿Desarrollará la generación actual de corales mayor capacidad para hacer frente al estrés en respuesta al que experimenta?\n¿Se adaptará mejor la próxima generación de corales a las condiciones ambientales experimentadas por sus progenitores?.\n\n\nThe Next Generation of Coral: What Can It Teach Us? | Currents | BIOS - Bermuda Institute of Ocean Sciences\n\n\n\n\nCentro de Recursos Naturales\nMediante la recopilación y el examen de pruebas de la eficacia de distintos enfoques de gestión forestal, los responsables de la toma de decisiones, los científicos y las partes interesadas pueden conocer las opciones que determinarán la sostenibilidad de estos ecosistemas críticos.\nEl objetivo del estudio es examinar cómo los ecosistemas sostenibles pueden tener en cuenta tanto el bienestar del entorno forestal como el de las comunidades humanas\nT3 Watershed Experiment | Olympic Natural Resources Center (washington.edu)\n\n\n\n¿Experimentación con animales?\n\n\n¿Qué alternativas hay?\n\n\n\n\n\n\nÓrganos-en-un-chip\nInvestigadores del Instituto Wyss y un equipo multidisciplinar de colaboradores han diseñado microchips que recapitulan la microarquitectura y las funciones de órganos humanos vivos, como el pulmón, el intestino, el riñón, la piel, la médula ósea y la barrera hematoencefálica.\nIntroduction to Organs-on-a-Chip (harvard.edu)"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html",
+    "href": "posts/03-modelo-lineal/Miguel-1.html",
+    "title": "Leyes de la Ciencia",
+    "section": "",
+    "text": "This presentation will show you examples of what you can do with Quarto and Reveal.js, including:\n\nPresenting code and LaTeX equations\nIncluding computations in slide output\nImage, video, and iframe backgrounds\nFancy transitions and animations\nPrinting to PDF\n\n…and much more"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#hello-there",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#hello-there",
+    "title": "Leyes de la Ciencia",
+    "section": "",
+    "text": "This presentation will show you examples of what you can do with Quarto and Reveal.js, including:\n\nPresenting code and LaTeX equations\nIncluding computations in slide output\nImage, video, and iframe backgrounds\nFancy transitions and animations\nPrinting to PDF\n\n…and much more"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#pretty-code",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#pretty-code",
+    "title": "Leyes de la Ciencia",
+    "section": "Pretty Code",
+    "text": "Pretty Code\n\nOver 20 syntax highlighting themes available\nDefault theme optimized for accessibility\n\n# Define a server for the Shiny app\nfunction(input, output) {\n  \n  # Fill in the spot we created for a plot\n  output$phonePlot &lt;- renderPlot({\n    # Render a barplot\n  })\n}\n\nLearn more: Syntax Highlighting"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#code-animations",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#code-animations",
+    "title": "Leyes de la Ciencia",
+    "section": "Code Animations",
+    "text": "Code Animations\n\nOver 20 syntax highlighting themes available\nDefault theme optimized for accessibility\n\n# Define a server for the Shiny app\nfunction(input, output) {\n  \n  # Fill in the spot we created for a plot\n  output$phonePlot &lt;- renderPlot({\n    # Render a barplot\n    barplot(WorldPhones[,input$region]*1000, \n            main=input$region,\n            ylab=\"Number of Telephones\",\n            xlab=\"Year\")\n  })\n}\n\nLearn more: Code Animations"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#line-highlighting",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#line-highlighting",
+    "title": "Leyes de la Ciencia",
+    "section": "Line Highlighting",
+    "text": "Line Highlighting\n\nHighlight specific lines for emphasis\nIncrementally highlight additional lines\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(subplot_kw={'projection': 'polar'})\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\nLearn more: Line Highlighting"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#executable-code",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#executable-code",
+    "title": "Leyes de la Ciencia",
+    "section": "Executable Code",
+    "text": "Executable Code\n\nlibrary(ggplot2)\nggplot(mtcars, aes(hp, mpg, color = am)) +\n  geom_point() +\n  geom_smooth(formula = y ~ x, method = \"loess\")\n\n\n\n\n\nLearn more: Executable Code"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#latex-equations",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#latex-equations",
+    "title": "Leyes de la Ciencia",
+    "section": "LaTeX Equations",
+    "text": "LaTeX Equations\nMathJax rendering of equations to HTML\n\n\n\\begin{gather*}\na_1=b_1+c_1\\\\\na_2=b_2+c_2-d_2+e_2\n\\end{gather*}\n\\begin{align}\na_{11}& =b_{11}&\n  a_{12}& =b_{12}\\\\\na_{21}& =b_{21}&\n  a_{22}& =b_{22}+c_{22}\n\\end{align}\n\n\\[\\begin{gather*}\na_1=b_1+c_1\\\\\na_2=b_2+c_2-d_2+e_2\n\\end{gather*}\\]\n\\[\\begin{align}\na_{11}& =b_{11}&\n  a_{12}& =b_{12}\\\\\na_{21}& =b_{21}&\n  a_{22}& =b_{22}+c_{22}\n\\end{align}\\]\n\n\n\nLearn more: LaTeX Equations"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#column-layout",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#column-layout",
+    "title": "Leyes de la Ciencia",
+    "section": "Column Layout",
+    "text": "Column Layout\nArrange content into columns of varying widths:\n\n\n\nMotor Trend Car Road Tests\nThe data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles.\n\n\n\n\n\nknitr::kable(head(mtcars)[,c(\"mpg\", \"cyl\", \"disp\", \"hp\", \"wt\")])\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\nwt\n\n\n\n\nMazda RX4\n21.0\n6\n160\n110\n2.620\n\n\nMazda RX4 Wag\n21.0\n6\n160\n110\n2.875\n\n\nDatsun 710\n22.8\n4\n108\n93\n2.320\n\n\nHornet 4 Drive\n21.4\n6\n258\n110\n3.215\n\n\nHornet Sportabout\n18.7\n8\n360\n175\n3.440\n\n\nValiant\n18.1\n6\n225\n105\n3.460\n\n\n\n\n\n\n\n\nLearn more: Multiple Columns"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#incremental-lists",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#incremental-lists",
+    "title": "Leyes de la Ciencia",
+    "section": "Incremental Lists",
+    "text": "Incremental Lists\nLists can optionally be displayed incrementally:\n\n\nFirst item\nSecond item\nThird item\n\n\n. . .\n Insert pauses to make other types of content display incrementally.\n\nLearn more: Incremental Lists"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#fragments",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#fragments",
+    "title": "Leyes de la Ciencia",
+    "section": "Fragments",
+    "text": "Fragments\nIncremental text display and animation with fragments:\n\n\nFade in\n\n\nSlide up while fading in\n\n\nSlide left while fading in\n\n\nFade in then semi out\n\n. . .\n\nStrike\n\n\nHighlight red\n\n\nLearn more: Fragments"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#slide-backgrounds",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#slide-backgrounds",
+    "title": "Leyes de la Ciencia",
+    "section": "Slide Backgrounds",
+    "text": "Slide Backgrounds\nSet the background attribute on a slide to change the background color (all CSS color formats are supported).\nDifferent background transitions are available via the background-transition option.\n\nLearn more: Slide Backgrounds"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#media-backgrounds",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#media-backgrounds",
+    "title": "Leyes de la Ciencia",
+    "section": "Media Backgrounds",
+    "text": "Media Backgrounds\nYou can also use the following as a slide background:\n\nAn image: background-image\nA video: background-video\nAn iframe: background-iframe\n\n\nLearn more: Media Backgrounds"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#absolute-position",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#absolute-position",
+    "title": "Leyes de la Ciencia",
+    "section": "Absolute Position",
+    "text": "Absolute Position\nPosition images or other elements at precise locations\n\n\n\n\nLearn more: Absolute Position"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#auto-animate",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#auto-animate",
+    "title": "Leyes de la Ciencia",
+    "section": "Auto-Animate",
+    "text": "Auto-Animate\nAutomatically animate matching elements across slides with Auto-Animate.\n\n\n\n\n\n\n\n\n\n\n\n\nLearn more: Auto-Animate"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#auto-animate-1",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#auto-animate-1",
+    "title": "Leyes de la Ciencia",
+    "section": "Auto-Animate",
+    "text": "Auto-Animate\nAutomatically animate matching elements across slides with Auto-Animate.\n\n\n\n\n\n\n\n\n\n\n\n\nLearn more: Auto-Animate"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#slide-transitions",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#slide-transitions",
+    "title": "Leyes de la Ciencia",
+    "section": "Slide Transitions",
+    "text": "Slide Transitions\nThe next few slides will transition using the slide transition\n\n\n\n\n\n\n\nTransition\nDescription\n\n\n\n\nnone\nNo transition (default, switch instantly)\n\n\nfade\nCross fade\n\n\nslide\nSlide horizontally\n\n\nconvex\nSlide at a convex angle\n\n\nconcave\nSlide at a concave angle\n\n\nzoom\nScale the incoming slide so it grows in from the center of the screen.\n\n\n\n\nLearn more: Slide Transitions"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#tabsets",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#tabsets",
+    "title": "Leyes de la Ciencia",
+    "section": "Tabsets",
+    "text": "Tabsets\n\nPlotData\n\n\n\nlibrary(ggplot2)\nggplot(mtcars, aes(hp, mpg, color = am)) +\n  geom_point() +\n  geom_smooth(formula = y ~ x, method = \"loess\")\n\n\n\n\n\n\n\nknitr::kable(mtcars)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\nMazda RX4\n21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n\n\nMazda RX4 Wag\n21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n\n\nDatsun 710\n22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n\n\nHornet 4 Drive\n21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n\n\nHornet Sportabout\n18.7\n8\n360.0\n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n\n\nValiant\n18.1\n6\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n\n\nDuster 360\n14.3\n8\n360.0\n245\n3.21\n3.570\n15.84\n0\n0\n3\n4\n\n\nMerc 240D\n24.4\n4\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n\n\nMerc 230\n22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n\n\nMerc 280\n19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n\n\nMerc 280C\n17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n\n\nMerc 450SE\n16.4\n8\n275.8\n180\n3.07\n4.070\n17.40\n0\n0\n3\n3\n\n\nMerc 450SL\n17.3\n8\n275.8\n180\n3.07\n3.730\n17.60\n0\n0\n3\n3\n\n\nMerc 450SLC\n15.2\n8\n275.8\n180\n3.07\n3.780\n18.00\n0\n0\n3\n3\n\n\nCadillac Fleetwood\n10.4\n8\n472.0\n205\n2.93\n5.250\n17.98\n0\n0\n3\n4\n\n\nLincoln Continental\n10.4\n8\n460.0\n215\n3.00\n5.424\n17.82\n0\n0\n3\n4\n\n\nChrysler Imperial\n14.7\n8\n440.0\n230\n3.23\n5.345\n17.42\n0\n0\n3\n4\n\n\nFiat 128\n32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n\n\nHonda Civic\n30.4\n4\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n\n\nToyota Corolla\n33.9\n4\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n\n\nToyota Corona\n21.5\n4\n120.1\n97\n3.70\n2.465\n20.01\n1\n0\n3\n1\n\n\nDodge Challenger\n15.5\n8\n318.0\n150\n2.76\n3.520\n16.87\n0\n0\n3\n2\n\n\nAMC Javelin\n15.2\n8\n304.0\n150\n3.15\n3.435\n17.30\n0\n0\n3\n2\n\n\nCamaro Z28\n13.3\n8\n350.0\n245\n3.73\n3.840\n15.41\n0\n0\n3\n4\n\n\nPontiac Firebird\n19.2\n8\n400.0\n175\n3.08\n3.845\n17.05\n0\n0\n3\n2\n\n\nFiat X1-9\n27.3\n4\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n\n\nPorsche 914-2\n26.0\n4\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n\n\nLotus Europa\n30.4\n4\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n\n\nFord Pantera L\n15.8\n8\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n\n\nFerrari Dino\n19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n\n\nMaserati Bora\n15.0\n8\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n\n\nVolvo 142E\n21.4\n4\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2\n\n\n\n\n\n\n\n\n\nLearn more: Tabsets"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#preview-links",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#preview-links",
+    "title": "Leyes de la Ciencia",
+    "section": "Preview Links",
+    "text": "Preview Links\nNavigate to hyperlinks without disrupting the flow of your presentation.\nUse the preview-links option to open links in an iframe on top of your slides. Try clicking the link below for a demonstration:\n\nMatplotlib: Visualization with Python\n\n\nLearn more: Preview Links"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#themes",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#themes",
+    "title": "Leyes de la Ciencia",
+    "section": "Themes",
+    "text": "Themes\n10 Built-in Themes (or create your own)\n\n\n\n\n\n\n\n\n\n\n\nLearn more: Themes"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#easy-navigation",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#easy-navigation",
+    "title": "Leyes de la Ciencia",
+    "section": "Easy Navigation",
+    "text": "Easy Navigation\n\nQuickly jump to other parts of your presentation\n\n\n\n\n\n\n\nToggle the slide menu with the menu button (bottom left of slide) to go to other slides and access presentation tools.\n\n\n\nYou can also press m to toggle the menu open and closed.\n\nLearn more: Navigation"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#chalkboard",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#chalkboard",
+    "title": "Leyes de la Ciencia",
+    "section": "Chalkboard",
+    "text": "Chalkboard\n\nFree form drawing and slide annotations\n\n\n\n\n\n\n\nUse the chalkboard button at the bottom left of the slide to toggle the chalkboard.\n\n\n\n\n\n\n\n\n\nUse the notes canvas button at the bottom left of the slide to toggle drawing on top of the current slide.\n\n\n\nYou can also press b to toggle the chalkboard or c to toggle the notes canvas.\n\nLearn more: Chalkboard"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#point-of-view",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#point-of-view",
+    "title": "Leyes de la Ciencia",
+    "section": "Point of View",
+    "text": "Point of View\nPress o to toggle overview mode:\n\nHold down the Alt key (or Ctrl in Linux) and click on any element to zoom towards it—try it now on this slide.\n\nLearn more: Overview Mode, Slide Zoom"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#speaker-view",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#speaker-view",
+    "title": "Leyes de la Ciencia",
+    "section": "Speaker View",
+    "text": "Speaker View\nPress s (or use the presentation menu) to open speaker view\n\n\n\n\n\n\nLearn more: Speaker View"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#authoring-tools",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#authoring-tools",
+    "title": "Leyes de la Ciencia",
+    "section": "Authoring Tools",
+    "text": "Authoring Tools\nLive side-by-side preview for any notebook or text editor including Jupyter and VS Code\n\n\n\n\n\n\n\n\nLearn more: Jupyter, VS Code, Text Editors"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#authoring-tools-1",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#authoring-tools-1",
+    "title": "Leyes de la Ciencia",
+    "section": "Authoring Tools",
+    "text": "Authoring Tools\nRStudio includes an integrated presentation preview pane\n\n\nLearn more: RStudio"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#reference-and-footnotes",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#reference-and-footnotes",
+    "title": "Leyes de la Ciencia",
+    "section": "Reference and Footnotes",
+    "text": "Reference and Footnotes\n\nGreen 1\nBrown\nPurple\n\n\n\nSome additional commentary of more peripheral interest."
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#and-more",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#and-more",
+    "title": "Leyes de la Ciencia",
+    "section": "And More…",
+    "text": "And More…\n\nTouch optimized (presentations look great on mobile, swipe to navigate slides)\nFooter & Logo (optionally specify custom footer per-slide)\nAuto-Slide (step through slides automatically, without any user input)\nMultiplex (allows your audience to follow the slides of the presentation you are controlling on their own phone, tablet or laptop).\n\n\nLearn more: Quarto Presentations"
+  },
+  {
+    "objectID": "posts/03-modelo-lineal/Miguel-1.html#footnotes",
+    "href": "posts/03-modelo-lineal/Miguel-1.html#footnotes",
+    "title": "Leyes de la Ciencia",
+    "section": "Notas",
+    "text": "Notas\n\n\nA footnote↩︎"
   }
 ]
