@@ -361,7 +361,7 @@
     "href": "presentaciones/03-modelo-lineal/pres-modelo-lineal.html#modelos-con-variables-explicativas-cualitativas",
     "title": "Modelo Estadístico Lineal",
     "section": "Modelos con variables explicativas cualitativas",
-    "text": "Modelos con variables explicativas cualitativas\n¿qué es esto?\nUn agrónomo planea estudiar las tasas de producción de cuatro híbridos de trigo en tres regiones geográficas con clima árido, representantes de diferentes condiciones de sequía. Los sitios se escogen según la cantidad de lluvia y la respuesta es el rendimiento por hectárea.\nEl modelo asociado es:\n\\[\ny_{ijk} = \\mu + R_i + H_j + RH_{ij} +  \\varepsilon_{k(ij)}\n\\]"
+    "text": "Modelos con variables explicativas cualitativas\n\n\n\nUn agrónomo planea estudiar las tasas de producción de cuatro híbridos de trigo en tres regiones geográficas representantes de diferentes condiciones de sequía. Los sitios se escogen según la cantidad de lluvia como normal climatológica y la respuesta es el rendimiento por hectárea. Las semillas de los híbridos son asignadas aleatoriamente a los sitios.\n\n\n¿cómo piensas que se podría hacer esta aleatorización.\n\n\n\n\n¿cual sería el modelo lineal que lo podría describir?\n\n\n\n\\[\ny_{ijk} = \\mu + R_i + H_j + RH_{ij} +  \\varepsilon_{k(ij)}\n\\]"
   },
   {
     "objectID": "presentaciones/03-modelo-lineal/pres-modelo-lineal.html#qué-valores-toman-las-x-y-las-h",
@@ -557,7 +557,7 @@
     "href": "presentaciones/03-modelo-lineal/pres-modelo-lineal.html#ejemplo-de-modelo-lineal",
     "title": "Modelo Estadístico Lineal",
     "section": "Ejemplo de modelo lineal",
-    "text": "Ejemplo de modelo lineal\nGanancia de peso en un grupo de orugas que declina conforme se incrementa el contenido de taninos en la dieta.\nEsta condición puede describirse en forma abreviada así:\n\n\nganancia de peso de cada oruga=ganancia de peso base en general+efecto del contenido de taninos en la dieta+efecto de otros factores que fluctuan aleatoriamente\n\nComo modelo lineal se puede escribir así :\n\\[\ny_{ij} = \\beta_0 x_0j + \\sum_{i=1}^{k}\\beta_i x_{ij} + \\varepsilon_{j(i)}  \n\\]"
+    "text": "Ejemplo de modelo lineal\n\nGanancia de peso en un grupo de orugas que declina conforme se incrementa el contenido de taninos en la dieta.\nEsta condición puede describirse en forma abreviada así:\n\n\n\nganancia de peso de cada oruga=ganancia de peso base en general+efecto del contenido de taninos en la dieta+efecto de otros factores que fluctuan aleatoriamente\n\nComo modelo lineal se puede escribir así :\n\\[\ny_{ij} = \\beta_0 x_0j + \\sum_{i=1}^{k}\\beta_i x_{ij} + \\varepsilon_{j(i)}  \n\\]"
   },
   {
     "objectID": "presentaciones/03-modelo-lineal/pres-modelo-lineal.html#en-todo-su-esplendor",
@@ -571,6 +571,27 @@
     "href": "presentaciones/03-modelo-lineal/pres-modelo-lineal.html#qué-valores-toman-las-x-las-r-o-las-h",
     "title": "Modelo Estadístico Lineal",
     "section": "¿Qué valores toman las X, las R o las H?",
-    "text": "¿Qué valores toman las X, las R o las H?\nUna forma de modelar datos cualitativos como los indicados en el ejemplo es emplear variables indicadoras o dummy. Todo lo que hay que hacer es definir para cada variable las condiciones bajo las que toma uno de dos valores posible, usualmente 1 o 0. Por ejemplo:\n\\[\nH_1 = \\left\\{\n         \\begin{align*}\n           \\text{si } \\color{red}{SÍ} \\text{ es híbrido del tipo } a &: 1 \\\\\n           \\text{si } \\color{red}{NO} \\text{ es híbrido del tipo } a &: 0\n         \\end{align*}\n      \\right\\}\n\\]"
+    "text": "¿Qué valores toman las X, las R o las H?\nUna forma de modelar datos cualitativos como los indicados en el ejemplo, es emplear variables indicadoras o dummy. Todo lo que hay que hacer es definir para cada variable las condiciones bajo las que toma uno de dos valores posible, usualmente 1 o 0. Por ejemplo:\n\\[\nH_1 = \\left\\{\n         \\begin{align*}\n           \\text{si } \\color{red}{SÍ} \\text{ es híbrido del tipo } a &: 1 \\\\\n           \\text{si } \\color{red}{NO} \\text{ es híbrido del tipo } a &: 0\n         \\end{align*}\n      \\right\\}\n\\]"
+  },
+  {
+    "objectID": "presentaciones/03-modelo-lineal/pres-modelo-lineal.html#el-modelo-en-todo-su-esplendor",
+    "href": "presentaciones/03-modelo-lineal/pres-modelo-lineal.html#el-modelo-en-todo-su-esplendor",
+    "title": "Modelo Estadístico Lineal",
+    "section": "El modelo en todo su esplendor",
+    "text": "El modelo en todo su esplendor\n\\[\n\\begin{gather*}\ny_{ijk} = \\mu + \\beta_{1k}R_{1k} + \\beta_{2k}R_{2k} + \\beta_{3k}R_{3k} + \\\\\n          \\beta_{4k}H_{1k}   + \\beta_{5k}H_{2k}   + \\beta_{6k}H_{3k}   + \\beta_{7k}H_{ik} + \\\\\n          \\beta_{8k}RH_{1k}  + \\beta_{9k}RH_{2k}  + \\beta_{10k}RH_{3k} + \\beta_{11k}RH_{ik}+ \\\\\n          \\beta_{12k}RH_{1k} + \\beta_{13k}RH_{2k} + \\beta_{14k}RH_{3k} + \\beta_{15k}RH_{ik}+\\\\\n          \\beta_{16k}RH_{1k} + \\beta_{17k}RH_{2k} + \\beta_{18k}RH_{3k} + \\beta_{19k}RH_{ik}+\n          \\varepsilon_{k(ij)}\n\\end{gather*}\n\\]"
+  },
+  {
+    "objectID": "presentaciones/03-modelo-lineal/pres-modelo-lineal.html#qué-valores-toman-las-x-las-r-y-las-h",
+    "href": "presentaciones/03-modelo-lineal/pres-modelo-lineal.html#qué-valores-toman-las-x-las-r-y-las-h",
+    "title": "Modelo Estadístico Lineal",
+    "section": "¿Qué valores toman las X, las R y las H?",
+    "text": "¿Qué valores toman las X, las R y las H?\nUna forma de modelar datos cualitativos como los indicados en el ejemplo, es emplear variables indicadoras o dummy. Todo lo que hay que hacer es definir para cada variable las condiciones bajo las que toma uno de dos valores posible, usualmente 1 o 0. Por ejemplo:\n\\[\nH_1 = \\left\\{\n         \\begin{align*}\n           \\text{si } \\color{red}{sí} \\text{ es híbrido del tipo } a &: 1 \\\\\n           \\text{si } \\color{red}{no} \\text{ es híbrido del tipo } a &: 0\n         \\end{align*}\n      \\right\\}\n\\]"
+  },
+  {
+    "objectID": "presentaciones/03-modelo-lineal/pres-modelo-lineal.html#el-modelo-estadístico-lineal-general",
+    "href": "presentaciones/03-modelo-lineal/pres-modelo-lineal.html#el-modelo-estadístico-lineal-general",
+    "title": "Modelo Estadístico Lineal",
+    "section": "El modelo estadístico lineal general",
+    "text": "El modelo estadístico lineal general\nEstructura general"
   }
 ]

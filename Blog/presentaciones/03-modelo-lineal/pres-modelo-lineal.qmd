@@ -32,6 +32,19 @@ preload-iframes: true
 lightbox: true
 ---
 
+```{r}
+#| label: inicio
+#| echo: false
+#| include: false
+#| warning: false
+#| output: false
+
+library(tidyverse)
+library(flextable)
+
+```
+
+
 # Al planear un estudio
 
 ¿Descriptivo o comparativo?
@@ -48,56 +61,68 @@ lightbox: true
 
 # Procesos de confusión
 
-Hacen aparecer una asociación que no existe.
+::::: columns
+::: {.column  width=60%}
+::: {fragment}
++ Hacen aparecer una asociación que no existe.
+:::
 
-Ocultan o enmascaran la existencia de una asociación
+::: {fragment}
++ Ocultan o enmascaran la existencia de una asociación
+:::
+:::
 
-![](images/clase3-Modelo-lineal0.png)
+::: {.column  width=40%}
+![](images/clase3-Modelo-lineal0.png){width="100%"}
+:::
+:::::
 
 # Sesgo por selección
 
-Cuando una variable explicativa y alguna otra variable actúan simultáneamente sobre la de respuesta.
+:::: columns
+::: {.column  width=60%}
++ Cuando una variable explicativa y alguna otra variable actúan simultáneamente sobre la de respuesta.
++ En este caso la variable de respuesta es un “colisionador”.
++ Si no se maneja adecuadamente en el diseño del estudio o en el análisis, pueden producir resultados sesgados.
+:::
 
-En este caso la variable de respuesta es un “colisionador”.
-
-Si no se maneja adecuadamente en el diseño del estudio o en el análisis, pueden producir resultados sesgados.
-
-![](images/clase3-modelo-lineal1.png)
-
+::: {.column  width=40%}
+![](images/clase3-modelo-lineal1.png){width="100%"}
+:::
+::::
 
 # Clasificación y medición
 
-**La obtención de datos cuantitativos puede realizarse de muchas formas distintas, pero siempre se parte de alguna forma de clasificación.**
++ **La obtención de datos cuantitativos puede realizarse de muchas formas distintas, pero siempre se parte de alguna forma de clasificación.**
 
-**Aunque clasificar puede parecer una tarea simple, muchas cosas dependen justamente de como se hace.**
++ **Aunque clasificar puede parecer una tarea simple, muchas cosas dependen jus+ tamente de como se hace.**
 
 
 # Medición cualitativa
 
-**El tipo más simple de medición es aquel en el que las categorías sólo se etiquetan.**
++ **El tipo más simple de medición es aquel en el que las categorías sólo se etiquetan.**
 
-**Esta es la denominada escala de medición** *categórica* o *nominal* **.**
++ **Esta es la denominada escala de medición** *categórica* o *nominal* **.**
 
-**A veces resulta útil expresar mediciones continuas en forma nominal.**
++ **A veces resulta útil expresar mediciones continuas en forma nominal.**
 
 
-# El modelo estadístico lineal general
+## El modelo estadístico lineal general
 
 [**Estructura general**]{style="color:#A5A5A5"}
 
-![](images/clase3-Modelo-lineal2.png)
+![](images/clase3-modelo-lineal2.png)
 
 
 ## Ejemplo de modelo lineal
 
-[Ganancia de peso en un grupo de orugas que declina conforme se incrementa el contenido de taninos en la dieta.]{style="color:#7F7F7F"}
++ [Ganancia de peso en un grupo de orugas que declina conforme se incrementa el contenido de taninos en la dieta.]{style="color:#7F7F7F"}
 
-[Esta condición puede describirse en forma abreviada así:]{style="color:#7F7F7F"}
++ [Esta condición puede describirse en forma abreviada así:]{style="color:#7F7F7F"}
 
 
 ```{r results='asis', echo=FALSE}
-library(tidyverse)
-library(flextable)
+
 mod_txt <- tibble(a = "ganancia de peso de cada oruga", b = "=", 
                   c = "ganancia de peso base en general", d = "+",
                   e = "efecto del contenido de taninos en la dieta", f = "+",
@@ -105,7 +130,8 @@ mod_txt <- tibble(a = "ganancia de peso de cada oruga", b = "=",
 flextable(mod_txt) %>% 
   delete_part(part = "header") %>% 
   border_remove() %>% 
-  align_text_col(align = "center")
+  align_text_col(align = "center") %>% 
+  fontsize(size = 16, part = "body")
 
 ```
 
@@ -124,22 +150,30 @@ $$
 + La primera incógnita y la variable $X_0$ que la acompaña, típicamente juegan el papel especial de reflejar el efecto de los factores constantes. Esto es, los factores que son comunes a todas las unidades experimentales. Para esto, usualmente $X_0$ toma simplemente el valor de 1 para todas las unidades experimentales observadas.
 
 
-## Modelos con variables explicativas cualitativas
+## Modelos con variables explicativas cualitativas 
 
-### ¿qué es esto?
+::: {layout="[[-10], [30], [-10]]"}
+### [¿qué piensas de este experimento?]
+:::
 
-Un agrónomo planea estudiar las tasas de producción de cuatro híbridos de trigo en tres regiones geográficas con clima árido, representantes de diferentes condiciones de sequía. Los sitios se escogen según la cantidad de lluvia y la respuesta es el rendimiento por hectárea.
+Un agrónomo planea estudiar las tasas de producción de **cuatro híbridos de trigo** en **tres regiones geográficas** representantes de diferentes condiciones de sequía. Los sitios se escogen según la cantidad de lluvia como normal climatológica y la respuesta es el rendimiento por hectárea. Las semillas de los híbridos son asignadas aleatoriamente a los sitios.
 
-### El modelo asociado es:
+:::{.fragment }
++ ¿cómo piensas que se podría hacer esta aleatorización.
+:::
 
+:::{.fragment }
++ ¿cual sería el modelo lineal que lo podría describir? 
+:::
 
+:::{.fragment .fade-in }
 $$
 y_{ijk} = \mu + R_i + H_j + RH_{ij} +  \varepsilon_{k(ij)}
 $$
+:::
 
 
-## En todo su esplendor 
-
+## El modelo en todo su esplendor {.center}
 
 $$
 \begin{gather*}
@@ -153,16 +187,16 @@ y_{ijk} = \mu + \beta_{1k}R_{1k} + \beta_{2k}R_{2k} + \beta_{3k}R_{3k} + \\
 $$
 
 
-## ¿Qué valores toman las X, las R o las H?
+## ¿Qué valores toman las X, las R y las H? {.center}
 
-Una forma de modelar datos cualitativos como los indicados en el ejemplo es emplear variables indicadoras o ***dummy***. Todo lo que hay que hacer es definir para cada variable las condiciones bajo las que toma uno de dos valores posible, usualmente 1 o 0. Por ejemplo:
+Una forma de modelar datos cualitativos como los indicados en el ejemplo, es emplear variables indicadoras o ***dummy***. Todo lo que hay que hacer es definir para cada variable las condiciones bajo las que toma uno de dos valores posible, usualmente 1 o 0. Por ejemplo:
 
 
 $$
 H_1 = \left\{ 
          \begin{align*}
-           \text{si } \color{red}{SÍ} \text{ es híbrido del tipo } a &: 1 \\ 
-           \text{si } \color{red}{NO} \text{ es híbrido del tipo } a &: 0
+           \text{si } \color{red}{sí} \text{ es híbrido del tipo } a &: 1 \\ 
+           \text{si } \color{red}{no} \text{ es híbrido del tipo } a &: 0
          \end{align*} 
       \right\} 
 $$ 
@@ -170,8 +204,8 @@ $$
 
 # Dependencia lineal
 
-+ Ocurre cuando los valores de una variable pueden expresarse como combinaciones lineales (sumas o restas de múltiplos o submúltiplos) de las otras variables en el conjunto.
-+ También se le denomina colinealidad o multicolinealidad.
++ Ocurre cuando los valores de una variable pueden expresarse como combinaciones lineales (sumas o restas de _múltiplos_ o _submúltiplos_) de las otras variables en el conjunto.
++ A la dependencia lineal También se le denomina __colinealidad__ o __multicolinealidad__.
 
 ¿a qué hace referencia este nombre?
 
@@ -181,28 +215,89 @@ $$
 y = \mu + \beta_1x_1 + \beta_2x_2
 $$
 
-![](images/clase3-Modelo-lineal9.png)
+::::: columns
+:::: {.column width="40%"}
 
-[¿Cuál es la dependencia lineal en esta tabla de datos?]{style="color:#000000"}
+```{r}
+#| results: asis
+#| echo: false
 
-![](images/clase3-Modelo-lineal10.png)
+dat <- tibble(c = rep(1,4), x1 = 1:4, x2 = 0.5 *(1:4) + 1 )
+
+flextable(dat) %>% 
+  set_header_labels(values = list(c = "\u03BC")) %>% 
+  fontsize(size = 22, part = "all")  
+```
+::::
+
+:::: {.column width="60%"}
+::: {.fragment}
++ ¿Cuál es la dependencia lineal en esta tabla de datos?
+:::
+
+::: {.fragment}
+$$
+x_2 = 1 + 0.5 x_1
+$$
+:::
+::::
+:::::
+
 
 # Y... ¿qué tenemos aquí?
 
-![](images/clase3-Modelo-lineal11.png)
+$$
+y = \mu + \beta_1x_1 + \beta_2x_2
+$$
 
-[¡La colinealidad impide resolver el ajuste de modelos!]{style="color:#000000"}
 
-[Para resolver este problema hay que reparametrizar.]{style="color:#000000"}
+::::: columns
+:::: {.column width="40%"}
 
-# Otro caso
+```{r}
+#| results: asis
+#| echo: false
 
-# Y ahora ¿qué es esto?
+dat <- tibble(c = rep(1,4), x1 = rep(0:1, times = 2), x2 = rep(1:0, times=2) )
 
-[Un ecólogo desea probar los efectos relativos de 8 tratamientos (“Xs”) sobre la sobrevivencia de plántulas de]{style="color:#000000"} [*Phaseolus vulgaris*]{style="color:#000000"} [. Supongamos que se cuenta con 64 plántulas relativamente homogéneas. ¿qué solución proponen?]{style="color:#000000"}
+flextable(dat) %>% 
+  set_header_labels(values = list(c = "\u03BC")) %>% 
+  fontsize(size = 22, part = "all")  
 
-# ...que tal si....
+```
+::::
+:::: {.column width="60%"}
+::: {.callout-important title="¿hay colinealidad en esta tabla de datos?" }
 
-**...se enteran que las 64 plántulas provienen en lotes de 8 de distintas cámaras y sustratos de germinación.**
+::: {.incremental}
++ ¡La colinealidad impide resolver el ajuste de modelos!
++ Para resolver este problema hay que reparametrizar.
++ Una forma de reparametrizar: eliminar la primera variable dummy de un factor.
+:::
+:::
+::::
+:::::
 
-**¿modificaría esto el diseño y al (los) modelo(s) asociado(s)?**
+# Otro caso{.center}
+
+:::{.fragment}
++ ¿qué es esto?
+:::
+
+:::{.fragment}
++ Un ecólogo desea probar los efectos relativos de 8 tratamientos (“Xs”) sobre la sobrevivencia de plántulas de *Phaseolus vulgaris*. Supongamos que se cuenta con 64 plántulas relativamente homogéneas.
+:::
+
+:::{.fragment}
++ ¿qué solución de diseño experimental proponen?
+:::
+
+:::{.fragment}
++ ¿Modelo que proponen para describir este proceso ecológico?
+:::
+
+# ...que tal si....{.center}
+
++ **$\ldots$se enteran que las 64 plántulas provienen en lotes de 8 de distintas cámaras y sustratos de germinación.**
+
++ **¿modificaría esto el diseño y al (los) modelo(s) asociado(s)?**
