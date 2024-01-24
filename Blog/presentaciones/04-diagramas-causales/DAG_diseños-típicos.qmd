@@ -11,7 +11,7 @@ $$
 \fbox{A} \rightarrow T \rightarrow Y
 $$
 
-En este DAG, el marcoque rodea a la *A* indica *aleatorización*, y como sugiere el diagrama, es la única causa que actua sore el tratamiento. Si hubiera una vía de influencia alternativa (backdoor), a través de alguna tercera variable como podría ser en un caso de germinación de semillas, la luminosidad del sitio o el grado de humendad en el sustrato, entonces la aleatorización no sería el único factor que influiría sore el tratamiento. El recuadro alrededor de *A* (el proceso de aleatorización) indica que no existen factores actuando sobre *T*, es decir, *A* es una influencia puramente estocástica. Esta idea y el proceso de realización de un experimento controlado con aleatorización, da cuenta con toda claridad del valor de esta forma de realizar estudios para desentrañar relaciones de causalidad.
+En este DAG, el marco que rodea a la *A* indica *aleatorización*, y como sugiere el diagrama, es la única causa que actua sore el tratamiento. Si hubiera una vía de influencia alternativa (backdoor), a través de alguna tercera variable como podría ser en un caso de germinación de semillas, la luminosidad del sitio o el grado de humendad en el sustrato, entonces la aleatorización no sería el único factor que influiría sore el tratamiento. El recuadro alrededor de *A* (el proceso de aleatorización) indica que no existen factores actuando sobre *T*, es decir, *A* es una influencia puramente estocástica. Esta idea y el proceso de realización de un experimento controlado con aleatorización, da cuenta con toda claridad del valor de esta forma de realizar estudios para desentrañar relaciones de causalidad.
 
 Este DAG nos conduce al modelo linear siguiente
 
