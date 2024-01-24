@@ -63,11 +63,8 @@ library(flextable)
 
 ::::: columns
 ::: {.column  width=60%}
-::: {fragment}
+::: {.incremental}
 + Hacen aparecer una asociación que no existe.
-:::
-
-::: {fragment}
 + Ocultan o enmascaran la existencia de una asociación
 :::
 :::
@@ -81,9 +78,11 @@ library(flextable)
 
 :::: columns
 ::: {.column  width=60%}
+::: {.incremental}
 + Cuando una variable explicativa y alguna otra variable actúan simultáneamente sobre la de respuesta.
 + En este caso la variable de respuesta es un “colisionador”.
 + Si no se maneja adecuadamente en el diseño del estudio o en el análisis, pueden producir resultados sesgados.
+:::
 :::
 
 ::: {.column  width=40%}
@@ -91,11 +90,11 @@ library(flextable)
 :::
 ::::
 
-# Clasificación y medición
+# Clasificación y medición{.center}
 
-+ **La obtención de datos cuantitativos puede realizarse de muchas formas distintas, pero siempre se parte de alguna forma de clasificación.**
++ La obtención de **datos cuantitativos** puede realizarse de muchas formas distintas, pero siempre se parte de alguna forma de **clasificación**.
 
-+ **Aunque clasificar puede parecer una tarea simple, muchas cosas dependen jus+ tamente de como se hace.**
++ Aunque clasificar puede parecer una tarea simple, muchas cosas dependen justamente de como se hace.
 
 
 # Medición cualitativa
@@ -107,7 +106,7 @@ library(flextable)
 + **A veces resulta útil expresar mediciones continuas en forma nominal.**
 
 
-## El modelo estadístico lineal general
+## El modelo estadístico lineal general{center}
 
 [**Estructura general**]{style="color:#A5A5A5"}
 
@@ -187,11 +186,23 @@ y_{ijk} = \mu + \beta_{1k}R_{1k} + \beta_{2k}R_{2k} + \beta_{3k}R_{3k} + \\
 $$
 
 
-## ¿Qué valores toman las X, las R y las H? {.center}
+## ¿Qué valores toman las X, las R y las H?
 
-Una forma de modelar datos cualitativos como los indicados en el ejemplo, es emplear variables indicadoras o ***dummy***. Todo lo que hay que hacer es definir para cada variable las condiciones bajo las que toma uno de dos valores posible, usualmente 1 o 0. Por ejemplo:
+La forma más común de modelar datos cualitativos es:
 
+::: columns
+:::{.column width="60%"}
+::: {style="font-size: 70%;"}
++ Mediante variables usualmente llamadas **factores**.
++ Un factor es una listas de nombres o códigos de identificación de estados o **niveles** mutuamente excluyentes.
++ En la modelación se requiere convertir el factor a  *variables indicadoras* o ***dummy***. 
++ Habrá tantas  variables ***dummy*** como estados o niveles tenga el factor
++ Cada variable se construye anotando la presencia/ausencia de la condición del factor. 
+:::
+:::
 
+:::{.column width="30%"}
+::: {style="font-size: 80%;"}
 $$
 H_1 = \left\{ 
          \begin{align*}
@@ -200,7 +211,9 @@ H_1 = \left\{
          \end{align*} 
       \right\} 
 $$ 
-
+:::
+:::
+:::
 
 # Dependencia lineal
 
@@ -236,9 +249,11 @@ flextable(dat) %>%
 :::
 
 ::: {.fragment}
+::: {.fragment .highlight-red}
 $$
 x_2 = 1 + 0.5 x_1
 $$
+:::
 :::
 ::::
 :::::
