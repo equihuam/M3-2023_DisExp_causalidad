@@ -31,8 +31,10 @@ preload-iframes: true
 
 # {background-image="images/experimentar0.jpg"}
 
-::: {layout="[-75, 25]"}
+::: {layout="[-80, 20]"}
+::: {.fragment}
 ![](images/experimentar1.jpg)
+:::
 :::
 
 # The Marcell Experimental Forest
@@ -67,7 +69,7 @@ El diseño permite evaluar los efectos de estos gases solos y combinados en much
 # {background-image="images/experimentar3.jpg"}
 
 ::: {.fragment .grow}
-![](images/experimentar4.jpg)
+![](images/experimentar4.jpg){.fragment width="50%"}
 :::
 
 # Agricultura Sostenible del Rancho Russell
@@ -136,6 +138,7 @@ Han vertido todo tipo de contaminantes en sus aguas, incluidos fertilizantes, me
 [*IISD Experimental Lakes Area – IISD-ELA is one of the world’s most influential freshwater research facilities.*](https://www.iisd.org/ela/)
 :::
 
+# {background-image="images/ELA-Map.tif"}
 
 # {background-image="images/experimentar9.jpg"}
 
@@ -159,13 +162,14 @@ Otro proyecto estudia los efectos de la sedimentación en combinación con el au
 
 # {background-image="images/experimentar13.png"}
 
-::: {layout="[[50,50]"}
-
+::: {layout="[[50,50]]"}
+::: {.fragment}
 ![](images/experimentar11.png){width="40%"}
+:::
 
-
+:::{.fragment}
 ![](images/experimentar12.jpg){width="40%"}
-
+:::
 
 :::
 
@@ -193,7 +197,7 @@ El objetivo del estudio es examinar cómo los ecosistemas sostenibles pueden ten
 [*T3 Watershed Experiment \| Olympic Natural Resources Center (washington.edu)*](https://www.onrc.washington.edu/t3-watershed-experiment/)
 
 
-# {background-image="images/experimentar16.png"}
+# {background-image="images/experimentar16.png" width="90%"}
 
 
 # ¿Experimentación con animales?
@@ -204,11 +208,11 @@ El objetivo del estudio es examinar cómo los ecosistemas sostenibles pueden ten
 
 ![](images/experimentar17.jpg)
 
-![](images/experimentar19.jpg){width="40%"}
+![](images/experimentar19.jpg){width="10%"}
 
-![](images/experimentar18.jpg){width="30%"}
+![](images/experimentar18.jpg){width="10%"}
 
-![](images/experimentar20.jpg){width="40%"}
+![](images/experimentar20.jpg){width="10%"}
 
 :::
 
@@ -219,3 +223,7 @@ Investigadores del Instituto Wyss y un equipo multidisciplinar de colaboradores 
 [*Introduction to Organs-on-a-Chip (harvard.edu)*](https://wyss.harvard.edu/media-post/introduction-to-organs-on-a-chip/)
 
 # {background-image="images/experimentar21.jpg"}
+
+## {background-video="https://www.youtube.com/watch?v=slYExz44k0Q"}
+
+
