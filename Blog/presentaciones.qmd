@@ -11,5 +11,5 @@ listing:
   filter-ui: false
 page-layout: full
 lang: es
-title-block-banner: false
+title-block-banner: true
 ---

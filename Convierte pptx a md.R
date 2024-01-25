@@ -1,6 +1,7 @@
 # Conversión de pptx a md con python
 
-pptx_in <- "posts/03-modelo-lineal/clase_3 - Modelo lineal.pptx"
-md_out <- "posts/03-modelo-lineal/pres-modelo-lineal.qmd"
+
+pptx_in <- "../M3-presentaciones/experimentar.pptx"
+md_out  <- "../Blog/presentaciones/11-experimentar/experimentar.qmd"
 system2(command = "../pptx2md.exe", 
         args = paste0('-o "', md_out, '" "', pptx_in, '"'))

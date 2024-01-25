@@ -1,0 +1,16 @@
+---
+title: "M3-ejercicios"
+listing:
+  contents:
+    - "ejercicios/*/*.qmd"
+    - "!presentaciones/*/*.qmd"
+    - "!posts/*/index.qmd"
+  sort: "date"
+  type: ejercicios
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+lang: es
+title-block-banner: true
+---
