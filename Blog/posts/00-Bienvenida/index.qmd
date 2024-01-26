@@ -3,7 +3,7 @@ title: "Bienvenidos al Módulo 3 de estadística"
 author: ["Miguel Equihua", "Elio Lagunes"]
 date: "2024-01-29"
 lang: es
-draft: FALSE
+draft: false
 code-fold: true
 categories: [operación]
 ---
@@ -21,7 +21,7 @@ library(readxl)
 
 ## Objetivos del Módulo 3
 
-Durante las últimas semanas revisaron conceptos de probabilidad y matemáticas que necesitamos como un **lenguaje eficiente de comunicación**. También empezaron a explorar como es que se pueden analizar proposiciones sobre la existencia de asociación o incluso relaciones de dependencia entre dos variables: **modelos de regresión simple**. Ahora vamos aplicar y extender estos aprendizajes para abordar el desafío de producir conocimiento que nos permita comprender como funciona el mundo.
+Durante las últimas semanas revisaron conceptos de probabilidad y matemáticas que necesitamos como un **lenguaje eficiente de comunicación**. También empezaron a explorar como es que se pueden analizar proposiciones sobre la existencia de asociación o incluso relaciones de dependencia entre dos variables: **modelos de regresión simple**. Ahora vamos aplicar y extender estos aprendizajes para abordar el desafío de producir conocimiento que nos permita comprender como funciona el mundo. Asumir un interés en la comprensión causal del mundo requiere desarrollar las habilidades de pensamiento crítico, lo que constituye por tanto otro de los propósitos del módulo.
 
 Utilizaremos el lenguaje de programación **R** como plataforma de cómputo para el análisis de datos. Aspiramos a ofrecerles así un curso introductorio para su uso. También nos interesa acercarnos a los enfoques formales para el análisis causal actual, mediante la formulación de *Grafos Acíclicos Dirigidos* (**DAG**). Los invitamos a hacer explícitas y a dibujar las relaciones causales de sus proyectos para comprenderlas, comunicarlas y analizarlas con mayor eficiencia.
 
@@ -42,6 +42,16 @@ contenido %>% flextable(col_keys = c("dia", "tema")) %>%
   bold(i = 1:9, j = 1)
 
 ```
+
+## Lecturas
+
+Como parte de las experiencias de aprendizaje que realizaremos tenemos tres lecturas. Les pedimos que hagan una lectura crítica de los textos propuestos y que preparen un comentario que contenga sus apreciaciones en favor o en contra de los argumentos presentados. También esperamos comenten sobre las implicaciones amplias y para la práctica científica en lo general, de los argumentos que exponen los autores. Sus reacciones tendrán oportunidad de ser expuestas y debatidas en un espacio del programa del módulo 3 a lo largo de 60 minutos.
+
+las lecturas son:
+
+1. [belief in conspiracy theories](belief in conspiracy theories)
+2. [guide to model selection and causal inference](https://royalsocietypublishing.org/doi/10.1098/rspb.2020.2815)
+3. [Same data, different analysts](https://egouldo.github.io/ManyAnalysts/)
 
 ## Evaluación
 
