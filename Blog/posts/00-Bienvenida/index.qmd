@@ -34,9 +34,12 @@ Como ejercicio inicial les pedimos preparen y nos entreguen en **una sola cuarti
 #| tbl-cap: Calendario de actividades del Módulo 3 
 
 contenido <- read_csv("contenido.csv", col_names = TRUE, show_col_types = FALSE)
+contenido$lectura <- c(" ", "deate")[contenido$lectura + 1]
 
-contenido %>% flextable(col_keys = c("dia", "tema")) %>% 
-  set_header_labels(values = list(dia = "Día", tema = "Tema")) %>% 
+contenido %>% flextable(col_keys = c("dia", "lectura", "tema")) %>% 
+  set_header_labels(values = list(dia = "Día", 
+                                  lectura= "Lectura", 
+                                  tema = "Tema")) %>% 
   autofit() %>% 
   theme_zebra(odd_body = c("lightcyan1")) %>% 
   bold(i = 1:9, j = 1)
