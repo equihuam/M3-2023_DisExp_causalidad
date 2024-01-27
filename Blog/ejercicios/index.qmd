@@ -13,7 +13,10 @@ format:
     code-fold: false
 ---
 
-![](unixexceldates.png){width="250"}
+::: {layout="[-15, 70, -15]"}
+![Fuente: https://xkcd.com](unixexceldates.png){fig-align="left"}
+:::
+
 ```{r inicial, message=FALSE}
 library(skimr) # para echar un ojito a las bases de datos
 library(sf)    # para trabajo geoespacial con vectores
@@ -21,8 +24,7 @@ library(sf)    # para trabajo geoespacial con vectores
 
 # Datasets para ejercicios
 
-Presentamos dos conjuntos de datos reales de monitoreo de variabes ambientales, con propósitos ecológicos para ejercitar el pensamiento crítico sobre los resultados del monitoreo, así como las capacidades computacionales. El primer conjunto consiste en dos archivos de  variables meteorológicas y el segundo en mediciones de nivel de inundación.
-
+Presentamos dos conjuntos de datos reales de monitoreo de variabes ambientales, con propósitos ecológicos para ejercitar el pensamiento crítico sobre los resultados del monitoreo, así como las capacidades computacionales. El primer conjunto consiste en dos archivos de variables meteorológicas y el segundo en mediciones de nivel de inundación.
 
 ## Serie temporal de temperatura y humedad relativa
 
@@ -30,39 +32,42 @@ Los datos de esta serie fueron tomados con un termo-higrómetro con registro aut
 
 ### Objetivos del monitoreo
 
-* Tener un registro meteorológico de la temperatura y la humedad relativa, que son de las principales variables ambientales que pueden afectar el crecimiento de las plantas.
-* Cubrir el vacío de estaciones meteorológicas en la zona.
+-   Tener un registro meteorológico de la temperatura y la humedad relativa, que son de las principales variables ambientales que pueden afectar el crecimiento de las plantas.
+-   Cubrir el vacío de estaciones meteorológicas en la zona.
 
 Fuente de los datos: Pronatura Veracruz, 2017. CC-by-SA
 
 ### Descripción de las bases de datos
 
-__archivo Gavilanes_Temperatura.csv__
+**archivo Gavilanes_Temperatura.csv**
 
-| Columna | datatype|  Descripción |
-| --- | --- | --- |
-| Date.Time   |  datetime | fecha-hora, formato día/mes/año hora:minuto |
-| Unit        |    chr    | Unidad, (°C para todo el dataset) |
-| Value       |    dbl  | Valor de temperatura leído |
+| Columna   | datatype | Descripción                                 |
+|-----------|----------|---------------------------------------------|
+| Date.Time | datetime | fecha-hora, formato día/mes/año hora:minuto |
+| Unit      | chr      | Unidad, (°C para todo el dataset)           |
+| Value     | dbl      | Valor de temperatura leído                  |
 
 ```{r}
 read.csv("https://gitlab.com/datamarindo/datasets/-/raw/master/Gavilanes_Temperatura.csv?inline=false") |> skimr::skim()
 ```
 
+**archivo Gavilanes_rh.csv**
 
-__archivo Gavilanes_rh.csv__
-
-| Columna | datatype|  Descripción |
-| --- | --- | --- |
-| Date.Time   |  datetime | fecha-hora, formato día/mes/año hora:minuto |
-| Unit        |    chr    | Unidad, (%RH para todo el dataset) |
-| Value       |    dbl  | Valor de humedad relativa leído |
+| Columna   | datatype | Descripción                                 |
+|-----------|----------|---------------------------------------------|
+| Date.Time | datetime | fecha-hora, formato día/mes/año hora:minuto |
+| Unit      | chr      | Unidad, (%RH para todo el dataset)          |
+| Value     | dbl      | Valor de humedad relativa leído             |
 
 ```{r, message=FALSE, error=FALSE, warning=FALSE}
 read.csv("https://gitlab.com/datamarindo/datasets/-/raw/master/Gavilanes_rh.csv?inline=false") |> skimr::skim()
 ```
 
-![ubicación del ibutton](ibutton.png){ width=50% }
+::: {layout="[[-15, 70, -15],[-15, 70, -15]]"}
+![](ibutton.png){width="70%"}
+
+Ubicación del ***ibutton***
+:::
 
 ## Serie espacio-temporal de nivel de inundación en el Sistema Lagunar de Alvarado, Veracruz.
 
@@ -70,36 +75,35 @@ Los piezómetros utilizados para este monitoreo consisten en un tubo de PVC de 2
 
 ### Objetivos del monitoreo
 
-* Comparar las características hidrológicas entre zonas restauradas y manglares maduros (protección) a lo largo del tiempo, a través del monitoreo del hidroperiodo (tiempo en meses en que permanece inundada una zona) diferenciado por zonas destinadas a restauración ecológica de manglar y a protección legal de tierras (valores RE****** y PR****** de la variable `clave_punt`, respectivamente.
-* Comparación con los niveles de mareas de la red mareográfica nacional
-
+-   Comparar las características hidrológicas entre zonas restauradas y manglares maduros (protección) a lo largo del tiempo, a través del monitoreo del hidroperiodo (tiempo en meses en que permanece inundada una zona) diferenciado por zonas destinadas a restauración ecológica de manglar y a protección legal de tierras (valores RE\*\*\*\*\*\* y PR\*\*\*\*\*\* de la variable `clave_punt`, respectivamente.
+-   Comparación con los niveles de mareas de la red mareográfica nacional
 
 Fuente de los datos: Pronatura Veracruz, 2017. CC-by-SA
 
 ### Descripción de las bases de datos
 
-__archivo Gavilanes_Temperatura.csv__
+**archivo Gavilanes_Temperatura.csv**
 
-| Columna | datatype|  Descripción |
-| --- | --- | --- |
-| clave_punt   |  chr | clave del piezómetro |
-| latitud        |    dbl    | latitud en grados del piezómetro|
-| longitud        |    dbl    | longitud en grados del piezómetro|
-| predio_sit       |    chr  | Nombre del predio |
-| fecha        |    chr    | fecha, formato día/mes/año |
-| hora | chr | hora de toma de muestra  (solo en algunos piezómetros) |
-| ht_m | dbl | altura del piezómetro, centímetros |
-| medida_cm | dbl | medición desde lo alto del piezómetro hasta el nivel del agua |
-| inundación | dbl | nivel sobre el suelo de inundación (altura del piezómetro sobre el suelo menos la medida_cm ) |
-| comentario |chr | observaciones |
-| geom | geom | coordenadas UTM Zona 15 N (EPSG:32615) del piezómetro |
+| Columna    | datatype | Descripción                                                                                   |
+|------------------------|------------------------|------------------------|
+| clave_punt | chr      | clave del piezómetro                                                                          |
+| latitud    | dbl      | latitud en grados del piezómetro                                                              |
+| longitud   | dbl      | longitud en grados del piezómetro                                                             |
+| predio_sit | chr      | Nombre del predio                                                                             |
+| fecha      | chr      | fecha, formato día/mes/año                                                                    |
+| hora       | chr      | hora de toma de muestra (solo en algunos piezómetros)                                         |
+| ht_m       | dbl      | altura del piezómetro, centímetros                                                            |
+| medida_cm  | dbl      | medición desde lo alto del piezómetro hasta el nivel del agua                                 |
+| inundación | dbl      | nivel sobre el suelo de inundación (altura del piezómetro sobre el suelo menos la medida_cm ) |
+| comentario | chr      | observaciones                                                                                 |
+| geom       | geom     | coordenadas UTM Zona 15 N (EPSG:32615) del piezómetro                                         |
 
 ```{r}
 read_sf("https://gitlab.com/datamarindo/datasets/-/raw/master/piezometros_pver.gpkg?inline=false") |> skimr::skim()
 ```
 
+::: {layout="[[-15, 70, -15]],[-15, 70, -15]]"}
+![](piezos.png)
 
-![ubicación de los piezómetros en el Sistema Lagunar de Alvarado](piezos.png){ width=50% }
-
-
-*Comic de la portada: https://xkcd.com*
+Ubicación de los piezómetros en el Sistema Lagunar de Alvarado
+:::

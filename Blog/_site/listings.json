@@ -15,5 +15,13 @@
       "/posts/10-analizame/index.html",
       "/posts/11-experimentar/index.html"
     ]
+  },
+  {
+    "listing": "/ejercicios/index.html",
+    "items": []
+  },
+  {
+    "listing": "/ejercicios.html",
+    "items": []
   }
 ]
