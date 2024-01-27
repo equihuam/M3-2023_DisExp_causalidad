@@ -22,6 +22,8 @@
   },
   {
     "listing": "/ejercicios.html",
-    "items": []
+    "items": [
+      "/ejercicios/index.html"
+    ]
   }
 ]

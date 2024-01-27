@@ -72,9 +72,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -121,12 +121,16 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-algo-más">    
         <li>
-    <a class="dropdown-item" href="./presentaciones.html" rel="" target="">
- <span class="dropdown-text">M3-Presentaciones</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="./about.html" rel="" target="">
  <span class="dropdown-text">Acerca del módulo 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ejercicios.html" rel="" target="">
+ <span class="dropdown-text">M3-ejercicios</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./presentaciones.html" rel="" target="">
+ <span class="dropdown-text">M3-Presentaciones</span></a>
   </li>  
     </ul>
   </li>
@@ -164,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categorías</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Todas <span class="quarto-category-count">(0)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categorías</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Todas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="taller">taller <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -177,7 +181,41 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="taller" data-listing-date-sort="1707458400000" data-listing-file-modified-sort="1706335409433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8">
+<div class="thumbnail">
+<p><a href="./ejercicios/index.html"> <p class="card-img-top"><img src="ejercicios\unixexceldates.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./ejercicios/index.html">
+<h3 class="no-anchor listing-title">
+Ejercicios críticos
+</h3>
+<div class="listing-subtitle">
 
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('taller'); return false;">
+taller
+</div>
+</div>
+<a href="./ejercicios/index.html">
+<div class="listing-description">
+&nbsp;
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./ejercicios/index.html">
+<div class="listing-date">
+9 feb 2024
+</div>
+<div class="listing-author">
+Miguel Equihua, Elio Lagunes
+</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No hay resultados
