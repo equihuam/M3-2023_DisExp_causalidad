@@ -1,6 +1,12 @@
 ---
 title: "Bienvenidos al Módulo 3 de estadística"
-author: ["Miguel Equihua", "Elio Lagunes"]
+author: 
+  - name:  "Miguel Equihua"
+    email: "equihuam@gmail.com"
+  - name:  "Octavio Pérez-Maqueo"
+    email: "octavio.maqueo@inecol.mx"  
+  - name:  "Elio Lagunes"
+    email: "elio.lagunes.mx"
 date: "2024-01-29"
 lang: es
 draft: false
@@ -14,7 +20,6 @@ library(flextable)
 library(readr)
 library(tidyverse)
 library(readxl)
-
 ```
 
 ![](data-structure.png){width="800"}
@@ -52,9 +57,9 @@ Como parte de las experiencias de aprendizaje que realizaremos tenemos tres lect
 
 las lecturas son:
 
-1. [belief in conspiracy theories](belief in conspiracy theories)
-2. [guide to model selection and causal inference](https://royalsocietypublishing.org/doi/10.1098/rspb.2020.2815)
-3. [Same data, different analysts](https://egouldo.github.io/ManyAnalysts/)
+1.  [belief in conspiracy theories](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0280902&s=03)
+2.  [guide to model selection and causal inference](https://royalsocietypublishing.org/doi/10.1098/rspb.2020.2815)
+3.  [Same data, different analysts](https://egouldo.github.io/ManyAnalysts/)
 
 ## Evaluación
 

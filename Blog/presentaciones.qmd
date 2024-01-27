@@ -3,7 +3,7 @@ title: "M3-Presentaciones"
 listing:
   contents:
     - "presentaciones/*/*.qmd"
-    - "!posts/*/index.qmd"
+    - "!blog/*/index.qmd"
   sort: "date"
   type: default
   categories: true
