@@ -13,8 +13,10 @@ format:
     code-fold: false
 ---
 
-::: {layout="[-15, 70, -15]"}
-![Fuente: [xkcd.com](https://xkcd.com/2676/)](unixexceldates.png){fig-align="left"}
+::: {layout="[[-15, 70, -15], [-15, 70, -15]]"}
+![](unixexceldates.png)
+
+Fuente: [xkcd.com](https://xkcd.com/2676/)
 :::
 
 ```{r inicial, message=FALSE}

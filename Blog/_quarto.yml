@@ -9,8 +9,8 @@ website:
       - text: "Algo más"
         menu:
           - about.qmd
-          - ejercicios.qmd
           - presentaciones.qmd
+          - ejercicios.qmd
       - icon: github
         href: https://github.com/equihuam/M3-2024_causalidad
 
