@@ -1,5 +1,13 @@
 ---
 title: "DAG  experiments aleatorizados"
+author: 
+  - name: "Miguel Equihua"
+    email: "equihuam@gmail.com"
+  - name: "Elio Lagunes"
+    email: "elio.lagunes.mx"
+date: "2024-01-30"
+draft: true
+date-format: "[Xalapa, Ver.,] D MMMM YYYY"
 output:
   html_document:
     df_print: paged

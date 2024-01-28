@@ -6,7 +6,8 @@ author:
     email: "equihuam@gmail.com"
   - name: "Elio Lagunes"
     email: "elio.lagunes.mx"
-date: "2024-01-29"
+date: "2024-02-8"
+draft: true
 date-format: "[Xalapa, Ver.,] D MMMM YYYY"
 categories: [presentación]
 lang: es
@@ -32,7 +33,7 @@ preload-iframes: true
 #  {background-image="images/experimentar0.jpg"}
 
 ::: {layout="[-80, 20]"}
-::: {.fragment}
+::: fragment
 ![](images/experimentar1.jpg)
 :::
 :::
@@ -136,7 +137,6 @@ Han vertido todo tipo de contaminantes en sus aguas, incluidos fertilizantes, me
 ------------------------------------------------------------------------
 
 ::: {layout="[[20, -10, 50, -20],[-50]]"}
-
 Ubicación de la gran área experimental
 
 ![](images/IISD-Canada-location.png)
@@ -144,7 +144,7 @@ Ubicación de la gran área experimental
 
 #  {background-image="images/experimentar9.jpg"}
 
-::: {.fragment}
+::: fragment
 ![](images/experimentar10.jpg)
 :::
 
@@ -163,11 +163,11 @@ Otro proyecto estudia los efectos de la sedimentación en combinación con el au
 #  {background-image="images/experimentar13.png"}
 
 ::: {layout="[[50,50]]"}
-::: {.fragment}
+::: fragment
 ![](images/experimentar11.png){width="40%"}
 :::
 
-::: {.fragment}
+::: fragment
 ![](images/experimentar12.jpg){width="40%"}
 :::
 :::
@@ -182,7 +182,7 @@ Otro proyecto estudia los efectos de la sedimentación en combinación con el au
 
 #  {background-image="images/experimentar14.jpg"}
 
-::: {.fragment}
+::: fragment
 ![](images/experimentar15.jpg)
 :::
 
@@ -194,7 +194,6 @@ El objetivo del estudio es examinar cómo los ecosistemas sostenibles pueden ten
 
 [*T3 Watershed Experiment \| Olympic Natural Resources Center (washington.edu)*](https://www.onrc.washington.edu/t3-watershed-experiment/)
 
-
 ------------------------------------------------------------------------
 
 ::: {layout="[[-1, 100, -1]]"}
@@ -205,16 +204,14 @@ El objetivo del estudio es examinar cómo los ecosistemas sostenibles pueden ten
 
 ## ¿Qué alternativas hay a esto?
 
-::: {.r-stack}
+::: r-stack
+![](images/experimentar17.jpg){.fragment .absolute top="100" left="100" width="350"}
 
-![](images/experimentar17.jpg){.fragment .absolute top=100 left=100 width="350"}
+![](images/experimentar18.jpg){.fragment .absolute top="100" left="455" width="350"}
 
-![](images/experimentar18.jpg){.fragment .absolute top=100 left=455 width="350"}
+![](images/experimentar19.jpg){.fragment .absolute top="400" left="100" width="705" height="280"}
 
-
-![](images/experimentar19.jpg){.fragment .absolute top=400 left=100 width="705" height="280"}
-
-![](images/experimentar20.jpg){.fragment .absolute top=230 left=180 }
+![](images/experimentar20.jpg){.fragment .absolute top="230" left="180"}
 :::
 
 # Órgano-en-un-chip
@@ -224,6 +221,5 @@ Investigadores del Instituto Wyss y un equipo multidisciplinar de colaboradores 
 [*Introduction to Organs-on-a-Chip (harvard.edu)*](https://wyss.harvard.edu/media-post/introduction-to-organs-on-a-chip/)
 
 #  {background-image="images/experimentar21.jpg"}
-
 
 ##  {background-video="https://www.youtube.com/watch?v=slYExz44k0Q"}

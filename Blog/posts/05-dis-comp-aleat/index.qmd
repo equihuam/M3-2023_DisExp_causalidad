@@ -3,14 +3,14 @@ title: "Experimentos completamente aleatorizados"
 author: ["Miguel Equihua", "Elio Lagunes"]
 date: "2024-02-01"
 lang: es
-draft: false
+draft: true
 categories: [clase]
 format:
   html:
     code-fold: true
 ---
 
-![](ma%C3%ADz.jpg){width="400"}
+![](maiz.jpg){width="400"}
 
 # Diseño completamente aleatorizado
 

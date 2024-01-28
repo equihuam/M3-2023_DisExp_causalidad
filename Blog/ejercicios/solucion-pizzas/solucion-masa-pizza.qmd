@@ -1,8 +1,8 @@
 ---
 title: "Masa para Pizza"
-author: "Miguel Equihua"
-draft: false
-date: "2023-02-07"
+author: ["Miguel Equihua", "Elio Lagunes"]
+date: "2024-02-07"
+draft: true
 format:
   html:
     code-fold: true

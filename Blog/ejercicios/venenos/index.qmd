@@ -3,7 +3,7 @@ title: "Ensayoy de antivenenos"
 author: ["Miguel Equihua", "Elio Lagunes"]
 date: "2024-02-08"
 lang: es
-draft: FALSE
+draft: true
 categories: [taller]
 format:
   html:
@@ -11,7 +11,6 @@ format:
 ---
 
 ![](chemistry.jpg){width="400"}
-
 
 ## Planteamiento
 

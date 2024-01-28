@@ -3,10 +3,10 @@ title: "Ejercicios críticos"
 listing:
   contents:
     - "posts/12-ejercicios/index.qmd"
-author: ["Miguel Equihua", "Elio Lagunes"]
+author: ["Miguel Equihua", "Elio Lagunes"] 
 date: "2024-02-1"
 lang: es
-draft: FALSE
+draft: true
 categories: [taller]
 format:
   html:

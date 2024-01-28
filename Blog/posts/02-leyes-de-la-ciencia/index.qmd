@@ -1,9 +1,9 @@
 ---
 title: "Leyes de la Ciencia"
-author: ["Miguel Equihua", "Elio Lagunes"]
+author: ["Miguel Equihua", "Octavio Pérez Maqueo", "Elio Lagunes"]
 date: "2024-01-29"
 lang: es
-draft: FALSE
+draft: true
 categories: [clase]
 format:
   html:

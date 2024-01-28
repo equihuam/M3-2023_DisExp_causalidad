@@ -3,7 +3,7 @@ title: "Experimentación Ecológica"
 author: ["Miguel Equihua", "Elio Lagunes"]
 date: "2024-02-08"
 lang: es
-draft: FALSE
+draft: true
 categories: [taller]
 format:
   html:
@@ -14,9 +14,14 @@ format:
 
 La experimentación con diseños adecuuadamente aleatorizados es la norma de referencia científica para la exploración de proposiciones causales. Preguntas de gran envergadura para los intereses humanos se resuelven mediante esta aproximación. La experimentación desafía la imaginación y las capacidades materiales y humanas. Exige ingenio y creatividad, pero también está acotada por el marco ético que nos exige evitar dañar a otros seres humanos, así como también evitar hacerlo a otras especies o a la naturaleza misma.
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRY5no_OIAXHZz0sKHsZoTCbzhuoNMbUjAUmEwPBqyWh3RnF34AHxpIUjMhxOMcGA/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="645px" height="400px" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
 
-</iframe>
+
+::: {layout="[[-20, 40, -20],[-20, 40, -20]]"}
+[![](desierto4.jpg){width="400"}](../../presentaciones/11-experimentar/experimentar.qmd)
+
+Haz click sobre la imagen para ver la presentación
+:::
+
 
 ## Ciencia Abierta
 

@@ -7,6 +7,7 @@ author:
   - name: "Elio Lagunes"
     email: "elio.lagunes.mx"
 date: "2024-01-29"
+draft: false
 date-format: "[Xalapa, Ver.,] D MMMM YYYY"
 categories: [presentación]
 lang: es
@@ -149,11 +150,11 @@ $$
 
 Un agrónomo planea estudiar las tasas de producción de **cuatro híbridos de trigo** en **tres regiones geográficas** representantes de diferentes condiciones de sequía. Los sitios se escogen según la cantidad de lluvia como normal climatológica y la respuesta es el rendimiento por hectárea. Las semillas de los híbridos son asignadas aleatoriamente a los sitios.
 
-::: {.fragment}
+::: fragment
 -   ¿cómo piensas que se podría hacer esta aleatorización.
 :::
 
-::: {.fragment}
+::: fragment
 -   ¿cual sería el modelo lineal que lo podría describir?
 :::
 
@@ -233,11 +234,11 @@ flextable(dat) %>%
 :::
 
 ::: {.column width="60%"}
-::: {.fragment}
+::: fragment
 -   ¿Cuál es la dependencia lineal en esta tabla de datos?
 :::
 
-::: {.fragment}
+::: fragment
 ::: {.fragment .highlight-red}
 $$
 x_2 = 1 + 0.5 x_1
@@ -281,19 +282,19 @@ flextable(dat) %>%
 
 # Otro caso {.center}
 
-::: {.fragment}
+::: fragment
 -   ¿qué es esto?
 :::
 
-::: {.fragment}
+::: fragment
 -   Un ecólogo desea probar los efectos relativos de 8 tratamientos (“Xs”) sobre la sobrevivencia de plántulas de *Phaseolus vulgaris*. Supongamos que se cuenta con 64 plántulas relativamente homogéneas.
 :::
 
-::: {.fragment}
+::: fragment
 -   ¿qué solución de diseño experimental proponen?
 :::
 
-::: {.fragment}
+::: fragment
 -   ¿Modelo que proponen para describir este proceso ecológico?
 :::
 

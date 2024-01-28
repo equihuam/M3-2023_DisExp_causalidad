@@ -3,7 +3,7 @@ title: "Modelos de Efectos Mixtos"
 author: ["Miguel Equihua", "Elio Lagunes"]
 date: "2024-02-08"
 lang: es
-draft: FALSE
+draft: true
 categories: [clase]
 format:
   html:
