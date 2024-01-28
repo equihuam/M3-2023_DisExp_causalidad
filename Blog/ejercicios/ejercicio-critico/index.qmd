@@ -14,7 +14,7 @@ format:
 ---
 
 ::: {layout="[-15, 70, -15]"}
-![Fuente: https://xkcd.com](unixexceldates.png){fig-align="left"}
+![Fuente: [xkcd.com](https://xkcd.com/2676/)](unixexceldates.png){fig-align="left"}
 :::
 
 ```{r inicial, message=FALSE}
