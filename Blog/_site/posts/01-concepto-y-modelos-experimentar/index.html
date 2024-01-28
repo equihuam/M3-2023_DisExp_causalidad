@@ -498,7 +498,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>dist_med_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 80.72292</code></pre>
+<pre><code>[1] 79.6828</code></pre>
 </div>
 </div>
 <p>Ahora incorporemos la información del factor <strong><em>f</em></strong>. Para esto hay que calcular los promedios de “y” que corresponden a los niveles de <strong><em>f</em></strong></p>
@@ -510,7 +510,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>        a         b 
- 5.581852 10.154728 </code></pre>
+ 5.924739 10.288975 </code></pre>
 </div>
 </div>
 <p>Grafiquemos esta nueva estructura de datos.</p>
@@ -539,7 +539,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>dist_med_s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.533726</code></pre>
+<pre><code>[1] 13.01985</code></pre>
 </div>
 </div>
 </section>
@@ -571,7 +571,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>dist_med_s_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 73.18919</code></pre>
+<pre><code>[1] 66.66295</code></pre>
 </div>
 </div>
 <p>Estas tres formas de calcular las distancias entre datos y promedios se asocia con <em>fuentes de variación</em></p>
@@ -593,9 +593,9 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <pre><code>Analysis of Variance Table
 
 Response: y
-          Df Sum Sq Mean Sq F value    Pr(&gt;F)    
-f          1 73.189  73.189  116.58 1.554e-07 ***
-Residuals 12  7.534   0.628                      
+          Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+f          1 66.663  66.663  61.441 4.63e-06 ***
+Residuals 12 13.020   1.085                     
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -604,21 +604,21 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dist_med_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 80.72292</code></pre>
+<pre><code>[1] 79.6828</code></pre>
 </div>
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>dist_med_s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.533726</code></pre>
+<pre><code>[1] 13.01985</code></pre>
 </div>
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>dist_med_s_y </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 73.18919</code></pre>
+<pre><code>[1] 66.66295</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -724,7 +724,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </section>
 <section id="potencia-de-la-prueba" class="level3">
 <h3 class="anchored" data-anchor-id="potencia-de-la-prueba">Potencia de la prueba</h3>
-<p>En la práctica, la potencia de la prueba depende del <em>grado de dispersión</em> en los datos. Si se está asumiendo un modelo de probabilidades Gaussiano (distribución normal), el factor de disperción o escala se relaciona con la varianza. Por lo tanto, es usual notar que el mismo cálculo del error estandar, <span class="math inline">\(s_{e}=\frac{\sigma}{\sqrt{n}}\)</span>, sugiere la solución.</p>
+<p>En la práctica, la potencia de la prueba depende del <em>grado de dispersión</em> en los datos. Si se está asumiendo un modelo de probabilidades Gaussiano (distribución normal), el factor de dispersión o escala se relaciona con la varianza. Por lo tanto, es usual notar que el mismo cálculo del error estandar, <span class="math inline">\(s_{e}=\frac{\sigma}{\sqrt{n}}\)</span>, sugiere la solución.</p>
 <p><img src="images/Potencia_estadística.png" class="img-fluid" width="700"></p>
 <ol type="1">
 <li>Se puede incrementar el tamaño de muestra, <em>n</em>,</li>
@@ -744,9 +744,26 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <li>¿Cuál es la diferencia detectable dada una <em>n</em> o una potencia de la prueba (<span class="math inline">\(1-\beta\)</span>)?</li>
 <li>¿Cuál es la potencia (<span class="math inline">\(1-\beta\)</span>) dado un <em>n</em> y cierta diferencia con <span class="math inline">\(H_{a}\)</span> de interés?</li>
 </ul>
-
-
 </section>
+</section>
+<section id="quiz-prueba-estadística-de-hipótesis" class="level2">
+<h2 class="anchored" data-anchor-id="quiz-prueba-estadística-de-hipótesis">Quiz: Prueba estadística de hipótesis</h2>
+<p>Participa: vevox.app ID: 125-688-362</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 1.1%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 87.9%;justify-content: center;">
+<p><img src="images/clase_1-conceptos-prueba-hipotesis.png" class="img-fluid" width="200"></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 11.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+
+
 </section>
 </section>
 

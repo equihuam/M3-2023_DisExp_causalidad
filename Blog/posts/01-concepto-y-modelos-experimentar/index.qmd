@@ -519,7 +519,7 @@ A la luz de las críticas, Muchos autores ven necesario actualmente adoptar el m
 
 ### Potencia de la prueba
 
-En la práctica, la potencia de la prueba depende del *grado de dispersión* en los datos. Si se está asumiendo un modelo de probabilidades Gaussiano (distribución normal), el factor de disperción o escala se relaciona con la varianza. Por lo tanto, es usual notar que el mismo cálculo del error estandar, $s_{e}=\frac{\sigma}{\sqrt{n}}$, sugiere la solución.
+En la práctica, la potencia de la prueba depende del *grado de dispersión* en los datos. Si se está asumiendo un modelo de probabilidades Gaussiano (distribución normal), el factor de dispersión o escala se relaciona con la varianza. Por lo tanto, es usual notar que el mismo cálculo del error estandar, $s_{e}=\frac{\sigma}{\sqrt{n}}$, sugiere la solución.
 
 ![](images/Potencia_estad%C3%ADstica.png){width="700"}
 
@@ -536,3 +536,15 @@ Es interesante apreciar, que la búsqueda de un tamaño de muestra apropiado par
 -   ¿Cuál es el tamaño de muestra necesario para detectar una cierta diferencia en lo que medimos?
 -   ¿Cuál es la diferencia detectable dada una *n* o una potencia de la prueba ($1-\beta$)?
 -   ¿Cuál es la potencia ($1-\beta$) dado un *n* y cierta diferencia con $H_{a}$ de interés?
+
+
+
+## Quiz: Prueba estadística de hipótesis
+
+Participa: vevox.app ID: 125-688-362
+
+::: {layout="[[-1, 80, -10]]" layout-valign="top"}
+
+![](images/clase_1-conceptos-prueba-hipotesis.png){width="200"}
+:::
+
