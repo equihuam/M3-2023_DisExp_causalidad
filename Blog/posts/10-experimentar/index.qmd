@@ -1,0 +1,27 @@
+---
+title: "Experimentación Ecológica"
+author: ["Miguel Equihua", "Elio Lagunes"]
+date: "2024-02-08"
+lang: es
+draft: FALSE
+categories: [taller]
+format:
+  html:
+    code-fold: true
+---
+
+![](Planeta-en-botella.jpg){width="500"}
+
+La experimentación con diseños adecuuadamente aleatorizados es la norma de referencia científica para la exploración de proposiciones causales. Preguntas de gran envergadura para los intereses humanos se resuelven mediante esta aproximación. La experimentación desafía la imaginación y las capacidades materiales y humanas. Exige ingenio y creatividad, pero también está acotada por el marco ético que nos exige evitar dañar a otros seres humanos, así como también evitar hacerlo a otras especies o a la naturaleza misma.
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRY5no_OIAXHZz0sKHsZoTCbzhuoNMbUjAUmEwPBqyWh3RnF34AHxpIUjMhxOMcGA/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="645px" height="400px" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+
+</iframe>
+
+## Ciencia Abierta
+
+[Centro de Ciencia Abierta](https://osf.io/)
+
+[Ciecia abierta - UNESCO](https://www.unesco.org/en/open-science)
+
+[Ciencia Abierta - CEPAL](https://www.cepal.org/es/notas/manual-capacitacion-foster-ciencia-abierta)
