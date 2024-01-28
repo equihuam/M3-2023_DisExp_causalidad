@@ -1,5 +1,14 @@
 [
   {
+    "listing": "/presentaciones.html",
+    "items": [
+      "/presentaciones/02-leyes-de-la-ciencia/pres-leyes-ciencia.html",
+      "/presentaciones/03-modelo-lineal/pres-modelo-lineal.html",
+      "/presentaciones/11-experimentar/experimentar.html",
+      "/presentaciones/04-diagramas-causales/DAG_diseños-típicos.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/posts/00-Bienvenida/index.html",
@@ -12,18 +21,21 @@
       "/posts/07-experimentos-anidados/index.html",
       "/posts/08-modelos-mixtos/index.html",
       "/posts/09-medidas-repetidas/index.html",
-      "/posts/10-analizame/index.html",
-      "/posts/11-experimentar/index.html"
+      "/posts/10-experimentar/index.html"
     ]
   },
   {
-    "listing": "/ejercicios/index.html",
+    "listing": "/ejercicios/ejercicio-critico/index.html",
     "items": []
   },
   {
     "listing": "/ejercicios.html",
     "items": [
-      "/ejercicios/index.html"
+      "/ejercicios/solucion-venenos/solucion-venenos.html",
+      "/ejercicios/solucion-pizzas/solucion-masa-pizza.html",
+      "/ejercicios/ejercicio-critico/index.html",
+      "/ejercicios/pizzas/index.html",
+      "/ejercicios/venenos/index.html"
     ]
   }
 ]

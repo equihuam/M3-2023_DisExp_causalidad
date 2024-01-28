@@ -126,12 +126,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-algo-más">    
         <li>
-    <a class="dropdown-item" href="../../presentaciones.html" rel="" target="">
- <span class="dropdown-text">M3-Presentaciones</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../../about.html" rel="" target="">
  <span class="dropdown-text">Acerca del módulo 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ejercicios.html" rel="" target="">
+ <span class="dropdown-text">M3-ejercicios</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../presentaciones.html" rel="" target="">
+ <span class="dropdown-text">M3-Presentaciones</span></a>
   </li>  
     </ul>
   </li>
@@ -492,7 +496,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>dist_med_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 115.302</code></pre>
+<pre><code>[1] 93.80252</code></pre>
 </div>
 </div>
 <p>Ahora incorporemos la información del factor <strong><em>f</em></strong>. Para esto hay que calcular los promedios de “y” que corresponden a los niveles de <strong><em>f</em></strong></p>
@@ -504,7 +508,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>        a         b 
- 5.351197 10.565268 </code></pre>
+ 6.258309 10.846407 </code></pre>
 </div>
 </div>
 <p>Grafiquemos esta nueva estructura de datos.</p>
@@ -533,7 +537,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>dist_med_s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 20.14914</code></pre>
+<pre><code>[1] 20.12527</code></pre>
 </div>
 </div>
 </section>
@@ -565,7 +569,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>dist_med_s_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 95.15289</code></pre>
+<pre><code>[1] 73.67725</code></pre>
 </div>
 </div>
 <p>Estas tres formas de calcular las distancias entre datos y promedios se asocia con <em>fuentes de variación</em></p>
@@ -588,8 +592,8 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 
 Response: y
           Df Sum Sq Mean Sq F value    Pr(&gt;F)    
-f          1 95.153  95.153  56.669 6.969e-06 ***
-Residuals 12 20.149   1.679                      
+f          1 73.677  73.677  43.931 2.437e-05 ***
+Residuals 12 20.125   1.677                      
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -598,21 +602,21 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dist_med_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 115.302</code></pre>
+<pre><code>[1] 93.80252</code></pre>
 </div>
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>dist_med_s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 20.14914</code></pre>
+<pre><code>[1] 20.12527</code></pre>
 </div>
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>dist_med_s_y </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 95.15289</code></pre>
+<pre><code>[1] 73.67725</code></pre>
 </div>
 </div>
 <div class="cell">

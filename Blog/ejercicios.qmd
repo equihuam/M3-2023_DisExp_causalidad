@@ -2,7 +2,7 @@
 title: "M3-ejercicios"
 listing:
   contents:
-    - "ejercicios/*.qmd"
+    - "ejercicios/*/*.qmd"
   sort: "date"
   type: default
   categories: true
