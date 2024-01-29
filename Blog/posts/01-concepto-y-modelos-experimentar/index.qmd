@@ -265,7 +265,7 @@ Quizás nos sugiera que lo más importante es mejorar la tasa base, ${Pr(V)}$, y
 
 # El enfoque de modelación
 
-La propuesta que seguiremos en el **Módulo 3** se basa en traducir situaciones reales en abstracciones que escribimos como modelos estadísticos. De esta manera buscamos generar expresiones matemáticas que dan cuenta de nuestras concepciones sobre cómo funcionan aspectos concretos de la naturaleza. Es así que nos planteamos generar series de números *idealizados por el modelo* que podemos comparar con series de números observamos directamente de la naturaleza. Sí estas dos series de números se *parecen lo suficiente*, nos *sentiremos con confianza suficiente* como para pensar que nuestro modelo es útil para describir el comportamiento del segmento de la naturaleza que elegimos abstraer.
+La propuesta que seguiremos en el **Módulo 3** se basa en traducir situaciones reales en abstracciones que escribimos como modelos estadísticos. De esta manera buscamos generar expresiones matemáticas que dan cuenta de nuestras concepciones sobre cómo funcionan aspectos concretos de la naturaleza (_proposición causal_). Es así que nos planteamos generar series de números *idealizados por el modelo* que podemos comparar con series de números observamos directamente de la naturaleza. Sí estas dos series de números se *parecen lo suficiente*, nos *sentiremos con confianza* como para pensar que nuestro modelo es útil para describir el comportamiento del segmento de la naturaleza que elegimos abstraer.
 
 :::{.callout-tip title="¿Podríamos usarlo para intervenir en él?"}
 
@@ -604,5 +604,5 @@ Es interesante apreciar, que la búsqueda de un tamaño de muestra apropiado par
 Participa: vevox.app ID: 125-688-362
 
 ::: {layout="[[-1, 80, -10]]" layout-valign="top"}
-![](images/clase_1-conceptos-prueba-hipotesis.png){width="200"}
+[![](images/clase_1-conceptos-prueba-hipotesis.png){width="200"}](https://vevox.app/#/m/152551925)
 :::

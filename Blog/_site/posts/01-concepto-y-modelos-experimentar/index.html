@@ -480,7 +480,7 @@ Programar para explorar ideas
 </section>
 <section id="el-enfoque-de-modelación" class="level1">
 <h1>El enfoque de modelación</h1>
-<p>La propuesta que seguiremos en el <strong>Módulo 3</strong> se basa en traducir situaciones reales en abstracciones que escribimos como modelos estadísticos. De esta manera buscamos generar expresiones matemáticas que dan cuenta de nuestras concepciones sobre cómo funcionan aspectos concretos de la naturaleza. Es así que nos planteamos generar series de números <em>idealizados por el modelo</em> que podemos comparar con series de números observamos directamente de la naturaleza. Sí estas dos series de números se <em>parecen lo suficiente</em>, nos <em>sentiremos con confianza suficiente</em> como para pensar que nuestro modelo es útil para describir el comportamiento del segmento de la naturaleza que elegimos abstraer.</p>
+<p>La propuesta que seguiremos en el <strong>Módulo 3</strong> se basa en traducir situaciones reales en abstracciones que escribimos como modelos estadísticos. De esta manera buscamos generar expresiones matemáticas que dan cuenta de nuestras concepciones sobre cómo funcionan aspectos concretos de la naturaleza (<em>proposición causal</em>). Es así que nos planteamos generar series de números <em>idealizados por el modelo</em> que podemos comparar con series de números observamos directamente de la naturaleza. Sí estas dos series de números se <em>parecen lo suficiente</em>, nos <em>sentiremos con confianza</em> como para pensar que nuestro modelo es útil para describir el comportamiento del segmento de la naturaleza que elegimos abstraer.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="¿Podríamos usarlo para intervenir en él?">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -637,7 +637,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>dist_med_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 67.46908</code></pre>
+<pre><code>[1] 153.1044</code></pre>
 </div>
 </div>
 </div>
@@ -652,7 +652,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>        a         b 
- 6.003627 10.087852 </code></pre>
+ 4.395801 10.601048 </code></pre>
 </div>
 </div>
 <p>Grafiquemos esta nueva estructura de datos.</p>
@@ -690,7 +690,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>dist_med_s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 9.085962</code></pre>
+<pre><code>[1] 18.3366</code></pre>
 </div>
 </div>
 </div>
@@ -734,7 +734,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>dist_med_s_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 58.38312</code></pre>
+<pre><code>[1] 134.7678</code></pre>
 </div>
 </div>
 </div>
@@ -768,9 +768,9 @@ Analiza la correspondencia entre los valores y las gráficas que vimos arriba co
 <pre><code>Analysis of Variance Table
 
 Response: y
-          Df Sum Sq Mean Sq F value    Pr(&gt;F)    
-f          1 58.383  58.383  77.108 1.431e-06 ***
-Residuals 12  9.086   0.757                      
+          Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+f          1 134.768 134.768  88.196 7.028e-07 ***
+Residuals 12  18.337   1.528                      
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -779,21 +779,21 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dist_med_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 67.46908</code></pre>
+<pre><code>[1] 153.1044</code></pre>
 </div>
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>dist_med_s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 9.085962</code></pre>
+<pre><code>[1] 18.3366</code></pre>
 </div>
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>dist_med_s_y </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 58.38312</code></pre>
+<pre><code>[1] 134.7678</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -961,8 +961,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 1.1%;justify-content: center;">
 <p>&nbsp;</p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 87.9%;justify-content: center;">
-<p><img src="images/clase_1-conceptos-prueba-hipotesis.png" class="img-fluid" width="200"></p>
+<div class="quarto-figure quarto-figure-center" style="flex-basis: 87.9%;justify-content: center;">
+<figure class="figure">
+<p><a href="https://vevox.app/#/m/152551925"><img src="images/clase_1-conceptos-prueba-hipotesis.png" class="img-fluid figure-img" width="200"></a></p>
+</figure>
 </div>
 <div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 11.0%;justify-content: center;">
 <p>&nbsp;</p>
