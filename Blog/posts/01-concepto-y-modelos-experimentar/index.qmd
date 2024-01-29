@@ -401,7 +401,6 @@ dist_med_s
 
 ::: {.callout-tip title="¿Qué interpretación tiene la diferencia entre las dos sumas mencionadas arriba?" collapse="true"}
 
-:::
 
 Esta diferencia se asocia con la siguiente gráfica:
 
