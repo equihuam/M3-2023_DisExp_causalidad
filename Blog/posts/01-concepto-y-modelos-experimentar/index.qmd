@@ -579,14 +579,14 @@ En la práctica, la potencia de la prueba depende del *grado de dispersión* en 
 
 1.  Se puede incrementar el tamaño de muestra, *n*,
 
-::: {.callout-tip title="¿Por qué funcionaría esto?" collapse="true"}
+::: {.callout-tip title="¿Por qué funcionaría esto?"}
 
-![](images/geometry-1922743_1280.jpg)
+![](images/geometry-1922743_1280.jpg){width="50%"}
 :::
 
 2.  Aumentar la precisión con la que se estima $\sigma^2$,
 
-::: {.callout-tip title="¿Cómo se puede hacer esto?", collapse="true"}
+::: {.callout-tip title="¿Cómo se puede hacer esto?"}
 
 ![](images/key-5216637_1280.jpg){width="50%"}
 

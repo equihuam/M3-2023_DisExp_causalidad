@@ -611,7 +611,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>dist_med_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 102.2765</code></pre>
+<pre><code>[1] 112.8762</code></pre>
 </div>
 </div>
 <p>:::</p>
@@ -624,7 +624,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>        a         b 
- 5.097931 10.224538 </code></pre>
+ 5.098355 10.657507 </code></pre>
 </div>
 </div>
 <p>Grafiquemos esta nueva estructura de datos.</p>
@@ -662,7 +662,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>dist_med_s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.28921</code></pre>
+<pre><code>[1] 4.711622</code></pre>
 </div>
 </div>
 </div>
@@ -710,7 +710,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>dist_med_s_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 91.98734</code></pre>
+<pre><code>[1] 108.1646</code></pre>
 </div>
 </div>
 <p>:::</p>
@@ -742,9 +742,9 @@ Analiza la correspondencia entre los valores y las gráficas que vimos arriba co
 <pre><code>Analysis of Variance Table
 
 Response: y
-          Df Sum Sq Mean Sq F value    Pr(&gt;F)    
-f          1 91.987  91.987  107.28 2.447e-07 ***
-Residuals 12 10.289   0.857                      
+          Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+f          1 108.165 108.165  275.48 1.215e-09 ***
+Residuals 12   4.712   0.393                      
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -753,21 +753,21 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dist_med_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 102.2765</code></pre>
+<pre><code>[1] 112.8762</code></pre>
 </div>
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>dist_med_s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.28921</code></pre>
+<pre><code>[1] 4.711622</code></pre>
 </div>
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>dist_med_s_y </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 91.98734</code></pre>
+<pre><code>[1] 108.1646</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -891,27 +891,34 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <li>Se puede incrementar el tamaño de muestra, <em>n</em>,</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled" title="¿Por qué funcionaría esto?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 ¿Por qué funcionaría esto?
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><img src="images/geometry-1922743_1280.jpg" class="img-fluid"></p>
-</div>
+<p><img src="images/geometry-1922743_1280.jpg" class="img-fluid" style="width:50.0%"></p>
 </div>
 </div>
 <ol start="2" type="1">
 <li>Aumentar la precisión con la que se estima <span class="math inline">\(\sigma^2\)</span>,</li>
 </ol>
-<p>::: {.callout-tip title=“¿Cómo se puede hacer esto?”, collapse=“true”}</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="¿Cómo se puede hacer esto?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Cómo se puede hacer esto?
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><img src="images/key-5216637_1280.jpg" class="img-fluid" style="width:50.0%"></p>
-<p>:::</p>
+</div>
+</div>
 <p>Es interesante apreciar, que la búsqueda de un tamaño de muestra apropiado para un estudio que estemos planeando, se puede lograr muy eficazmente haciendo simulaciones como las que hemos estado viendo en este bloque del curso. A través de este camino y haciendo el esfuerzo de especificar hipótesis alternativas relevantes se pueden resolver preguntas como:</p>
 <ul>
 <li>¿Cuál es el tamaño de muestra necesario para detectar una cierta diferencia en lo que medimos?</li>
