@@ -212,7 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 {Pr(vampiro) = 0.001}
 \]</span></p>
 <p>A partir de este conocimiento científico, supongamos que un amigo da positivo en el test de vampirismo.</p>
-<p><span style="color:GoldenRod"><strong>¿Cuál es la probabilidad de que sea un</strong> <strong><em>inmortal chupasangre</em></strong> <strong>?</strong></span></p>
+<p>::: {.callout-tip title=“¿Cuál es la probabilidad de que sea un** ***inmortal chupasangre”, collapse=“true”}</p>
 <p>El enfoque de investigación formal empezaría por usar el <em>teorema de Bayes</em> para deducir la probabilidad <span class="math inline">\({Pr(vampiro|positivo)}\)</span>, lo que en cierta forma implica “invertir la probabilidad”, pues lo que ahora sabemos es el valor de <span class="math inline">\({Pr(positivo|vampiro)}\)</span>. El cálculo puede presentarse como:</p>
 <p><span class="math display">\[
 \Pr(vampiro|positivo) = \frac{Pr(positivo|vampiro) \times Pr(vampiro)}{Pr(positivo)}
@@ -220,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>en donde <span class="math inline">\({Pr(positivo)}\)</span> es la probabilidad promedio de los resultados positivos de la prueba, es decir,</p>
 <p><span class="math display">\[
 Pr(positivo) = Pr(positivo|vampiro)\times Pr(vampiro) + Pr(positivo|mortal) \times ({1 − Pr(vampiro)})
-\]</span></p>
+\]</span> :::</p>
 <p>Todo esto lo podemos hacer en <strong>R</strong>.</p>
 <p>Primero tomamos nota de lo que ya sabemos al principio, ¡<em>a priori</em>!</p>
 <div class="cell">
@@ -253,7 +253,19 @@ Pr(vampiro|positivo)
 </div>
 </div>
 <p>Por lo tanto, la probabilidad de que el amigo sea en realidad un vampiro es 8.7%.</p>
-<p><span style="color:GoldenRod"><strong>¿Encuentras este resultado afin o contrario a lo que pensabas antes de hacer los cálculos?</strong></span></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="¿Encuentras este resultado afin o contrario a lo que pensabas antes de hacer los cálculos?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Encuentras este resultado afin o contrario a lo que pensabas antes de hacer los cálculos?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="images/questions-1922477_1280.jpg" class="img-fluid" style="width:30.0%"></p>
+</div>
+</div>
 <p>Este es un resultado muy importante. Exactamente así, o algo muy parecido, es el procedimiento que se sigue en muchos contextos de prueba realistas: <em>las pruebas de PCR</em>, <em>antígeno</em> o <em>anticuerpos para SarsCov-2</em>, <em>la prueba del VIH</em> la del <em>DNA en un perfil criminal</em> y por supuesto la <em>prueba de significancia estadística</em>.</p>
 <p>Quizás ayude a mejorar la intuición que tenemos de las cosas el considerar que siempre que la condición de interés sea muy rara, desarrollar una <em>prueba excelente</em>, capaz de diagnosticar bien todos los casos verdaderos (aunque invitablemente produzca también algunos falsos positivos), no es garantía suficiente de que un resultado positivo en general conlleve mucha información.</p>
 <p>La razón es que usualmente resulta inevitable tener <strong>falsos positivos</strong> y por simple aritmética, esos casos serán la mayoría de los resultados que tendremos, incluso si todos los <em>verdaderos positivos</em> fueran <em>detectados correctamente</em>.</p>
@@ -266,7 +278,18 @@ Pr(vampiro|positivo)
 </ol>
 <p>Ahora piensa en esto, si hacemos pruebas a las 100,000 personas, ¿qué proporción de los que dan positivo en las pruebas de vampirismo son realmente <em>vampiros</em>?</p>
 <p>Muchas personas, aunque ciertamente no todas, encuentran esta forma de contar la historia mucho más fácil. Sigamos por este camino.</p>
-<p><span style="color:GoldenRod"><strong>¿Qué tal si contamos el número de personas que dan positivo?:</strong></span></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="¿Qué tal si contamos el número de personas que dan positivo?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Qué tal si contamos el número de personas que dan positivo?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p><span class="math display">\[
 95 + 999 = 1094
 \]</span> De estas 1094 pruebas positivas, 95 de ellas son vampiros reales, lo que nos lleva sencillamente a esto:</p>
@@ -274,13 +297,16 @@ Pr(vampiro|positivo)
 Pr(vampiro|positivo) = \frac{95}{1094} ≈ 0.087
 \]</span></p>
 <p>Esta es exactamente la misma respuesta de 8.7% que encontramos antes. Pero no tuvimos que recordar la ´“formula mágica” de Bayes, nada más tuvimos que contar y pensar con calma.</p>
+</div>
+</div>
+</div>
 <p>Esta forma de presentar el problema mediante el “conteo de los actores” en lugar de recurrir a probabilidades, suele denominarse <em>formato de frecuencia</em> o <em>frecuencias naturales</em>.</p>
 <p>Las razones propuestas para explicar el por qué el <em>formato de frecuencia</em> ayuda a la gente a intuir el enfoque correcto siguen siendo polémicas. Podría ser que de entrada sólo podemos encontrarnos con conteos en el mundo real. Quizás sea cierto que nadie ha visto nunca una probabilidad andando por ahí. Independientemente de la explicación de este fenómeno, podemos explotarlo.</p>
 <p>Los eventos muestreados en el análisis de las distribuciones de probabilidades de modelos estadísticos en algún análisis de datos, son los valores de los parámetros. La mayoría de los parámetros no tienen una “materialización” empírica exacta.</p>
 <p>El formalismo bayesiano trata las distribuciones de los parámetros como una plausibilidad relativa, no como un proceso aleatorio que ocurre en el mundo físico. En cualquier caso, la aleatoriedad es siempre una propiedad de la información, nunca del mundo real.</p>
 <section id="estadística-para-mejorar-la-ciencia" class="level2">
 <h2 class="anchored" data-anchor-id="estadística-para-mejorar-la-ciencia">Estadística para mejorar la ciencia</h2>
-<p><span style="color:GoldenRod"><strong>¿Podemos confiar en que la estadística nos proteja de la mala ciencia?.</strong></span></p>
+<div class="callot-tip" title="¿Podemos confiar en que la estadística nos proteja de la mala ciencia?">
 <p>El ejemplo del vampirismo que acabamos de ver tiene la misma estructura lógica que muchos problemas de <em>detección</em> considerando que:</p>
 <ol type="1">
 <li>Hay algún estado binario al que no tenemos acceso.</li>
@@ -294,6 +320,7 @@ Pr(vampiro|positivo) = \frac{95}{1094} ≈ 0.087
 <li>Debemos/podemos utilizar el teorema de Bayes para deducir lógicamente el impacto del indicio en el estado de la hipótesis.</li>
 </ol>
 <p>Es el tercer paso el que casi nunca se hace. Sin debatir por lo pronto si debemos o no usar a Bayes, consideremos por un momento la idea como un ejemplo de juguete.</p>
+</div>
 <section id="resultados-posibles-de-un-estudio-científico" class="level3">
 <h3 class="anchored" data-anchor-id="resultados-posibles-de-un-estudio-científico">Resultados posibles de un estudio científico</h3>
 <section id="probabilidad-de-acertar" class="level4">
@@ -333,12 +360,31 @@ Pr(detectada|Hipótesis) = \frac{Pr(Hipótesis|detectada) Pr(detectado)} {Pr(Hip
 <p>Como podemos ver, al substituir los valores <em>imaginados</em>, encontramos que la respuesta es aproximadamente <span class="math inline">\({Pr(V|H) = 0.16}\)</span>.</p>
 <p>Así que un resultado positivo corresponde a un 16% de probabilidad de que la hipótesis sea cierta.</p>
 <p>Este es el mismo fenómeno de baja tasa de base que se aplica en las pruebas médicas (y en nuestro ejemplo de <em>vampiros</em>).</p>
-<p>Puedes reducir la tasa de falsos positivos al 1% y <span style="color:GoldenRod"><strong>¿qué pasaría?</strong></span></p>
-</section>
-</section>
-<section id="programar-para-explorar-ideas" class="level3">
-<h3 class="anchored" data-anchor-id="programar-para-explorar-ideas">Programar para explorar ideas</h3>
-<p>Una manera de explorar esto es haciendo un <em>escript</em>, <em>algorítmo</em> o <em>programa</em> que nos permita automatizar una tarea repetitiva y potencialmente aburrida. Veamos como hacerlo.</p>
+<p>Puedes reducir la tasa de falsos positivos al 1%</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="¿qué pasaría?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿qué pasaría?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="images/confused-2681507_1280.jpg" class="img-fluid" style="width:50.0%"></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Programar para explorar ideas">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Programar para explorar ideas
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Una manera de explorar esto es haciendo un <em>escript</em>, <em>algoritmo</em> o <em>programa</em> que nos permita automatizar una tarea repetitiva y potencialmente aburrida. Veamos como hacerlo.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -389,6 +435,12 @@ Pr(detectada|Hipótesis) = \frac{Pr(Hipótesis|detectada) Pr(detectado)} {Pr(Hip
 <p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="conclusión-del-experimento-pensado" class="level3">
 <h3 class="anchored" data-anchor-id="conclusión-del-experimento-pensado">Conclusión del experimento pensado</h3>
@@ -396,30 +448,85 @@ Pr(detectada|Hipótesis) = \frac{Pr(Hipótesis|detectada) Pr(detectado)} {Pr(Hip
 <p>Apenas tan buena como el lanzamiento de una moneda.</p>
 <p>Podemos pensar que lo que hemos hecho hasta aquí es prácticamente un juego, pero ¿qué tan cercano podría ser a lo que ocurre en la vida real? y si fuera una razonable aproximación ¿a qué nos conduce?</p>
 <p>Quizás nos sugiera que lo más importante es mejorar la tasa base, <span class="math inline">\({Pr(V)}\)</span>, y eso requiere pensar mejor, no hacer muchas más pruebas o incluso ponerse exageradamente exigente.</p>
-</section>
-<section id="tú-que-piensas" class="level3">
-<h3 class="anchored" data-anchor-id="tú-que-piensas"><span style="color:GoldenRod"><strong>¿Tú que piensas?</strong></span></h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="¿Tú que piensas?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Tú que piensas?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="images/doubt-2137526_1280.png" class="img-fluid" style="width:10.0%"></p>
+</div>
+</div>
 </section>
 </section>
 </section>
 <section id="el-enfoque-de-modelación" class="level1">
 <h1>El enfoque de modelación</h1>
 <p>La propuesta que seguiremos en el <strong>Módulo 3</strong> se basa en traducir situaciones reales en abstracciones que escribimos como modelos estadísticos. De esta manera buscamos generar expresiones matemáticas que dan cuenta de nuestras concepciones sobre cómo funcionan aspectos concretos de la naturaleza. Es así que nos planteamos generar series de números <em>idealizados por el modelo</em> que podemos comparar con series de números observamos directamente de la naturaleza. Sí estas dos series de números se <em>parecen lo suficiente</em>, nos <em>sentiremos con confianza suficiente</em> como para pensar que nuestro modelo es útil para describir el comportamiento del segmento de la naturaleza que elegimos abstraer.</p>
-<section id="podríamos-usarlo-para-intervenir-en-él" class="level3">
-<h3 class="anchored" data-anchor-id="podríamos-usarlo-para-intervenir-en-él"><span style="color:GoldenRod"><strong>¿Podríamos usarlo para intervenir en él?</strong></span></h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="¿Podríamos usarlo para intervenir en él?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Podríamos usarlo para intervenir en él?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="images/confused-880735_1280.jpg" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
 <p>El modelo que contiene todas las variables explicativas que proponemos tinen que ver con el fenómeno que estamos analizando lo llamaremos <strong>modelo completo</strong>. Tiene todos los parámetros posibles de acuerdo con el diseño del estudio, usualmente al menos un término por cada grupo experimental (tratamiento). En general el método para llegar a un segundo modelo es postular restricciones (supuestos que especifican el valor de particulares) sobre los parámetros del primer modelo.</p>
 <p>Las restricciones usualmente son nuestra(s) hipótesis nula(s) y en ese caso las usamos para eliminar algunos parámetros del conjunto usado en el modelo completo, equivalente a dar por hecho que el parámetro correspondiente es 0. Naturalmente llamaremos al modelo resultante simplemente el <strong>modelo restringido</strong> o <strong>modelo reducido</strong>.</p>
-</section>
-<section id="piensas-que-sería-válido-restringir-un-modelo-con-valores-de-algún-parámetro-con-un-valor-que-no-sea-cero" class="level3">
-<h3 class="anchored" data-anchor-id="piensas-que-sería-válido-restringir-un-modelo-con-valores-de-algún-parámetro-con-un-valor-que-no-sea-cero"><span style="color:GoldenRod"><strong>¿Piensas que sería válido restringir un modelo con valores de algún parámetro con un valor que no sea cero?</strong></span></h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="¿Piensas que sería válido restringir un modelo con valores de algún parámetro con un valor que no sea cero?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Piensas que sería válido restringir un modelo con valores de algún parámetro con un valor que no sea cero?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="images/building-1080599_1280.jpg" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
 <p>Consideremos el ejemplo siguiente. Se trata de un grupo de hojas a las que medimos el contenido de nitrógeno. En este estudio no sabemos ni estamos postulando ninguna forma de obtener predicciones distintas para subgrupos de hojas. El modelo correspondiente es:</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="¿Es éste un modelo de regresión simple?\n¿Podrías explicarlo?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Es éste un modelo de regresión simple?¿Podrías explicarlo?
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><span class="math display">\[
-y_{i} = \mu + \varepsilon_{i}
+y_{ij} = \mu + \varepsilon_{i(j)}
 \]</span></p>
-</section>
-<section id="es-éste-un-modelo-de-regresión-simple-podrías-explicarlo" class="level3">
-<h3 class="anchored" data-anchor-id="es-éste-un-modelo-de-regresión-simple-podrías-explicarlo"><span style="color:GoldenRod"><strong>¿Es éste un modelo de regresión simple? ¿Podrías explicarlo?</strong></span></h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p><img src="images/ANOVA_Modelo_hojas-01.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>Al considerar modelos de distinta complejidad debemos pensar en alguna manera de incorporar ese aspecto en nuestro análisis. Es así que llegamos a la noción de <em>grados de libertad</em> que la expresamos como el número de observaciones menos el número de parámetros en un modelo.</p>
 <p>Con todo esto, el cálculo del <em>índice proporcional de error</em> (<strong>IPE</strong>) se puede formular para eliminar el efecto de la complejidad de los modelos que se comparan. El resultado es este:</p>
 <p><span class="math display">\[
@@ -442,7 +549,6 @@ IPE=\frac{\frac{(E_{R}-E_{C})}{gl_{C}-gl_{R}}}{\frac{E_{C}}{gl_{C}}}  \text{ si 
 <pre><code>[1] 0.005000031</code></pre>
 </div>
 </div>
-</section>
 <section id="anova" class="level2">
 <h2 class="anchored" data-anchor-id="anova">ANOVA</h2>
 <section id="conceptos-básicos-modelo-de-una-vía-un-criterio-completamente-aleatorizado" class="level3">
@@ -458,10 +564,19 @@ IPE=\frac{\frac{(E_{R}-E_{C})}{gl_{C}-gl_{R}}}{\frac{E_{C}}{gl_{C}}}  \text{ si 
 <p><span class="math display">\[
 H_0: m_1 = m_2 = m_3 = ... = m_k
 \]</span></p>
-</section>
-<section id="cómo-es-que-esta-hipótesis-se-pone-a-prueba-en-un-andeva" class="level3">
-<h3 class="anchored" data-anchor-id="cómo-es-que-esta-hipótesis-se-pone-a-prueba-en-un-andeva"><span style="color:GoldenRod"><strong>¿Cómo es que esta hipótesis se pone a prueba en un ANDEVA?</strong></span></h3>
-<p>Por cierto esta es una prueba “omnibus”, es decir ¡prueba todo (la igualdad de las medias) de un jalón!</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="¿Cómo es que esta hipótesis se pone a prueba en un ANDEVA?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Cómo es que esta hipótesis se pone a prueba en un ANDEVA?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Por cierto esta es una prueba “omnibus”, es decir ¡prueba todo (la igualdad de todas las medias) de un jalón!</p>
+</div>
+</div>
 <p>Para ver como es que opera el anova veamos el ejemplo que sigue. Considera un solo factor, “f”, con dos niveles.</p>
 <div class="cell">
 <details>
@@ -488,9 +603,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-<section id="qué-muestra-esta-gráfica-a-que-equivale-la-suma-de-los-trazos-verticales" class="level3">
-<h3 class="anchored" data-anchor-id="qué-muestra-esta-gráfica-a-que-equivale-la-suma-de-los-trazos-verticales"><span style="color:GoldenRod"><strong>¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos verticales?</strong></span></h3>
+<p>::: {.callout-tip title=“¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos verticales?”, collapse=“true”}</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -498,9 +611,10 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>dist_med_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 79.6828</code></pre>
+<pre><code>[1] 102.2765</code></pre>
 </div>
 </div>
+<p>:::</p>
 <p>Ahora incorporemos la información del factor <strong><em>f</em></strong>. Para esto hay que calcular los promedios de “y” que corresponden a los niveles de <strong><em>f</em></strong></p>
 <div class="cell">
 <details>
@@ -510,7 +624,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>        a         b 
- 5.924739 10.288975 </code></pre>
+ 5.097931 10.224538 </code></pre>
 </div>
 </div>
 <p>Grafiquemos esta nueva estructura de datos.</p>
@@ -527,9 +641,18 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-<section id="qué-muestra-esta-gráfica-a-que-equivale-la-suma-de-los-trazos-verticales-1" class="level3">
-<h3 class="anchored" data-anchor-id="qué-muestra-esta-gráfica-a-que-equivale-la-suma-de-los-trazos-verticales-1"><span style="color:GoldenRod"><strong>¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos verticales?</strong></span></h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos verticales?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos verticales?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -539,15 +662,31 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>dist_med_s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 13.01985</code></pre>
+<pre><code>[1] 10.28921</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
 <section id="si-las-dos-medias-fueran-iguales-cómo-compararían-estas-dos-gráficas" class="level3">
-<h3 class="anchored" data-anchor-id="si-las-dos-medias-fueran-iguales-cómo-compararían-estas-dos-gráficas"><span style="color:GoldenRod"><strong>Si las dos <em>medias</em> fueran iguales ¿cómo compararían estas dos gráficas?</strong></span></h3>
-</section>
-<section id="qué-interpretación-tiene-la-diferencia-entre-las-dos-sumas-mencionadas-arriba" class="level3">
-<h3 class="anchored" data-anchor-id="qué-interpretación-tiene-la-diferencia-entre-las-dos-sumas-mencionadas-arriba"><span style="color:GoldenRod"><strong>¿Qué interpretación tiene la diferencia entre las dos sumas mencionadas arriba?</strong></span></h3>
+<h3 class="anchored"><span style="color:GoldenRod"><strong>Si las dos <em>medias</em> fueran iguales ¿cómo compararían estas dos gráficas?</strong></span></h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="¿Qué interpretación tiene la diferencia entre las dos sumas mencionadas arriba?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Qué interpretación tiene la diferencia entre las dos sumas mencionadas arriba?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
 <p>Esta diferencia se asocia con la siguiente gráfica:</p>
 <div class="cell">
 <details>
@@ -571,9 +710,10 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>dist_med_s_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 66.66295</code></pre>
+<pre><code>[1] 91.98734</code></pre>
 </div>
 </div>
+<p>:::</p>
 <p>Estas tres formas de calcular las distancias entre datos y promedios se asocia con <em>fuentes de variación</em></p>
 <ol type="1">
 <li>variaciones o error total</li>
@@ -581,9 +721,18 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <li>variaciones o error del modelo (componente sistemático/efecto fijo)</li>
 </ol>
 <p>En el cuadro de análisis de varianza se suele etiquetar a los componentes de error de acuerdo con su <em>fuente</em>. Se les acompaña con los grados de libertad, la <em>suma de cuadrados</em> de las distancias que mostré en las tres gráficas anteriores y luego los llamados <em>cuadrados medios</em>. Para referencia podemos pedrle a <strong>R</strong> que nos reporte el cuadro de ANOVA de este modelo.</p>
-</section>
-<section id="analiza-la-correspondencia-entre-los-valores-y-las-gráficas-que-vimos-arriba-con-lo-que-reporta-r." class="level3">
-<h3 class="anchored" data-anchor-id="analiza-la-correspondencia-entre-los-valores-y-las-gráficas-que-vimos-arriba-con-lo-que-reporta-r."><span style="color:GoldenRod">Analiza la correspondencia entre los valores y las gráficas que vimos arriba con lo que reporta <strong>R</strong>.</span></h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Analiza la correspondencia entre los valores y las gráficas que vimos arriba con lo que reporta **R**">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Analiza la correspondencia entre los valores y las gráficas que vimos arriba con lo que reporta <strong>R</strong>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -593,9 +742,9 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <pre><code>Analysis of Variance Table
 
 Response: y
-          Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-f          1 66.663  66.663  61.441 4.63e-06 ***
-Residuals 12 13.020   1.085                     
+          Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+f          1 91.987  91.987  107.28 2.447e-07 ***
+Residuals 12 10.289   0.857                      
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -604,21 +753,21 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dist_med_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 79.6828</code></pre>
+<pre><code>[1] 102.2765</code></pre>
 </div>
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>dist_med_s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 13.01985</code></pre>
+<pre><code>[1] 10.28921</code></pre>
 </div>
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>dist_med_s_y </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 66.66295</code></pre>
+<pre><code>[1] 91.98734</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -627,8 +776,6 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(anova.data)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section>
-</section>
 <section id="disposición-de-tratamientos-e-intereses-sobre-los-factores" class="level2">
 <h2 class="anchored" data-anchor-id="disposición-de-tratamientos-e-intereses-sobre-los-factores">Disposición de tratamientos e intereses sobre los factores</h2>
 <section id="efectos-fijos" class="level3">
@@ -638,9 +785,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <section id="efectos-aleatorios" class="level3">
 <h3 class="anchored" data-anchor-id="efectos-aleatorios">Efectos aleatorios</h3>
 <p>Las variables de efectos aleatorios surgen cuando se considera que el factor considerado no es sino una muestra de los posibles resultados que se pueden obtener de muestrear la condición que caracteriza el factor. Por ejemplo, si en un experimento para explorar la germinación de <em>Bouteloua gracilis</em> bajo distintas condiciones de temperatura en campo, se distribuyen las semillas en varios sitios de una zona de interés. Los aprecia que hay básicamente dos tipos de ambiente, suelos arenosos y suelos con algo de grava, así que se eligen 5 sitios en cada condición, y en cada uno de ellos se ponen a prueba dos tratamientos, “pisoteo por ganado” y “sin pisoteo por ganado”. Los 10 sitios elegidos estarían definidos como de efectos aleatorios, pues podemos ver que los niveles elegidos son en realidad una muestra de las posibles condiciones que prevalecen en la zona de estudio. Además, claramente el interés de la predicción es ser generalizable para toda la zona. A veces podemos pensar en esta forma de proceder como equivalente a un <em>muestreo estratificado</em>, en este caso, los tipos de ambiente son los estratos. No es el caso del tratamiento pisoteo. aprovechando podemos ver que en este experimento tendremos un mínimo de 4 combinaciones experimentales, y que ese arreglo mínimo se repetirá 5 veces, así que reqeriremos 20 unidades experimentales para realizar el estudio.</p>
+<p>::: {.callout-tip title=“¿Puedes darnos un ejemplo en el que distingas entre efectos fijos y aleatorios?”</p>
+<p><img src="images/man-159771_1280.png" class="img-fluid" style="width:50.0%"></p>
 </section>
-<section id="puedes-darme-un-ejemplo-en-el-que-distingas-entre-efectos-fijos-y-aleatorios" class="level3">
-<h3 class="anchored" data-anchor-id="puedes-darme-un-ejemplo-en-el-que-distingas-entre-efectos-fijos-y-aleatorios"><span style="color:GoldenRod"><strong>¿Puedes darme un ejemplo en el que distingas entre efectos fijos y aleatorios?</strong></span></h3>
+</section>
+</div>
+</div>
+</div>
 </section>
 <section id="anidamiento-vs.-cruzamiento" class="level3">
 <h3 class="anchored" data-anchor-id="anidamiento-vs.-cruzamiento">Anidamiento vs.&nbsp;cruzamiento</h3>
@@ -712,9 +863,19 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p>Se ha contrargumentado que la paradoja requiere muestras grandes para manifestarse, y se oponen a los supuestos adicionales que requiere el análisis Bayesiano. Se ha defendido que bajo condiciones razonables, un bajo valor <em>p</em> generalmente implica una baja probabilidad posterior, es decir, poca evidencia para la hipótesis nula. Sin embargo, a pesar de esta defensa al enfoque <em>clásico</em>, se ha encontrado que los valores <em>p</em> sistemáticamente sobrestiman la evidencia en contra de la hipótesis nula.</p>
 <p>En resumen, el valor mismo de <em>p</em>, resultado de una prueba clásica de hipótesis, no aporta mucha información de interés para los investigadores. En caso de optar por la hipótesis alternativa con base en la <em>p</em>, no se favorece llegar a ninguna conclusión sustancial sobre posibles explicaciones alternativas, lo único que queda claro es que la nula probablemente es falsa.</p>
 <p>Para que quede claro, hay que insistir en que si el valor <em>p</em> es juzgado <strong><em>significativo</em></strong>, únicamente nos inclina a <strong>excluir un solo valor como estimador plausible</strong> para el parámetro. Peor aún, el significado de <strong>plausible</strong> en la última expresión tiene una relación nebulosa con la probabilidad que sí le interesa a los investigadores: <strong><em>la probabilidad posterior de que la hipótesis nula sea cierta a la luz de la evidencia recopilada</em></strong> <span class="math inline">\(P(H_{0}|E)\)</span>.</p>
-</section>
-<section id="qué-piensas-de-la-paradoja-de-lindley-y-sus-implicaciones" class="level3">
-<h3 class="anchored" data-anchor-id="qué-piensas-de-la-paradoja-de-lindley-y-sus-implicaciones"><span style="color:GoldenRod"><strong>¿Qué piensas de la paradoja de Lindley y sus implicaciones</strong></span></h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="¿Qué piensas de la paradoja de Lindley y sus implicaciones">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Qué piensas de la paradoja de Lindley y sus implicaciones
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="images/bullet-2728144_1280.jpg" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
 </section>
 <section id="remedios-y-alternativas-para-la-prueba-estadística-de-la-hipótesis-nula" class="level3">
 <h3 class="anchored" data-anchor-id="remedios-y-alternativas-para-la-prueba-estadística-de-la-hipótesis-nula">Remedios y alternativas para la prueba estadística de la hipótesis nula</h3>
@@ -729,15 +890,28 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <ol type="1">
 <li>Se puede incrementar el tamaño de muestra, <em>n</em>,</li>
 </ol>
-</section>
-<section id="por-qué-funcionaría-esto" class="level3">
-<h3 class="anchored" data-anchor-id="por-qué-funcionaría-esto"><span style="color:GoldenRod"><strong>¿Por qué funcionaría esto?</strong></span></h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="¿Por qué funcionaría esto?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Por qué funcionaría esto?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><img src="images/geometry-1922743_1280.jpg" class="img-fluid"></p>
+</div>
+</div>
+</div>
 <ol start="2" type="1">
 <li>Aumentar la precisión con la que se estima <span class="math inline">\(\sigma^2\)</span>,</li>
 </ol>
-</section>
-<section id="cómo-se-puede-hacer-esto" class="level3">
-<h3 class="anchored" data-anchor-id="cómo-se-puede-hacer-esto"><span style="color:GoldenRod"><strong>¿Cómo se puede hacer esto?</strong></span></h3>
+<p>::: {.callout-tip title=“¿Cómo se puede hacer esto?”, collapse=“true”}</p>
+<p><img src="images/key-5216637_1280.jpg" class="img-fluid" style="width:50.0%"></p>
+<p>:::</p>
 <p>Es interesante apreciar, que la búsqueda de un tamaño de muestra apropiado para un estudio que estemos planeando, se puede lograr muy eficazmente haciendo simulaciones como las que hemos estado viendo en este bloque del curso. A través de este camino y haciendo el esfuerzo de especificar hipótesis alternativas relevantes se pueden resolver preguntas como:</p>
 <ul>
 <li>¿Cuál es el tamaño de muestra necesario para detectar una cierta diferencia en lo que medimos?</li>

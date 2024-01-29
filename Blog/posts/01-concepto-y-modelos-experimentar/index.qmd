@@ -34,7 +34,8 @@ $$
 
 A partir de este conocimiento científico, supongamos que un amigo da positivo en el test de vampirismo.
 
-[**¿Cuál es la probabilidad de que sea un** ***inmortal chupasangre*** **?**]{style="color:GoldenRod"}
+::: {.callout-tip title="¿Cuál es la probabilidad de que sea un** ***inmortal chupasangre", collapse="true"}
+
 
 El enfoque de investigación formal empezaría por usar el *teorema de Bayes* para deducir la probabilidad ${Pr(vampiro|positivo)}$, lo que en cierta forma implica "invertir la probabilidad", pues lo que ahora sabemos es el valor de ${Pr(positivo|vampiro)}$. El cálculo puede presentarse como:
 
@@ -47,6 +48,7 @@ en donde ${Pr(positivo)}$ es la probabilidad promedio de los resultados positivo
 $$
 Pr(positivo) = Pr(positivo|vampiro)\times Pr(vampiro) + Pr(positivo|mortal) \times ({1 − Pr(vampiro)}) 
 $$
+:::
 
 Todo esto lo podemos hacer en **R**.
 
@@ -80,7 +82,10 @@ round(Pr_vampiro_positivo, 3)
 
 Por lo tanto, la probabilidad de que el amigo sea en realidad un vampiro es 8.7%.
 
-[**¿Encuentras este resultado afin o contrario a lo que pensabas antes de hacer los cálculos?**]{style="color:GoldenRod"}
+::: {.callout-tip title="¿Encuentras este resultado afin o contrario a lo que pensabas antes de hacer los cálculos?"}
+
+![](images/questions-1922477_1280.jpg){width="30%"}
+:::
 
 Este es un resultado muy importante. Exactamente así, o algo muy parecido, es el procedimiento que se sigue en muchos contextos de prueba realistas: *las pruebas de PCR*, *antígeno* o *anticuerpos para SarsCov-2*, *la prueba del VIH* la del *DNA en un perfil criminal* y por supuesto la *prueba de significancia estadística*.
 
@@ -100,7 +105,7 @@ Ahora piensa en esto, si hacemos pruebas a las 100,000 personas, ¿qué proporci
 
 Muchas personas, aunque ciertamente no todas, encuentran esta forma de contar la historia mucho más fácil. Sigamos por este camino.
 
-[**¿Qué tal si contamos el número de personas que dan positivo?:**]{style="color:GoldenRod"}
+::: {.callout-tip title="¿Qué tal si contamos el número de personas que dan positivo?" collapse="true"}
 
 $$
 95 + 999 = 1094
@@ -110,7 +115,10 @@ $$
 Pr(vampiro|positivo) = \frac{95}{1094} ≈ 0.087 
 $$
 
+
 Esta es exactamente la misma respuesta de 8.7% que encontramos antes. Pero no tuvimos que recordar la ´"formula mágica" de Bayes, nada más tuvimos que contar y pensar con calma.
+
+:::
 
 Esta forma de presentar el problema mediante el "conteo de los actores" en lugar de recurrir a probabilidades, suele denominarse *formato de frecuencia* o *frecuencias naturales*.
 
@@ -122,13 +130,14 @@ El formalismo bayesiano trata las distribuciones de los parámetros como una pla
 
 ## Estadística para mejorar la ciencia
 
-[**¿Podemos confiar en que la estadística nos proteja de la mala ciencia?.**]{style="color:GoldenRod"}
+::: {.callot-tip title="¿Podemos confiar en que la estadística nos proteja de la mala ciencia?"}
 
 El ejemplo del vampirismo que acabamos de ver tiene la misma estructura lógica que muchos problemas de *detección* considerando que:
 
 1.  Hay algún estado binario al que no tenemos acceso.
 2.  Observamos un indicio imperfecto del estado oculto.
 3.  (Deberíamos/podríamos) usar el teorema de Bayes para deducir lógicamente el impacto del indicio en nuestra incertidumbre (aunque [ve lo que salió en el periódico](http://www.theguardian.com/law/2011/oct/02/formula-justice-bayes-theorem-miscarriage))
+
 
 La inferencia científica puede enmarcase en términos similares:
 
@@ -137,6 +146,8 @@ La inferencia científica puede enmarcase en términos similares:
 3.  Debemos/podemos utilizar el teorema de Bayes para deducir lógicamente el impacto del indicio en el estado de la hipótesis.
 
 Es el tercer paso el que casi nunca se hace. Sin debatir por lo pronto si debemos o no usar a Bayes, consideremos por un momento la idea como un ejemplo de juguete.
+
+:::
 
 ### Resultados posibles de un estudio científico
 
@@ -180,11 +191,15 @@ Así que un resultado positivo corresponde a un 16% de probabilidad de que la hi
 
 Este es el mismo fenómeno de baja tasa de base que se aplica en las pruebas médicas (y en nuestro ejemplo de *vampiros*).
 
-Puedes reducir la tasa de falsos positivos al 1% y [**¿qué pasaría?**]{style="color:GoldenRod"}
+Puedes reducir la tasa de falsos positivos al 1%
 
-### Programar para explorar ideas
+::: {.callout-tip title="¿qué pasaría?"}
 
-Una manera de explorar esto es haciendo un *escript*, *algorítmo* o *programa* que nos permita automatizar una tarea repetitiva y potencialmente aburrida. Veamos como hacerlo.
+![](images/confused-2681507_1280.jpg){width="50%"}
+
+::: {.callout-note title="Programar para explorar ideas" collapse="true"}
+
+Una manera de explorar esto es haciendo un *escript*, *algoritmo* o *programa* que nos permita automatizar una tarea repetitiva y potencialmente aburrida. Veamos como hacerlo.
 
 ```{r}
 ciencia <- function (pr_pos_verdadero = 0.95, pr_verdadero = 0.01)
@@ -230,6 +245,9 @@ plot(x = 1 - resultados$p_error, y = resultados$p_post,
      cex = 2, cex.axis  = 1, cex.lab = 2)
 ```
 
+:::
+:::
+
 ### Conclusión del experimento pensado
 
 Una investigación muy exigente que reduce la detección de falsos positivos a 1%, nos permite llevar la probabilidad posterior de *descubrimientos exitosos* hasta 0.5.
@@ -240,29 +258,46 @@ Podemos pensar que lo que hemos hecho hasta aquí es prácticamente un juego, pe
 
 Quizás nos sugiera que lo más importante es mejorar la tasa base, ${Pr(V)}$, y eso requiere pensar mejor, no hacer muchas más pruebas o incluso ponerse exageradamente exigente.
 
-### [**¿Tú que piensas?**]{style="color:GoldenRod"}
+:::{.callout-tip title="¿Tú que piensas?"}
+![](images/doubt-2137526_1280.png){width="10%"}
+:::
+
 
 # El enfoque de modelación
 
 La propuesta que seguiremos en el **Módulo 3** se basa en traducir situaciones reales en abstracciones que escribimos como modelos estadísticos. De esta manera buscamos generar expresiones matemáticas que dan cuenta de nuestras concepciones sobre cómo funcionan aspectos concretos de la naturaleza. Es así que nos planteamos generar series de números *idealizados por el modelo* que podemos comparar con series de números observamos directamente de la naturaleza. Sí estas dos series de números se *parecen lo suficiente*, nos *sentiremos con confianza suficiente* como para pensar que nuestro modelo es útil para describir el comportamiento del segmento de la naturaleza que elegimos abstraer.
 
-### [**¿Podríamos usarlo para intervenir en él?**]{style="color:GoldenRod"}
+:::{.callout-tip title="¿Podríamos usarlo para intervenir en él?"}
+
+![](images/confused-880735_1280.jpg){width="50%"}
+
+:::
 
 El modelo que contiene todas las variables explicativas que proponemos tinen que ver con el fenómeno que estamos analizando lo llamaremos **modelo completo**. Tiene todos los parámetros posibles de acuerdo con el diseño del estudio, usualmente al menos un término por cada grupo experimental (tratamiento). En general el método para llegar a un segundo modelo es postular restricciones (supuestos que especifican el valor de particulares) sobre los parámetros del primer modelo.
 
 Las restricciones usualmente son nuestra(s) hipótesis nula(s) y en ese caso las usamos para eliminar algunos parámetros del conjunto usado en el modelo completo, equivalente a dar por hecho que el parámetro correspondiente es 0. Naturalmente llamaremos al modelo resultante simplemente el **modelo restringido** o **modelo reducido**.
 
-### [**¿Piensas que sería válido restringir un modelo con valores de algún parámetro con un valor que no sea cero?**]{style="color:GoldenRod"}
+
+::: {.callout-tip title="¿Piensas que sería válido restringir un modelo con valores de algún parámetro con un valor que no sea cero?"}
+
+![](images/building-1080599_1280.jpg){width="50%"}
+
+:::
 
 Consideremos el ejemplo siguiente. Se trata de un grupo de hojas a las que medimos el contenido de nitrógeno. En este estudio no sabemos ni estamos postulando ninguna forma de obtener predicciones distintas para subgrupos de hojas. El modelo correspondiente es:
 
+:::: {.callout-tip title="¿Es éste un modelo de regresión simple?\\n¿Podrías explicarlo?"}
+
 $$
-y_{i} = \mu + \varepsilon_{i}
+y_{ij} = \mu + \varepsilon_{i(j)}
 $$
 
-### [**¿Es éste un modelo de regresión simple? ¿Podrías explicarlo?**]{style="color:GoldenRod"}
+::: {.callout-important collapse="true"}
 
 ![](images/ANOVA_Modelo_hojas-01.png)
+
+:::
+::::
 
 Al considerar modelos de distinta complejidad debemos pensar en alguna manera de incorporar ese aspecto en nuestro análisis. Es así que llegamos a la noción de *grados de libertad* que la expresamos como el número de observaciones menos el número de parámetros en un modelo.
 
@@ -297,9 +332,11 @@ $$
 H_0: m_1 = m_2 = m_3 = ... = m_k
 $$
 
-### [**¿Cómo es que esta hipótesis se pone a prueba en un ANDEVA?**]{style="color:GoldenRod"}
+::: {.callout-tip title="¿Cómo es que esta hipótesis se pone a prueba en un ANDEVA?"}
 
-Por cierto esta es una prueba "omnibus", es decir ¡prueba todo (la igualdad de las medias) de un jalón!
+
+Por cierto esta es una prueba "omnibus", es decir ¡prueba todo (la igualdad de todas las medias) de un jalón!
+:::
 
 Para ver como es que opera el anova veamos el ejemplo que sigue. Considera un solo factor, "f", con dos niveles.
 
@@ -321,12 +358,13 @@ abline(mean(y), 0)
 for (i in 1:length(y)) lines (c(i,i), c(mean(y), y[i]))
 ```
 
-### [**¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos verticales?**]{style="color:GoldenRod"}
+::: {.callout-tip title="¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos verticales?", collapse="true"}
 
 ```{R}
 dist_med_y <- sum((y - mean(y))**2)
 dist_med_y
 ```
+:::
 
 Ahora incorporemos la información del factor ***f***. Para esto hay que calcular los promedios de "y" que corresponden a los niveles de ***f***
 
@@ -345,7 +383,7 @@ for (i in 1:7 ) lines (c(i,i), c(means[1], y[i]))
 for (i in 8:14) lines (c(i,i), c(means[2], y[i]))
 ```
 
-### [**¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos verticales?**]{style="color:GoldenRod"}
+::: {.callout-tip title="¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos verticales?" collapse="true"}
 
 ```{R}
 dist_med_s <- sum(m1=sum((y[1:7] - means[1])**2), 
@@ -354,9 +392,14 @@ dist_med_s <- sum(m1=sum((y[1:7] - means[1])**2),
 dist_med_s
 ```
 
+:::
+
 ### [**Si las dos *medias* fueran iguales ¿cómo compararían estas dos gráficas?**]{style="color:GoldenRod"}
 
-### [**¿Qué interpretación tiene la diferencia entre las dos sumas mencionadas arriba?**]{style="color:GoldenRod"}
+
+::: {.callout-tip title="¿Qué interpretación tiene la diferencia entre las dos sumas mencionadas arriba?" collapse="true"}
+
+:::
 
 Esta diferencia se asocia con la siguiente gráfica:
 
@@ -376,6 +419,8 @@ dist_med_s_y <- sum(sum((rep(means[1], 7) - mean(anova.data$y))**2),
 dist_med_s_y
 ```
 
+:::
+
 Estas tres formas de calcular las distancias entre datos y promedios se asocia con *fuentes de variación*
 
 1.  variaciones o error total
@@ -384,7 +429,7 @@ Estas tres formas de calcular las distancias entre datos y promedios se asocia c
 
 En el cuadro de análisis de varianza se suele etiquetar a los componentes de error de acuerdo con su *fuente*. Se les acompaña con los grados de libertad, la *suma de cuadrados* de las distancias que mostré en las tres gráficas anteriores y luego los llamados *cuadrados medios*. Para referencia podemos pedrle a **R** que nos reporte el cuadro de ANOVA de este modelo.
 
-### [Analiza la correspondencia entre los valores y las gráficas que vimos arriba con lo que reporta **R**.]{style="color:GoldenRod"}
+::: {.callout-tip title="Analiza la correspondencia entre los valores y las gráficas que vimos arriba con lo que reporta **R**" collapse="true"}
 
 ```{r}
 anova(modelo)
@@ -409,7 +454,11 @@ Quizás la forma más simple de identificar las variables explicativas que tiene
 
 Las variables de efectos aleatorios surgen cuando se considera que el factor considerado no es sino una muestra de los posibles resultados que se pueden obtener de muestrear la condición que caracteriza el factor. Por ejemplo, si en un experimento para explorar la germinación de *Bouteloua gracilis* bajo distintas condiciones de temperatura en campo, se distribuyen las semillas en varios sitios de una zona de interés. Los aprecia que hay básicamente dos tipos de ambiente, suelos arenosos y suelos con algo de grava, así que se eligen 5 sitios en cada condición, y en cada uno de ellos se ponen a prueba dos tratamientos, "pisoteo por ganado" y "sin pisoteo por ganado". Los 10 sitios elegidos estarían definidos como de efectos aleatorios, pues podemos ver que los niveles elegidos son en realidad una muestra de las posibles condiciones que prevalecen en la zona de estudio. Además, claramente el interés de la predicción es ser generalizable para toda la zona. A veces podemos pensar en esta forma de proceder como equivalente a un *muestreo estratificado*, en este caso, los tipos de ambiente son los estratos. No es el caso del tratamiento pisoteo. aprovechando podemos ver que en este experimento tendremos un mínimo de 4 combinaciones experimentales, y que ese arreglo mínimo se repetirá 5 veces, así que reqeriremos 20 unidades experimentales para realizar el estudio.
 
-### [**¿Puedes darme un ejemplo en el que distingas entre efectos fijos y aleatorios?**]{style="color:GoldenRod"}
+::: {.callout-tip title="¿Puedes darnos un ejemplo en el que distingas entre efectos fijos y aleatorios?"
+
+![](images/man-159771_1280.png){width="50%"}
+
+:::
 
 ### Anidamiento vs. cruzamiento
 
@@ -507,7 +556,12 @@ En resumen, el valor mismo de *p*, resultado de una prueba clásica de hipótesi
 
 Para que quede claro, hay que insistir en que si el valor *p* es juzgado ***significativo***, únicamente nos inclina a **excluir un solo valor como estimador plausible** para el parámetro. Peor aún, el significado de **plausible** en la última expresión tiene una relación nebulosa con la probabilidad que sí le interesa a los investigadores: ***la probabilidad posterior de que la hipótesis nula sea cierta a la luz de la evidencia recopilada*** $P(H_{0}|E)$.
 
-### [**¿Qué piensas de la paradoja de Lindley y sus implicaciones**]{style="color:GoldenRod"}
+
+::: {.callout-tip title="¿Qué piensas de la paradoja de Lindley y sus implicaciones"}
+
+![](images/bullet-2728144_1280.jpg){width="50%"}
+
+:::
 
 ### Remedios y alternativas para la prueba estadística de la hipótesis nula
 
@@ -525,11 +579,18 @@ En la práctica, la potencia de la prueba depende del *grado de dispersión* en 
 
 1.  Se puede incrementar el tamaño de muestra, *n*,
 
-### [**¿Por qué funcionaría esto?**]{style="color:GoldenRod"}
+::: {.callout-tip title="¿Por qué funcionaría esto?" collapse="true"}
+
+![](images/geometry-1922743_1280.jpg)
+:::
 
 2.  Aumentar la precisión con la que se estima $\sigma^2$,
 
-### [**¿Cómo se puede hacer esto?**]{style="color:GoldenRod"}
+::: {.callout-tip title="¿Cómo se puede hacer esto?", collapse="true"}
+
+![](images/key-5216637_1280.jpg){width="50%"}
+
+:::
 
 Es interesante apreciar, que la búsqueda de un tamaño de muestra apropiado para un estudio que estemos planeando, se puede lograr muy eficazmente haciendo simulaciones como las que hemos estado viendo en este bloque del curso. A través de este camino y haciendo el esfuerzo de especificar hipótesis alternativas relevantes se pueden resolver preguntas como:
 
@@ -537,14 +598,10 @@ Es interesante apreciar, que la búsqueda de un tamaño de muestra apropiado par
 -   ¿Cuál es la diferencia detectable dada una *n* o una potencia de la prueba ($1-\beta$)?
 -   ¿Cuál es la potencia ($1-\beta$) dado un *n* y cierta diferencia con $H_{a}$ de interés?
 
-
-
 ## Quiz: Prueba estadística de hipótesis
 
 Participa: vevox.app ID: 125-688-362
 
 ::: {layout="[[-1, 80, -10]]" layout-valign="top"}
-
 ![](images/clase_1-conceptos-prueba-hipotesis.png){width="200"}
 :::
-
