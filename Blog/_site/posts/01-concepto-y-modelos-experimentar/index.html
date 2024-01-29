@@ -212,7 +212,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 {Pr(vampiro) = 0.001}
 \]</span></p>
 <p>A partir de este conocimiento científico, supongamos que un amigo da positivo en el test de vampirismo.</p>
-<p>::: {.callout-tip title=“¿Cuál es la probabilidad de que sea un** ***inmortal chupasangre”, collapse=“true”}</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="¿Cuál es la probabilidad de que sea un inmortal chupasangre">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Cuál es la probabilidad de que sea un inmortal chupasangre
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>El enfoque de investigación formal empezaría por usar el <em>teorema de Bayes</em> para deducir la probabilidad <span class="math inline">\({Pr(vampiro|positivo)}\)</span>, lo que en cierta forma implica “invertir la probabilidad”, pues lo que ahora sabemos es el valor de <span class="math inline">\({Pr(positivo|vampiro)}\)</span>. El cálculo puede presentarse como:</p>
 <p><span class="math display">\[
 \Pr(vampiro|positivo) = \frac{Pr(positivo|vampiro) \times Pr(vampiro)}{Pr(positivo)}
@@ -220,7 +231,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>en donde <span class="math inline">\({Pr(positivo)}\)</span> es la probabilidad promedio de los resultados positivos de la prueba, es decir,</p>
 <p><span class="math display">\[
 Pr(positivo) = Pr(positivo|vampiro)\times Pr(vampiro) + Pr(positivo|mortal) \times ({1 − Pr(vampiro)})
-\]</span> :::</p>
+\]</span></p>
+</div>
+</div>
+</div>
 <p>Todo esto lo podemos hacer en <strong>R</strong>.</p>
 <p>Primero tomamos nota de lo que ya sabemos al principio, ¡<em>a priori</em>!</p>
 <div class="cell">
@@ -279,7 +293,7 @@ Pr(vampiro|positivo)
 <p>Ahora piensa en esto, si hacemos pruebas a las 100,000 personas, ¿qué proporción de los que dan positivo en las pruebas de vampirismo son realmente <em>vampiros</em>?</p>
 <p>Muchas personas, aunque ciertamente no todas, encuentran esta forma de contar la historia mucho más fácil. Sigamos por este camino.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="¿Qué tal si contamos el número de personas que dan positivo?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -288,7 +302,7 @@ Pr(vampiro|positivo)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="math display">\[
 95 + 999 = 1094
@@ -373,7 +387,7 @@ Pr(detectada|Hipótesis) = \frac{Pr(Hipótesis|detectada) Pr(detectado)} {Pr(Hip
 <div class="callout-body-container callout-body">
 <p><img src="images/confused-2681507_1280.jpg" class="img-fluid" style="width:50.0%"></p>
 <div class="callout callout-style-default callout-note callout-titled" title="Programar para explorar ideas">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -382,7 +396,7 @@ Programar para explorar ideas
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Una manera de explorar esto es haciendo un <em>escript</em>, <em>algoritmo</em> o <em>programa</em> que nos permita automatizar una tarea repetitiva y potencialmente aburrida. Veamos como hacerlo.</p>
 <div class="cell">
@@ -496,21 +510,22 @@ Programar para explorar ideas
 </div>
 </div>
 <p>Consideremos el ejemplo siguiente. Se trata de un grupo de hojas a las que medimos el contenido de nitrógeno. En este estudio no sabemos ni estamos postulando ninguna forma de obtener predicciones distintas para subgrupos de hojas. El modelo correspondiente es:</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="¿Es éste un modelo de regresión simple?\n¿Podrías explicarlo?">
+<div class="callout callout-style-default callout-tip callout-titled" title="¿Es éste un modelo de regresión simple?">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-¿Es éste un modelo de regresión simple?¿Podrías explicarlo?
+¿Es éste un modelo de regresión simple?
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>¿Podrías explicar esta ecuación?</p>
 <p><span class="math display">\[
 y_{ij} = \mu + \varepsilon_{i(j)}
 \]</span></p>
 <div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -519,7 +534,7 @@ Importante
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><img src="images/ANOVA_Modelo_hojas-01.png" class="img-fluid"></p>
 </div>
@@ -603,7 +618,18 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>::: {.callout-tip title=“¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos verticales?”, collapse=“true”}</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos verticales?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos verticales?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -611,10 +637,12 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>dist_med_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 112.8762</code></pre>
+<pre><code>[1] 89.15843</code></pre>
 </div>
 </div>
-<p>:::</p>
+</div>
+</div>
+</div>
 <p>Ahora incorporemos la información del factor <strong><em>f</em></strong>. Para esto hay que calcular los promedios de “y” que corresponden a los niveles de <strong><em>f</em></strong></p>
 <div class="cell">
 <details>
@@ -624,7 +652,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>        a         b 
- 5.098355 10.657507 </code></pre>
+ 5.789204 10.695722 </code></pre>
 </div>
 </div>
 <p>Grafiquemos esta nueva estructura de datos.</p>
@@ -642,7 +670,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos verticales?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -651,7 +679,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <details>
@@ -662,7 +690,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>dist_med_s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4.711622</code></pre>
+<pre><code>[1] 4.899709</code></pre>
 </div>
 </div>
 </div>
@@ -672,7 +700,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <section id="si-las-dos-medias-fueran-iguales-cómo-compararían-estas-dos-gráficas" class="level3">
 <h3 class="anchored"><span style="color:GoldenRod"><strong>Si las dos <em>medias</em> fueran iguales ¿cómo compararían estas dos gráficas?</strong></span></h3>
 <div class="callout callout-style-default callout-tip callout-titled" title="¿Qué interpretación tiene la diferencia entre las dos sumas mencionadas arriba?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -681,7 +709,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 
 </div>
@@ -710,7 +738,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>dist_med_s_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 108.1646</code></pre>
+<pre><code>[1] 84.25873</code></pre>
 </div>
 </div>
 <p>:::</p>
@@ -722,7 +750,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 </ol>
 <p>En el cuadro de análisis de varianza se suele etiquetar a los componentes de error de acuerdo con su <em>fuente</em>. Se les acompaña con los grados de libertad, la <em>suma de cuadrados</em> de las distancias que mostré en las tres gráficas anteriores y luego los llamados <em>cuadrados medios</em>. Para referencia podemos pedrle a <strong>R</strong> que nos reporte el cuadro de ANOVA de este modelo.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Analiza la correspondencia entre los valores y las gráficas que vimos arriba con lo que reporta **R**">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -731,7 +759,7 @@ Analiza la correspondencia entre los valores y las gráficas que vimos arriba co
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <details>
@@ -742,9 +770,9 @@ Analiza la correspondencia entre los valores y las gráficas que vimos arriba co
 <pre><code>Analysis of Variance Table
 
 Response: y
-          Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
-f          1 108.165 108.165  275.48 1.215e-09 ***
-Residuals 12   4.712   0.393                      
+          Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+f          1 84.259  84.259  206.36 6.366e-09 ***
+Residuals 12  4.900   0.408                      
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -753,21 +781,21 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dist_med_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 112.8762</code></pre>
+<pre><code>[1] 89.15843</code></pre>
 </div>
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>dist_med_s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4.711622</code></pre>
+<pre><code>[1] 4.899709</code></pre>
 </div>
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>dist_med_s_y </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 108.1646</code></pre>
+<pre><code>[1] 84.25873</code></pre>
 </div>
 </div>
 <div class="cell">

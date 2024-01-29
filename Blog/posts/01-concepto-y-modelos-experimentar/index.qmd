@@ -34,7 +34,7 @@ $$
 
 A partir de este conocimiento científico, supongamos que un amigo da positivo en el test de vampirismo.
 
-::: {.callout-tip title="¿Cuál es la probabilidad de que sea un** ***inmortal chupasangre", collapse="true"}
+::: {.callout-tip title="¿Cuál es la probabilidad de que sea un inmortal chupasangre" collapse="true"}
 
 
 El enfoque de investigación formal empezaría por usar el *teorema de Bayes* para deducir la probabilidad ${Pr(vampiro|positivo)}$, lo que en cierta forma implica "invertir la probabilidad", pues lo que ahora sabemos es el valor de ${Pr(positivo|vampiro)}$. El cálculo puede presentarse como:
@@ -286,7 +286,9 @@ Las restricciones usualmente son nuestra(s) hipótesis nula(s) y en ese caso las
 
 Consideremos el ejemplo siguiente. Se trata de un grupo de hojas a las que medimos el contenido de nitrógeno. En este estudio no sabemos ni estamos postulando ninguna forma de obtener predicciones distintas para subgrupos de hojas. El modelo correspondiente es:
 
-:::: {.callout-tip title="¿Es éste un modelo de regresión simple?\\n¿Podrías explicarlo?"}
+:::: {.callout-tip title="¿Es éste un modelo de regresión simple?"}
+
+¿Podrías explicar esta ecuación?
 
 $$
 y_{ij} = \mu + \varepsilon_{i(j)}
@@ -358,7 +360,7 @@ abline(mean(y), 0)
 for (i in 1:length(y)) lines (c(i,i), c(mean(y), y[i]))
 ```
 
-::: {.callout-tip title="¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos verticales?", collapse="true"}
+::: {.callout-tip title="¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos verticales?" collapse="true"}
 
 ```{R}
 dist_med_y <- sum((y - mean(y))**2)
