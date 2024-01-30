@@ -516,6 +516,25 @@ En forma específica las interacciones derivadas de cruzamiento se pueden anotar
 
 Naturalmente podemos encontrar situaciones en las que el experimento combina efectos aleatorios y fijos. Naturalmente, tal diseño se denomina de efectos mixtos.
 
+## DAG de un diseño experimental simple
+
+Un experimento con asignación de tratamientos en forma completamente al azar, garantiza al máximo posile las vías de influencias ocultas o inadvertidas. Por diseño, la respuesta de las unidades experimentales, *Y*, al tratamiento *T* sólo tiene a la asignación aleatoria *A* como única causa que antecede al tratamiento. Esto lo podemos representar con el diagrama acíclico dirigido, **DAG**, siguiente:
+
+$$
+\fbox{A} \rightarrow T \rightarrow Y
+$$
+
+En este DAG, el marco que rodea a la *A* indica *aleatorización*, y como sugiere el diagrama, es la única causa que actua sore el tratamiento. Si hubiera una vía de influencia alternativa (_backdoor_), a través de alguna tercera variable como podría ser en un caso de germinación de semillas, la luminosidad del sitio o el grado de humendad en el sustrato; entonces, la aleatorización no sería el único factor que influiría sore el tratamiento. El recuadro alrededor de *A* (el proceso de aleatorización) indica que no existen otros factores actuando sobre *T*, es decir, *A* es una influencia puramente estocástica. Esta idea y el proceso de realización de un experimento controlado con aleatorización, da cuenta con toda claridad del valor de esta forma de realizar estudios para desentrañar relaciones de causalidad.
+
+Este DAG nos conduce al modelo linear siguiente
+
+$$
+y = \mu + T +  \varepsilon
+$$ 
+
+En donde *y* son las mediciones de la variable *Y* en respuesta al efecto de *T*, $\mu$ es un valor de referencia general (tradicionalmente la media general de la variale *Y*, aunque puede elegirse cualquier otro valor de referencia que convenga al estudio) y la épsilon da cuenta del efecto aleatorio inducido por $\fbox{A}$, por lo que es necesario postular una distribución de probabilidades apropiada para caracterizar su comportamiento.
+
+
 ## La tradición de prueba de hipótesis
 
 El planteamiento de la prueba de significancia estadística de hipótesis se pueden encontrar ya en el siglo XIX, su formalización teórica realmente ocurre en los años 20 y 30 del siglo XX con las publicaciones de Sir Ronald Fisher, Jerzy Neyman y Egon Pearson.
@@ -623,6 +642,7 @@ Es interesante apreciar, que la búsqueda de un tamaño de muestra apropiado par
 -   ¿Cuál es el tamaño de muestra necesario para detectar una cierta diferencia en lo que medimos?
 -   ¿Cuál es la diferencia detectable dada una *n* o una potencia de la prueba ($1-\beta$)?
 -   ¿Cuál es la potencia ($1-\beta$) dado un *n* y cierta diferencia con $H_{a}$ de interés?
+
 
 ## Quiz: Prueba estadística de hipótesis
 

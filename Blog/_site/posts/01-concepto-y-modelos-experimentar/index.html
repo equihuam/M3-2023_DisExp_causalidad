@@ -741,7 +741,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>dist_med_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 113.5188</code></pre>
+<pre><code>[1] 130.2994</code></pre>
 </div>
 </div>
 </div>
@@ -756,7 +756,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>        a         b 
- 5.216269 10.519122 </code></pre>
+ 5.446355 11.007850 </code></pre>
 </div>
 </div>
 <p>Grafiquemos esta nueva estructura de datos.</p>
@@ -794,7 +794,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>dist_med_s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 15.09789</code></pre>
+<pre><code>[1] 22.04361</code></pre>
 </div>
 </div>
 </div>
@@ -838,7 +838,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>dist_med_s_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 98.42086</code></pre>
+<pre><code>[1] 108.2558</code></pre>
 </div>
 </div>
 </div>
@@ -872,9 +872,9 @@ Analiza la correspondencia entre los valores y las gráficas que vimos arriba co
 <pre><code>Analysis of Variance Table
 
 Response: y
-          Df Sum Sq Mean Sq F value    Pr(&gt;F)    
-f          1 98.421  98.421  78.226 1.327e-06 ***
-Residuals 12 15.098   1.258                      
+          Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+f          1 108.256 108.256  58.932 5.721e-06 ***
+Residuals 12  22.044   1.837                      
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -883,21 +883,21 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dist_med_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 113.5188</code></pre>
+<pre><code>[1] 130.2994</code></pre>
 </div>
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>dist_med_s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 15.09789</code></pre>
+<pre><code>[1] 22.04361</code></pre>
 </div>
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>dist_med_s_y </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 98.42086</code></pre>
+<pre><code>[1] 108.2558</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -937,6 +937,19 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p>En forma específica las interacciones derivadas de cruzamiento se pueden anotar en un modelo como <code>a:b</code> y un anidamiento <code>a %in% b</code></p>
 <p>Naturalmente podemos encontrar situaciones en las que el experimento combina efectos aleatorios y fijos. Naturalmente, tal diseño se denomina de efectos mixtos.</p>
 </section>
+</section>
+<section id="dag-de-un-diseño-experimental-simple" class="level2">
+<h2 class="anchored" data-anchor-id="dag-de-un-diseño-experimental-simple">DAG de un diseño experimental simple</h2>
+<p>Un experimento con asignación de tratamientos en forma completamente al azar, garantiza al máximo posile las vías de influencias ocultas o inadvertidas. Por diseño, la respuesta de las unidades experimentales, <em>Y</em>, al tratamiento <em>T</em> sólo tiene a la asignación aleatoria <em>A</em> como única causa que antecede al tratamiento. Esto lo podemos representar con el diagrama acíclico dirigido, <strong>DAG</strong>, siguiente:</p>
+<p><span class="math display">\[
+\fbox{A} \rightarrow T \rightarrow Y
+\]</span></p>
+<p>En este DAG, el marco que rodea a la <em>A</em> indica <em>aleatorización</em>, y como sugiere el diagrama, es la única causa que actua sore el tratamiento. Si hubiera una vía de influencia alternativa (<em>backdoor</em>), a través de alguna tercera variable como podría ser en un caso de germinación de semillas, la luminosidad del sitio o el grado de humendad en el sustrato; entonces, la aleatorización no sería el único factor que influiría sore el tratamiento. El recuadro alrededor de <em>A</em> (el proceso de aleatorización) indica que no existen otros factores actuando sobre <em>T</em>, es decir, <em>A</em> es una influencia puramente estocástica. Esta idea y el proceso de realización de un experimento controlado con aleatorización, da cuenta con toda claridad del valor de esta forma de realizar estudios para desentrañar relaciones de causalidad.</p>
+<p>Este DAG nos conduce al modelo linear siguiente</p>
+<p><span class="math display">\[
+y = \mu + T +  \varepsilon
+\]</span></p>
+<p>En donde <em>y</em> son las mediciones de la variable <em>Y</em> en respuesta al efecto de <em>T</em>, <span class="math inline">\(\mu\)</span> es un valor de referencia general (tradicionalmente la media general de la variale <em>Y</em>, aunque puede elegirse cualquier otro valor de referencia que convenga al estudio) y la épsilon da cuenta del efecto aleatorio inducido por <span class="math inline">\(\fbox{A}\)</span>, por lo que es necesario postular una distribución de probabilidades apropiada para caracterizar su comportamiento.</p>
 </section>
 <section id="la-tradición-de-prueba-de-hipótesis" class="level2">
 <h2 class="anchored" data-anchor-id="la-tradición-de-prueba-de-hipótesis">La tradición de prueba de hipótesis</h2>
