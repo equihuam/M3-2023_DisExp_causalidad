@@ -4,6 +4,8 @@ subtitle: "modelación y prueba de hipótesis"
 author: 
   - name: "Miguel Equihua"
     email: "equihuam@gmail.com"
+  - name: "Octavio Pérez Maqueo"
+    email: "octavio.maqueo@inecol.mx"
   - name: "Elio Lagunes"
     email: "elio.lagunes.mx"
 date: "2024-01-29"
@@ -18,7 +20,8 @@ title-slide-attributes:
     data-background-size: "100%"
     data-background-opacity: "60%"
 format: 
-    metropolis-revealjs: default
+    metropolis-revealjs: 
+      chalkboard: true
 reveal-header:
     sc-sb-title: false
     header: "."
@@ -28,7 +31,7 @@ filters:
 execute: 
   eval: true
   echo: true
-embed-resources: true
+embed-resources: false
 preload-iframes: true
 lightbox: true
 ---
@@ -183,7 +186,7 @@ La forma más común de modelar datos cualitativos es:
 
 ::: columns
 ::: {.column width="60%"}
-::: {style="font-size: 70%;"}
+::: {style="font-size: 90%;"}
 -   Mediante variables usualmente llamadas **factores**.
 -   Un factor es una listas de nombres o códigos de identificación de estados o **niveles** mutuamente excluyentes.
 -   En la modelación se requiere convertir el factor a *variables indicadoras* o ***dummy***.
