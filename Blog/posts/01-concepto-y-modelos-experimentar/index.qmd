@@ -262,6 +262,30 @@ Quizás nos sugiera que lo más importante es mejorar la tasa base, ${Pr(V)}$, y
 ![](images/doubt-2137526_1280.png){width="10%"}
 :::
 
+## Crisis de reproducibilidad
+
+
+::: columns
+::: {.column width="50%"}
+![](images/Crisis_reproducibilidad.png)
+:::
+
+::: {.column width="50%"}
+![](images/Crisis_reproducibilidad-2.png)
+:::
+:::
+
+**Fuente:** Stoddart, C. (2016). Is there a reproducibility crisis in science? **Nature**, 3-5. <https://doi.org/10.1038/d41586-019-00067-3>
+
+\ 
+\ 
+\ 
+
+### ¿Ha mejorado la situación?
+
+La falta de reproducibilidad de los experimentos se traduce en artículos que son cuestionados y se ven forzados a retirarse. Claro, no es la única razón para retirar un artículo, pero si la más frecuente. A fines del año pasado salió esta noticia en Nature.
+
+[![](images/articulos-retirados.png)](https://www.nature.com/articles/d41586-023-03974-8)
 
 # El enfoque de modelación
 

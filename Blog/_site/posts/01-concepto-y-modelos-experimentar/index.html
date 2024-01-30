@@ -477,6 +477,27 @@ Programar para explorar ideas
 </div>
 </section>
 </section>
+<section id="crisis-de-reproducibilidad" class="level2">
+<h2 class="anchored" data-anchor-id="crisis-de-reproducibilidad">Crisis de reproducibilidad</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="images/Crisis_reproducibilidad.png" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<p><img src="images/Crisis_reproducibilidad-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p><strong>Fuente:</strong> Stoddart, C. (2016). Is there a reproducibility crisis in science? <strong>Nature</strong>, 3-5. <a href="https://doi.org/10.1038/d41586-019-00067-3" class="uri">https://doi.org/10.1038/d41586-019-00067-3</a></p>
+<p>&nbsp; &nbsp; &nbsp;</p>
+<section id="ha-mejorado-la-situación" class="level3">
+<h3 class="anchored" data-anchor-id="ha-mejorado-la-situación">¿Ha mejorado la situación?</h3>
+<p>La falta de reproducibilidad de los experimentos se traduce en artículos que son cuestionados y se ven forzados a retirarse. Claro, no es la única razón para retirar un artículo, pero si la más frecuente. A fines del año pasado salió esta noticia en Nature.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.nature.com/articles/d41586-023-03974-8"><img src="images/articulos-retirados.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</section>
+</section>
 </section>
 <section id="el-enfoque-de-modelación" class="level1">
 <h1>El enfoque de modelación</h1>
@@ -637,7 +658,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>dist_med_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 153.1044</code></pre>
+<pre><code>[1] 93.66855</code></pre>
 </div>
 </div>
 </div>
@@ -652,7 +673,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>        a         b 
- 4.395801 10.601048 </code></pre>
+ 5.814559 10.565007 </code></pre>
 </div>
 </div>
 <p>Grafiquemos esta nueva estructura de datos.</p>
@@ -690,7 +711,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>dist_med_s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 18.3366</code></pre>
+<pre><code>[1] 14.68491</code></pre>
 </div>
 </div>
 </div>
@@ -734,7 +755,7 @@ H_0: m_1 = m_2 = m_3 = ... = m_k
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>dist_med_s_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 134.7678</code></pre>
+<pre><code>[1] 78.98365</code></pre>
 </div>
 </div>
 </div>
@@ -768,9 +789,9 @@ Analiza la correspondencia entre los valores y las gráficas que vimos arriba co
 <pre><code>Analysis of Variance Table
 
 Response: y
-          Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
-f          1 134.768 134.768  88.196 7.028e-07 ***
-Residuals 12  18.337   1.528                      
+          Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+f          1 78.984  78.984  64.543 3.601e-06 ***
+Residuals 12 14.685   1.224                      
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -779,21 +800,21 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dist_med_y</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 153.1044</code></pre>
+<pre><code>[1] 93.66855</code></pre>
 </div>
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>dist_med_s</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 18.3366</code></pre>
+<pre><code>[1] 14.68491</code></pre>
 </div>
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>dist_med_s_y </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 134.7678</code></pre>
+<pre><code>[1] 78.98365</code></pre>
 </div>
 </div>
 <div class="cell">
