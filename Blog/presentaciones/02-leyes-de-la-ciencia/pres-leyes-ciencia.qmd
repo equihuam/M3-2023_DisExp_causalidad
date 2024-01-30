@@ -18,7 +18,8 @@ title-slide-attributes:
     data-background-size: "100%"
     data-background-opacity: "60%"
 format: 
-    metropolis-revealjs: default
+    metropolis-revealjs:
+      chalkboard: true
 reveal-header:
     sc-sb-title: false
     header: "."
@@ -26,9 +27,8 @@ transition: convex
 execute: 
   eval: true
   echo: true
-embed-resources: true
+embed-resources: false
 preload-iframes: true
-self-contained: true
 ---
 
 ## Instrucciones para participar
