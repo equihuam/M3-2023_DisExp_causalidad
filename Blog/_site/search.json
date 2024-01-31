@@ -270,7 +270,7 @@
     "href": "posts/04-diagramas-causales/index.html",
     "title": "Diagramas Causales",
     "section": "",
-    "text": "Judea Pearl se ha aproximado a la causalidad desde una peerspectiva matemática y computacional. En ese camino retomó y dio un nuevo impulso a los llamados modelos probabilísticos gráficos en su variante de redes Bayesianas. También ha incursionado en los llamados modelos de ecuaciones estructuradas, también de la familia de los modelos gráficos. Todo ello vinculado con los Gráfos Acíclicos Dirigidos, a los que llamaremos DAG (del inglés directed acyclic graphs). Pearl y colaboradores así como otros investigadores ahora, han venido desarrollando la teoría que nos permite analizar tales DAGs para comprender los patrones de dependencia causal así como los de correlación que implica una proposición causal dada. En esta contribución buscamos mostrarles algunos elementos interesantes de esto y con ello, animarlos a estudiar estas ideas con mayor profundidad.\nPresentación"
+    "text": "Judea Pearl se ha aproximado a la causalidad desde una peerspectiva matemática y computacional. En ese camino retomó y dio un nuevo impulso a los llamados modelos probabilísticos gráficos en su variante de redes Bayesianas. También ha incursionado en los llamados modelos de ecuaciones estructuradas, también de la familia de los modelos gráficos. Todo ello vinculado con los Gráfos Acíclicos Dirigidos, a los que llamaremos DAG (del inglés directed acyclic graphs). Pearl y colaboradores así como otros investigadores ahora, han venido desarrollando la teoría que nos permite analizar tales DAGs para comprender los patrones de dependencia causal así como los de correlación que implica una proposición causal dada. En esta contribución buscamos mostrarles algunos elementos interesantes de esto y con ello, animarlos a estudiar estas ideas con mayor profundidad."
   },
   {
     "objectID": "posts/04-diagramas-causales/index.html#ejemplo-efectos-de-sesgo-en-las-causas",
@@ -290,8 +290,8 @@
     "objectID": "presentaciones/04-diagramas-causales/Diagramas Causales.html#la-escalera-de-la-causalidad",
     "href": "presentaciones/04-diagramas-causales/Diagramas Causales.html#la-escalera-de-la-causalidad",
     "title": "Introducción a Diagramas Causales",
-    "section": "La escalera de la causalidad",
-    "text": "La escalera de la causalidad\n\n\n\n\n\n\n\n\n\n\n\nPearl, Judea. The Book of Why: The New Science of Cause and Effect (p. 28). Basic Books."
+    "section": "",
+    "text": "Pearl, Judea. The Book of Why: The New Science of Cause and Effect (p. 28). Basic Books."
   },
   {
     "objectID": "presentaciones/04-diagramas-causales/Diagramas Causales.html#terminología-básica-de-un-dag",
@@ -340,7 +340,7 @@
     "href": "presentaciones/04-diagramas-causales/Diagramas Causales.html#en-un-dag-con-nodos-l-a-e-y-en-este-orden-de-aparición",
     "title": "Introducción a Diagramas Causales",
     "section": "En un DAG con nodos L, A e Y (en este orden de aparición)",
-    "text": "En un DAG con nodos L, A e Y (en este orden de aparición)\nVevox\n¿Qué significa que no haya un arco del nodo A al Y?"
+    "text": "En un DAG con nodos L, A e Y (en este orden de aparición)\nVevox\n¿Qué significa que no haya un arco del nodo A al Y?\nIngresa a: vevox.app con el ID: 169-614-732"
   },
   {
     "objectID": "presentaciones/04-diagramas-causales/Diagramas Causales.html#si-nuestro-conocimiento-en-la-materia-es-insuficiente-para-descartar-la-existencia-de-un-efecto-directo-de-la-variable-d-sobre-la-e.",
@@ -459,7 +459,7 @@
     "href": "presentaciones/04-diagramas-causales/Diagramas Causales.html#la-paradoja-del-bajo-peso-al-nacer",
     "title": "Introducción a Diagramas Causales",
     "section": "La paradoja del bajo peso al nacer",
-    "text": "La paradoja del bajo peso al nacer\nEste es un ejemplo real que desconcertó a la comunidad médica durante muchos años.\nAl estudiar el efecto del tabaco en la mortalidad infantil. Ya se sabía que fumar provocaba un mayor riesgo de bajo peso al nacer y que el bajo peso al nacer aumenta el riesgo de mortalidad infantil.\n¿El tabaquismo tiene algún otro efecto sobre la mortalidad infantil?, aparte de causar bajo peso al nacer.\nLa intuición de los investigadores sugirió condicionar el peso al nacer y entonces observar el efecto del tabaquismo sobre la mortalidad: ¡se descubrió que fumar tenía un efecto protector!\nLa explicación es que ¡se trata de un sesgo del colisionador!\nHay varias causas de bajo peso al nacer. Fumar es una de ellas, pero hay otras.\nLas otras causas de bajo peso al nacer tienen un mayor riesgo negativo sobre la mortalidad infantil, aparte de su efecto sobre el bajo peso al nacer.\nComo reto, dibuja el DAG correspondiente y combina todos estos hechos para averiguar cómo el condicionamiento sobre el peso al nacer puede crear el hallazgo de que fumar tiene un falso efecto protector.\n\n\n\nM3-Causalidad"
+    "text": "La paradoja del bajo peso al nacer\nEste es un ejemplo real que desconcertó a la comunidad médica durante muchos años.\nAl estudiar el efecto del tabaco en la mortalidad infantil. Ya se sabía que fumar provocaba un mayor riesgo de bajo peso al nacer y que el bajo peso al nacer aumenta el riesgo de mortalidad infantil.\n¿El tabaquismo tiene algún otro efecto sobre la mortalidad infantil?, aparte de causar bajo peso al nacer.\nLa intuición de los investigadores sugirió condicionar el peso al nacer y entonces observar el efecto del tabaquismo sobre la mortalidad: ¡se descubrió que fumar tenía un efecto protector!\nLa explicación es que ¡se trata de un sesgo del colisionador!\nHay varias causas de bajo peso al nacer. Fumar es una de ellas, pero hay otras.\nLas otras causas de bajo peso al nacer tienen un mayor riesgo negativo sobre la mortalidad infantil, aparte de su efecto sobre el bajo peso al nacer.\nComo reto, dibuja el DAG correspondiente y combina todos estos hechos para averiguar cómo el condicionamiento sobre el peso al nacer puede crear el hallazgo de que fumar tiene un falso efecto protector."
   },
   {
     "objectID": "presentaciones/04-diagramas-causales/Diagramas Causales.html#se-puede-medir-el-efecto-sin-sesgos-de-la-aspirina",
@@ -467,5 +467,12 @@
     "title": "Introducción a Diagramas Causales",
     "section": "¿Se puede medir el efecto, sin sesgos, de la aspirina?",
     "text": "¿Se puede medir el efecto, sin sesgos, de la aspirina?\nIngresa a: vevox.app con el ID: 169-614-732"
+  },
+  {
+    "objectID": "presentaciones/04-diagramas-causales/Diagramas Causales.html",
+    "href": "presentaciones/04-diagramas-causales/Diagramas Causales.html",
+    "title": "Introducción a Diagramas Causales",
+    "section": "",
+    "text": "Pearl, Judea. The Book of Why: The New Science of Cause and Effect (p. 28). Basic Books."
   }
 ]
