@@ -18,6 +18,10 @@ Judea Pearl se ha aproximado a la causalidad desde una peerspectiva matemática 
 
 </iframe>
 
+[Presentación](../../presentaciones/04-diagramas-causales/Diagramas Causales.qmd)
+
+
+
 # Los DAG y modelos estadísticos
 
 $\newcommand{\ci}{\perp\!\!\!\perp\!\!\!~~~}$
