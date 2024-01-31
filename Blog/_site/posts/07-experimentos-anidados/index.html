@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Miguel Equihua">
+<meta name="author" content="Elio Lagunes">
+
+<title>Curso de Estadística (Inecol) - Modelos anidados</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/bar-chart.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Curso de Estadística (Inecol)</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-algo-más" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Algo más</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-algo-más">    
+        <li>
+    <a class="dropdown-item" href="../../about.html" rel="" target="">
+ <span class="dropdown-text">Acerca del módulo 3</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../presentaciones.html" rel="" target="">
+ <span class="dropdown-text">M3-Presentaciones</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../ejercicios.html" rel="" target="">
+ <span class="dropdown-text">M3-ejercicios</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/equihuam/M3-2024_causalidad" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Modelos anidados</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">clase</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autores/as</div>
+      <div class="quarto-title-meta-contents">
+               <p>Miguel Equihua </p>
+               <p>Elio Lagunes </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Fecha de publicación</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">6 de febrero de 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p><img src="ratas-de-lab.png" class="img-fluid" width="500"></p>
+<section id="diseños-con-multiples-niveles-de-unidades-experimentales" class="level1">
+<h1>Diseños con multiples niveles de unidades experimentales</h1>
+<p>Hay situaciones en las que un estudio requiere considerar unidades experimentales múltiples. Por ejemplo, si estamos haciendo un estudio en parcelas forestales y las parcelas son sujetas a tratamientos, claramente esas parcelas son las unidades experimentales de primera mano.</p>
+<p>Sin embargo, imaginemos que la variable de respuesta es el contenido de nitrógeno en el suelo, Es poco práctico recolectar la totalidad del suelo hasta, digamos 15cm de profundidad de cada parcela para determinar el contenido de nitrógeno en el suelo de toda la parcela.</p>
+<p><span style="color:GoldenRod">¿Qué opciones tenemos?</span></p>
+<p>La opción natural sería en este caso <em>tomar una muestra de suelo</em> en cada parcela, y hacer las determinaciones de contenido de nitrógeno en ellas. Al hacer esto, no conoceremos el contenido de nitrógeno de las parcelas, lo estimaremos con un margen de error, es decir con un componente de varianza asociado con el procedimiento de muestreo. Las muestras son lo que podríamos llamar <em>unidades experimentales pequeñas</em> que, además del efecto del tratamiento son afectadas por el procedimiento de muestreo como factor adicional.</p>
+<p>Otra situación es, por ejemplo, un experimento sobre el efecto del cambio climático sobre la fotosíntesis de árboles sujetos a distintos niveles de fertilizante. La situación se complica porque lo que interesa es saber si el incremento en la temperatura afecta el contenido de nitrógeno en las hojas, para lo cual se opta por hacerlo mediante un muestreo en el que se eligen ramas en cada árbol para exponerlas a una atmósfera a temperaturas controladas. ¿Cuantas hojas habríamos de utilizar para hacer las determinaciones confiablemente?</p>
+<p>Los árboles son unidades experimentales <em>grandes</em> tratadas con fertilizante y las ramas son unidades experimentales <em>chicas</em> que reciben el tratamiento factorial <em>fertilizante</em> + <em>temperatura</em>. Además hay que notar que muy probablemente hay un efecto “idiosincrático” del árbol que genera variación en el comportamiento de las ramas.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dagitty)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>parcela_dividida <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">'dag{fert -&gt; arb</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">                                 fert -&gt; rama</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">                                 temp -&gt; rama</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">                                 arb -&gt; rama</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">                                 rama -&gt; nitrH}'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">cex =</span> <span class="dv">2</span>, <span class="at">lwd  =</span> <span class="dv">5</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(parcela_dividida)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Plot coordinates for graph not supplied! Generating coordinates, see ?coordinates for how to set your own.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<section id="ejemplo-control-del-glucógeno-en-hígados-de-rata" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-control-del-glucógeno-en-hígados-de-rata">Ejemplo: Control del glucógeno en hígados de rata</h2>
+<p>Este ejemplo presentado originalmente en Sokal &amp; Rohlf (1981). Se trata de un experimento con un solo factor con tres dietas: 1 = “control”, 2 = “compuesto 217”, 3 = “compuesto 217 + azúcar”. Fueron administrados a seis ratas, dos por tratamiento. El análisis se complica por el hecho de que, para el análisis, se tomaron tres muestras del hígado de cada rata y se hicieron dos determinaciones de contenido de glucógeno en cada muestra. Así, hay seis <em>parcelas chicas</em> (lo que a algunos les gusta llamar <em>pseudorréplicas</em>) en cada rata, para finalmente dar 36 lecturas en total.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>glucog_rata <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">'dag{trat -&gt; rata</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="st">                            rata -&gt; hig</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">                             hig -&gt; muest</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="st">                             muest -&gt; gluc</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">                             trat -&gt; gluc</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="st">                             rata -&gt; gluc</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="st">                             trat -&gt; hig</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="st">                             trat -&gt; muest</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="st">                             hig -&gt; gluc</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="st">                             muest -&gt; gluc}'</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">cex =</span> <span class="dv">2</span>, <span class="at">lwd  =</span> <span class="dv">5</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(glucog_rata)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Plot coordinates for graph not supplied! Generating coordinates, see ?coordinates for how to set your own.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Arreglé el código para incorporar la versión con la <em>tubo-metáfora</em>. haciendo esto me encontré <a href="https://www.datanalytics.com/2017/05/16/soy-un-dinosaurio-sobre-las-novedades-de-r/">este artículo quejoso al respecto</a>. Ni modo, comparto algo del punto de vista de ese autor.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ratas <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">read.table</span>(<span class="st">"hígados-rata.DAT"</span>,                 </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col.names=</span><span class="st">"glucogeno"</span>))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>ratas <span class="ot">&lt;-</span> ratas <span class="sc">%&gt;%</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">mutate</span>(<span class="at">tratamiento =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="at">each=</span><span class="dv">12</span>), <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">rata =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,<span class="at">times=</span><span class="dv">3</span>, <span class="at">each=</span><span class="dv">6</span>), <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">muestraH =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="at">times=</span><span class="dv">6</span>, <span class="at">each=</span><span class="dv">2</span>), <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#ratas$tratamiento &lt;- factor(rep(1:3,each=12), levels=c(1:3))</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#ratas$rata &lt;- factor(rep(1:2,times=3, each=6), levels=c(1,2))</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#ratas$muestraH &lt;- factor(rep(1:3,times=6, each=2), levels=c(1:3))</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ratas)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  glucogeno tratamiento rata  muestraH
+      &lt;int&gt; &lt;fct&gt;       &lt;fct&gt; &lt;fct&gt;   
+1       131 1           1     1       
+2       130 1           1     1       
+3       131 1           1     2       
+4       125 1           1     2       
+5       136 1           1     3       
+6       142 1           1     3       </code></pre>
+</div>
+</div>
+</section>
+<section id="inspección-de-los-datos" class="level2">
+<h2 class="anchored" data-anchor-id="inspección-de-los-datos">inspección de los datos</h2>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span> (ratas<span class="sc">$</span>glucogeno, <span class="fu">list</span>(ratas<span class="sc">$</span>tratamiento), mean)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1        2        3 
+140.5000 151.0000 135.1667 </code></pre>
+</div>
+</div>
+<p>Quizás es mala idea etiquetar a los factores en forma numérica cuando hay la posibilidad de darles un nombre que nos facilite interpretar los resultados, especialmente para los efectos fijos. Cambiemos eso para los tratamientos. Hay varias formas de hacer esto, unas más seguras que otras, pero en este caso el cambio es muy sencillo y lo podemos hacer con suficiente seguridad como lo hemos venido haciendo con la función <code>levels</code>. Pero para atender casos más complejos sugiero usar la biblioteca <strong>tidyverse</strong> así.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ratas <span class="ot">&lt;-</span> ratas <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">trat_txt=</span><span class="fu">recode</span>(tratamiento, </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                                          <span class="st">"1"</span><span class="ot">=</span><span class="st">"trat_1"</span>, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                                          <span class="st">"2"</span><span class="ot">=</span><span class="st">"trat_2"</span>, </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                                          <span class="st">"3"</span><span class="ot">=</span><span class="st">"trat_3"</span>))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ratas)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  glucogeno tratamiento rata  muestraH trat_txt
+      &lt;int&gt; &lt;fct&gt;       &lt;fct&gt; &lt;fct&gt;    &lt;fct&gt;   
+1       131 1           1     1        trat_1  
+2       130 1           1     1        trat_1  
+3       131 1           1     2        trat_1  
+4       125 1           1     2        trat_1  
+5       136 1           1     3        trat_1  
+6       142 1           1     3        trat_1  </code></pre>
+</div>
+</div>
+</section>
+<section id="ajuste-de-modelo" class="level2">
+<h2 class="anchored" data-anchor-id="ajuste-de-modelo">Ajuste de modelo</h2>
+<p>En este caso tengo una estructura anidada, así que hay podemos usar el operador de anidación <code>%in%</code>. Sin embargo, hay que tener cuidado, pues esto sólo añade el efecto de anidamiento especificado, no los términos principales u otros niveles de anidamiento que pudieran estar presentes. También hay que notar que un anidamiento equivale en el <em>modelo estadístico lineal</em> a la presencia de términos de interacción sin su contraparte de términos en la jerarquía. En este caso, no aparece ninguna interacción tratamiento:rata o tratamiento:muestraHígado, etc., pero sí aparecen las interacciones más complejas: rata:muestraHígado:tratamieno por ejemplo.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ratas.completo <span class="ot">&lt;-</span> <span class="fu">lm</span>(glucogeno <span class="sc">~</span> trat_txt <span class="sc">+</span> rata <span class="sc">%in%</span> trat_txt <span class="sc">+</span> muestraH <span class="sc">%in%</span> rata <span class="sc">%in%</span> trat_txt, <span class="at">data=</span>ratas)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ratas.completo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = glucogeno ~ trat_txt + rata %in% trat_txt + muestraH %in% 
+    rata %in% trat_txt, data = ratas)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+ -6.00  -2.25   0.00   2.25   6.00 
+
+Coefficients:
+                               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                     130.500      3.253  40.114  &lt; 2e-16 ***
+trat_txttrat_2                   20.500      4.601   4.456 0.000305 ***
+trat_txttrat_3                   -1.000      4.601  -0.217 0.830375    
+trat_txttrat_1:rata2             18.500      4.601   4.021 0.000801 ***
+trat_txttrat_2:rata2              2.000      4.601   0.435 0.668937    
+trat_txttrat_3:rata2              9.500      4.601   2.065 0.053645 .  
+trat_txttrat_1:rata1:muestraH2   -2.500      4.601  -0.543 0.593526    
+trat_txttrat_2:rata1:muestraH2   -3.000      4.601  -0.652 0.522595    
+trat_txttrat_3:rata1:muestraH2    8.500      4.601   1.848 0.081172 .  
+trat_txttrat_1:rata2:muestraH2   -7.500      4.601  -1.630 0.120438    
+trat_txttrat_2:rata2:muestraH2   -6.000      4.601  -1.304 0.208616    
+trat_txttrat_3:rata2:muestraH2   -0.500      4.601  -0.109 0.914660    
+trat_txttrat_1:rata1:muestraH3    8.500      4.601   1.848 0.081172 .  
+trat_txttrat_2:rata1:muestraH3   -1.000      4.601  -0.217 0.830375    
+trat_txttrat_3:rata1:muestraH3    6.000      4.601   1.304 0.208616    
+trat_txttrat_1:rata2:muestraH3    6.000      4.601   1.304 0.208616    
+trat_txttrat_2:rata2:muestraH3    4.000      4.601   0.869 0.396059    
+trat_txttrat_3:rata2:muestraH3   -8.500      4.601  -1.848 0.081172 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 4.601 on 18 degrees of freedom
+Multiple R-squared:  0.8856,    Adjusted R-squared:  0.7775 
+F-statistic: 8.196 on 17 and 18 DF,  p-value: 2.508e-05</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#tapply (ratas$glucogeno, list(ratas$trat_txt), mean)</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ratas <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(trat_txt) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(glucogeno))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  trat_txt media
+  &lt;fct&gt;    &lt;dbl&gt;
+1 trat_1    140.
+2 trat_2    151 
+3 trat_3    135.</code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(ratas.completo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: glucogeno
+                       Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+trat_txt                2 1557.56  778.78 36.7927 4.375e-07 ***
+trat_txt:rata           3  797.67  265.89 12.5617 0.0001143 ***
+trat_txt:rata:muestraH 12  594.00   49.50  2.3386 0.0502907 .  
+Residuals              18  381.00   21.17                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>Recuerda que las pruebas omnibus del ANOVA de arriba sólo tienen sentido en cuanto a <em>comparación de medias</em>, para los términos de <em>efectos fijos</em>.</p>
+<p><span style="color:GoldenRod">¿Cómo interpretas estos resultados</span></p>
+<p>Conviene saber que hay muuchas maneras de hacer lo mismo en <strong>R</strong>. esta es otra forma de lograr exactamente lo mismo, pero utilizando otra notación en la forma de escribir las ecuaciones al utilizar la función de ajuste de modelos lineales.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ratas.nulo <span class="ot">&lt;-</span> <span class="fu">lm</span>(glucogeno<span class="sc">~</span><span class="dv">1</span>, <span class="at">data=</span>ratas)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ratas.completo <span class="ot">&lt;-</span> <span class="fu">lm</span>(glucogeno <span class="sc">~</span> trat_txt<span class="sc">/</span>rata<span class="sc">/</span>muestraH, <span class="at">data=</span>ratas)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(ratas.completo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: glucogeno
+                       Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+trat_txt                2 1557.56  778.78 36.7927 4.375e-07 ***
+trat_txt:rata           3  797.67  265.89 12.5617 0.0001143 ***
+trat_txt:rata:muestraH 12  594.00   49.50  2.3386 0.0502907 .  
+Residuals              18  381.00   21.17                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ratas.completo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = glucogeno ~ trat_txt/rata/muestraH, data = ratas)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+ -6.00  -2.25   0.00   2.25   6.00 
+
+Coefficients:
+                               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                     130.500      3.253  40.114  &lt; 2e-16 ***
+trat_txttrat_2                   20.500      4.601   4.456 0.000305 ***
+trat_txttrat_3                   -1.000      4.601  -0.217 0.830375    
+trat_txttrat_1:rata2             18.500      4.601   4.021 0.000801 ***
+trat_txttrat_2:rata2              2.000      4.601   0.435 0.668937    
+trat_txttrat_3:rata2              9.500      4.601   2.065 0.053645 .  
+trat_txttrat_1:rata1:muestraH2   -2.500      4.601  -0.543 0.593526    
+trat_txttrat_2:rata1:muestraH2   -3.000      4.601  -0.652 0.522595    
+trat_txttrat_3:rata1:muestraH2    8.500      4.601   1.848 0.081172 .  
+trat_txttrat_1:rata2:muestraH2   -7.500      4.601  -1.630 0.120438    
+trat_txttrat_2:rata2:muestraH2   -6.000      4.601  -1.304 0.208616    
+trat_txttrat_3:rata2:muestraH2   -0.500      4.601  -0.109 0.914660    
+trat_txttrat_1:rata1:muestraH3    8.500      4.601   1.848 0.081172 .  
+trat_txttrat_2:rata1:muestraH3   -1.000      4.601  -0.217 0.830375    
+trat_txttrat_3:rata1:muestraH3    6.000      4.601   1.304 0.208616    
+trat_txttrat_1:rata2:muestraH3    6.000      4.601   1.304 0.208616    
+trat_txttrat_2:rata2:muestraH3    4.000      4.601   0.869 0.396059    
+trat_txttrat_3:rata2:muestraH3   -8.500      4.601  -1.848 0.081172 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 4.601 on 18 degrees of freedom
+Multiple R-squared:  0.8856,    Adjusted R-squared:  0.7775 
+F-statistic: 8.196 on 17 and 18 DF,  p-value: 2.508e-05</code></pre>
+</div>
+</div>
+<p>uso de la función de análisis de la varianza de <strong>R</strong></p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>ratas.aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(glucogeno <span class="sc">~</span> tratamiento<span class="sc">/</span>rata<span class="sc">/</span>muestraH, <span class="at">data=</span>ratas)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ratas.aov)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+tratamiento                2 1557.6   778.8  36.793 4.38e-07 ***
+tratamiento:rata           3  797.7   265.9  12.562 0.000114 ***
+tratamiento:rata:muestraH 12  594.0    49.5   2.339 0.050291 .  
+Residuals                 18  381.0    21.2                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(ratas.completo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: glucogeno
+                       Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+trat_txt                2 1557.56  778.78 36.7927 4.375e-07 ***
+trat_txt:rata           3  797.67  265.89 12.5617 0.0001143 ***
+trat_txt:rata:muestraH 12  594.00   49.50  2.3386 0.0502907 .  
+Residuals              18  381.00   21.17                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>Como hemos dicho, en realidad la estructura de estos datos es mixta en cuanto a que incluye efectos fijos de los tratamientos y efectos aleatorios. Contiene los efectos aleatorios de la muestra que constituyen las ratas y dentro de ellas el muestreo de porciones de hígado. Así, la prueba <em>F</em> para el efecto de tratamientos es de interés pero, en el caso de los factores aleatorios puede valer la pena estimar los <em>componentes de varianza asociados</em> con cada etapa de muestreo. Una manera de hacer esto es mediante la función <code>aov</code> de <strong>R</strong>, dentro de la cual sólo es necesario designar las columnas que corresponden con <em>efectos aleatorios</em> mediante la función <code>Error()</code>. Estto funciona bien si el experimento es completo y balanceado.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>ratas.aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(glucogeno <span class="sc">~</span> tratamiento<span class="sc">/</span>rata<span class="sc">/</span>muestraH <span class="sc">+</span> </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">Error</span>(rata <span class="sc">+</span> muestraH <span class="sc">+</span> rata<span class="sc">/</span>muestraH), <span class="at">data=</span>ratas)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ratas.aov)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error: rata
+                 Df Sum Sq Mean Sq
+tratamiento:rata  1  413.4   413.4
+
+Error: muestraH
+                          Df Sum Sq Mean Sq
+tratamiento:rata:muestraH  2  113.6   56.78
+
+Error: rata:muestraH
+                          Df Sum Sq Mean Sq
+tratamiento:rata:muestraH  2  50.89   25.44
+
+Error: Within
+                          Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+tratamiento                2 1557.6   778.8  36.793 4.38e-07 ***
+tratamiento:rata           2  384.2   192.1   9.076  0.00188 ** 
+tratamiento:rata:muestraH  8  429.6    53.7   2.537  0.04813 *  
+Residuals                 18  381.0    21.2                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
