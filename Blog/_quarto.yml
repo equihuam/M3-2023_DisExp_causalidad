@@ -19,4 +19,6 @@ format:
     theme: sketchy
     css: styles.css
 
-editor: visual
+editor: source
+execute: 
+  freeze: true

@@ -232,6 +232,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <br>
 <br>
 </p>
+<section id="dudas-sobre-puerta-trasera" class="level1">
+<h1>Dudas sobre puerta trasera</h1>
+<p>La cuestión que se nos complicó más en la clase de hoy fue el asunto de la <em>puerta trasera</em>. Aquí retomo el tema alrededor de la pregunta sobre <em>aspirina</em> en la que nos atoramos.</p>
+<p>Para referencia esta son la pregunta y <strong>DAG</strong> asociados:</p>
+<p><img src="images/asprina.png" class="img-fluid"></p>
+<p>Los autores de este ejemplo, <a href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/">Hernan &amp; Robins</a> explican lo siguiente:</p>
+<p><img src="images/sesgo-por-inidicacion.png" class="img-fluid"></p>
+<section id="confusión-por-indicación-o-prescripción" class="level3">
+<h3 class="anchored" data-anchor-id="confusión-por-indicación-o-prescripción">Confusión por indicación o <em>prescripción</em></h3>
+<p>El contexto de este <strong>DAG</strong> se relaciona con la práctica farmacoepidemiológica al realizar estudios observacionales del efecto de los medicamentos, con protocolos en los que se comparan los resultados de personas que toman medicamentos específicos contra los de personas que no los toman (aunque pueden, por ejemplo, tomar otro tipo de medicación). En estos estudios, los participantes o sus médicos eligen si van a tomar o no los medicamentos. Por tanto, la asignación del tratamiento dista mucho de ser aleatoria. Se suelen hacer como seguimiento una vez liberado un fármaco en el mercado. La <em>confusión por indicación</em> es un sesgo que se encuentra con frecuencia en estos estudios observacionales farmacoepidemiológicos de los efectos de los fármacos.</p>
+<p>Para obtener más ayuda, les recomendamos acercarrse a <a href="dagitty.net">dagitty</a>, que es un sitio de aprendizaje y uso de DAGs. Ahí hay na herramienta de dibujo de DAGs y perrmite exlplorar oppciones de diseño de estudios y <em>recibir consejos</em> sobre la calidad de la estimación qque distintos enfoqes de diseño peden ofrecer. Con esta herramiente pprodujimos este resultado.</p>
+<p><img src="images/dagitty.png" class="img-fluid"></p>
+</section>
+</section>
 <section id="los-dag-y-modelos-estadísticos" class="level1">
 <h1>Los DAG y modelos estadísticos</h1>
 <p><span class="math inline">\(\newcommand{\ci}{\perp\!\!\!\perp\!\!\!~~~}\)</span></p>
@@ -240,7 +254,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <br>
 <br>
 </p>
-<p><img src="guia_autores_confunding.png" style="float:left;" width="40%">La influencia de este modo de pensar es tal que está provocando incluso que algunas revistas se interesen en generar guias de uso de estas ideas, por ejemplo: <em>Control of Confounding and Reporting of Results 1n Causal Inference Studies Guidance for Authors…</em>. En gran parte, la tradición de experimentos aleatorizados ofrece una sólida herramienta para estudiar relaciones causales. El problema, es que hay muchas disciplinas y más situaciones, en donde el enfoque de experimentos aleatorizados es inviable.</p>
+<p><img src="images/guia_autores_confunding.png" style="float:left;" width="40%">La influencia de este modo de pensar es tal que está provocando incluso que algunas revistas se interesen en generar guias de uso de estas ideas, por ejemplo: <em>Control of Confounding and Reporting of Results 1n Causal Inference Studies Guidance for Authors…</em>. En gran parte, la tradición de experimentos aleatorizados ofrece una sólida herramienta para estudiar relaciones causales. El problema, es que hay muchas disciplinas y más situaciones, en donde el enfoque de experimentos aleatorizados es inviable.</p>
 <p>El hecho es que los datos observacionales son una proporción abrumadora de la materia prima para la investigación empírica. Por lo tanto es necesario que, además de adquirir las destrezas que los experimentos aleatorizado requieren, también deben aprender a pensar en una forma más amplia acerca del proceso a través del cual se generan los datos. Esto es indispensable para fortalecer habilidades críticas necesarias para estar en posibilidad de extraer conclusiones adecuadas a partir de ellos.</p>
 <p>Un tema importante es comprender que en la inferencia causal, además de la habilidad para observar y operar con los datos, la <strong>evaluación contrafáctica</strong> es necesaria para lograr una comprensión más profunda de lo que se puede y quizás aún más importante, lo que no se puede deducir del análisis de un conjunto de datos.</p>
 <p>En la siguiente sección vamos a seguir este camino con uno de los ejemplos que nos proponen Lübkea K, et. al (2020).</p>

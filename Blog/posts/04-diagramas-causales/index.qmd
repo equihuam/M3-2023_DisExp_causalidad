@@ -28,6 +28,26 @@ Haz click sobre la iágen para ver la presentación
 \
 \
 
+# Dudas sobre puerta trasera
+
+La cuestión que se nos complicó más en la clase de hoy fue el asunto de la _puerta trasera_. Aquí retomo el tema alrededor de la pregunta sobre _aspirina_ en la que nos atoramos.
+
+Para referencia esta son la pregunta y **DAG** asociados:
+
+![](images/asprina.png)
+
+Los autores de este ejemplo, [Hernan & Robins](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/) explican lo siguiente:
+
+![](images/sesgo-por-inidicacion.png)
+
+### Confusión por indicación o _prescripción_
+
+El contexto de este **DAG** se relaciona con la práctica farmacoepidemiológica al realizar estudios observacionales del efecto de los medicamentos, con protocolos en los que se comparan los resultados de personas que toman medicamentos específicos contra los de personas que no los toman (aunque pueden, por ejemplo, tomar otro tipo de medicación). En estos estudios, los participantes o sus médicos eligen si van a tomar o no los medicamentos. Por tanto, la asignación del tratamiento dista mucho de ser aleatoria. Se suelen hacer como seguimiento una vez liberado un fármaco en el mercado. La _confusión por indicación_ es un sesgo que se encuentra con frecuencia en estos estudios observacionales farmacoepidemiológicos de los efectos de los fármacos. 
+
+Para obtener más ayuda, les recomendamos acercarrse a [dagitty](dagitty.net), que es un sitio de aprendizaje y uso de DAGs. Ahí hay na herramienta de dibujo de DAGs y perrmite exlplorar oppciones de diseño de estudios y _recibir consejos_ sobre la calidad de la estimación qque distintos enfoqes de diseño peden ofrecer. Con esta herramiente pprodujimos este resultado. 
+
+![](images/dagitty.png)
+
 
 # Los DAG y modelos estadísticos
 
@@ -39,7 +59,7 @@ $\newcommand{\ci}{\perp\!\!\!\perp\!\!\!~~~}$
 \
 \
 
-<img src="guia_autores_confunding.png" style="float:left;" width="40%"/>La influencia de este modo de pensar es tal que está provocando incluso que algunas revistas se interesen en generar guias de uso de estas ideas, por ejemplo: *Control of Confounding and Reporting of Results 1n Causal Inference Studies Guidance for Authors...*. En gran parte, la tradición de experimentos aleatorizados ofrece una sólida herramienta para estudiar relaciones causales. El problema, es que hay muchas disciplinas y más situaciones, en donde el enfoque de experimentos aleatorizados es inviable.
+<img src="images/guia_autores_confunding.png" style="float:left;" width="40%"/>La influencia de este modo de pensar es tal que está provocando incluso que algunas revistas se interesen en generar guias de uso de estas ideas, por ejemplo: *Control of Confounding and Reporting of Results 1n Causal Inference Studies Guidance for Authors...*. En gran parte, la tradición de experimentos aleatorizados ofrece una sólida herramienta para estudiar relaciones causales. El problema, es que hay muchas disciplinas y más situaciones, en donde el enfoque de experimentos aleatorizados es inviable.
 
 El hecho es que los datos observacionales son una proporción abrumadora de la materia prima para la investigación empírica. Por lo tanto es necesario que, además de adquirir las destrezas que los experimentos aleatorizado requieren, también deben aprender a pensar en una forma más amplia acerca del proceso a través del cual se generan los datos. Esto es indispensable para fortalecer habilidades críticas necesarias para estar en posibilidad de extraer conclusiones adecuadas a partir de ellos.
 
