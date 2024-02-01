@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><img src="images/autores_y_The_Book_of_Why.jpg" class="img-fluid" width="500"></p>
-<p>Judea Pearl se ha aproximado a la causalidad desde una peerspectiva matemática y computacional. En ese camino retomó y dio un nuevo impulso a los llamados <a href="https://eduzaurus.com/free-essay-samples/history-of-probabilistic-graphical-model/">modelos probabilísticos gráficos</a> en su variante de <em>redes Bayesianas.</em> También ha incursionado en los llamados <em>modelos de ecuaciones estructuradas</em>, también de la familia de los modelos gráficos. Todo ello vinculado con los <em>Gráfos Acíclicos Dirigidos</em>, a los que llamaremos <strong>DAG</strong> (del inglés directed acyclic graphs). Pearl y colaboradores así como otros investigadores ahora, han venido desarrollando la teoría que nos permite analizar tales <strong>DAG</strong>s para comprender los patrones de dependencia causal así como los de correlación que implica una proposición causal dada. En esta contribución buscamos mostrarles algunos elementos interesantes de esto y con ello, animarlos a estudiar estas ideas con mayor profundidad.</p>
+<p>Judea Pearl se ha aproximado a la causalidad desde una perspectiva matemática y computacional. En ese camino retomó y dio un nuevo impulso a los llamados <a href="https://eduzaurus.com/free-essay-samples/history-of-probabilistic-graphical-model/">modelos probabilísticos gráficos</a> en su variante de <em>redes Bayesianas.</em> También ha incursionado en los llamados <em>modelos de ecuaciones estructuradas</em>, también de la familia de los modelos gráficos. Todo ello vinculado con los <em>Gráfos Acíclicos Dirigidos</em>, a los que llamaremos <strong>DAG</strong> (del inglés directed acyclic graphs). Pearl y colaboradores así como otros investigadores ahora, han venido desarrollando la teoría que nos permite analizar tales <strong>DAG</strong>s para comprender los patrones de dependencia causal así como los de correlación que implica una proposición causal dada. En esta contribución buscamos mostrarles algunos elementos interesantes de esto y con ello, animarlos a estudiar estas ideas con mayor profundidad.</p>
 <p><br>
 <br>
 <br>
@@ -247,7 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="simulardor-computacional-para-aprender" class="level3">
 <h3 class="anchored" data-anchor-id="simulardor-computacional-para-aprender">Simulardor computacional para aprender</h3>
-<p>Contruyamos un conjunto de datos artificial que tenga las propiedades que especifica el <strong>DAG</strong>. Que sean, digamos, 1000 pacientes tomados aleatoriamente de la comunidad en nuestro vecindario.</p>
+<p>Construyamos un conjunto de datos artificial que tenga las propiedades que especifica el <strong>DAG</strong>. Que sean, digamos, 1000 pacientes tomados aleatoriamente de la comunidad en nuestro vecindario.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -274,7 +274,7 @@ Attaching package: 'dplyr'</code></pre>
 </details>
 </div>
 <p>Ahora, Cada uno de ellos puede estar afectado, en forma continua, por la arteriosclerosis, U, aunque en el ejemplo esto no es observable, pero el paciente sí tiene ese efecto encima. Lo representaremos con números que pueden ser negativos o positivos, digamos que en cero el paciente está normalmente sano, por abajo mejor salud (en cuanto a este mal) y por arria de cero tiene mayor grado del padecimiento. Para no complicarnos podemos elegir razonablemente que estos números se parezcan a una distribución normal.</p>
-<p>Algo semejante ocurre con la enfermedad cardíaca, salvo que la agrava la presciencia de arteriosclerosis en el paciente. Digamos que la enfermedad cardíaca puede ser cero ( la condición que tiene un paciente normal), menor quue cero entre más sano más pequeño este valor) y los valores positivos indica que está enfermo. Además, el mal se agrava añadiendo 10 veces el grado de arteriosclerosis que padezca el paciente. Todo esto, nos lleva a estas líneas de cálculo.</p>
+<p>Algo semejante ocurre con la enfermedad cardíaca, salvo que la agrava la presciencia de arteriosclerosis en el paciente. Digamos que la enfermedad cardíaca puede ser cero ( la condición que tiene un paciente normal), menor que cero entre más sano más pequeño este valor) y los valores positivos indica que está enfermo. Además, el mal se agrava añadiendo 10 veces el grado de arteriosclerosis que padezca el paciente. Todo esto, nos lleva a estas líneas de cálculo.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -283,8 +283,8 @@ Attaching package: 'dplyr'</code></pre>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">*</span> U <span class="sc">+</span> <span class="fu">rnorm</span>(n)  <span class="co"># Enfermedad cardíaca</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Un poquito más complicado es el factor aspirina. Se trata de un tratamiento que el paciente recibe o no, según su condición también lo que le <strong>haya indicado el médico</strong>. Es una variable categórica. Hay varias formas de hacerlo, pero les muestro aqui un camino que pienso es más fácil de seguir para un lector sin experiencia computacional.</p>
-<p>Primero, considero que entre los 1000 pacientes algunos ya toman aspirina y otros no</p>
+<p>Un poquito más complicado es el <strong>factor aspirina</strong>. Se trata de un tratamiento que el paciente recibe o no, según su condición también lo que le <strong>haya indicado el médico</strong>. Es una variable categórica. Hay varias formas de hacerlo, pero les muestro aquí un camino que pienso es más fácil de seguir para un lector sin experiencia computacional.</p>
+<p>Primero, considero que entre los 1000 pacientes algunos ya toman aspirina y otros no. La función <code>sample</code> de <strong>R</strong> toma muestras aleatorias de una colección de números o palabras que le demos,</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -304,7 +304,7 @@ Attaching package: 'dplyr'</code></pre>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span>  <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> (A<span class="sc">==</span><span class="st">"con aspirina"</span>) <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> T <span class="sc">+</span> U <span class="sc">+</span> <span class="fu">rnorm</span>(n)  <span class="co"># Accidente cerebral</span></span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span>  <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> (A<span class="sc">==</span><span class="st">"con aspirina"</span>) <span class="sc">+</span> U <span class="sc">+</span> <span class="fu">rnorm</span>(n)  <span class="co"># Accidente cerebral</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Para comodidad de cálculo junto los datos en una tabla, un "data.frame"</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>datos_aspirina <span class="ot">&lt;-</span> <span class="fu">tibble</span>(U, T, A, Y)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -312,7 +312,7 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 <p>El modelo real es por lo tanto:</p>
 <p><span class="math display">\[
-Y = -2 A +  2T + U
+Y = -2 A + U
 \]</span></p>
 <section id="situación-erronea-no-se-controló-el-factor-de-confusión-enfermedad-cardíaca" class="level4">
 <h4 class="anchored" data-anchor-id="situación-erronea-no-se-controló-el-factor-de-confusión-enfermedad-cardíaca">Situación erronea, no se controló el factor de confusión <em>enfermedad cardíaca</em></h4>
@@ -328,12 +328,13 @@ lm(formula = Y ~ A, data = datos_aspirina)
 
 Coefficients:
   (Intercept)  Acon aspirina  
-       -15.28          18.02  </code></pre>
+      -0.6785        -1.1348  </code></pre>
 </div>
 </div>
 </section>
 <section id="situación-apropiada-control-de-factor-de-confusión-por-enfermedad-cardíaca" class="level4">
 <h4 class="anchored" data-anchor-id="situación-apropiada-control-de-factor-de-confusión-por-enfermedad-cardíaca">Situación apropiada, control de factor de confusión por <em>enfermedad cardíaca</em></h4>
+<p>Con este procedimiento <em>cierro la puerta trasera</em> y logro estimar el efecto de la aspirina sin confusión.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -346,7 +347,7 @@ lm(formula = Y ~ A + T, data = datos_aspirina)
 
 Coefficients:
   (Intercept)  Acon aspirina              T  
-      0.04985       -2.08984        2.09974  </code></pre>
+      0.04985       -2.08984        0.09974  </code></pre>
 </div>
 </div>
 </section>
@@ -364,7 +365,60 @@ lm(formula = Y ~ A + T + U, data = datos_aspirina)
 
 Coefficients:
   (Intercept)  Acon aspirina              T              U  
-      0.04904       -2.08483        1.97986        1.20793  </code></pre>
+      0.04904       -2.08483       -0.02014        1.20793  </code></pre>
+</div>
+</div>
+</section>
+<section id="usar-dagitty-para-probar-las-implicaciones-del-dag-propuesto." class="level4">
+<h4 class="anchored" data-anchor-id="usar-dagitty-para-probar-las-implicaciones-del-dag-propuesto.">Usar <code>dagitty</code> para probar las implicaciones del <strong>DAG</strong> propuesto.</h4>
+<p>Para animarlos a sacar provecho de la capacidad de formular y analizar <strong>DAGs</strong> en <strong>R</strong> anoto a continuación algunas líneas a manera de ejemplo, tomando el caso de la <em>aspirina</em>.</p>
+<p>Para construir el <strong>DAG</strong> hago lo siguiente. Puse algo de definición de variables que permite hacer muchas cosas, incluso doy datos sobre ubicación, <code>pos</code>, para que el <strong>DAG</strong> se pinte como yo quiero.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dagitty)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>aspirina_dag <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">'dag{A[exposure, pos="1, 0"]</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="st">                             Y[outcome, pos="2, 0"]</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="st">                             U[unobserved, pos="0, 1"]</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="st">                             T[selected, pos="0, 0"]</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="st">                              U -&gt; T;</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="st">                              U -&gt; Y;</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="st">                              T -&gt; A;</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="st">                              A -&gt; Y}'</span>) </span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>asp_dag <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">'dag{U -&gt; T; U -&gt; Y; T -&gt; A; A -&gt; Y}'</span>) </span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(aspirina_dag)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/dag_aspirina-1.png" class="img-fluid" width="288"></p>
+</div>
+</div>
+<p>ahora averiguo que condiciones de independencia implica este <em>grgafo</em></p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">impliedConditionalIndependencies</span>(asp_dag)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>A _||_ U | T
+T _||_ Y | A, U</code></pre>
+</div>
+</div>
+<p>Si tengo datos, puedo poner a prueba la correspondencia del <strong>DAG</strong> con lo <em>observado</em>.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>datos_aspirina_test <span class="ot">&lt;-</span> datos_aspirina <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">mutate</span>(<span class="at">A =</span> <span class="fu">as.numeric</span>(A) <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">localTests</span>(asp_dag, <span class="fu">as.data.frame</span>(datos_aspirina), <span class="st">"cis.pillai"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   estimate   p.value        2.5%      97.5%
+A _||_ U | T    -0.01643180 0.6037579 -0.07834507 0.04560775
+T _||_ Y | A, U -0.01949504 0.5380431 -0.08138976 0.04254946</code></pre>
 </div>
 </div>
 </section>
@@ -402,44 +456,44 @@ Y &amp;= 3 C + U_{Y}, \, U_{Y} \sim N(0, 1)
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1896</span>) <span class="co"># Si interesa repetir la misma secuencia de numeros aleatorios. Habilita Repetibilidad</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="co"># Sample Size</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>aprender <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>conocer <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">*</span> aprender <span class="sc">+</span> <span class="fu">rnorm</span>(n)  <span class="co"># Conocer depende del comportamiento de aprender</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>entender <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">*</span> conocer <span class="sc">+</span> <span class="fu">rnorm</span>(n)  <span class="co"># entender depende del comportamiento de conocer</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Para comodidad de cálculo junto los datos en una tabla, un "data.frame"</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(aprender, conocer, entender)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1896</span>) <span class="co"># Si interesa repetir la misma secuencia de numeros aleatorios. Habilita Repetibilidad</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="co"># Sample Size</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>aprender <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>conocer <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">*</span> aprender <span class="sc">+</span> <span class="fu">rnorm</span>(n)  <span class="co"># Conocer depende del comportamiento de aprender</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>entender <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">*</span> conocer <span class="sc">+</span> <span class="fu">rnorm</span>(n)  <span class="co"># entender depende del comportamiento de conocer</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Para comodidad de cálculo junto los datos en una tabla, un "data.frame"</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(aprender, conocer, entender)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>El <strong>DAG</strong> que describe la situación descrita lo podemos producir en <strong>R</strong> con ayuda de la biblioteca DAGitty. Con las instrucciones siguentes.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dagitty)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>ejemplo_1_DAG <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">'dag{</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="st">                     aprender -&gt; conocer</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="st">                     conocer -&gt; entender</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="st">                     aprender[exposure, pos="0,0"]</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="st">                     conocer[pos="1,0"]</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="st">                     entender[outcome, pos="2,0"]}'</span>)</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width=</span><span class="dv">10</span>, <span class="at">repr.plot.height=</span><span class="dv">3</span>)</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">cex=</span><span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ejemplo_1_DAG)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dagitty)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>ejemplo_1_DAG <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">'dag{</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="st">                     aprender -&gt; conocer</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="st">                     conocer -&gt; entender</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="st">                     aprender[exposure, pos="0,0"]</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="st">                     conocer[pos="1,0"]</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="st">                     entender[outcome, pos="2,0"]}'</span>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width=</span><span class="dv">10</span>, <span class="at">repr.plot.height=</span><span class="dv">3</span>)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">cex=</span><span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ejemplo_1_DAG)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Si optamos por no “corregir” la estimación por el efecto del mediador, Supondríamos que el efecto total del aprendizaje sobre el entendimiento no tiene sesgo. La estimación de esta relación la obtenemos con el modelo que calculamos en <code>ejemplo_1_ecuación_1</code>.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ejemplo_1_ecuacion_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(entender <span class="sc">~</span> aprender)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ejemplo_1_ecuacion_1)<span class="sc">$</span>coefficients[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>ejemplo_1_ecuacion_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(entender <span class="sc">~</span> aprender)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ejemplo_1_ecuacion_1)<span class="sc">$</span>coefficients[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>               Estimate Std. Error
@@ -451,8 +505,8 @@ aprender    15.12087585 0.09781602</code></pre>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>ejemplo_1_ecuacion_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(entender <span class="sc">~</span> aprender <span class="sc">+</span> conocer)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ejemplo_1_ecuacion_2)<span class="sc">$</span>coefficients[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>ejemplo_1_ecuacion_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(entender <span class="sc">~</span> aprender <span class="sc">+</span> conocer)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ejemplo_1_ecuacion_2)<span class="sc">$</span>coefficients[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                Estimate Std. Error
@@ -486,7 +540,7 @@ entender &amp;= -0.005 +  0.122 \, aprender + 2.98 \, conocer + \varepsilon
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">impliedConditionalIndependencies</span>(ejemplo_1_DAG)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">impliedConditionalIndependencies</span>(ejemplo_1_DAG)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>aprn _||_ entn | cncr</code></pre>
@@ -507,10 +561,10 @@ aprender \,\, \ci \,\, entender \,\, | \,\, conocer
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># El tipo de análisis "cis" usa regresión lineal para poner a prueba la correlación</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>ejemplo_1_analisis_DAG <span class="ot">&lt;-</span> <span class="fu">localTests</span>(<span class="at">x=</span>ejemplo_1_DAG, <span class="at">data=</span>datos, <span class="at">type=</span><span class="st">"cis"</span>) </span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ejemplo_1_analisis_DAG)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># El tipo de análisis "cis" usa regresión lineal para poner a prueba la correlación</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>ejemplo_1_analisis_DAG <span class="ot">&lt;-</span> <span class="fu">localTests</span>(<span class="at">x=</span>ejemplo_1_DAG, <span class="at">data=</span>datos, <span class="at">type=</span><span class="st">"cis"</span>) </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ejemplo_1_analisis_DAG)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                        estimate   p.value        2.5%      97.5%
@@ -521,12 +575,12 @@ aprn _||_ entn | cncr 0.02367054 0.4549614 -0.03840997 0.08556934</code></pre>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width=</span><span class="dv">14</span>, <span class="at">repr.plot.height=</span><span class="dv">5</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">cex=</span><span class="fl">1.5</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">mar =</span> (<span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fl">0.5</span>))</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plotLocalTestResults</span>(ejemplo_1_analisis_DAG, <span class="at">col =</span> <span class="st">"blue"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width=</span><span class="dv">14</span>, <span class="at">repr.plot.height=</span><span class="dv">5</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">cex=</span><span class="fl">1.5</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">mar =</span> (<span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>) <span class="sc">+</span> <span class="fl">0.5</span>))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plotLocalTestResults</span>(ejemplo_1_analisis_DAG, <span class="at">col =</span> <span class="st">"blue"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <section id="puedes-comentar-tu-interpretación-de-estos-resultados-del-modelo-y-los-datos-sobre-aprendizaje-y-conocimiento" class="level3">
