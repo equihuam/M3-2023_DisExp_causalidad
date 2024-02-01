@@ -21,7 +21,7 @@ Judea Pearl se ha aproximado a la causalidad desde una peerspectiva matemática 
 ::: {layout="[[-1, 2, -1], [-1, 2, -1]]"}
 [![](images/web-6704764_1280.jpg)](../../presentaciones/04-diagramas-causales/Diagramas Causales.qmd)
 
-Haz click sobre la iágen para ver la presentación
+Haz click sobre la imágen para ver la presentación
 :::
 
 \
