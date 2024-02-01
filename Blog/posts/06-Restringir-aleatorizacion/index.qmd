@@ -3,7 +3,7 @@ title: "Restricciones a la aleatorización"
 author: ["Miguel Equihua", "Elio Lagunes"]
 date: "2024-02-02"
 lang: es
-draft: true
+draft: false
 categories: [clase]
 format:
   html:
@@ -146,7 +146,15 @@ Como [referencia sugerida encontré este artículo](http://www.scielo.org.co/pdf
 Considera que estamos midiendo la mano izquierda y la derecha de varios individuos, las medidas están emparejadas dentro de cada individuo. Es decir, queremos controlar estadísticamente las diferencias entre individuos, así nos aseguramos que la mano izquierda del *individuo A* sea analizada en conjunto con la mano derecha del *individuo A*, ya que suponemos que alguien con una mano izquierda grande tendrá una mano derecha grande. Por lo tanto, la variable *Individuo* se incluirá en el modelo como una variable aleatoria. Se podría pensar que cada Individuo representa un **bloque** que incluye una medida para la mano izquierda y una medida para la mano derecha.
 
 ```{r}
-manos <- read.table("manos.dat", sep = ",", header = T, stringsAsFactors = T)
+library(stringr)
+url_manos <- "https://drive.google.com/file/d/1GSQMbbX7szydnIMDkWYDBlFBWqTdkC4k/view?usp=drive_link"
+dat_manos_id <- str_extract(url_manos, "(?<=d/)(.*)(?=/view)")
+
+url_drive <- "https://docs.google.com/uc?id=%s&export=download" 
+manos <- read.csv(sprintf(url_drive, dat_manos_id)) 
+
+
+#manos <- read.table("manos.dat", sep = ",", header = T, stringsAsFactors = T)
 head(manos)
 ```
 

@@ -14,17 +14,25 @@ format:
 
 # Diseño completamente aleatorizado
 
-## Respuesta de Cultivares a fertilizantes (fert_dat)
+## Respuesta de Cultivares a fertilizantes
 
 Ejemplo tomado de Crawley (1998). **Glim for Ecologists**. Oxford. UK.
 
 Es un experimento en el que se midió el crecimiento (masa seca al cosechar = *y*) de plantas tratadas con 10 concentraciones diferentes de suplemento mineral como fertilizante, *f*. El experimento fue realizado con dos cultivares diferentes, *g*. Uno fue clonado de plantas de un ambiente árido y el otro de uno húmedo. Todas las plantas de cada tipo, sin restricciones, fueron asignadas aleatoriamente a los distintos niveles de fertilizante.
 
+
+
 ### Lectura de datos
 
 ```{r}
-fert_dat <- read.table("fertilizante.DAT",
-                    col.names=c("fertilizante", "rendimiento_peso")) 
+library(stringr)
+
+url_fert <- "https://drive.google.com/file/d/1_545rzA2TMIB5XPFHhwNzoHl3A8SigMT/view?usp=drive_link"
+dat_fert_id <- str_extract(url_fert, "(?<=d/)(.*)(?=/view)")
+
+url_drive <- "https://docs.google.com/uc?id=%s&export=download" 
+fert_dat <- read.csv(sprintf(url_drive, dat_fert_id), 
+                  col.names=c("fertilizante", "rendimiento_peso")) 
 
 head(fert_dat)
 ```
@@ -175,9 +183,16 @@ En este ejemplo usaremos la biblioteca `readxl` para leer los datos directamente
 ```{r}
 library(readxl)
 library(tidyverse)
-alcal_dat <- read_excel("alcal_dat.xlsx",
-    col_types = c("numeric", "numeric", "numeric"),
-    col_names = TRUE)
+
+url_drive <- "https://docs.google.com/uc?id=%s&export=download" 
+url_prot <- "https://drive.google.com/file/d/1b-1binYTUJotvPWX9sCnImwxPctumezn/view?usp=sharing"
+dat_alcal_id <- str_extract(url_prot, "(?<=d/)(.*)(?=/view)")
+alcal_dat <- read.csv(sprintf(url_drive, dat_alcal_id)) 
+
+
+#alcal_dat <- read_excel("alcal_dat.xlsx",
+#    col_types = c("numeric", "numeric", "numeric"),
+#    col_names = TRUE)
 ```
 
 ## Definición de los factores
