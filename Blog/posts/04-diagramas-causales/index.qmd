@@ -48,6 +48,75 @@ Para obtener más ayuda, les recomendamos acercarse a [dagitty](http://dagitty.n
 
 ![](images/dagitty.png)
 
+### Simulardor computacional para aprender 
+
+Contruyamos un conjunto de datos artificial que tenga las propiedades que especifica el **DAG**. Que sean, digamos, 1000 pacientes tomados aleatoriamente de la comunidad en nuestro vecindario.  
+```{r}
+library(dplyr)
+set.seed(2024) # Habilita Repetibilidad
+n <- 1000 # Tamaño de muestra
+```
+
+Ahora, Cada uno de ellos puede estar afectado, en forma continua, por la arteriosclerosis, U, aunque en el ejemplo esto no es observable, pero el paciente sí tiene ese efecto encima. Lo representaremos con números que pueden ser negativos o positivos, digamos que en cero el paciente está normalmente sano, por abajo mejor salud (en cuanto a este mal) y por arria de cero tiene mayor grado del padecimiento. Para no complicarnos podemos elegir razonablemente que estos números se parezcan a una distribución normal.
+
+Algo semejante ocurre con la enfermedad cardíaca, salvo que la agrava la presciencia de arteriosclerosis en el paciente. Digamos que la enfermedad cardíaca puede ser cero ( la condición que tiene un paciente normal), menor quue cero entre más sano más pequeño este valor) y los valores positivos indica que está enfermo. Además, el mal se agrava añadiendo 10 veces el grado de arteriosclerosis que padezca el paciente. Todo esto, nos lleva a estas líneas de cálculo.
+
+```{r}
+# De acuerdo con el ejemplo
+U <- rnorm(n)  # Arteriosclerosis
+T <- 10 * U + rnorm(n)  # Enfermedad cardíaca
+```
+
+Un poquito más complicado es el factor aspirina. Se trata de un tratamiento que el paciente recibe o no, según su condición  también lo que le **haya indicado el médico**. Es una variable categórica. Hay varias formas de hacerlo, pero les muestro aqui un camino que pienso es más fácil de seguir para un lector sin experiencia computacional. 
+
+Primero, considero que entre los 1000 pacientes algunos ya toman aspirina y otros no
+
+```{r}
+# Tratamiento con aspirina 
+A <- sample(c("con aspirina", "sin aspirina"), n, replace = TRUE)
+```
+
+Ahora, a todos los pacientes que sean detectados con _enfermedad cardiaca_ se les indica tomar aspirina y supondremos que todos ellos la tomarán.
+
+```{r}
+A[T > 0 ] <-  "con aspirina"
+A <- factor(A, levels = c("sin aspirina", "con aspirina"))
+```
+
+Finalmente, calculamos la respuesta de los pacientes al tratamiento y a los padecimientos que lo afectan y ponemos todos los datos en una tabla.
+
+```{r}
+Y <-  -2 * (A=="con aspirina") + 2 * T + U + rnorm(n)  # Accidente cerebral
+
+# Para comodidad de cálculo junto los datos en una tabla, un "data.frame"
+datos_aspirina <- tibble(U, T, A, Y)
+```
+
+El modelo real es por lo tanto:
+
+$$
+Y = -2 A +  2T + U
+$$
+
+#### Situación erronea, no se controló el factor de confusión *enfermedad cardíaca*
+
+```{r}
+lm(Y ~ A, datos_aspirina)
+```
+
+#### Situación apropiada, control de factor de confusión por *enfermedad cardíaca*
+
+```{r}
+lm(Y ~ A + T, datos_aspirina)
+```
+
+#### Situación imposile en la práctica, control de factor de confusión por *enfermedad cardíaca* y documentación de una _variable no observada_.
+
+```{r}
+lm(Y ~ A + T + U, datos_aspirina)
+```
+
+
 
 # Los DAG y modelos estadísticos
 
