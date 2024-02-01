@@ -23,7 +23,7 @@ Imaginemos que tenemos las dos situaciones experimentales que se ilustran en la 
 Si se supone ausencia de interacción entre Z y β, ambos casos se podría analizar con el mismo modelo:
 
 $$
-y_{ij} = \mu + Z_{i} + B_{j} + \varepsilon_{(ij)}
+y_{ijk} = \mu + Z_{i} + B_{j} + \varepsilon_{k(ij)}
 $$
 
 En donde: \* $\mu$ es la media general \* $Z_{i}$ es el efecto del tratamiento $i,\dots, t$ \* $B_{j}$ es el efecto del tratamiento $j,\dots, b$ \* $\varepsilon_{(ij)}$ es el error aleatorio
@@ -44,7 +44,7 @@ $$
 y_{ijkm} = \mu + Z_{i} + B_{j} + \delta_{k(j)} + \varepsilon_{m(ijk)}
 $$
 
-En donde los términos tienen la misma interpretación de arriba, y lo que aregamoses:
+En donde los términos tienen la misma interpretación de arriba, y lo que agregamos es:
 
 -   $\delta_{k(j)}$ , el componente de variación aleatoria introducido por la restricción a la aleatorización al formar bloques. Este error por lo pronto no es estimable.
 
