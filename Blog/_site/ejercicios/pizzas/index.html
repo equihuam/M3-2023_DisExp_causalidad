@@ -194,8 +194,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="preparación-de-la-masa">Preparación de la Masa</h2>
 <p><img src="pizza-masa.jpg" class="img-fluid" width="300"></p>
 <p>Para encontrar una mejor manera de hacer su pizza favorita, Marcelo se propuso reducir el tiempo que tarda en preparar la masa. Para hacerlo siguió el camino de la ciencia y diseñó un experimento para poner a prueba el efecto de la cantidad de azúcar y de leche en los tiempos de activación de la levadura. En concreto, probó cuatro recetas diferentes y midió cuántos segundos tardaba la misma cantidad de masa en llenar un recipiente hasta una marca que fijo como referencia. Aleatorizó el orden de las recetas y repitió cada tratamiento 4 veces.</p>
+<p>Para este ejercicio utiliza por favor la opción de crear tu reporte como un <em>Quarto Document</em>. Propongo esto como un ejercicio introductorio, pero considera el gran potencial que esto está adquiriendo, pues <a href="https://quarto.org/docs/manuscripts/authoring/rstudio.html">como puedes ver aquí</a>, podrías escribir tus artículos directamente con <em>Quarto</em>. Pero para empezar, te podría interesar más bien <a href="https://quarto.org/docs/get-started/hello/rstudio.html">este tutorial introductorio</a></p>
+<div class="{.layout=&quot;[-1.2,-1]&quot;}">
+<p><img src="Noteook.png" class="img-fluid"></p>
+</div>
 <p><a href="masa-para-pizza.txt">Descargar los datos en formato de texto simple</a> o <a href="https://drive.google.com/file/d/1uVUOqwobv67E5xTsSSxjg9f9qypW-aIS/view?usp=sharing">Utiliza este vínculo para otenerlo de Google Drive</a></p>
-<p>Recuerda que puedes usar estas instrucciones para leer los datos en R:</p>
+<p>Recuerda que puedes usar estas instrucciones para leer los datos en R.</p>
 <hr>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>url_datos <span class="ot">&lt;-</span> <span class="st">"URL de los datos"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>dat_datos_id <span class="ot">&lt;-</span> <span class="fu">str_extract</span>(url_datos, <span class="st">"(?&lt;=d/)(.*)(?=/view)"</span>)</span>

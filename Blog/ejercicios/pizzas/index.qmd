@@ -16,11 +16,19 @@ format:
 
 Para encontrar una mejor manera de hacer su pizza favorita, Marcelo se propuso reducir el tiempo que tarda en preparar la masa. Para hacerlo siguió el camino de la ciencia y diseñó un experimento para poner a prueba el efecto de la cantidad de azúcar y de leche en los tiempos de activación de la levadura. En concreto, probó cuatro recetas diferentes y midió cuántos segundos tardaba la misma cantidad de masa en llenar un recipiente hasta una marca que fijo como referencia. Aleatorizó el orden de las recetas y repitió cada tratamiento 4 veces.
 
+
+Para este ejercicio utiliza por favor la opción de crear tu reporte como un _Quarto Document_.
+Propongo esto como un ejercicio introductorio, pero considera el gran potencial que esto está adquiriendo, pues [como puedes ver aquí](https://quarto.org/docs/manuscripts/authoring/rstudio.html), podrías escribir tus artículos directamente con _Quarto_. Pero para empezar, te podría interesar más bien [este tutorial introductorio](https://quarto.org/docs/get-started/hello/rstudio.html)
+
+::: {.layout="[-1.2,-1]"}
+![](Noteook.png)
+:::
+
 [Descargar los datos en formato de texto simple](masa-para-pizza.txt)
 o
 [Utiliza este vínculo para otenerlo de Google Drive](https://drive.google.com/file/d/1uVUOqwobv67E5xTsSSxjg9f9qypW-aIS/view?usp=sharing)
 
-Recuerda que puedes usar estas instrucciones para leer los datos en R:
+Recuerda que puedes usar estas instrucciones para leer los datos en R.
 
 -------------------------------
 
