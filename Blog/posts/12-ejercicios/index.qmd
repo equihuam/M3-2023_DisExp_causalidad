@@ -21,12 +21,12 @@ library(sf)    # para trabajo geoespacial con vectores
 
 # Datasets para ejercicios
 
-Presentamos dos conjuntos de datos reales de monitoreo de variabes ambientales, con propósitos ecológicos para ejercitar el pensamiento crítico sobre los resultados del monitoreo, así como las capacidades computacionales. El primer conjunto consiste en dos archivos de  variables meteorológicas y el segundo en mediciones de nivel de inundación.
+Presentamos dos conjuntos de datos reales de monitoreo de variables ambientales, con propósitos ecológicos para ejercitar el pensamiento crítico sobre los resultados del monitoreo, así como las capacidades computacionales. El primer conjunto consiste en dos archivos de  variables meteorológicas y el segundo en mediciones de nivel de inundación.
 
 
 ## Serie temporal de temperatura y humedad relativa
 
-Los datos de esta serie fueron tomados con un termo-higrómetro con registro automático (logger) "Hygrochron Temperature and Humidity Data Logger" de la marca [ibuttonlink](https://www.ibuttonlink.com/products/ds1923), en el periodo comprendido entre: 2016-02-08 19:00:00 y 2017-05-31 12:01:00, en la localidad Tapachapa del Municipio Coatepec, Veracruz (lon: -96.98109; lat: 19.45871). Consta de 11,045 registros, en formato csv (comma separated value). El termó-higrómetro fue colocado en un vivero de producción de árboles nativos para restauración de ecosistemas en bosques mesófilos de montaña y bosques templados.
+Los datos de esta serie fueron tomados con un termo-higrómetro con registro automático (logger) "Hygrochron Temperature and Humidity Data Logger" de la marca [ibuttonlink](https://www.ibuttonlink.com/products/ds1923), en el periodo comprendido entre: 2016-02-08 19:00:00 y 2017-05-31 12:01:00, en la localidad Tapachapa del Municipio Coatepec, Veracruz (lon: -96.98109; lat: 19.45871). Consta de 11,045 registros, en formato csv (comma separated value). El termo-higrómetro fue colocado en un vivero de producción de árboles nativos para restauración de ecosistemas en bosques mesófilos de montaña y bosques templados.
 
 ### Objetivos del monitoreo
 
