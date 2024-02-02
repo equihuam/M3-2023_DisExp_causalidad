@@ -6,7 +6,7 @@ listing:
 author: ["Miguel Equihua", "Elio Lagunes"] 
 date: "2024-02-1"
 lang: es
-draft: false
+draft: true
 categories: [taller]
 format:
   html:
