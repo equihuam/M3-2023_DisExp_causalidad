@@ -65,6 +65,16 @@ read.csv("https://gitlab.com/datamarindo/datasets/-/raw/master/Gavilanes_Tempera
 read.csv("https://gitlab.com/datamarindo/datasets/-/raw/master/Gavilanes_rh.csv?inline=false") |> skimr::skim()
 ```
 
+### Ejercicios para este conjunto de datos
+
+1. Hacer un análisis exploratorio gráfico de ambas variables (temperatura y humedad relativa)
+1. Comentar la relación entre ambas variables
+1. Comparar los resultados de este monitoreo con la información a nivel local 
+1. Comentar si los resultados de este monitoreo sirven para los objetivos propuestos
+
+
+
+
 ::: {layout="[[-15, 70, -15],[-15, 70, -15]]"}
 ![](ibutton.png){width="70%"}
 
@@ -103,6 +113,16 @@ Fuente de los datos: Pronatura Veracruz, 2017. CC-by-SA
 ```{r}
 read_sf("https://gitlab.com/datamarindo/datasets/-/raw/master/piezometros_pver.gpkg?inline=false") |> skimr::skim()
 ```
+
+
+### Ejercicios para este set de datos
+
+1. Hacer un análisis exploratorio de la variable inundación
+1. Comparar la inundación entre los dos tratamientos (PRotección y REstauración)
+1. Aplicar un modelo lineal a la variable inundación, dependiente de la variable tiempo
+1. Comentar si los resultados de este monitoreo sirven para los objetivos.
+1. Comparar estos datos con información a nivel mundial
+1. _Opcional_ Hacer un análisis de serie de tiempo: descomponer tendencia y estacionalidad y hacer un pronóstico
 
 ::: {layout="[[-15, 70, -15]],[-15, 70, -15]]"}
 ![](piezos.png)
