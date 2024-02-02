@@ -110,7 +110,7 @@ aj3 <- update(aj2,  .~ . + cultivar)
 anova(aj3)
 ```
 
-Podemos intentar hacer un modelo completo, es decir con todos los posibles factores y combinaciones que pueden producirse. Sin embargo este modelo consume todos los grados de liberta (observacione) con que contamos pues cada tratamiento fue ensayado una sola vez en este experimento. De todos modos lo podemos intentar para ver que nos dice **R**.
+Podemos intentar hacer un modelo completo, es decir con todos los posibles factores y combinaciones que pueden producirse. Sin embargo este modelo consume todos los grados de liberta (observaciones) con que contamos pues cada tratamiento fue ensayado una sola vez en este experimento. De todos modos lo podemos intentar para ver que nos dice **R**.
 
 ```{r}
 # agregamos una pendiente diferente para cada genotipo
@@ -118,7 +118,7 @@ aj4 <- update(aj3,  .~ . + cultivar:fertilizante)
 anova(aj4)
 ```
 
-La scuencia de ajustes produce estos cambios en devianza
+La secuencia de ajustes produce estos cambios en devianza
 
 ```{r}
 anova(aj1, aj2, aj3)
@@ -132,11 +132,11 @@ estos resultados sugieren que el modelo 3 es mínimo adecuado resumen del modelo
 summary(aj3)
 ```
 
-Como un ejercicio haz el cálculo de los valores de *y*, a parir de los valores estimados por el modelo. Lo puedes hacer a mano, con ayuda de una calculadora del *super*, en Excel o equivalente, o quizás con ayuda de **R** mismo. En este último caso te doy como pista la función `coef, con la que` tendrás acceso a los coeficientes del modelo.
+Como un ejercicio haz el cálculo de los valores de *y*, a parir de los valores estimados por el modelo. Lo puedes hacer a mano, con ayuda de una calculadora del *super*, en Excel o equivalente, o quizás con ayuda de **R** mismo. En este último caso te doy como pista la función `coef`, con la que tendrás acceso a los coeficientes del modelo.
 
 [***¿Podrías escribir un programa/función en R para calcular los valores esperados?***]{style="color:GoldenRod"}
 
-Para comprender con exactitud que es lo que hace exactamente **R** al ajustar un modelo de regresión o ANDEVA, como este podemos usar la función `model.matrix()` aplicada al modelo que nos interese analizar. En este caso lo ejemplificaré con el modelo mínimo adecuado aj3. Así podemos ver en acción el uso de las formas de reparametrización
+Para comprender con exactitud que es lo que hace exactamente **R** al ajustar un modelo de regresión o ANDEVA como este, podemos usar la función `model.matrix()` aplicada al modelo que nos interese analizar. En este caso lo ejemplificaré con el modelo mínimo adecuado **aj3**. Así podemos ver en acción el uso de las formas de reparametrización
 
 ```{r}
 model.matrix(aj3)
@@ -178,7 +178,7 @@ alcal_dat (p. 138) Proteína y alcaloide. Se midió el incremento en longitud (m
 
 En este ejemplo usaremos la biblioteca `readxl` para leer los datos directamente desde un libro de Excel. Esta biblioteca define la función `read_excel` que lee los datos y entrega una tabla. Hay que notar que esta tabla no es un `data.frame`, es una `tibble` que es una versión actual de `data.frame` y como tal tiene algunas peculiaridades para el manejo de su contenido.
 
-## Lectura ded datos
+## Lectura de datos
 
 ```{r}
 library(readxl)

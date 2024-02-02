@@ -383,7 +383,7 @@ Residuals     9  30.402   3.378
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p>Podemos intentar hacer un modelo completo, es decir con todos los posibles factores y combinaciones que pueden producirse. Sin embargo este modelo consume todos los grados de liberta (observacione) con que contamos pues cada tratamiento fue ensayado una sola vez en este experimento. De todos modos lo podemos intentar para ver que nos dice <strong>R</strong>.</p>
+<p>Podemos intentar hacer un modelo completo, es decir con todos los posibles factores y combinaciones que pueden producirse. Sin embargo este modelo consume todos los grados de liberta (observaciones) con que contamos pues cada tratamiento fue ensayado una sola vez en este experimento. De todos modos lo podemos intentar para ver que nos dice <strong>R</strong>.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -406,7 +406,7 @@ fertilizante:cultivar  9  30.402   3.378     NaN    NaN
 Residuals              0   0.000     NaN               </code></pre>
 </div>
 </div>
-<p>La scuencia de ajustes produce estos cambios en devianza</p>
+<p>La secuencia de ajustes produce estos cambios en devianza</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -465,9 +465,9 @@ Multiple R-squared:  0.8771,    Adjusted R-squared:  0.7404
 F-statistic:  6.42 on 10 and 9 DF,  p-value: 0.004992</code></pre>
 </div>
 </div>
-<p>Como un ejercicio haz el cálculo de los valores de <em>y</em>, a parir de los valores estimados por el modelo. Lo puedes hacer a mano, con ayuda de una calculadora del <em>super</em>, en Excel o equivalente, o quizás con ayuda de <strong>R</strong> mismo. En este último caso te doy como pista la función <code>coef, con la que</code> tendrás acceso a los coeficientes del modelo.</p>
+<p>Como un ejercicio haz el cálculo de los valores de <em>y</em>, a parir de los valores estimados por el modelo. Lo puedes hacer a mano, con ayuda de una calculadora del <em>super</em>, en Excel o equivalente, o quizás con ayuda de <strong>R</strong> mismo. En este último caso te doy como pista la función <code>coef</code>, con la que tendrás acceso a los coeficientes del modelo.</p>
 <p><span style="color:GoldenRod"><strong><em>¿Podrías escribir un programa/función en R para calcular los valores esperados?</em></strong></span></p>
-<p>Para comprender con exactitud que es lo que hace exactamente <strong>R</strong> al ajustar un modelo de regresión o ANDEVA, como este podemos usar la función <code>model.matrix()</code> aplicada al modelo que nos interese analizar. En este caso lo ejemplificaré con el modelo mínimo adecuado aj3. Así podemos ver en acción el uso de las formas de reparametrización</p>
+<p>Para comprender con exactitud que es lo que hace exactamente <strong>R</strong> al ajustar un modelo de regresión o ANDEVA como este, podemos usar la función <code>model.matrix()</code> aplicada al modelo que nos interese analizar. En este caso lo ejemplificaré con el modelo mínimo adecuado <strong>aj3</strong>. Así podemos ver en acción el uso de las formas de reparametrización</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -633,8 +633,8 @@ cultivarseco   -5.7096998 -1.990940</code></pre>
 <h1>Ejemplo Proteina y alcaloide</h1>
 <p>alcal_dat (p.&nbsp;138) Proteína y alcaloide. Se midió el incremento en longitud (mm) de larvas de insectos. Se hicieron mediciones después de dos semanas de alimentarlas con una dieta artificial bajo condiciones controladas de temperatura. Uno de los factores fue la cantidad de proteína en la dieta, con tres niveles (bajo, medio, alto). El otro factor es la presencia o ausencia de un alcaloide. Cada tratamiento se repitió cuatro veces. La asignación de los tratamientos a los insectos se hizo en forma aleatoria entre todos los especímenes disponibles.</p>
 <p>En este ejemplo usaremos la biblioteca <code>readxl</code> para leer los datos directamente desde un libro de Excel. Esta biblioteca define la función <code>read_excel</code> que lee los datos y entrega una tabla. Hay que notar que esta tabla no es un <code>data.frame</code>, es una <code>tibble</code> que es una versión actual de <code>data.frame</code> y como tal tiene algunas peculiaridades para el manejo de su contenido.</p>
-<section id="lectura-ded-datos" class="level2">
-<h2 class="anchored" data-anchor-id="lectura-ded-datos">Lectura ded datos</h2>
+<section id="lectura-de-datos-1" class="level2">
+<h2 class="anchored" data-anchor-id="lectura-de-datos-1">Lectura de datos</h2>
 <div class="cell">
 <details>
 <summary>Código</summary>
