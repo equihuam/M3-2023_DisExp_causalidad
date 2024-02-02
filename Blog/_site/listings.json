@@ -26,6 +26,7 @@
   {
     "listing": "/ejercicios.html",
     "items": [
+      "/ejercicios/ejercicio-critico/index.html",
       "/ejercicios/pizzas/index.html"
     ]
   }
