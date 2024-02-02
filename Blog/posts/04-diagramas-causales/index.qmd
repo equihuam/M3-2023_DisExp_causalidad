@@ -76,7 +76,7 @@ Primero, considero que entre los 1000 pacientes algunos ya toman aspirina y otro
 A <- sample(c("con aspirina", "sin aspirina"), n, replace = TRUE)
 ```
 
-Ahora, a todos los pacientes que sean detectados con _enfermedad cardiaca_ se les indica tomar aspirina y supondremos que todos ellos la tomarán.
+Ahora, a todos los pacientes que sean detectados con _enfermedad cardíaca_ se les indica tomar aspirina y supondremos que todos ellos la tomarán.
 
 ```{r}
 A[T > 0 ] <-  "con aspirina"
@@ -150,11 +150,12 @@ impliedConditionalIndependencies(asp_dag)
 
 ```
 
-Si tengo datos, puedo poner a prueba la correspondencia del **DAG** con lo _observado_. Me parece que no le gstan los `tibble` a esta función
+Si tengo datos, puedo poner a prueba la correspondencia del **DAG** con lo _observado_. Me parece que no le gustan los `tibble` a esta función
+
 ```{r}
 localTests(asp_dag, as.data.frame(datos_aspirina), "cis.pillai")
 ```
-Si quiero aprovechar la caraacterización de las variables puuedo hacer cosas como rgaficar el *subgrafo* que corresponde con la puerta trasera
+Si quiero aprovechar la caracterización de las variables puedo hacer cosas como dibujar el *subgrafo* que corresponde con la puerta trasera
 
 ```{r}
 #| label: dag_backdoor
@@ -174,9 +175,14 @@ tabla_dag <-  tibble(Tratamiento=exposures(aspirina_dag),
                      Covariable_a_controlar = as.character(adjustmentSets(aspirina_dag, 
                                                          effect = "direct" ))) 
 
-library(DT)
-datatable(t(tabla_dag), 
-          colnames = c("Tipo de variable", "variable"))
+library(flextable)
+library(tidyr)
+library(stringr)
+tabla_dag %>%
+  pivot_longer(cols = 1:3, names_to = "Tipo de variable", values_to = "Variable") %>%
+  mutate(`Tipo de variable`=str_replace_all(`Tipo de variable`, "_", " ")) %>% 
+  flextable() %>% 
+  flextable::width(j = 1, width = 2)  
 
 ```
 

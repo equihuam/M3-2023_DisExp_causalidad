@@ -1,5 +1,5 @@
 ---
-title: "Ensayoy de antivenenos"
+title: "Ensayo de antivenenos"
 author: ["Miguel Equihua", "Elio Lagunes"]
 date: "2024-02-08"
 lang: es
