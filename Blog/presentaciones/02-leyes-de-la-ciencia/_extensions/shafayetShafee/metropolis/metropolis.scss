@@ -19,7 +19,10 @@ $gamma1: #c3de8d !default;
 $gamma2: #8ed4c5 !default;
 $gamma3: #E9F8C9 !default;
 $gamma4: #AEFEEC!default;
-$inecol1: #7768aa !default;
+$inecol1: #6d43ae !default;
+$inecol2: #82a512 !default;
+$inecol3: #DDF785 !default;
+$inecol4: #E2CFF8 !default;
 
 
 /*-- scss:defaults --*/
@@ -29,8 +32,9 @@ $inecol1: #7768aa !default;
 /*-- scss:mixins --*/
 
 // Background generator #1ABC9C, #96f7eb, #ABEBC6
+
 @mixin bodyBackground() {
-  @include radial-gradient($gamma4, $gamma3);
+  @include radial-gradient($inecol3, $inecol4);
 }
 
 /*-- scss:rules --*/
