@@ -4,7 +4,7 @@ listing:
   contents:
     - "posts/12-ejercicios/index.qmd"
 author: ["Miguel Equihua", "Elio Lagunes"]
-date: "2024-02-09"
+date: "2024-02-02"
 lang: es
 draft: FALSE
 categories: [taller]
