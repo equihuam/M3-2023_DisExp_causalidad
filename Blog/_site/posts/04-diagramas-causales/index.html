@@ -275,17 +275,17 @@ Attaching package: 'dplyr'</code></pre>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="co"># Tamaño de muestra</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Ahora, Cada uno de ellos puede estar afectado, en forma continua, por la arteriosclerosis, U, aunque en el ejemplo esto no es observable, pero el paciente sí tiene ese efecto encima. Lo representaremos con números que pueden ser negativos o positivos, digamos que en cero el paciente está normalmente sano, por abajo mejor salud (en cuanto a este mal) y por arria de cero tiene mayor grado del padecimiento. Para no complicarnos podemos elegir razonablemente que estos números se parezcan a una distribución normal.</p>
-<p>Algo semejante ocurre con la enfermedad cardíaca, salvo que la agrava la presciencia de arteriosclerosis en el paciente. Digamos que la enfermedad cardíaca puede ser cero ( la condición que tiene un paciente normal), menor que cero entre más sano más pequeño este valor) y los valores positivos indica que está enfermo. Además, el mal se agrava añadiendo 10 veces el grado de arteriosclerosis que padezca el paciente. Todo esto, nos lleva a estas líneas de cálculo.</p>
+<p>Ahora, Cada uno de ellos puede estar afectado, en forma continua, por la arteriosclerosis, <em>U</em>, aunque en el ejemplo esto no es observable, pero el paciente sí tiene ese efecto encima. Lo representaremos con números que pueden ser negativos o positivos, digamos que en cero el paciente está normalmente sano, por abajo mejor salud (en cuanto a este mal) y por arria de cero tiene mayor grado del padecimiento. Para no complicarnos podemos elegir razonablemente que estos números se parezcan a una distribución normal.</p>
+<p>Algo semejante ocurre con la enfermedad cardíaca, <em>L</em>, salvo que la agrava la presciencia de arteriosclerosis en el paciente. Digamos que la enfermedad cardíaca puede ser cero ( la condición que tiene un paciente normal), menor que cero entre más sano más pequeño este valor) y los valores positivos indica que está enfermo. Además, el mal se agrava añadiendo 10 veces el grado de arteriosclerosis que padezca el paciente. Todo esto, nos lleva a estas líneas de cálculo.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># De acuerdo con el ejemplo</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)  <span class="co"># Arteriosclerosis</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">*</span> U <span class="sc">+</span> <span class="fu">rnorm</span>(n)  <span class="co"># Enfermedad cardíaca</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">*</span> U <span class="sc">+</span> <span class="fu">rnorm</span>(n)  <span class="co"># Enfermedad cardíaca</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Un poquito más complicado es el <strong>factor aspirina</strong>. Se trata de un tratamiento que el paciente recibe o no, según su condición también lo que le <strong>haya indicado el médico</strong>. Es una variable categórica. Hay varias formas de hacerlo, pero les muestro aquí un camino que pienso es más fácil de seguir para un lector sin experiencia computacional.</p>
+<p>Un poquito más complicado es el <strong>factor aspirina</strong>, <em>A</em>. Se trata de un tratamiento que el paciente recibe o no, según su condición también lo que le <strong>haya indicado el médico</strong>. Es una variable categórica. Hay varias formas de hacerlo, pero les muestro aquí un camino que pienso es más fácil de seguir para un lector sin experiencia computacional.</p>
 <p>Primero, considero que entre los 1000 pacientes algunos ya toman aspirina y otros no. La función <code>sample</code> de <strong>R</strong> toma muestras aleatorias de una colección de números o palabras que le demos,</p>
 <div class="cell">
 <details>
@@ -298,7 +298,7 @@ Attaching package: 'dplyr'</code></pre>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>A[T <span class="sc">&gt;</span> <span class="dv">0</span> ] <span class="ot">&lt;-</span>  <span class="st">"con aspirina"</span></span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>A[L <span class="sc">&gt;</span> <span class="dv">0</span> ] <span class="ot">&lt;-</span>  <span class="st">"con aspirina"</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">factor</span>(A, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"sin aspirina"</span>, <span class="st">"con aspirina"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
@@ -309,7 +309,7 @@ Attaching package: 'dplyr'</code></pre>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span>  <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> (A<span class="sc">==</span><span class="st">"con aspirina"</span>) <span class="sc">+</span> U <span class="sc">+</span> <span class="fu">rnorm</span>(n)  <span class="co"># Accidente cerebral</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Para comodidad de cálculo junto los datos en una tabla, un "data.frame"</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>datos_aspirina <span class="ot">&lt;-</span> <span class="fu">tibble</span>(U, T, A, Y)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>datos_aspirina <span class="ot">&lt;-</span> <span class="fu">tibble</span>(U, L, A, Y)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>El modelo real es por lo tanto:</p>
@@ -340,15 +340,15 @@ Coefficients:
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(Y <span class="sc">~</span> A <span class="sc">+</span> T, datos_aspirina)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(Y <span class="sc">~</span> A <span class="sc">+</span> L, datos_aspirina)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = Y ~ A + T, data = datos_aspirina)
+lm(formula = Y ~ A + L, data = datos_aspirina)
 
 Coefficients:
-  (Intercept)  Acon aspirina              T  
+  (Intercept)  Acon aspirina              L  
       0.04985       -2.08984        0.09974  </code></pre>
 </div>
 </div>
@@ -358,15 +358,15 @@ Coefficients:
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(Y <span class="sc">~</span> A <span class="sc">+</span> T <span class="sc">+</span> U, datos_aspirina)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(Y <span class="sc">~</span> A <span class="sc">+</span> L <span class="sc">+</span> U, datos_aspirina)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = Y ~ A + T + U, data = datos_aspirina)
+lm(formula = Y ~ A + L + U, data = datos_aspirina)
 
 Coefficients:
-  (Intercept)  Acon aspirina              T              U  
+  (Intercept)  Acon aspirina              L              U  
       0.04904       -2.08483       -0.02014        1.20793  </code></pre>
 </div>
 </div>
@@ -383,10 +383,10 @@ Coefficients:
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>aspirina_dag <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">'dag{A[exposure, pos="1, 0"]</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="st">                             Y[outcome, pos="2, 0"]</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="st">                             U[unobserved, pos="0, 1"]</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="st">                             T[selected, pos="0, 0"]</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="st">                              U -&gt; T;</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="st">                             L[selected, pos="0, 0"]</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="st">                              U -&gt; L;</span></span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="st">                              U -&gt; Y;</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="st">                              T -&gt; A;</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="st">                              L -&gt; A;</span></span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="st">                              A -&gt; Y}'</span>) </span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(aspirina_dag)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -399,13 +399,13 @@ Coefficients:
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>asp_dag <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">'dag{U -&gt; T; U -&gt; Y; T -&gt; A; A -&gt; Y}'</span>) </span>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>asp_dag <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">'dag{U -&gt; L; U -&gt; Y; L -&gt; A; A -&gt; Y}'</span>) </span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">impliedConditionalIndependencies</span>(asp_dag)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>A _||_ U | T
-T _||_ Y | A, U</code></pre>
+<pre><code>A _||_ U | L
+L _||_ Y | A, U</code></pre>
 </div>
 </div>
 <p>Si tengo datos, puedo poner a prueba la correspondencia del <strong>DAG</strong> con lo <em>observado</em>. Me parece que no le gustan los <code>tibble</code> a esta función</p>
@@ -416,8 +416,8 @@ T _||_ Y | A, U</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                   estimate   p.value        2.5%      97.5%
-A _||_ U | T    -0.01643180 0.6037579 -0.07834507 0.04560775
-T _||_ Y | A, U -0.01949504 0.5380431 -0.08138976 0.04254946</code></pre>
+A _||_ U | L    -0.01643180 0.6037579 -0.07834507 0.04560775
+L _||_ Y | A, U -0.01949504 0.5380431 -0.08138976 0.04254946</code></pre>
 </div>
 </div>
 <p>Si quiero aprovechar la caracterización de las variables puedo hacer cosas como dibujar el <em>subgrafo</em> que corresponde con la puerta trasera</p>
@@ -450,7 +450,7 @@ T _||_ Y | A, U -0.01949504 0.5380431 -0.08138976 0.04254946</code></pre>
 </details>
 <div class="cell-output-display">
 
-<div class="tabwid"><style>.cl-c71cd4fa{}.cl-c70c1a7a{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c710ea64{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c71110b6{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c71110c0{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c71110c1{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c71110c2{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c71110ca{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c71110cb{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-c71cd4fa"><thead><tr style="overflow-wrap:break-word;"><th class="cl-c71110b6"><p class="cl-c710ea64"><span class="cl-c70c1a7a">Tipo de variable</span></p></th><th class="cl-c71110c0"><p class="cl-c710ea64"><span class="cl-c70c1a7a">Variable</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-c71110c1"><p class="cl-c710ea64"><span class="cl-c70c1a7a">Tratamiento</span></p></td><td class="cl-c71110c2"><p class="cl-c710ea64"><span class="cl-c70c1a7a">A</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c71110c1"><p class="cl-c710ea64"><span class="cl-c70c1a7a">Respuesta</span></p></td><td class="cl-c71110c2"><p class="cl-c710ea64"><span class="cl-c70c1a7a">Y</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c71110ca"><p class="cl-c710ea64"><span class="cl-c70c1a7a">Covariable a controlar</span></p></td><td class="cl-c71110cb"><p class="cl-c710ea64"><span class="cl-c70c1a7a">T</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-67e5ae1e{}.cl-67cf4016{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-67d5a1fe{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-67d5d26e{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-67d5d278{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-67d5d279{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-67d5d282{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-67d5d283{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-67d5d284{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-67e5ae1e"><thead><tr style="overflow-wrap:break-word;"><th class="cl-67d5d26e"><p class="cl-67d5a1fe"><span class="cl-67cf4016">Tipo de variable</span></p></th><th class="cl-67d5d278"><p class="cl-67d5a1fe"><span class="cl-67cf4016">Variable</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-67d5d279"><p class="cl-67d5a1fe"><span class="cl-67cf4016">Tratamiento</span></p></td><td class="cl-67d5d282"><p class="cl-67d5a1fe"><span class="cl-67cf4016">A</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-67d5d279"><p class="cl-67d5a1fe"><span class="cl-67cf4016">Respuesta</span></p></td><td class="cl-67d5d282"><p class="cl-67d5a1fe"><span class="cl-67cf4016">Y</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-67d5d283"><p class="cl-67d5a1fe"><span class="cl-67cf4016">Covariable a controlar</span></p></td><td class="cl-67d5d284"><p class="cl-67d5a1fe"><span class="cl-67cf4016">L</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </section>

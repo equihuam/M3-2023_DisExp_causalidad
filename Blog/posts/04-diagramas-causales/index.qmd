@@ -57,17 +57,17 @@ set.seed(2024) # Habilita Repetibilidad
 n <- 1000 # Tamaño de muestra
 ```
 
-Ahora, Cada uno de ellos puede estar afectado, en forma continua, por la arteriosclerosis, U, aunque en el ejemplo esto no es observable, pero el paciente sí tiene ese efecto encima. Lo representaremos con números que pueden ser negativos o positivos, digamos que en cero el paciente está normalmente sano, por abajo mejor salud (en cuanto a este mal) y por arria de cero tiene mayor grado del padecimiento. Para no complicarnos podemos elegir razonablemente que estos números se parezcan a una distribución normal.
+Ahora, Cada uno de ellos puede estar afectado, en forma continua, por la arteriosclerosis, _U_, aunque en el ejemplo esto no es observable, pero el paciente sí tiene ese efecto encima. Lo representaremos con números que pueden ser negativos o positivos, digamos que en cero el paciente está normalmente sano, por abajo mejor salud (en cuanto a este mal) y por arria de cero tiene mayor grado del padecimiento. Para no complicarnos podemos elegir razonablemente que estos números se parezcan a una distribución normal.
 
-Algo semejante ocurre con la enfermedad cardíaca, salvo que la agrava la presciencia de arteriosclerosis en el paciente. Digamos que la enfermedad cardíaca puede ser cero ( la condición que tiene un paciente normal), menor que cero entre más sano más pequeño este valor) y los valores positivos indica que está enfermo. Además, el mal se agrava añadiendo 10 veces el grado de arteriosclerosis que padezca el paciente. Todo esto, nos lleva a estas líneas de cálculo.
+Algo semejante ocurre con la enfermedad cardíaca, _L_, salvo que la agrava la presciencia de arteriosclerosis en el paciente. Digamos que la enfermedad cardíaca puede ser cero ( la condición que tiene un paciente normal), menor que cero entre más sano más pequeño este valor) y los valores positivos indica que está enfermo. Además, el mal se agrava añadiendo 10 veces el grado de arteriosclerosis que padezca el paciente. Todo esto, nos lleva a estas líneas de cálculo.
 
 ```{r}
 # De acuerdo con el ejemplo
 U <- rnorm(n)  # Arteriosclerosis
-T <- 10 * U + rnorm(n)  # Enfermedad cardíaca
+L <- 10 * U + rnorm(n)  # Enfermedad cardíaca
 ```
 
-Un poquito más complicado es el **factor aspirina**. Se trata de un tratamiento que el paciente recibe o no, según su condición  también lo que le **haya indicado el médico**. Es una variable categórica. Hay varias formas de hacerlo, pero les muestro aquí un camino que pienso es más fácil de seguir para un lector sin experiencia computacional. 
+Un poquito más complicado es el **factor aspirina**, _A_. Se trata de un tratamiento que el paciente recibe o no, según su condición  también lo que le **haya indicado el médico**. Es una variable categórica. Hay varias formas de hacerlo, pero les muestro aquí un camino que pienso es más fácil de seguir para un lector sin experiencia computacional. 
 
 Primero, considero que entre los 1000 pacientes algunos ya toman aspirina y otros no. La función  `sample` de **R** toma muestras aleatorias de una colección de números o palabras que le demos, 
 
@@ -79,7 +79,7 @@ A <- sample(c("con aspirina", "sin aspirina"), n, replace = TRUE)
 Ahora, a todos los pacientes que sean detectados con _enfermedad cardíaca_ se les indica tomar aspirina y supondremos que todos ellos la tomarán.
 
 ```{r}
-A[T > 0 ] <-  "con aspirina"
+A[L > 0 ] <-  "con aspirina"
 A <- factor(A, levels = c("sin aspirina", "con aspirina"))
 ```
 
@@ -89,7 +89,7 @@ Finalmente, calculamos la respuesta de los pacientes al tratamiento y a los pade
 Y <-  -2 * (A=="con aspirina") + U + rnorm(n)  # Accidente cerebral
 
 # Para comodidad de cálculo junto los datos en una tabla, un "data.frame"
-datos_aspirina <- tibble(U, T, A, Y)
+datos_aspirina <- tibble(U, L, A, Y)
 ```
 
 El modelo real es por lo tanto:
@@ -109,13 +109,13 @@ lm(Y ~ A, datos_aspirina)
 Con este procedimiento *cierro la puerta trasera* y logro estimar el efecto de la aspirina sin confusión.
 
 ```{r}
-lm(Y ~ A + T, datos_aspirina)
+lm(Y ~ A + L, datos_aspirina)
 ```
 
 #### Situación imposile en la práctica, control de factor de confusión por *enfermedad cardíaca* y documentación de una _variable no observada_.
 
 ```{r}
-lm(Y ~ A + T + U, datos_aspirina)
+lm(Y ~ A + L + U, datos_aspirina)
 ```
 #### Usar `dagitty` para probar las implicaciones del **DAG** propuesto.
 
@@ -133,10 +133,10 @@ library(dagitty)
 aspirina_dag <- dagitty('dag{A[exposure, pos="1, 0"]
                              Y[outcome, pos="2, 0"]
                              U[unobserved, pos="0, 1"]
-                             T[selected, pos="0, 0"]
-                              U -> T;
+                             L[selected, pos="0, 0"]
+                              U -> L;
                               U -> Y;
-                              T -> A;
+                              L -> A;
                               A -> Y}') 
 
 plot(aspirina_dag)
@@ -144,7 +144,7 @@ plot(aspirina_dag)
 ahora averiguo que condiciones de independencia implica este _grafo_. Para hacerlo sin restricciones usaré un **DAG** sin información sobre las características de las variables.   
 
 ```{r}
-asp_dag <- dagitty('dag{U -> T; U -> Y; T -> A; A -> Y}') 
+asp_dag <- dagitty('dag{U -> L; U -> Y; L -> A; A -> Y}') 
 
 impliedConditionalIndependencies(asp_dag)
 
