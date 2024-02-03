@@ -16,7 +16,7 @@ format:
 
 ![](bottles-5579576_1920.jpg){width="300"}
 
-El cuadro que sigue muestra el tiempo de sobrevivencia, en unidades de 10 horas, de animales a los que se administró uno de tres tipos de veneno (I II, III), seguido de uno de cuatro antídotos (A, B, C y D). Se usaron cuatro animales asignados al azar a las combinación de veneno y antídoto **¿Alguno de los antídotos es más eficaz que los otros?**
+El archivo Excel que se adjunta muestra el tiempo de sobrevivencia, en unidades de 10 horas, de animales a los que se administró uno de tres tipos de veneno (I II, III), seguido de uno de cuatro antídotos (A, B, C y D). Se usaron cuatro animales asignados al azar a las combinación de veneno y antídoto **¿Alguno de los antídotos es más eficaz que los otros?**
 
 ::: {style="color:GoldenRod"}
  1. ¿Diseño experimental?
