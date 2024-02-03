@@ -326,7 +326,7 @@
     "href": "ejercicios.html",
     "title": "M3-ejercicios",
     "section": "",
-    "text": "Pizzas\n\n\n\n\n\n\n\ntaller\n\n\n\n\n\n\n\n\n\n\n\n8 feb 2024\n\n\nMiguel Equihua, Elio Lagunes\n\n\n\n\n\n\n  \n\n\n\n\nTarea de análisis crítico\n\n\n\n\n\n\n\ntaller\n\n\n\n\n\n\n\n\n\n\n\n9 feb 2024\n\n\nMiguel Equihua, Elio Lagunes\n\n\n\n\n\n\nNo hay resultados"
+    "text": "Pizzas\n\n\n\n\n\n\n\ntaller\n\n\n\n\n\n\n\n\n\n\n\n8 feb 2024\n\n\nMiguel Equihua, Elio Lagunes\n\n\n\n\n\n\n  \n\n\n\n\nEnsayo de antivenenos\n\n\n\n\n\n\n\ntaller\n\n\n\n\n\n\n\n\n\n\n\n8 feb 2024\n\n\nMiguel Equihua, Elio Lagunes\n\n\n\n\n\n\n  \n\n\n\n\nTarea de análisis crítico\n\n\n\n\n\n\n\ntaller\n\n\n\n\n\n\n\n\n\n\n\n9 feb 2024\n\n\nMiguel Equihua, Elio Lagunes\n\n\n\n\n\n\nNo hay resultados"
   },
   {
     "objectID": "posts/00-Bienvenida/index.html#objetivos-del-módulo-3",
@@ -558,5 +558,12 @@
     "title": "Introducción a Diagramas Causales",
     "section": "",
     "text": "Pearl, Judea. The Book of Why: The New Science of Cause and Effect (p. 28). Basic Books."
+  },
+  {
+    "objectID": "ejercicios/venenos/index.html#planteamiento",
+    "href": "ejercicios/venenos/index.html#planteamiento",
+    "title": "Ensayo de antivenenos",
+    "section": "Planteamiento",
+    "text": "Planteamiento\n\nEl cuadro que sigue muestra el tiempo de sobrevivencia, en unidades de 10 horas, de animales a los que se administró uno de tres tipos de veneno (I II, III), seguido de uno de cuatro antídotos (A, B, C y D). Se usaron cuatro animales asignados al azar a las combinación de veneno y antídoto ¿Alguno de los antídotos es más eficaz que los otros?\n\n\n¿Diseño experimental?\n¿Arreglo de tratamientos?\n¿Modelo que corresponde a este experimento?\n¿Supuestos qe harás para apoyar tu análisis estadístico?\n¿Define tu criterio o nivel de significancia?\nRealiza una exploración de los datos, numérica y gráfica, comenta\nConstruye los modelos necesarios y selecciona el mínimo adecuado\nValora la calidad del modelo, incluyendo el análisis de los residuos\nResuelve que tratamientos difieren de los demás\nArgumenta tus conclusiones\n\n\nDescargar los datos como un libro Excel"
   }
 ]
