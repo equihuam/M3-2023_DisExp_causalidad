@@ -25,4 +25,6 @@ Este DAG nos conduce al modelo linear siguiente
 
 $$
 y = \mu + T +  \varepsilon
-$$ En donde *y* son las mediciones de la variable *Y* en respuesta al efecto de *T*, $\mu$ es un valor de referencia general (tradicionalmente la media general de la variale *Y*, aunque puede elegirse cualquier otro valor de referencia que convenga al estudio) y la épsilon da cuenta del efecto aleatorio inducido por $\fbox{A}$, por lo que es necesario postular una distribción de probabilidades apropiada para caracterizar su comportamiento.
+$$ 
+
+En donde *y* son las mediciones de la variable *Y* en respuesta al efecto de *T*, $\mu$ es un valor de referencia general (tradicionalmente la media general de la variale *Y*, aunque puede elegirse cualquier otro valor de referencia que convenga al estudio) y la épsilon da cuenta del efecto aleatorio inducido por $\fbox{A}$, por lo que es necesario postular una distribción de probabilidades apropiada para caracterizar su comportamiento.

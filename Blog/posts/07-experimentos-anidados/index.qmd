@@ -18,7 +18,12 @@ Hay situaciones en las que un estudio requiere considerar unidades experimentale
 
 Sin embargo, imaginemos que la variable de respuesta es el contenido de nitrógeno en el suelo, Es poco práctico recolectar la totalidad del suelo hasta, digamos 15cm de profundidad de cada parcela para determinar el contenido de nitrógeno en el suelo de toda la parcela.
 
-[¿Qué opciones tenemos?]{style="color:GoldenRod"}
+::: {.callout-caution title="¿Qué opciones tenemos?" collapse="true"}
+[![](images/june16-2015-pg-aerial.jpg){height=400px}](https://www.nature.com/articles/nature16444)
+
+Existe ayyuda en R para el diseño de experimentos, como podemos ver en [este preprint](https://arxiv.org/pdf/2311.09705.pdf)
+
+:::
 
 La opción natural sería en este caso *tomar una muestra de suelo* en cada parcela, y hacer las determinaciones de contenido de nitrógeno en ellas. Al hacer esto, no conoceremos el contenido de nitrógeno de las parcelas, lo estimaremos con un margen de error, es decir con un componente de varianza asociado con el procedimiento de muestreo. Las muestras son lo que podríamos llamar *unidades experimentales pequeñas* que, además del efecto del tratamiento son afectadas por el procedimiento de muestreo como factor adicional.
 
@@ -27,13 +32,26 @@ Otra situación es, por ejemplo, un experimento sobre el efecto del cambio clim�
 Los árboles son unidades experimentales *grandes* tratadas con fertilizante y las ramas son unidades experimentales *chicas* que reciben el tratamiento factorial *fertilizante* + *temperatura*. Además hay que notar que muy probablemente hay un efecto "idiosincrático" del árbol que genera variación en el comportamiento de las ramas.
 
 ```{r}
+#| label: "dag_árbol"
+#| fig-width: 2
+#| fig-height: 2
+
 library(dagitty)
-parcela_dividida <- dagitty('dag{fert -> arb
-                                 fert -> rama
-                                 temp -> rama
-                                 arb -> rama
-                                 rama -> nitrH}')
-par(cex = 2, lwd  = 5)
+parcela_dividida <- dagitty('dag{bb="0,0,1,1"
+                                 "aleat-1" [latent,pos="0.4, 0.2"]
+                                 "aleat-2" [latent,pos="0.6, 0.2"]
+                                 "árbol" [pos="0.4, 0.3"]
+                                 fert [exposure,pos="0.2, 0.3"]
+                                 hojasN [outcome,pos="0.8, 0.3"]
+                                 rama [pos="0.6, 0.3"]
+                                 temp [exposure,pos="0.6, 0.4"]
+                                 "aleat-1" -> "árbol"
+                                 "aleat-2" -> rama
+                                 "árbol" -> rama
+                                 fert -> "árbol"
+                                 rama -> hojasN
+                                 temp -> rama}')
+par(cex = 0.75, lwd  = 1)
 plot(parcela_dividida)
 ```
 
@@ -42,18 +60,23 @@ plot(parcela_dividida)
 Este ejemplo presentado originalmente en Sokal & Rohlf (1981). Se trata de un experimento con un solo factor con tres dietas: 1 = "control", 2 = "compuesto 217", 3 = "compuesto 217 + azúcar". Fueron administrados a seis ratas, dos por tratamiento. El análisis se complica por el hecho de que, para el análisis, se tomaron tres muestras del hígado de cada rata y se hicieron dos determinaciones de contenido de glucógeno en cada muestra. Así, hay seis *parcelas chicas* (lo que a algunos les gusta llamar *pseudorréplicas*) en cada rata, para finalmente dar 36 lecturas en total.
 
 ```{r}
-glucog_rata <- dagitty('dag{trat -> rata
-                            rata -> hig
-                             hig -> muest
-                             muest -> gluc
-                             trat -> gluc
-                             rata -> gluc
-                             trat -> hig
-                             trat -> muest
-                             hig -> gluc
-                             muest -> gluc}')
+#| label: "dag_ratas"
+#| fig-width: 4
+#| fig-height: 1
 
-par(cex = 2, lwd  = 5)
+glucog_rata <- dagitty('dag {bb="-5,-5, 5, 5"
+                             trat [exposure, pos="-4, 0"]
+                             rat  [pos="-2, 0"]
+                             hig  [pos="0, 0"]
+                             mues [pos="2, 0"]
+                             gluc [outcome, pos="4, 0"]
+                             hig -> mues
+                             mues -> gluc
+                             rat -> hig
+                             trat -> rat}')
+
+
+par(cex = 1, lwd  = 1)
 plot(glucog_rata)
 ```
 
@@ -94,7 +117,7 @@ head(ratas)
 
 ## Ajuste de modelo
 
-En este caso tengo una estructura anidada, así que hay podemos usar el operador de anidación `%in%`. Sin embargo, hay que tener cuidado, pues esto sólo añade el efecto de anidamiento especificado, no los términos principales u otros niveles de anidamiento que pudieran estar presentes. También hay que notar que un anidamiento equivale en el *modelo estadístico lineal* a la presencia de términos de interacción sin su contraparte de términos en la jerarquía. En este caso, no aparece ninguna interacción tratamiento:rata o tratamiento:muestraHígado, etc., pero sí aparecen las interacciones más complejas: rata:muestraHígado:tratamieno por ejemplo.
+En este caso tengo una estructura anidada, así que podemos usar el operador de anidación `%in%`. Sin embargo, hay que tener cuidado, pues esto sólo añade el efecto de anidamiento especificado, no los términos principales u otros niveles de anidamiento que pudieran estar presentes. También hay que notar que un anidamiento equivale en el *modelo estadístico lineal* a la presencia de términos de interacción sin su contraparte de términos en la jerarquía. En este caso, no aparece ninguna interacción tratamiento:rata o tratamiento:muestraHígado, etc., pero sí aparecen las interacciones más complejas: rata:muestraHígado:tratamiento por ejemplo.
 
 ```{r}
 ratas.completo <- lm(glucogeno ~ trat_txt + rata %in% trat_txt + muestraH %in% rata %in% trat_txt, data=ratas)
@@ -108,11 +131,12 @@ ratas %>% group_by(trat_txt) %>% summarise(media = mean(glucogeno))
 anova(ratas.completo)
 ```
 
+
+:::{.callout-tip title="¿Cómo interpretas estos resultados?"}
 Recuerda que las pruebas omnibus del ANOVA de arriba sólo tienen sentido en cuanto a *comparación de medias*, para los términos de *efectos fijos*.
+:::
 
-[¿Cómo interpretas estos resultados]{style="color:GoldenRod"}
-
-Conviene saber que hay muuchas maneras de hacer lo mismo en **R**. esta es otra forma de lograr exactamente lo mismo, pero utilizando otra notación en la forma de escribir las ecuaciones al utilizar la función de ajuste de modelos lineales.
+Conviene saber que hay muchas maneras de hacer lo mismo en **R**. esta es otra forma de lograr exactamente lo mismo, pero utilizando otra notación en la forma de escribir las ecuaciones al utilizar la función de ajuste de modelos lineales.
 
 ```{r}
 ratas.nulo <- lm(glucogeno~1, data=ratas)
