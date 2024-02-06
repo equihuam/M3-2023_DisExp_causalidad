@@ -4,8 +4,10 @@ subtitle: "algunos ejemplos"
 author: 
   - name: "Miguel Equihua"
     email: "equihuam@gmail.com"
-  - name: "Elio Lagunes"
-    email: "elio.lagunes.mx"
+  - name: "Octavio Pérez Maqueo"
+    email: "octavio.maqueo@inecol.mx"
+  - name: "Elio G. Lagunes"
+    email: "elio.lagunes@inecol.mx"
 date: "2024-02-8"
 draft: true
 date-format: "[Xalapa, Ver.,] D MMMM YYYY"

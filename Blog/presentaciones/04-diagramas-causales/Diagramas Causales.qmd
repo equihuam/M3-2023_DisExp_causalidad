@@ -6,8 +6,8 @@ author:
     email: "equihuam@gmail.com"
   - name: "Octavio Pérez Maqueo"
     email: "octavio.maqueo@inecol.mx"
-  - name: "Elio Lagunes"
-    email: "elio.lagunes.mx"
+  - name: "Elio G. Lagunes"
+    email: "elio.lagunes@inecol.mx"
 date: "2024-01-29"
 draft: false
 date-format: "[Xalapa, Ver.,] D MMMM YYYY"
