@@ -59,6 +59,11 @@ plot(parcela_dividida)
 
 Este ejemplo presentado originalmente en Sokal & Rohlf (1981). Se trata de un experimento con un solo factor con tres dietas: 1 = "control", 2 = "compuesto 217", 3 = "compuesto 217 + azúcar". Fueron administrados a seis ratas, dos por tratamiento. El análisis se complica por el hecho de que, para el análisis, se tomaron tres muestras del hígado de cada rata y se hicieron dos determinaciones de contenido de glucógeno en cada muestra. Así, hay seis *parcelas chicas* (lo que a algunos les gusta llamar *pseudorréplicas*) en cada rata, para finalmente dar 36 lecturas en total.
 
+
+[Datos del experimento](https://drive.google.com/file/d/1NYuQYRR-ZKy_wlqylIHk_W6wKN10LoHy/view?usp=sharing)
+
+
+
 ```{r}
 #| label: "dag_ratas"
 #| fig-width: 4
