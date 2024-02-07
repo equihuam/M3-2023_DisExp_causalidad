@@ -581,7 +581,6 @@ t(data.frame(trat_1_y_3 = intervals(ratas.lme.m4C, level = nivel_confianza)$fixe
 
 Hagamos juntos el reanálisis del ejemplo de las manos como un modelo de efectos mixto.
 
-En caso de que no tengas los datos de las manos por ahí, te recuerdo como obtenerlos de nuestro repositorio en Google drive.
 
 ::: {.callout-note}
 ## El modelo puede ser este
@@ -595,6 +594,8 @@ $$
 + ¿Lo puedes explicar?
 
 :::
+
+En caso de que no tengas los datos de las manos por ahí, te recuerdo como obtenerlos de nuestro repositorio en Google drive.
 
 ```{r}
 library(stringr)
