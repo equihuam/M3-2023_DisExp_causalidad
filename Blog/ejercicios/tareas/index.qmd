@@ -8,6 +8,8 @@ categories: [clase]
 format:
   html:
     code-fold: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r}
@@ -16,10 +18,7 @@ format:
 suppressPackageStartupMessages(library(googledrive))
 suppressPackageStartupMessages(library(googlesheets4))
 library(tidyverse)
-library(readxl)
-library(knitr)
-library(kableExtra)
-library(igraph)
+library(DT)
 
 # Autenticación genérica
 suppressMessages(drive_auth(email = "miguel.equihua@ecologia.edu.mx"))
@@ -39,7 +38,10 @@ m3_dir <- drive_ls(path = 'M3-estadística', recursive = TRUE, type = "folder")
 # Contenido de la carpeta Tareas
 m3_tareas <- drive_ls(m3_dir$name[grepl("Tarea", m3_dir$name)])
 
-m3-tareas <- drive_find(corpus = m3_carpetas$name[2], pattern = "tarea")
-drive_ls(path = m3_dir$id, type = "folder") 
+tarea_1 <- m3_tareas %>% 
+           mutate(name_lwr = str_to_lower("name")) %>% 
+           filter(name_lwr == "tarea")
+  
+  m3_tareas  %>% datatable(colnames = "name")
 
 ```
