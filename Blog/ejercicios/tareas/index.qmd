@@ -1,0 +1,45 @@
+---
+title: "Tareas"
+author: ["Miguel Equihua", "Elio Lagunes"]
+date: "2024-02-07"
+lang: es
+draft: false
+categories: [clase]
+format:
+  html:
+    code-fold: true
+---
+
+```{r}
+#| warning: false
+
+suppressPackageStartupMessages(library(googledrive))
+suppressPackageStartupMessages(library(googlesheets4))
+library(tidyverse)
+library(readxl)
+library(knitr)
+library(kableExtra)
+library(igraph)
+
+# Autenticación genérica
+suppressMessages(drive_auth(email = "miguel.equihua@ecologia.edu.mx"))
+```
+
+
+
+#### Datos reunidos en GoogleDrive
+
+
+
+```{r m3_estadistica, warning=FALSE, include=FALSE}
+# localiza la carpeta e tareas M3-estadistica 2024
+
+m3_dir <- drive_ls(path = 'M3-estadística', recursive = TRUE, type = "folder")
+  
+# Contenido de la carpeta Tareas
+m3_tareas <- drive_ls(m3_dir$name[grepl("Tarea", m3_dir$name)])
+
+m3-tareas <- drive_find(corpus = m3_carpetas$name[2], pattern = "tarea")
+drive_ls(path = m3_dir$id, type = "folder") 
+
+```
