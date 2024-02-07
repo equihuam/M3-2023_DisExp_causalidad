@@ -9,7 +9,7 @@
 <meta name="author" content="Miguel Equihua">
 <meta name="author" content="Elio Lagunes">
 
-<title>Curso de Estadística (Inecol) - Tarea de análisis críticos</title>
+<title>Curso de Estadística (Inecol) - Ejercicios críticos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -192,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Tarea de análisis críticos</h1>
+<h1 class="title">Ejercicios críticos</h1>
   <div class="quarto-categories">
     <div class="quarto-category">taller</div>
   </div>
@@ -213,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">1 de febrero de 2024</p>
+      <p class="date">9 de febrero de 2024</p>
     </div>
   </div>
   
@@ -223,30 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 15.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
-<p><img src="unixexceldates.png" class="img-fluid"></p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 15.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 15.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
-<p>Fuente: <a href="https://xkcd.com/2676/">xkcd.com</a></p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 15.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-</div>
-</div>
+<p><img src="unixexceldates.png" class="img-fluid" width="250"></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr) <span class="co"># para echar un ojito a las bases de datos</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)    <span class="co"># para trabajo geoespacial con vectores</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -256,14 +233,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Presentamos dos conjuntos de datos reales de monitoreo de variables ambientales, con propósitos ecológicos para ejercitar el pensamiento crítico sobre los resultados del monitoreo, así como las capacidades computacionales. El primer conjunto consiste en dos archivos de variables meteorológicas y el segundo en mediciones de nivel de inundación.</p>
 <section id="serie-temporal-de-temperatura-y-humedad-relativa" class="level2">
 <h2 class="anchored" data-anchor-id="serie-temporal-de-temperatura-y-humedad-relativa">Serie temporal de temperatura y humedad relativa</h2>
-<p>Los datos de esta serie fueron tomados con un termo-higrómetro con registro automático (logger) “Hygrochron Temperature and Humidity Data Logger” de la marca <a href="https://www.ibuttonlink.com/products/ds1923">ibuttonlink</a>, en el periodo comprendido entre: 2016-02-08 19:00:00 y 2017-05-31 12:01:00, en la localidad Tapachapa del Municipio Coatepec, Veracruz (lon: -96.98109; lat: 19.45871). Consta de 11,045 registros, en formato <strong>csv</strong> (<em>comma separated value</em>). El termohigrómetro fue colocado en un vivero de producción de árboles nativos para restauración de ecosistemas en bosques mesófilos de montaña y bosques templados.</p>
+<p>Los datos de esta serie fueron tomados con un termo-higrómetro con registro automático (logger) “Hygrochron Temperature and Humidity Data Logger” de la marca <a href="https://www.ibuttonlink.com/products/ds1923">ibuttonlink</a>, en el periodo comprendido entre: 2016-02-08 19:00:00 y 2017-05-31 12:01:00, en la localidad Tapachapa del Municipio Coatepec, Veracruz (lon: -96.98109; lat: 19.45871). Consta de 11,045 registros, en formato csv (comma separated value). El termo-higrómetro fue colocado en un vivero de producción de árboles nativos para restauración de ecosistemas en bosques mesófilos de montaña y bosques templados.</p>
 <section id="objetivos-del-monitoreo" class="level3">
 <h3 class="anchored" data-anchor-id="objetivos-del-monitoreo">Objetivos del monitoreo</h3>
 <ul>
 <li>Tener un registro meteorológico de la temperatura y la humedad relativa, que son de las principales variables ambientales que pueden afectar el crecimiento de las plantas.</li>
 <li>Cubrir el vacío de estaciones meteorológicas en la zona.</li>
 </ul>
-<p><strong>Fuente de los datos:</strong> Pronatura Veracruz, 2017. (Licencia de uso: <em>CC-by-SA</em>)</p>
+<p>Fuente de los datos: Pronatura Veracruz, 2017. CC-by-SA</p>
 </section>
 <section id="descripción-de-las-bases-de-datos" class="level3">
 <h3 class="anchored" data-anchor-id="descripción-de-las-bases-de-datos">Descripción de las bases de datos</h3>
@@ -599,47 +576,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" style="color:#AF0C04;">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Ejercicios para este conjunto de datos
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>Hacer un análisis exploratorio gráfico de ambas variables (temperatura y humedad relativa)</li>
-<li>Comentar la relación entre ambas variables</li>
-<li>Comparar los resultados de este monitoreo con la información a nivel local</li>
-<li>Comentar si los resultados de este monitoreo sirven para los objetivos propuestos</li>
-</ol>
-</div>
-</div>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 15.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
-<p><img src="ibutton.png" class="img-fluid"></p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 15.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 15.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
-<p>Ubicación del <strong><em>ibutton</em></strong></p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 15.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ibutton.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">ubicación del ibutton</figcaption>
+</figure>
 </div>
 </section>
 </section>
@@ -659,9 +600,9 @@ Ejercicios para este conjunto de datos
 <p><strong>archivo Gavilanes_Temperatura.csv</strong></p>
 <table class="table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 81%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -724,7 +665,7 @@ Ejercicios para este conjunto de datos
 <tr class="odd">
 <td>geom</td>
 <td>geom</td>
-<td>coordenadas <strong>UTM</strong> Zona 15 N (EPSG:32615) del piezómetro</td>
+<td>coordenadas UTM Zona 15 N (EPSG:32615) del piezómetro</td>
 </tr>
 </tbody>
 </table>
@@ -963,50 +904,13 @@ Ejercicios para este conjunto de datos
 </table>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" style="color:#AF0C04;">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="piezos.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">ubicación de los piezómetros en el Sistema Lagunar de Alvarado</figcaption>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-Ejercicios para este set de datos
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>Hacer un análisis exploratorio de la variable inundación</li>
-<li>Comparar la inundación entre los dos tratamientos (PRotección y REstauración)</li>
-<li>Aplicar un modelo lineal a la variable inundación, dependiente de la variable tiempo</li>
-<li>Comentar si los resultados de este monitoreo sirven para los objetivos.</li>
-<li>Comparar estos datos con información a nivel mundial</li>
-<li><em>Opcional</em> Hacer un análisis de serie de tiempo: descomponer tendencia y estacionalidad y hacer un pronóstico</li>
-</ol>
-</div>
-</div>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 15.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
-<p><img src="piezos.png" class="img-fluid"></p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 15.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 15.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
-<p>Ubicación de los piezómetros en el Sistema Lagunar de Alvarado</p>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 15.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-</div>
-</div>
+<p><em>Comic de la portada: https://xkcd.com</em></p>
 
 
 

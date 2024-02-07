@@ -27,13 +27,17 @@
   {
     "listing": "/ejercicios.html",
     "items": [
-      "/ejercicios/crittico/index.html",
+      "/ejercicios/ejercicio-critico/index.html",
       "/ejercicios/pizzas/index.html",
       "/ejercicios/venenos/index.html"
     ]
   },
   {
     "listing": "/ejercicios/crittico/index.html",
+    "items": []
+  },
+  {
+    "listing": "/ejercicios/crittico/critico.html",
     "items": []
   }
 ]
