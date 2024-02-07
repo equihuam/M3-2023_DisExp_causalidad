@@ -194,17 +194,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p><img src="arboles.jpeg" class="img-fluid" width="500"></p>
+<p><img src="images/arboles.jpeg" class="img-fluid" width="500"></p>
 <section id="modelos-lineales-de-efectos-mixtos" class="level1">
 <h1>Modelos Lineales de efectos mixtos</h1>
 <section id="ejemplo-de-rieles" class="level2">
 <h2 class="anchored" data-anchor-id="ejemplo-de-rieles">Ejemplo de rieles</h2>
-<p>Es un ejemplo simple de efectos aleatorios que considera los datos de un estudio de medición no destructiva de la resistencia a la tensión de rieles de ferrocarril. Seis rieles fueron tomados al azar y sometidos a prueba tres veces cada uno a través de la medición del tiempo que le toma a cierto tipo de ondas ultrasónicas viajar a lo largo del riel. La Única condición experimental que cambia entre observaciones es el riel.</p>
-<p>Claramente el estudio tiene un solo criterio de clasificación, como condición de contraste. La intención del estudio fue la determinación de: 1. Tiempo de tránsito “típico” de un riel (tiempo esperado de tránsito) 2. Variacián en el tiempo de tránsito promedio entre los rieles (variabilidad entre rieles) 3. Variación en el tiempo observado de tránsito de un riel dado (variabilidad dentro de rieles)</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Calidad de rieles de ferrocarril">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Calidad de rieles de ferrocarril
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Uno de los principales problemas que enfrentan los ferrocarriles es la falla en las vías. Los defectos en los raíles, como parte básica de la vía, pueden provocar accidentes graves. La inspección de los rieles es crítica, considerando el enorme tráfico que soportan actualmente, la mayor velocidad y las cargas más pesadas. La inspección visual sólo puede detectar defectos superficiales y, a veces, signos evidentes de problemas internos, la <em>defectoscopia ultrasónica</em> desempeña un papel insustituible en la inspección de los rieles durante su funcionamiento.</p>
+<p><img src="images/ultrasonic-railway-rail-testing-01.jpg" class="img-fluid" data-wdth="60%"></p>
+<p><a href="https://faculty.ksu.edu.sa/sites/default/files/probability_and_statistics_for_engineering_and_the_sciences.pdf">Este ejemplo se explica en este libro</a>.</p>
+</div>
+</div>
+</div>
+<p>El estudio de las fuerzas y tensiones no destructivas en los materiales proporciona información importante para un diseño de ingeniería eficaz. El artículo <em>Zero-Force Travel-Time Parameters for Ultrasonic Head-Waves in Railroad</em> (Materials Evaluation, 1985: 854-858) reporta un estudio del <strong>tiempo de tránsito</strong> de un <em>cierto tipo de onda</em> que se obtiene al someter rieles de ferrocarril a esfuerzos de tensión longitudinal. Se realizaron tres mediciones en cada uno de seis rieles seleccionados aleatoriamente de una población más amplia de ellos. Los investigadores buscaban caracterizar la variación en el tiempo de viaje como referencia para describir la <em>variabilidad</em> <strong><em>típica</em></strong> <em>entre los rieles</em> que estaban adquiriendo y usando. Los ingenieros se interesaban en precisar la variabilidad atribuible al ejercicio de realizar las mediciones en un mismo riel y la variailidad que expresan los distintos rieles. Los datos son valores en nanosegundos, resultado de restar 36.1 <span class="math inline">\(\mu s\)</span> a cada observación.</p>
+<p>Este ejemplo es un caso simple de efectos aleatorios. En resumen, seis rieles fueron tomados al azar y sometidos a prueba tres veces cada uno mediante la medición del tiempo que le toma a cierto tipo de ondas ultrasónicas viajar a lo largo del riel. La Única <em>condición experimental</em> que cambia entre observaciones es el riel.</p>
+<p>Claramente el estudio tiene un solo criterio de clasificación, como posible condición de contraste. La intención del estudio fue la determinación de:</p>
+<ol type="1">
+<li><strong>Tiempo de tránsito “típico”</strong> de un riel (tiempo esperado de tránsito)</li>
+<li><em>Variación</em> en el tiempo de tránsito promedio <em>entre los rieles</em> (variabilidad entre rieles)</li>
+<li><em>Variación al medir</em> el tiempo observado de tránsito <em>en un mismo riel</em> (variabilidad dentro de rieles)</li>
+</ol>
 <p><span class="math display">\[
 y_{ij} = \mu + \beta_{1} R_{i} + \varepsilon_{i(j)}
 \]</span></p>
-<p>Lo primero que haremos es preparar las bibliotecas que utilizaremos. En este caso <code>nlme</code> para ajustar los modelos de <em>efectos mixtos</em> y <code>lattice</code> aunque también podría usarse <code>ggplot2</code> para hacer las gráficas.</p>
+<p>Utilizaremos la biblioteca <code>nlme</code> (<em>Linear and Nonlinear Mixed Effects Models</em>, de tipo Gausiano o normal) para ajustar los modelos de <em>efectos mixtos</em> y aprovecharé para que veamos dos bibliotecas de graficación de <em>calidad publicación</em>: <code>lattice</code> y <code>ggplot2</code> .</p>
 <p><strong>Lattice contiene estas opciones:</strong></p>
 <table class="table">
 <thead>
@@ -282,8 +306,9 @@ y_{ij} = \mu + \beta_{1} R_{i} + \varepsilon_{i(j)}
 </tr>
 </tbody>
 </table>
-<p>Las gráficas con <code>lattice</code> tienen todo un entorno de soporte. Por ejemplo los aspectos que pueden ajustarse se pueden ver con <code>trellis.par.get()</code> y se ajustan con <code>trellis.par.set()</code>. Actualmente, resulta quizás más práctico el enfoque que ha desarrollado <code>ggplot2</code>.</p>
-<p>los datos están en la tabla riel de la biblioteca <em>nlme</em>. La copiamos al espacio de de trabajo y los asigno a una variable con un nombre de mi gusto. Los datos de los rieles están ordenados según fueron ensayados.</p>
+<p>Las gráficas con <code>lattice</code> tienen todo un entorno de soporte. Por ejemplo los aspectos que pueden ajustarse se pueden ver con <code>trellis.par.get()</code> y se ajustan con <code>trellis.par.set()</code>. Se trata de una aproximación a la <strong>visualización de datos</strong> muy interesante que se desarrolló en la época en la que los lenguajes de programación <strong>S</strong> y más adelante <strong>R</strong>, estaban apareciendo. Quizás popr eso encontramos algo de <code>lattice</code> contruido dentro de <code>nlme</code>.</p>
+<p>Actualmente, resulta quizás más práctico el enfoque que ha desarrollado <code>ggplot2</code>, basada en una <a href="https://link.springer.com/book/10.1007/978-0-387-98141-3">semántica de graficación que Hadley Wickham explica originamente en su libro publicado en 2009</a>. Actualmente Hadley trabaja con otros dos coautores (Danielle Navarro y Thomas Lin Pedersen) en al 3ra. edición, lo hacen como un <a href="https://ggplot2-book.org/"><em>preprint</em> que pueden encontrar aquí</a>. La gran influencia de este planteamiento a la producción de gráficas de datos ha dado lugar a muchas ideas y recursos de ayuda que fácilmente se pueden encontrar en <em>la Web</em></p>
+<p>los datos con los que trabajaremos en esta sesión están en la tabla <code>Rail</code> de la biblioteca <em>nlme</em>. Para acomodarlos a mis propósitos los copie a mi espacio de trabajo y los guardé en una variable con un nombre de mi gusto. Los datos de los rieles están ordenados según fueron ensayados.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -308,7 +333,7 @@ y_{ij} = \mu + \beta_{1} R_{i} + \varepsilon_{i(j)}
  - attr(*, "order.groups")= logi TRUE</code></pre>
 </div>
 </div>
-<p>La tabla <code>rieles</code> fue creada como una <strong>estructura agrupada</strong> con la función <code>groupeData</code> de la biblioteca <code>nlme</code>. Veremos más adelante como usar esta función. Esta funnción agrega <em>metadatos</em> a la tabla. Si interesa hacer cambios a los <em>metadatos</em> de la tabla agrupada hay que usar la función <code>update</code> que ejemplificaré a continuación. Lo primero es explorar los atributos asignados.</p>
+<p>La tabla <code>rieles</code> fue creada como una <strong>estructura agrupada</strong> con la función <code>groupeData</code> de la biblioteca <code>nlme</code>. Veremos más adelante como usar esta función. Esta función agrega <em>metadatos</em> a la tabla. Si interesa hacer cambios a los <em>metadatos</em> de la tabla agrupada hay que usar la función <code>update</code> que ejemplificaré a continuación. Lo primero es explorar los atributos asignados.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -342,7 +367,7 @@ $order.groups
 [1] TRUE</code></pre>
 </div>
 </div>
-<p>Ahora cambiemos estos atributos para que todo esté expresado en español y de paso corregir la fórmula, que tal como está, pierde la referencia adecuada a las variables que contiene la tabla, pues cambiamos los nombres de las variables.</p>
+<p>Ahora cambiemos estos atributos para que todo esté expresado en español y de paso corregir la fórmula, que tal como está, pierde la referencia adecuada a las variables que contiene la tabla, pues yo cambié los nombres de las variables.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -351,7 +376,7 @@ $order.groups
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">units =</span> <span class="fu">list</span>(<span class="at">y =</span> <span class="st">"(nano segundos)"</span>))</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Encontré un detallito raro de atributos que se quedan con basura. </span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Aunque no parecen producir ning´nu problema, esta es una manera de limpiarla.</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Aunque no parecen producir ningún problema, esta es una manera de limpiarla.</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(<span class="fu">attributes</span>(rieles)<span class="sc">$</span>formula)<span class="sc">$</span><span class="st">".Environment"</span> <span class="ot">&lt;-</span> <span class="fu">environment</span>()</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">environment</span>(<span class="fu">attributes</span>(rieles)<span class="sc">$</span>FUN) <span class="ot">&lt;-</span> <span class="fu">environment</span>()</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(rieles)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -390,7 +415,7 @@ $order.groups
 </div>
 <p>A esta tabla se le ha aplicado la función <code>groupedData</code> con la fórmula:</p>
 <p>viaje ~ 1| riel</p>
-<p>Esta estrategia permite darle mantenimiento a los metadatos, que incluyen indicaciones sobre el agrupamiento de los datos en la tablas. Para aprovechar esta estructura podemos usar funciones especiales, por cierto, dentro del paquete <code>nmle</code>, la función <code>plo</code> ha sido diseñada para usar opciones de graficación de <em>latice</em>, puedes averiguar un poco más al respecto con <code>help(plot.nmGroupedData)</code>:</p>
+<p>Esta estrategia permite darle mantenimiento a los metadatos, que incluyen indicaciones sobre el agrupamiento de los datos en la tablas. Para aprovechar esta estructura podemos usar funciones especiales, por cierto, dentro del paquete <code>nmle</code>, la función <code>plo</code> ha sido diseñada para usar opciones de graficación de <em>lattice</em>, puedes averiguar un poco más al respecto con <code>help(plot.nmGroupedData)</code>:</p>
 <ul>
 <li><code>gapply</code> - aplica funciones por grupos</li>
 <li><code>gsummary</code> - calcula los resúmenes de datos por grupos</li>
@@ -590,7 +615,7 @@ $class
 </div>
 </div>
 <p>Como hemos visto, cambiar los metadatos de la tabla se hace con la función <code>update()</code>.</p>
-<p>Como una demostración simple de esto, le cambiaré la etiqueta asociada a la variable de respuesta en la estrucutra de agrupamiento. Con esto.</p>
+<p>Como una demostración simple de esto, le cambiaré la etiqueta asociada a la variable de respuesta en la estructura de agrupamiento. Con esto.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -758,7 +783,7 @@ F-statistic: 916.6 on 6 and 12 DF,  p-value: 2.971e-15</code></pre>
 </div>
 </div>
 <p>A pesar de que el modelo remueve los efectos sistemáticos asociados a las características particulares de los distintos rieles, no proporciona una representación satisfactoria del problema.</p>
-<p><span style="color:GoldenRod">si los rieles son de efectos fijos ¿qué implica este modelo? ¿qué sería el tratamiento <strong>riel</strong>?</span>_</p>
+<p><span style="color:GoldenRod">si los rieles fueran de efectos fijos ¿qué implicaría este modelo? ¿cuál sería una interpretación razonable del tratamiento <strong>riel</strong>?</span></p>
 <p>Al suponer efectos fijos surge el problema de que se modelan de algún modo <em>variantes individuales</em> de los rieles que se usaron para realizar las pruebas. Desafortunadamente, tal clasificación no tiene ningún sentido en el contexto. Lo que interesa es estimar el tiempo de tránsito típico de cualquier riel en la <em>población de rieles</em> de la que se tomó la muestra.</p>
 <p>Además, la misma falta de correspondencia conceptual entre el modelo y la estimación que interesa, hace que este nuevo modelo no proporcione una clara estimación de la variación (componente de varianza), entre rieles, que es otra de las preguntas centrales de este estudio. Otro problema de este modelo de efectos fijos es que el número de parámetros crece linealmente con el número de rieles que se usan para realizar la prueba, generando un comportamiento extraño en el modelo respecto de la pregunta.</p>
 <section id="el-modelo-de-efectos-aleatorios-resuelves-estos-problemas." class="level4">
@@ -789,7 +814,10 @@ Number of Observations: 18
 Number of Groups: 6 </code></pre>
 </div>
 </div>
-<p><span style="color:GoldenRod">Ayudame a comentar estos resultados ¿qué te llama la atención?</span></p>
+</section>
+</section>
+<section id="ayúdame-a-comentar-estos-resultados-qué-te-llama-la-atención" class="level2 callou-caution" style="color:GoldenRod">
+<h2 class="anchored" data-anchor-id="ayúdame-a-comentar-estos-resultados-qué-te-llama-la-atención">Ayúdame a comentar estos resultados ¿qué te llama la atención?</h2>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -818,6 +846,7 @@ Number of Observations: 18
 Number of Groups: 6 </code></pre>
 </div>
 </div>
+</section>
 <p>El ajuste produce los estimadores que buscamos: 1. tiempo de tránsito típico = 66.5 2. Variabilidad entre rieles = 24.81 3. Variabilidad dentro de rieles = 4.02</p>
 <p>En este caso los estimadores 1 y 3 son prácticamente idénticos a los obtenidos con el modelo lineal ordinario, pero esto no siempre es así. La coincidencia deriva de que la muestra está balanceada (mismo tamaño de muestra en cada riel). Además, ahora tengo un razonable estimador de la variación entre rieles (2).</p>
 <p><span style="color:GoldenRod">¿Qué utilidad pueden tener estas estimaciones?</span></p>
@@ -894,9 +923,8 @@ sd((Intercept)) 13.27436 24.80547 46.35335
 2.695012 4.020779 5.998737 </code></pre>
 </div>
 </div>
-</section>
-<section id="el-modelo-de-glucógeno-en-ratas-revisitado" class="level3">
-<h3 class="anchored" data-anchor-id="el-modelo-de-glucógeno-en-ratas-revisitado">El modelo de glucógeno en ratas revisitado</h3>
+<section id="el-modelo-de-glucógeno-en-ratas-revisitado" class="level2">
+<h2 class="anchored" data-anchor-id="el-modelo-de-glucógeno-en-ratas-revisitado">El modelo de glucógeno en ratas revisitado</h2>
 <p>Volvamos a ver el ejemplo GLEX38 (Crawley p.&nbsp;149) de Hígados de rata en el ejemplo presentado originalmente en Sokal &amp; Rohlf (1981). Te recuerdo que se trata de un experimento con un solo factor con tres tratamientos administrados a seis ratas, dos por tratamiento. El análisis se complica por el hecho de que, para el an?lisis, se tomaron tres muestras del hígado de cada rata y se hicieron dos determinaciones de contenido de glucógeno en cada muestra. Así, podríamos decir, un tanto derogativamente, que hay seis <strong>pseudoréplicas</strong> por rata para dar un total de 36 lecturas en total. Pero quizás en lugar de hablar en estos términos deberíamos simmplemente reconocer que lo que estamos haciendo es organizar un muestreao para obtener el dato de la variable de respuesta en el experimento, en lugar de hacer una “cosecha total”, que es la práctica ideal (pues evita introducir un fuente de “ruido” adicional).</p>
 <div class="cell">
 <details>
@@ -939,8 +967,8 @@ sd((Intercept)) 13.27436 24.80547 46.35335
  - attr(*, "FUN")=function (x, ...)  </code></pre>
 </div>
 </div>
-<section id="exploración-de-los-datos" class="level4">
-<h4 class="anchored" data-anchor-id="exploración-de-los-datos">Exploración de los datos</h4>
+<section id="exploración-de-los-datos" class="level3">
+<h3 class="anchored" data-anchor-id="exploración-de-los-datos">Exploración de los datos</h3>
 <p>Aprovechando las opciones de estructura de grupos puedo obtener resumenes exploratorios de manera muy simple.</p>
 <div class="cell">
 <details>
@@ -978,13 +1006,21 @@ r6   136.00</code></pre>
 </div>
 </div>
 </section>
-<section id="modelación" class="level4">
-<h4 class="anchored" data-anchor-id="modelación">Modelación</h4>
+<section id="modelación" class="level3">
+<h3 class="anchored" data-anchor-id="modelación">Modelación</h3>
 <p>Veamos el enfoque con un modelo lineal de efectos mixtos.</p>
-<p><span style="color:GoldenRod">¿Cual es la estructura fija?, me puedes decir cuál es la ecuación correspondiente</span></p>
+</section>
+</section>
+<section id="cual-es-la-estructura-fija-me-puedes-decir-cuál-es-la-ecuación-correspondiente" class="level2 callou-caution" style="color:GoldenRod">
+<h2 class="anchored" data-anchor-id="cual-es-la-estructura-fija-me-puedes-decir-cuál-es-la-ecuación-correspondiente">¿Cual es la estructura fija?, me puedes decir cuál es la ecuación correspondiente</h2>
+</section>
 <p>La estructura aleatoria de los datos, cuando tiene varias fuentes, se representa como una lista de efectos (modelos) en la función <code>lme()</code> de la biblioteca <code>nlme</code>. Otra posibilidad es usar la biblioteca <code>lme4</code> que contiene a la función <code>lmer()</code>. Al respecto, <a href="http://staff.pubhealth.ku.dk/~jufo/courses/rm2018/nlmePackage.pdf">esta lectura puede ser de innterés</a></p>
-<p>Este caso, como ya vimmos, hay dos cosas en operación: 1. Hay una muestra aleatoria de ratas distintas en cada tratamiento. Cabe esperar un valor promedio de glucógeno distinto para cada animal. Esto lo representaré en el primer componente de la lista. 2. Hay una muestra aleatoria de fragmentos de hígado tomados de cada rata. Esperamos que estas muestras estimen una misma cantidad de glucógeno para cada animal. Esto lo representaré en el segundo componente de la lista.</p>
-<p>En el código siguiente tanto el modelo “1” como el “2” son equivalente. Los presento como dos formas de plantear el modelo de efectos aleatorios. Hay que notar que no es correcto hacer comparaciones entre modelos que cambian en cuanto al componente “fijo” si el ajuste se hace mediante el método “REML”, en caso de tener hipótesis de interés en esta parte del modelo hay que emplear el método “ML”.</p>
+<p>Este caso, como ya vimos, hay dos cosas en operación:</p>
+<ol type="1">
+<li>Hay una muestra aleatoria de ratas distintas en cada tratamiento. Cabe esperar un valor promedio de glucógeno distinto para cada animal. Esto lo representaré en el primer componente de la lista.</li>
+<li>Hay una muestra aleatoria de fragmentos de hígado tomados de cada rata. Esperamos que estas muestras estimen una misma cantidad de glucógeno para cada animal. Esto lo representaré en el segundo componente de la lista.</li>
+</ol>
+<p>En el código siguiente tanto el modelo “1” como el “2” son equivalente. Los presento como dos formas de plantear el modelo de efectos aleatorios. Hay que notar que <strong>no es correcto</strong> hacer comparaciones entre modelos que cambian en cuanto al componente “fijo” <strong>si el ajuste se hace mediante el método “REML”</strong>, en caso de tener hipótesis de interés en esta parte del modelo hay que emplear el método “ML”.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -1192,12 +1228,9 @@ Residuals                 18  381.00   21.17
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-</section>
-</section>
 <section id="intervalos-de-confianza" class="level3">
 <h3 class="anchored" data-anchor-id="intervalos-de-confianza">Intervalos de confianza</h3>
 <p>Es importante contar con intervalos de confianza para describir de mmejor manera los resultados obtenidos. La forma de hacerlo para cada tipo de modelo pude varia, así que ilustraré un par de rutas para obtenerlos.</p>
-</section>
 </section>
 <section id="modelo-de-efectos-mixtos-lme" class="level2">
 <h2 class="anchored" data-anchor-id="modelo-de-efectos-mixtos-lme">Modelo de efectos mixtos: <code>lme</code></h2>
@@ -1287,7 +1320,7 @@ t3 128.3319 135.1667 142.0014</code></pre>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.4
+✔ dplyr     1.1.4     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.5.1
 ✔ lubridate 1.9.3     ✔ tibble    3.2.1
 ✔ purrr     1.0.2     ✔ tidyr     1.3.0
@@ -1335,7 +1368,7 @@ ratas.lme.m4A     1  5 246.8941 254.8117 -118.4471
 ratas.lme.m4      2  6 245.2705 254.7716 -116.6353 1 vs 2 3.62358   0.057</code></pre>
 </div>
 </div>
-<p>Preguntemonos lo mismo respecto de los tratamientos <em>t2</em> y <em>t3</em>. Veamos lo que resulta al comparar los modelos</p>
+<p>Preguntémonos lo mismo respecto de los tratamientos <em>t2</em> y <em>t3</em>. Veamos lo que resulta al comparar los modelos</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -1359,7 +1392,8 @@ ratas.lme.m4C     1  5 244.4339 252.3514 -117.2169
 ratas.lme.m4      2  6 245.2705 254.7716 -116.6353 1 vs 2 1.163313  0.2808</code></pre>
 </div>
 </div>
-<p><span style="color:GoldenRod">¿Qué decisión tomarás?</span></p>
+<div class="callou-caution" style="color:GoldenRod">
+<p>##¿Qué decisión tomarás?</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -1385,6 +1419,7 @@ attr(,"label")
 [1] "Fixed effects:"</code></pre>
 </div>
 </div>
+</div>
 <p>Quizás es más interesante ver los resultados en términos de los valores estimados para cada tratamiento, en lugar de sobre sus diferencias.</p>
 <div class="cell">
 <details>
@@ -1400,7 +1435,7 @@ trat_2 129.0273 151.0000 172.9727
 trat_3 108.7140 145.6667 182.6193</code></pre>
 </div>
 </div>
-<p>Si optaramos por tomar al modelo <strong>C</strong> como nuestro modelo mínimo adecuado para describir el experimento de glucógeno, los resultados se verían así:</p>
+<p>Si optáramos por tomar al modelo <strong>C</strong> como nuestro modelo mínimo adecuado para describir el experimento de glucógeno, los resultados se verían así:</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -1445,52 +1480,37 @@ trat_2     136.9281 151.0000 165.0719</code></pre>
 </section>
 <section id="modelo-de-las-manos" class="level1">
 <h1>Modelo de las manos</h1>
+<p>Hagamos juntos el reanálisis del ejemplo de las manos como un modelo de efectos mixto.</p>
+<p>En caso de que no tengas los datos de las manos por ahí, te recuerdo como obtenerlos de nuestro repositorio en Google drive.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+El modelo puede ser este
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+y_{ijk} = \mu +  L_i + \eta_{j(i)} + \varepsilon_{k(ij)}
+\]</span></p>
+<ul>
+<li>¿Te parece adecuado?</li>
+<li>¿Lo puedes explicar?</li>
+</ul>
+</div>
+</div>
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>manos <span class="ot">&lt;-</span>  <span class="fu">read_csv</span>(<span class="st">"manos.dat"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>url_manos <span class="ot">&lt;-</span> <span class="st">"https://drive.google.com/file/d/1GSQMbbX7szydnIMDkWYDBlFBWqTdkC4k/view?usp=drive_link"</span></span>
+<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a>dat_manos_id <span class="ot">&lt;-</span> <span class="fu">str_extract</span>(url_manos, <span class="st">"(?&lt;=d/)(.*)(?=/view)"</span>)</span>
+<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-5"><a href="#cb104-5" aria-hidden="true" tabindex="-1"></a>url_drive <span class="ot">&lt;-</span> <span class="st">"https://docs.google.com/uc?id=%s&amp;export=download"</span> </span>
+<span id="cb104-6"><a href="#cb104-6" aria-hidden="true" tabindex="-1"></a>manos <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">sprintf</span>(url_drive, dat_manos_id)) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 32 Columns: 3
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (2): Individual, Hand
-dbl (1): Length
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<details>
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>manos.lme <span class="ot">&lt;-</span> <span class="fu">lme</span>(<span class="at">fixed=</span> Length <span class="sc">~</span> Hand <span class="sc">-</span> <span class="dv">1</span>, </span>
-<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">random=</span><span class="fu">list</span>(<span class="at">Individual =</span> <span class="sc">~</span> <span class="dv">1</span>),</span>
-<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data=</span>manos)</span>
-<span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a>manos.lme</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Linear mixed-effects model fit by REML
-  Data: manos 
-  Log-restricted-likelihood: -36.31293
-  Fixed: Length ~ Hand - 1 
- HandLeft HandRight 
- 17.35625  17.59375 
-
-Random effects:
- Formula: ~1 | Individual
-        (Intercept)  Residual
-StdDev:    1.950137 0.1981163
-
-Number of Observations: 32
-Number of Groups: 16 </code></pre>
-</div>
-<details>
-<summary>Código</summary>
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(manos.lme)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>     numDF denDF  F-value p-value
-Hand     2    15 644.8337  &lt;.0001</code></pre>
-</div>
 </div>
 
 

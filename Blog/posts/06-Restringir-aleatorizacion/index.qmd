@@ -87,7 +87,7 @@ Se quieren probar 3 tipos de *ración de alimentación* (**A**, **B**, **C**), s
 El modelo que razonablemente describe esta situación sería:
 
 $$
-Y_{ijk} =  \mu + T_{i} + \delta_{k(i)} + \varepsilon_{j(ik)}
+Y_{ijk} =  \mu + T_{i} + \delta_{j(i)} + \varepsilon_{k(ij)}
 $$
 
 El cuadro de ANOVA se vería así:
@@ -121,7 +121,7 @@ La situación ahora es, cada *ración* la asigno a un corral en el que tengo dos
 El modelo es el mismo que en la situación anterior, pero ahora varían los términos estimables:
 
 $$
-Y_{ijk} =  \mu + T_{i} + \delta_{k(i)} + \varepsilon_{j(ik)}
+Y_{ijk} =  \mu + T_{i} + \delta_{j(i)} + \varepsilon_{k(ij)}
 $$
 
 El cuadro de ANOVA se vería así:

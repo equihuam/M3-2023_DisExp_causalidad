@@ -243,7 +243,7 @@ y_{ijkm} = \mu + Z_{i} + B_{j} + \delta_{k(j)} + \varepsilon_{m(ijk)}
 <p><span style="color:GoldenRod">¿Consideras que hay algún inconvenientes en esta situación experimental?</span></p>
 <p>El modelo que razonablemente describe esta situación sería:</p>
 <p><span class="math display">\[
-Y_{ijk} =  \mu + T_{i} + \delta_{k(i)} + \varepsilon_{j(ik)}
+Y_{ijk} =  \mu + T_{i} + \delta_{j(i)} + \varepsilon_{k(ij)}
 \]</span></p>
 <p>El cuadro de ANOVA se vería así:</p>
 <p><img src="Images/ANOVA_Modelo_vacas_1.png" class="img-fluid"></p>
@@ -268,7 +268,7 @@ gl_{total} &amp;= gl_{ración} + gl_{ración} + gl_{ración} = 11
 <p>La situación ahora es, cada <em>ración</em> la asigno a un corral en el que tengo dos animales, y repito todo el experimento considerando los corrales una vez. Esto implica que los corrales, representados por <span class="math inline">\(\delta\)</span>, influirán sobre las vacas que tienen dentro con dos cosas: 1) el efecto del tratamiento y 2) el efecto de las características peculiares del corral. Para controlar estas últimas lo que habría que hacer es <strong>aleatorizar</strong> los corrales entre las <em>raciones</em>. Para no introducir un error particular para los animales, habrá que <strong>aleatorizar</strong> las vacas entre los corrales. De esta manera, los efectos de sus peculiaridades se convierten en variaciones aleatorias, independientes que se traducen en el error de ´medición o <em>residual</em>.</p>
 <p>El modelo es el mismo que en la situación anterior, pero ahora varían los términos estimables:</p>
 <p><span class="math display">\[
-Y_{ijk} =  \mu + T_{i} + \delta_{k(i)} + \varepsilon_{j(ik)}
+Y_{ijk} =  \mu + T_{i} + \delta_{j(i)} + \varepsilon_{k(ij)}
 \]</span></p>
 <p>El cuadro de ANOVA se vería así:</p>
 <p><img src="Images/ANOVA_Modelo_vacas_2.png" class="img-fluid"></p>
