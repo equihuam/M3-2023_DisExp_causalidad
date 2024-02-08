@@ -10,13 +10,12 @@ format:
     code-fold: true
 ---
 
-![](Picea-sitchensis-Sitka-Spruce-08.jpg){width="500"}
+[![](Picea-sitchensis-Sitka-Spruce-08.jpg){width="300"}](../../presentaciones/09-medidas-repetidas/medidas-repetidas.qmd)
+
+
 
 El tiempo es una variable problemática en el análisis estadístico, sobre todo por la necesidad de postular el supuesto de independencia entre las observaciones, lo que solemos asegurar aleatorizando las unidades experimentales. Las observaciones arregladas a lo largo del tiempo comúnmente no pueden aleatorizarse, por ejemplo cuando estamos dando seguimiento al crecimiento de un organismo. Por otro lado, también puede ocurrir esta falta de independencia por cercanía geográfica, así que el espacio comparte desafíos estadísticos con el tiempo.
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTenILf7HzRRX7WD6lwXhfD7ZNVqmXdqZeHmUYR1axySfqo4yEJ1lQTKrUjHBtzlQ/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="645px" height="400px" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
-
-</iframe>
 
 # Medidas repetidas (seguimiento a lo largo del tiempo)
 
