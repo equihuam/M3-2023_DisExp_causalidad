@@ -3,7 +3,7 @@ title: "Experimentación Ecológica"
 author: ["Miguel Equihua", "Elio Lagunes"]
 date: "2024-02-08"
 lang: es
-draft: true
+draft: false
 categories: [taller]
 format:
   html:
@@ -12,7 +12,7 @@ format:
 
 ![](Planeta-en-botella.jpg){width="500"}
 
-La experimentación con diseños adecuuadamente aleatorizados es la norma de referencia científica para la exploración de proposiciones causales. Preguntas de gran envergadura para los intereses humanos se resuelven mediante esta aproximación. La experimentación desafía la imaginación y las capacidades materiales y humanas. Exige ingenio y creatividad, pero también está acotada por el marco ético que nos exige evitar dañar a otros seres humanos, así como también evitar hacerlo a otras especies o a la naturaleza misma.
+La experimentación con diseños adecuadamente aleatorizados es la norma de referencia científica para la exploración de proposiciones causales. Preguntas de gran envergadura para los intereses humanos se resuelven mediante esta aproximación. La experimentación desafía la imaginación y las capacidades materiales y humanas. Exige ingenio y creatividad, pero también está acotada por el marco ético que nos exige evitar dañar a otros seres humanos, así como también evitar hacerlo a otras especies o a la naturaleza misma.
 
 
 
