@@ -4,7 +4,9 @@
     "items": [
       "/presentaciones/02-leyes-de-la-ciencia/pres-leyes-ciencia.html",
       "/presentaciones/03-modelo-lineal/pres-modelo-lineal.html",
-      "/presentaciones/04-diagramas-causales/Diagramas Causales.html"
+      "/presentaciones/04-diagramas-causales/Diagramas Causales.html",
+      "/presentaciones/09-medidas-repetidas/medidas-repetidas.html",
+      "/presentaciones/11-experimentar/experimentar.html"
     ]
   },
   {
@@ -18,7 +20,8 @@
       "/posts/05-dis-comp-aleat/index.html",
       "/posts/06-Restringir-aleatorizacion/index.html",
       "/posts/07-experimentos-anidados/index.html",
-      "/posts/08-modelos-mixtos/index.html"
+      "/posts/08-modelos-mixtos/index.html",
+      "/posts/09-medidas-repetidas/index.html"
     ]
   },
   {
@@ -30,7 +33,8 @@
     "items": [
       "/ejercicios/ejercicio-critico/index.html",
       "/ejercicios/pizzas/index.html",
-      "/ejercicios/venenos/index.html"
+      "/ejercicios/venenos/index.html",
+      "/ejercicios/tareas/index.html"
     ]
   },
   {
