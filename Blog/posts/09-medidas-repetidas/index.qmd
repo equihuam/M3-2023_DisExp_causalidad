@@ -98,8 +98,9 @@ summary(sitka.lme1)$tTable
 ```{r}
 intervals(sitka.lme1, level = 0.95)$fixed
 ```
+### Analiizando la interección
 
-Notando la significancia de los términos de interacción: ¿podría simplificar el modelo limitando el ajuste a un efecto lineal de crecimiento que distingue entre los tratamiento? Veámos, calculo un nuevo vector que me permite hacer el ajuste de un efecto lineal a la diferencia entre tratamientos (que es la interacción).
+Notando la significancia de los términos de interacción: ¿podría simplificar el modelo limitando el ajuste a un efecto lineal de crecimiento que distingue entre los tratamiento? Veamos, calculo un nuevo vector que me permite hacer el ajuste de un efecto lineal a la diferencia entre tratamientos (que es la interacción).
 
 ```{r}
 sitka88$tratGrad <- sitka88$Time * (sitka88$treat=="ozone")
@@ -108,9 +109,10 @@ sitka88$tratGrad <- sitka88$Time * (sitka88$treat=="ozone")
 ```{r}
 tapply(sitka88$Time,list(sitka88$treat, sitka88$Time), FUN=mean)
 tapply(sitka88$tratGrad,list(sitka88$treat, sitka88$Time), FUN=mean)
+
 ```
 
-Ahora ajusto un modelo en el que elimino la interacción de tratamiento con tiempo. Al mismo tiempo substituyo este efecto por el modelo con tiempo lineal en interacción con el tratamiento ozono (la variable que acabo de contruir).
+Ahora ajusto un modelo en el que elimino la interacción de tratamiento con tiempo. Al mismo tiempo substituyo este efecto por el modelo con tiempo lineal en interacción con el tratamiento ozono (la variable que acabo de construir).
 
 ```{r}
 sitka.lme2 <- update(sitka.lme1, 
@@ -163,13 +165,13 @@ summary(sitka.lme2.ML)
 
 Ahora veamos un poco más de cerca el modelo y veamos si la respuesta muestra una curvatura que pueda ser aproximada entonces por un *polinomio* y en ese caso identificar el *polinomio de menor grado* que podríamos usar.
 
-Recuerden que al utiilizar factores ordenados le estamos indicando a **R** que optaremos por **contrastes polinomiales ortogonales**. Otra manera de obtener estos contrastes es con la fuunción `poly`. Para ver como funciona esto usemos este comando los datos de tiempo. Del vector `Time` poly produce cuatro columnas nuevas, que dan cuenta de la tendencia lineal, cuadrática, cúbica, etc., con la peculiaridad de que cada columna es *ortogonal* a las demás.
+Recuerden que al utilizar factores ordenados le estamos indicando a **R** que optaremos por **contrastes polinomiales ortogonales**. Otra manera de obtener estos contrastes es con la función `poly`. Para ver como funciona esto usemos este comando los datos de tiempo. Del vector `Time` poly produce cuatro columnas nuevas, que dan cuenta de la tendencia lineal, cuadrática, cúbica, etc., con la peculiaridad de que cada columna es *ortogonal* a las demás.
 
 ```{r}
 head(poly(sitka88$Time, 4))
 ```
 
-El Modelo 2 que hemos ajustado consumió todos los grados de libertad posible y estimó un polinomio de grado 4. Consideremos considerar sólo el polinomio cúubico.
+El Modelo 2 que hemos ajustado consumió todos los grados de libertad posible y estimó un polinomio de grado 4. Consideremos sólo el polinomio cúbico.
 
 ```{r}
 sitka.lme3.ML <- lme(fixed = size ~ treat + poly(Time, 3) + tratGrad,
@@ -219,7 +221,7 @@ Podemos ahora explorar como mejorar la modelación de los componentes aleatorios
 VarCorr(sitka.lme1)
 ```
 
-Los modelos pueden incorporar una estructura de modelación de los patrones de correlación entre las observaciones. En este caso derivadas del hecho de que las mediciones se realizan a lo largo del tiempo, en intervalos relativamente cortos, sobre el mismo sujeto. Haremos esto aquí solo para ejemplificar el tema, que es amplio. Mi recomendación es más bien recrrir a la literatura existente para profundizar en el tema. Notese que para la comparación de modelos en donde no estamos cambiando los componentes fijo o aleatorio, puuede hacerse aún cuando el método de ajuuste sea el *REML*. Usamos una opción del patrón de correlación que estamos asumiendo mediante la opción `cor` que recibe una estructura que da cuenta del patrón de correlación que se asume afecta a la forma como se producen las observaciones. En este caso optamos por un proceso de *autocorrelación de orden 1* en las observaciones con correlación de 70%, derivado de medir a lo largo del tiempo cada árbol. Esto es lo que hace la función `corCAR1`, sobre la que pueden encontrar más información en la ayuda de **R**.
+Los modelos pueden incorporar una estructura de modelación de los patrones de correlación entre las observaciones. En este caso derivadas del hecho de que las mediciones se realizan a lo largo del tiempo, en intervalos relativamente cortos, sobre el mismo sujeto. Haremos esto aquí solo para ejemplificar el tema, que es amplio. Mi recomendación es más bien recurrir a la literatura existente para profundizar en el tema. Nótese que para la comparación de modelos en donde no estamos cambiando los componentes fijo, puede hacerse aún cuando el método de ajuste sea el *REML*. Usamos una opción del patrón de correlación que estamos asumiendo mediante la opción `cor` que recibe una estructura que da cuenta del patrón de correlación que se asume afecta a la forma como se producen las observaciones. En este caso optamos por un proceso de *autocorrelación de orden 1* en las observaciones con correlación de 70%, derivado de medir a lo largo del tiempo cada árbol. Esto es lo que hace la función `corCAR1`, sobre la que pueden encontrar más información en la ayuda de **R**.
 
 ```{r}
 sitka.lme4 <- lme(size~ treat * ordered(Time), random = ~ 1 | tree,
@@ -233,7 +235,7 @@ Veamos como cambian los estadísticos de los modelos. Comparemos el modelo compl
 anova(sitka.lme1,sitka.lme4)
 ```
 
-Es raro que haya [AIC y BIC negativos](https://www.statology.org/negative-aic/), pero pasa, sí los consideraríamos como valores más pequeños que los positivos, así que aqí, el modelo 4 parece tener un ajuste bastante mejor que el 1.
+Se ve raro que haya [AIC y BIC negativos](https://www.statology.org/negative-aic/), pero pasa, sí los consideraríamos como valores más pequeños que los positivos, así que aquí, el modelo 4 parece tener un ajuste bastante mejor que el 1.
 
 ¿cómo se ve el modelo ajustado finalmente?
 
@@ -242,7 +244,7 @@ summary(sitka.lme4)$tTable
 summary(sitka.lme1)$tTable
 ```
 
-Aunque hay obviamente una importante correlaciónn entre observaciones, el efecto de considerar esto en el modelo es mínimo en términos de los valores de los coeficientes, aunque la significación valorada en términos de *p* cambia un poco, pero nada que nos haga modiificar la apreciación del modelo. No parece valer la pena incorporar este aspecto de autocorrelación en el ajuste final, si nos atenemos a preferir el modelo más simple. Por otro lado, el asunto de considerar un efecto de autocorrelación en las observaciones parece exigir ser considerado. Tomemos este último camino
+Aunque hay obviamente una importante correlaciónn entre observaciones, el efecto de considerar esto en el modelo es mínimo en términos de los valores de los coeficientes, aunque la significación valorada en términos de *p* cambia un poco, pero nada que nos haga modificar la apreciación del modelo. No parece valer la pena incorporar este aspecto de autocorrelación en el ajuste final, si nos atenemos a preferir el modelo más simple. Por otro lado, el asunto de considerar un efecto de autocorrelación en las observaciones parece exigir ser considerado. Tomemos este último camino
 
 Los intervalos de confianza de los coeficientes del modelo 4 son estos:
 
@@ -291,7 +293,7 @@ Designmat <- model.matrix(eval(eval(sitka.lme4$call$fixed)[-2]),
                           sitka_intconf[-ncol(sitka_intconf)])
 ```
 
-Ahora calculamos los errores estandar de las predicciones. La matriz diseño contiene las variables indicadoras de todos los términos en el modelo. Al multiplicarla por la matriz de varianzas y covarianzas del modelo (la que está en el componente `sitka.lme4$varFix` del modelo ajustado), produce los estimadores de varianza requeridos
+Ahora calculamos los errores estándar de las predicciones. La matriz diseño contiene las variables indicadoras de todos los términos en el modelo. Al multiplicarla por la matriz de varianzas y covarianzas del modelo (la que está en el componente `sitka.lme4$varFix` del modelo ajustado), produce los estimadores de varianza requeridos
 
 ```{r}
 predvar <- diag(Designmat %*% sitka.lme4$varFix %*% t(Designmat))

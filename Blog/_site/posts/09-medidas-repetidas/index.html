@@ -371,7 +371,10 @@ attr(,"label")
 [1] "Fixed effects:"</code></pre>
 </div>
 </div>
-<p>Notando la significancia de los términos de interacción: ¿podría simplificar el modelo limitando el ajuste a un efecto lineal de crecimiento que distingue entre los tratamiento? Veámos, calculo un nuevo vector que me permite hacer el ajuste de un efecto lineal a la diferencia entre tratamientos (que es la interacción).</p>
+</section>
+<section id="analiizando-la-interección" class="level3">
+<h3 class="anchored" data-anchor-id="analiizando-la-interección">Analiizando la interección</h3>
+<p>Notando la significancia de los términos de interacción: ¿podría simplificar el modelo limitando el ajuste a un efecto lineal de crecimiento que distingue entre los tratamiento? Veamos, calculo un nuevo vector que me permite hacer el ajuste de un efecto lineal a la diferencia entre tratamientos (que es la interacción).</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -398,7 +401,7 @@ control   0   0   0   0   0
 ozone   152 174 201 227 258</code></pre>
 </div>
 </div>
-<p>Ahora ajusto un modelo en el que elimino la interacción de tratamiento con tiempo. Al mismo tiempo substituyo este efecto por el modelo con tiempo lineal en interacción con el tratamiento ozono (la variable que acabo de contruir).</p>
+<p>Ahora ajusto un modelo en el que elimino la interacción de tratamiento con tiempo. Al mismo tiempo substituyo este efecto por el modelo con tiempo lineal en interacción con el tratamiento ozono (la variable que acabo de construir).</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -529,7 +532,7 @@ Number of Groups: 79 </code></pre>
 <section id="selección-del-polinomio" class="level2">
 <h2 class="anchored" data-anchor-id="selección-del-polinomio">Selección del polinomio</h2>
 <p>Ahora veamos un poco más de cerca el modelo y veamos si la respuesta muestra una curvatura que pueda ser aproximada entonces por un <em>polinomio</em> y en ese caso identificar el <em>polinomio de menor grado</em> que podríamos usar.</p>
-<p>Recuerden que al utiilizar factores ordenados le estamos indicando a <strong>R</strong> que optaremos por <strong>contrastes polinomiales ortogonales</strong>. Otra manera de obtener estos contrastes es con la fuunción <code>poly</code>. Para ver como funciona esto usemos este comando los datos de tiempo. Del vector <code>Time</code> poly produce cuatro columnas nuevas, que dan cuenta de la tendencia lineal, cuadrática, cúbica, etc., con la peculiaridad de que cada columna es <em>ortogonal</em> a las demás.</p>
+<p>Recuerden que al utilizar factores ordenados le estamos indicando a <strong>R</strong> que optaremos por <strong>contrastes polinomiales ortogonales</strong>. Otra manera de obtener estos contrastes es con la función <code>poly</code>. Para ver como funciona esto usemos este comando los datos de tiempo. Del vector <code>Time</code> poly produce cuatro columnas nuevas, que dan cuenta de la tendencia lineal, cuadrática, cúbica, etc., con la peculiaridad de que cada columna es <em>ortogonal</em> a las demás.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -545,7 +548,7 @@ Number of Groups: 79 </code></pre>
 [6,] -0.067556996  0.05935630 -0.04131435  0.018236996</code></pre>
 </div>
 </div>
-<p>El Modelo 2 que hemos ajustado consumió todos los grados de libertad posible y estimó un polinomio de grado 4. Consideremos considerar sólo el polinomio cúubico.</p>
+<p>El Modelo 2 que hemos ajustado consumió todos los grados de libertad posible y estimó un polinomio de grado 4. Consideremos sólo el polinomio cúbico.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -628,7 +631,7 @@ ozone   4.066311 4.452297 4.867795 5.163598 5.319814</code></pre>
 Residual    0.02593727 0.1610505</code></pre>
 </div>
 </div>
-<p>Los modelos pueden incorporar una estructura de modelación de los patrones de correlación entre las observaciones. En este caso derivadas del hecho de que las mediciones se realizan a lo largo del tiempo, en intervalos relativamente cortos, sobre el mismo sujeto. Haremos esto aquí solo para ejemplificar el tema, que es amplio. Mi recomendación es más bien recrrir a la literatura existente para profundizar en el tema. Notese que para la comparación de modelos en donde no estamos cambiando los componentes fijo o aleatorio, puuede hacerse aún cuando el método de ajuuste sea el <em>REML</em>. Usamos una opción del patrón de correlación que estamos asumiendo mediante la opción <code>cor</code> que recibe una estructura que da cuenta del patrón de correlación que se asume afecta a la forma como se producen las observaciones. En este caso optamos por un proceso de <em>autocorrelación de orden 1</em> en las observaciones con correlación de 70%, derivado de medir a lo largo del tiempo cada árbol. Esto es lo que hace la función <code>corCAR1</code>, sobre la que pueden encontrar más información en la ayuda de <strong>R</strong>.</p>
+<p>Los modelos pueden incorporar una estructura de modelación de los patrones de correlación entre las observaciones. En este caso derivadas del hecho de que las mediciones se realizan a lo largo del tiempo, en intervalos relativamente cortos, sobre el mismo sujeto. Haremos esto aquí solo para ejemplificar el tema, que es amplio. Mi recomendación es más bien recurrir a la literatura existente para profundizar en el tema. Nótese que para la comparación de modelos en donde no estamos cambiando los componentes fijo, puede hacerse aún cuando el método de ajuste sea el <em>REML</em>. Usamos una opción del patrón de correlación que estamos asumiendo mediante la opción <code>cor</code> que recibe una estructura que da cuenta del patrón de correlación que se asume afecta a la forma como se producen las observaciones. En este caso optamos por un proceso de <em>autocorrelación de orden 1</em> en las observaciones con correlación de 70%, derivado de medir a lo largo del tiempo cada árbol. Esto es lo que hace la función <code>corCAR1</code>, sobre la que pueden encontrar más información en la ayuda de <strong>R</strong>.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -648,7 +651,7 @@ sitka.lme1     1 12  79.90098 127.3399 -27.95049
 sitka.lme4     2 13 -63.17167 -11.7795  44.58583 1 vs 2 145.0727  &lt;.0001</code></pre>
 </div>
 </div>
-<p>Es raro que haya <a href="https://www.statology.org/negative-aic/">AIC y BIC negativos</a>, pero pasa, sí los consideraríamos como valores más pequeños que los positivos, así que aqí, el modelo 4 parece tener un ajuste bastante mejor que el 1.</p>
+<p>Se ve raro que haya <a href="https://www.statology.org/negative-aic/">AIC y BIC negativos</a>, pero pasa, sí los consideraríamos como valores más pequeños que los positivos, así que aquí, el modelo 4 parece tener un ajuste bastante mejor que el 1.</p>
 <p>¿cómo se ve el modelo ajustado finalmente?</p>
 <div class="cell">
 <details>
@@ -686,7 +689,7 @@ treatozone:ordered(Time).C -0.01424899 0.03895909 308 -0.3657423  7.148084e-01
 treatozone:ordered(Time)^4  0.01240293 0.03895909 308  0.3183578  7.504293e-01</code></pre>
 </div>
 </div>
-<p>Aunque hay obviamente una importante correlaciónn entre observaciones, el efecto de considerar esto en el modelo es mínimo en términos de los valores de los coeficientes, aunque la significación valorada en términos de <em>p</em> cambia un poco, pero nada que nos haga modiificar la apreciación del modelo. No parece valer la pena incorporar este aspecto de autocorrelación en el ajuste final, si nos atenemos a preferir el modelo más simple. Por otro lado, el asunto de considerar un efecto de autocorrelación en las observaciones parece exigir ser considerado. Tomemos este último camino</p>
+<p>Aunque hay obviamente una importante correlaciónn entre observaciones, el efecto de considerar esto en el modelo es mínimo en términos de los valores de los coeficientes, aunque la significación valorada en términos de <em>p</em> cambia un poco, pero nada que nos haga modificar la apreciación del modelo. No parece valer la pena incorporar este aspecto de autocorrelación en el ajuste final, si nos atenemos a preferir el modelo más simple. Por otro lado, el asunto de considerar un efecto de autocorrelación en las observaciones parece exigir ser considerado. Tomemos este último camino</p>
 <p>Los intervalos de confianza de los coeficientes del modelo 4 son estos:</p>
 <div class="cell">
 <details>
@@ -771,7 +774,7 @@ attr(,"label")
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>                          sitka_intconf[<span class="sc">-</span><span class="fu">ncol</span>(sitka_intconf)])</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Ahora calculamos los errores estandar de las predicciones. La matriz diseño contiene las variables indicadoras de todos los términos en el modelo. Al multiplicarla por la matriz de varianzas y covarianzas del modelo (la que está en el componente <code>sitka.lme4$varFix</code> del modelo ajustado), produce los estimadores de varianza requeridos</p>
+<p>Ahora calculamos los errores estándar de las predicciones. La matriz diseño contiene las variables indicadoras de todos los términos en el modelo. Al multiplicarla por la matriz de varianzas y covarianzas del modelo (la que está en el componente <code>sitka.lme4$varFix</code> del modelo ajustado), produce los estimadores de varianza requeridos</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
