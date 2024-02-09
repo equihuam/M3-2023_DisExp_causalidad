@@ -1,5 +1,5 @@
 ---
-title: "Mi primer docmento r-shinylive en Quarto"
+title: "Mi primer documento r-shinylive en Quarto"
 filters:
   - shinylive
 ---
@@ -42,22 +42,23 @@ server <- function(input, output, session) {
     
     x <- seq(from = -2, to = 2, length.out = 550)
     y <- dnorm(x)
-    lines(x, y, lwd=1.5)
+    lines(x, y, lwd=1.5, cex = 0.5)
     
     lwd <- 2
     abline(v=0, col="red", lwd=lwd, lty=2)
     abline(v=mean(data()), col="blue", lwd=lwd, lty=1)
 
     legend(legend = c("Normal", "Mean", "Sample mean"),
-      col = c("black", "red", "blue"),
-      lty = c(1, 2, 1),
-      lwd = c(1, lwd, lwd),
-      x = 1,
-      y = 0.9
+           cex = 0.7,
+           col = c("black", "red", "blue"),
+           lty = c(1, 2, 1),
+           lwd = c(1, lwd, lwd),
+           x = 1,
+           y = 0.9
     )
   }, 
   res=140,     
-  width=1300
+  width=1100
 )
 }
 

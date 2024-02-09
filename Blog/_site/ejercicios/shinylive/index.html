@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Curso de Estadística (Inecol) - Mi primer docmento r-shinylive en Quarto</title>
+<title>Curso de Estadística (Inecol) - Mi primer documento r-shinylive en Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -128,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mi primer docmento r-shinylive en Quarto</h1>
+<h1 class="title">Mi primer documento r-shinylive en Quarto</h1>
 </div>
 
 
@@ -180,22 +180,23 @@ server &lt;- function(input, output, session) {
     
     x &lt;- seq(from = -2, to = 2, length.out = 550)
     y &lt;- dnorm(x)
-    lines(x, y, lwd=1.5)
+    lines(x, y, lwd=1.5, cex = 0.5)
     
     lwd &lt;- 2
     abline(v=0, col="red", lwd=lwd, lty=2)
     abline(v=mean(data()), col="blue", lwd=lwd, lty=1)
 
     legend(legend = c("Normal", "Mean", "Sample mean"),
-      col = c("black", "red", "blue"),
-      lty = c(1, 2, 1),
-      lwd = c(1, lwd, lwd),
-      x = 1,
-      y = 0.9
+           cex = 0.7,
+           col = c("black", "red", "blue"),
+           lty = c(1, 2, 1),
+           lwd = c(1, lwd, lwd),
+           x = 1,
+           y = 0.9
     )
   }, 
   res=140,     
-  width=1300
+  width=1100
 )
 }
 
