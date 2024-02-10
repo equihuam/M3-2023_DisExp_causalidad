@@ -24,16 +24,16 @@ ui <- fluidPage(
                survey_description = "¡Bienvenido! Esta es una encuesta de prueba con el paquete {shinysurveys}.")
 )
 
-server <- function(input, output, session) {
-  renderSurvey()
-  
-  observeEvent(input$submit, 
-               {print(getSurveyData()
-                showModal(modalDialog(
-                  title = "Felicidades, ¡completaste tu primera encuesta!",
-                          "Puedes adaptar las acciones que ocurren enseguida de que termines a encuesta usando input$submit."))
-    })
-}
+server <- function(input, output, session) 
+  {
+    renderSurvey()
+    
+    observeEvent(input$submit, 
+                 {showModal(modalDialog(
+                    title = "Felicidades, ¡completaste tu primera encuesta!",
+                    respuesta <- getSurveyData()))
+                 })
+  }
 
 shinyApp(ui, server)
 ```
