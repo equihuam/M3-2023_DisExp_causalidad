@@ -15,27 +15,31 @@ library(ggplot2)
 ui <- page_fillable(
   card(
     card_header(
-      "Penguin body mass",
+      "Masa corporal de pingüinos",
       tooltip(
         bsicons::bs_icon("question-circle"),
-        "Mass measured in grams.",
+        "Masa (g)",
         placement = "right"
       ),
       popover(
         bsicons::bs_icon("gear", class = "ms-auto"),
-        selectInput("yvar", "Split by", c("sex", "species", "island")),
-        selectInput("color", "Color by", c("species", "island", "sex"), "island"),
-        title = "Plot settings",
+        tags$style(type='text/css', ".selectize-input { font-size: 12px; line-height: 12px;} .selectize-dropdown { font-size: 12px; line-height: 12px; }"),
+        selectInput("yvar", "Separar por", c("sexo" = "sex", "especie" = "species",
+                                             "isla" = "island")),
+        selectInput("color", "Colorear por", c("especie" = "species", 
+                                               "isla" = "island", "sexo" = "sex"),
+                    "island"),
+        title = "Ajustes para la gráficación",
       ),
       class = "d-flex align-items-center gap-1"
     ),
     plotOutput("plt"),
     card_footer(
-      "Source: Gorman KB, Williams TD, Fraser WR (2014).",
+      "Fuente: Gorman KB, Williams TD, Fraser WR (2014).",
       popover(
-        a("Learn more", href = "#"),
+        a("Para saber más", href = "#"),
         markdown(
-          "Originally published in: Gorman KB, Williams TD, Fraser WR (2014) Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus Pygoscelis). PLoS ONE 9(3): e90081. [doi:10.1371/journal.pone.0090081](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081)"
+          "Originalmente publicado en: Gorman KB, Williams TD, Fraser WR (2014) Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus Pygoscelis). PLoS ONE 9(3): e90081. [doi:10.1371/journal.pone.0090081](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081)"
         )
       )
     )
@@ -44,12 +48,13 @@ ui <- page_fillable(
 
 server <- function(input, output, session) {
   output$plt <- renderPlot({
-    ggplot(penguins, aes(x = body_mass_g, y = !!sym(input$yvar), fill = !!sym(input$color))) +
+    ggplot(penguins, aes(x = body_mass_g, y = !!sym(input$yvar), 
+                         fill = !!sym(input$color))) +
       ggridges::geom_density_ridges(scale = 0.9, alpha = 0.5) +
       coord_cartesian(clip = "off") +
       labs(x = NULL, y = NULL) +
       ggokabeito::scale_fill_okabe_ito() +
-      theme_minimal(base_size = 24) +
+      theme_minimal(base_size = 18) +
       theme(legend.position = "top")
   })
 }
