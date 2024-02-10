@@ -43,7 +43,21 @@ m3_tareas <- drive_ls(m3_dir$name[grepl("Tarea", m3_dir$name)])
 ```
 
 
+
+
+## Tareas
+
+::: {layout="[50, -1, 50]"}
 Esta es la lista de tareas que hemos recibido y reunido en la carpeta que tenemos en Google Drive. 
+
+![](images/homework-152957_1280.png){width=100px}
+
+:::
+
+\
+\
+\
+
 
 
 ```{r }
@@ -69,8 +83,20 @@ m3_tareas %>%
 
 ```
 
+---------------------------------------
 
 ## Lecturas
+
+::: {layout="[50, -1, 50]"}
+Esta es la colección de controles de lectura que hemos recibido.
+
+![](images/reading-glasses-153748_1280.png){width=200px}
+
+:::
+
+\
+\
+\
 
 ```{r }
 #| label: m3_lecturas

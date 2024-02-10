@@ -662,7 +662,7 @@
     "href": "ejercicios/tareas/index.html#lecturas",
     "title": "Control de Tareas",
     "section": "Lecturas",
-    "text": "Lecturas"
+    "text": "Lecturas\n\n\n\nEsta es la colección de controles de lectura que hemos recibido."
   },
   {
     "objectID": "posts/09-medidas-repetidas/index.html",
@@ -782,5 +782,12 @@
     "title": "Prueba r-shinysurvey en Quarto",
     "section": "",
     "text": "#| standalone: true\n#| viewerHeight: 600\nlibrary(shiny)\nlibrary(shinysurveys)\n\ndf &lt;- data.frame(question = \"¿Cuál es tu comida favorita?\",\n                 option = \"Tu respuesta\",\n                 input_type = \"text\",\n                 input_id = \"favorite_food\",\n                 dependence = NA,\n                 dependence_value = NA,\n                 required = F)\n\nui &lt;- fluidPage(\n  surveyOutput(df = df,\n               survey_title = \"Hola, ¡comida favorita!\",\n               survey_description = \"¡Bienvenido! Esta es una encuesta de prueba con el paquete {shinysurveys}.\")\n)\n\nserver &lt;- function(input, output, session) {\n  renderSurvey()\n  \n  observeEvent(input$submit, \n               {print(getSurveyData()\n                showModal(modalDialog(\n                  title = \"Felicidades, ¡completaste tu primera encuesta!\",\n                          \"Puedes adaptar las acciones que ocurren enseguida de que termines a encuesta usando input$submit.\"))\n    })\n}\n\nshinyApp(ui, server)"
+  },
+  {
+    "objectID": "ejercicios/tareas/index.html#tareas",
+    "href": "ejercicios/tareas/index.html#tareas",
+    "title": "Control de Tareas",
+    "section": "",
+    "text": "Esta es la lista de tareas que hemos recibido y reunido en la carpeta que tenemos en Google Drive."
   }
 ]
