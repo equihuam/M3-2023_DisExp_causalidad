@@ -1,0 +1,39 @@
+---
+title: "Prueba r-shinysurvey en Quarto"
+filters:
+  - shinylive
+---
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 600
+library(shiny)
+library(shinysurveys)
+
+df <- data.frame(question = "¿Cuál es tu comida favorita?",
+                 option = "Tu respuesta",
+                 input_type = "text",
+                 input_id = "favorite_food",
+                 dependence = NA,
+                 dependence_value = NA,
+                 required = F)
+
+ui <- fluidPage(
+  surveyOutput(df = df,
+               survey_title = "Hola, ¡comida favorita!",
+               survey_description = "¡Bienvenido! Esta es una encuesta de prueba con el paquete {shinysurveys}.")
+)
+
+server <- function(input, output, session) {
+  renderSurvey()
+  
+  observeEvent(input$submit, 
+               {print(getSurveyData()
+                showModal(modalDialog(
+                  title = "Felicidades, ¡completaste tu primera encuesta!",
+                          "Puedes adaptar las acciones que ocurren enseguida de que termines a encuesta usando input$submit."))
+    })
+}
+
+shinyApp(ui, server)
+```
