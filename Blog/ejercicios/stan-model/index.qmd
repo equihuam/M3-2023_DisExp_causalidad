@@ -1,0 +1,69 @@
+---
+title: "Modelación con Stan"
+---
+
+library(rstan)
+library(tidyverse)
+rstan_options(auto_write = TRUE)
+
+## Preparación
+
+Hay que crear un archivo que especifique el modelo en los términos que **Stan** requiere. La especificación básica es la siguiente (se pueden agregar comentarios con un doble diagonal). Primero una definición del tipo de datos que requiere el modelo.
+
+```stan
+// The input data is a vector 'y' of length 'N'.
+data {
+  int<lower=0> N;
+  vector[N] y;
+}
+```
+
+En seguida se detallan los parámetros que definen el modelo.
+
+```stan
+// The parameters accepted by the model. Our model
+// accepts two parameters 'mu' and 'sigma'.
+parameters {
+  real mu;
+  real<lower=0> sigma;
+}
+```
+
+Finalmente, se especifica el modelo. El modelo completo se guarda como un archivo *stan* al que se llamará cuando se buusque realizar el ajuste.
+
+``` stan
+// The model to be estimated. We model the output
+// 'y' to be normally distributed with mean 'mu'
+// and standard deviation 'sigma'.
+model {
+  y ~ normal(mu, sigma);
+}
+
+```
+
+Para ejemplificar el uso del modelo `stan` ya definido arriba, sólo nos resta preparar algunos datos de prueba, activar la biblioteca `rstan` y realizar el ajuste.
+
+
+```{r}
+library(rstan)
+library(tibble)
+
+datos <-  list(N = 1000, 
+               y = rnorm(1000, 10, 2))
+               
+fit <- stan(file = 'modelo.stan', data = datos)
+
+```
+
+Ahora podemos ver los resultados del ajuste del modelo y explorar los resultados que arroja.
+
+```{r}
+
+summary(fit)
+
+ajuste <- as_tibble(rstan::extract(fit))
+head(ajuste)
+
+```
+
+
