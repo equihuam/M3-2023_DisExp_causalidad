@@ -62,7 +62,11 @@ Ahora podemos ver los resultados del ajuste del modelo y explorar los resultados
 summary(fit)
 
 ajuste <- as_tibble(rstan::extract(fit))
+
 head(ajuste)
+
+
+mean(ajuste$mu)
 
 ```
 
