@@ -173,9 +173,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>library(rstan) library(tidyverse) rstan_options(auto_write = TRUE)</p>
+<p>La modelación estadística tiene múltiples opciones actualmente. Señaladamente <strong>R</strong>, <strong>Python</strong>, <strong>Julia</strong>, <strong>Matlab</strong>, <em>Stata</em> y <strong>Stan</strong> que de acuerdo con su propia apreciación “es una plataforma de última generación para el modelado estadístico y el cálculo estadístico de alto rendimiento en la que confían miles de usuarios”. <strong>Stan</strong> es básicamente un lenguaje para la programación de modelos probabilísticos que permite:</p>
+<ul>
+<li>Inferencia estadística bayesiana completa.</li>
+<li>Inferencia bayesiana aproximada con inferencia variacional.</li>
+<li>Estimación de máxima verosimilitud penalizada con optimización.</li>
+</ul>
+<p><strong>Stan</strong> tiene su motor de cálculo propio, pero interactúa muy bien con los lenguajes de análisis de datos más populares (<em>R</em>, <em>Python</em>, <em>MATLAB</em>, etc.) y en los sistemas operativos comunes (<em>Linux</em>, <em>Mac</em>, <em>Windows</em>). Puedes obtener más información sobre esta propuesta de modelación estadística en la <a href="https://mc-stan.org/">página de Stan</a>.</p>
 <section id="preparación" class="level2">
 <h2 class="anchored" data-anchor-id="preparación">Preparación</h2>
-<p>Hay que crear un archivo que especifique el modelo en los términos que <strong>Stan</strong> requiere. La especificación básica es la siguiente (se pueden agregar comentarios con un doble diagonal). Primero una definición del tipo de datos que requiere el modelo.</p>
+<p>El concepto que utiliza <strong>Stan</strong> parte de la especificación de las funciones de densidad que le interesan al usuario para enseguida ajustar los modelos a los datos. Un ejemplo trivial es el siguiente, en el que sólo nos proponemos estimar la media de una muestra de datos que asumiremos se distribuyen normalmente. Lo primero que hay que hacer es crear un archivo que especifique el modelo en los términos que <strong>Stan</strong> requiere. La especificación básica es la siguiente (se pueden agregar comentarios con un doble diagonal). Primero una definición del tipo de datos que requiere el modelo.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode stan code-with-copy"><code class="sourceCode stan"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// The input data is a vector 'y' of length 'N'.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> {</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt; N;</span>
@@ -197,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Para ejemplificar el uso del modelo <code>stan</code> ya definido arriba, sólo nos resta preparar algunos datos de prueba, activar la biblioteca <code>rstan</code> y realizar el ajuste.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r bg-danger code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: StanHeaders</code></pre>
 </div>
@@ -217,21 +224,18 @@ rstan_options(threads_per_chain = 1)</code></pre>
 <div class="cell-output cell-output-stderr">
 <pre><code>Do not specify '-march=native' in 'LOCAL_CPPFLAGS' or a Makevars file</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r bg-danger code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span>  <span class="fu">list</span>(<span class="at">N =</span> <span class="dv">1000</span>, </span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="dv">10</span>, <span class="dv">2</span>))</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>               </span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="at">file =</span> <span class="st">'modelo.stan'</span>, <span class="at">data =</span> datos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>recompiling to avoid crashing R session</code></pre>
-</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 1).
 Chain 1: 
-Chain 1: Gradient evaluation took 4.3e-05 seconds
-Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.43 seconds.
+Chain 1: Gradient evaluation took 4.5e-05 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.45 seconds.
 Chain 1: Adjust your expectations accordingly!
 Chain 1: 
 Chain 1: 
@@ -248,15 +252,15 @@ Chain 1: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 1: 
-Chain 1:  Elapsed Time: 0.028 seconds (Warm-up)
-Chain 1:                0.025 seconds (Sampling)
-Chain 1:                0.053 seconds (Total)
+Chain 1:  Elapsed Time: 0.033 seconds (Warm-up)
+Chain 1:                0.031 seconds (Sampling)
+Chain 1:                0.064 seconds (Total)
 Chain 1: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 2).
 Chain 2: 
-Chain 2: Gradient evaluation took 1.2e-05 seconds
-Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.12 seconds.
+Chain 2: Gradient evaluation took 7e-06 seconds
+Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.07 seconds.
 Chain 2: Adjust your expectations accordingly!
 Chain 2: 
 Chain 2: 
@@ -273,15 +277,15 @@ Chain 2: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 2: 
-Chain 2:  Elapsed Time: 0.027 seconds (Warm-up)
-Chain 2:                0.029 seconds (Sampling)
-Chain 2:                0.056 seconds (Total)
+Chain 2:  Elapsed Time: 0.02 seconds (Warm-up)
+Chain 2:                0.019 seconds (Sampling)
+Chain 2:                0.039 seconds (Total)
 Chain 2: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 3).
 Chain 3: 
-Chain 3: Gradient evaluation took 1.5e-05 seconds
-Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.15 seconds.
+Chain 3: Gradient evaluation took 6e-06 seconds
+Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.06 seconds.
 Chain 3: Adjust your expectations accordingly!
 Chain 3: 
 Chain 3: 
@@ -298,15 +302,15 @@ Chain 3: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 3: 
-Chain 3:  Elapsed Time: 0.028 seconds (Warm-up)
-Chain 3:                0.033 seconds (Sampling)
-Chain 3:                0.061 seconds (Total)
+Chain 3:  Elapsed Time: 0.023 seconds (Warm-up)
+Chain 3:                0.018 seconds (Sampling)
+Chain 3:                0.041 seconds (Total)
 Chain 3: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 4).
 Chain 4: 
-Chain 4: Gradient evaluation took 1e-05 seconds
-Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.1 seconds.
+Chain 4: Gradient evaluation took 1.1e-05 seconds
+Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.11 seconds.
 Chain 4: Adjust your expectations accordingly!
 Chain 4: 
 Chain 4: 
@@ -323,91 +327,96 @@ Chain 4: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 4: 
-Chain 4:  Elapsed Time: 0.028 seconds (Warm-up)
-Chain 4:                0.032 seconds (Sampling)
-Chain 4:                0.06 seconds (Total)
+Chain 4:  Elapsed Time: 0.03 seconds (Warm-up)
+Chain 4:                0.029 seconds (Sampling)
+Chain 4:                0.059 seconds (Total)
 Chain 4: </code></pre>
 </div>
 </div>
 <p>Ahora podemos ver los resultados del ajuste del modelo y explorar los resultados que arroja.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$summary
-              mean      se_mean         sd         2.5%          25%
-mu       10.042666 0.0011334218 0.06382558     9.915417     9.999955
-sigma     1.979013 0.0007802688 0.04398799     1.895890     1.949253
-lp__  -1181.157859 0.0239558380 1.01765011 -1183.859863 -1181.522798
-               50%         75%        97.5%    n_eff     Rhat
-mu       10.043185    10.08572    10.168694 3171.074 1.000201
-sigma     1.978262     2.00872     2.068358 3178.188 1.001820
-lp__  -1180.833047 -1180.43098 -1180.173463 1804.572 1.001761
+              mean      se_mean         sd         2.5%         25%
+mu       10.051244 0.0009594207 0.05942588     9.933818    10.01085
+sigma     1.949976 0.0007515521 0.04389805     1.866640     1.91952
+lp__  -1166.394014 0.0208691960 0.94539161 -1168.931642 -1166.77844
+               50%          75%        97.5%    n_eff     Rhat
+mu       10.052132    10.091671    10.166510 3836.481 0.999823
+sigma     1.949208     1.978503     2.041439 3411.711 1.000019
+lp__  -1166.104877 -1165.718901 -1165.450903 2052.164 1.002159
 
 $c_summary
 , , chains = chain:1
 
          stats
-parameter         mean         sd         2.5%          25%          50%
-    mu       10.040946 0.06365322     9.908818     9.997605    10.040414
-    sigma     1.979636 0.04417997     1.894838     1.949987     1.980158
-    lp__  -1181.160622 0.95315100 -1183.702130 -1181.515426 -1180.847679
+parameter         mean         sd         2.5%         25%          50%
+    mu       10.051123 0.06103171     9.935396    10.00867    10.051193
+    sigma     1.950252 0.04525387     1.865501     1.91956     1.950025
+    lp__  -1166.451014 0.97738434 -1168.906305 -1166.84082 -1166.169905
          stats
-parameter          75%        97.5%
-    mu       10.083883    10.161104
-    sigma     2.010114     2.069146
-    lp__  -1180.463386 -1180.174281
+parameter         75%        97.5%
+    mu       10.09437    10.165088
+    sigma     1.97890     2.045865
+    lp__  -1165.73694 -1165.449344
 
 , , chains = chain:2
 
          stats
-parameter         mean         sd         2.5%          25%         50%
-    mu       10.042128 0.06068617     9.916300    10.001970    10.04526
-    sigma     1.977563 0.04124718     1.899988     1.950089     1.97537
-    lp__  -1181.048604 0.94891046 -1183.633858 -1181.390428 -1180.75372
+parameter         mean         sd         2.5%          25%          50%
+    mu       10.050543 0.05998280     9.924590    10.013517    10.054246
+    sigma     1.949912 0.04432913     1.864236     1.920175     1.946924
+    lp__  -1166.410710 0.96621193 -1168.977501 -1166.778930 -1166.117027
          stats
-parameter         75%        97.5%
-    mu       10.08183    10.152856
-    sigma     2.00598     2.056426
-    lp__  -1180.39164 -1180.173400
+parameter          75%        97.5%
+    mu       10.091458    10.162434
+    sigma     1.980227     2.040094
+    lp__  -1165.726743 -1165.451634
 
 , , chains = chain:3
 
          stats
 parameter         mean         sd         2.5%          25%          50%
-    mu       10.042737 0.06705434     9.913277     9.998900    10.041919
-    sigma     1.978566 0.04495607     1.894200     1.947543     1.978446
-    lp__  -1181.231511 1.14004820 -1184.216520 -1181.617289 -1180.862223
+    mu       10.052393 0.05780559     9.941550    10.013084    10.051954
+    sigma     1.950546 0.04452317     1.865282     1.918449     1.949414
+    lp__  -1166.382866 0.95613838 -1169.068699 -1166.767467 -1166.062803
          stats
 parameter          75%        97.5%
-    mu       10.085815    10.181772
-    sigma     2.007928     2.068984
-    lp__  -1180.417110 -1180.171164
+    mu       10.088801    10.173398
+    sigma     1.978926     2.044419
+    lp__  -1165.699221 -1165.450800
 
 , , chains = chain:4
 
          stats
 parameter         mean         sd         2.5%          25%          50%
-    mu       10.044853 0.06378225     9.921218    10.000702    10.044765
-    sigma     1.980288 0.04546441     1.895560     1.949974     1.978187
-    lp__  -1181.190701 1.00918435 -1183.856591 -1181.565011 -1180.878186
+    mu       10.050915 0.05890770     9.935738    10.009850    10.051364
+    sigma     1.949191 0.04144421     1.873244     1.919731     1.949605
+    lp__  -1166.331467 0.87585802 -1168.674922 -1166.669638 -1166.058090
          stats
 parameter          75%        97.5%
-    mu       10.089972    10.171891
-    sigma     2.010247     2.069436
-    lp__  -1180.463887 -1180.175009</code></pre>
+    mu       10.091248    10.162434
+    sigma     1.976132     2.033293
+    lp__  -1165.702946 -1165.455457</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ajuste <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(rstan<span class="sc">::</span><span class="fu">extract</span>(fit))</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ajuste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ajuste <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(rstan<span class="sc">::</span><span class="fu">extract</span>(fit))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ajuste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
          mu     sigma      lp__
   &lt;dbl[1d]&gt; &lt;dbl[1d]&gt; &lt;dbl[1d]&gt;
-1     10.2       1.98    -1182.
-2      9.95      2.00    -1181.
-3     10.1       2.07    -1182.
-4     10.0       2.04    -1181.
-5     10.1       2.03    -1181.
-6     10.1       1.92    -1183.</code></pre>
+1     10.1       1.96    -1166.
+2     10.1       1.97    -1167.
+3      9.96      1.93    -1167.
+4     10.0       1.87    -1167.
+5     10.0       1.94    -1165.
+6      9.99      1.94    -1166.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ajuste<span class="sc">$</span>mu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10.05124</code></pre>
 </div>
 </div>
 

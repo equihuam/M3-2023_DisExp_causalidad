@@ -6,11 +6,20 @@ library(rstan)
 library(tidyverse)
 rstan_options(auto_write = TRUE)
 
+La modelación estadística tiene múltiples opciones actualmente. Señaladamente **R**, **Python**, **Julia**, **Matlab**, *Stata* y **Stan** que de acuerdo con su propia apreciación "es una plataforma de última generación para el modelado estadístico y el cálculo estadístico de alto rendimiento en la que confían miles de usuarios". **Stan** es básicamente un lenguaje para la programación de modelos probabilísticos que permite:
+
++ Inferencia estadística bayesiana completa.
++ Inferencia bayesiana aproximada con inferencia variacional.
++ Estimación de máxima verosimilitud penalizada con optimización.
+
+**Stan** tiene su motor de cálculo propio, pero  interactúa muy bien con los lenguajes de análisis de datos más populares (*R*, *Python*, *MATLAB*, etc.) y en los sistemas operativos comunes (_Linux_, _Mac_, _Windows_). Puedes obtener más información sobre esta propuesta de modelación estadística en la [página de Stan](https://mc-stan.org/).
+
+
 ## Preparación
 
-Hay que crear un archivo que especifique el modelo en los términos que **Stan** requiere. La especificación básica es la siguiente (se pueden agregar comentarios con un doble diagonal). Primero una definición del tipo de datos que requiere el modelo.
+El concepto que utiliza **Stan** parte de la especificación de las funciones de densidad que le interesan al usuario para enseguida ajustar los modelos a los datos. Un ejemplo trivial es el siguiente, en el que sólo nos proponemos estimar la media de una muestra de datos que asumiremos se distribuyen normalmente. Lo primero que hay que hacer es crear un archivo que especifique el modelo en los términos que **Stan** requiere. La especificación básica es la siguiente (se pueden agregar comentarios con un doble diagonal). Primero una definición del tipo de datos que requiere el modelo.
 
-```stan
+``` stan
 // The input data is a vector 'y' of length 'N'.
 data {
   int<lower=0> N;
@@ -20,7 +29,7 @@ data {
 
 En seguida se detallan los parámetros que definen el modelo.
 
-```stan
+``` stan
 // The parameters accepted by the model. Our model
 // accepts two parameters 'mu' and 'sigma'.
 parameters {
@@ -30,6 +39,7 @@ parameters {
 ```
 
 Finalmente, se especifica el modelo. El modelo completo se guarda como un archivo *stan* al que se llamará cuando se buusque realizar el ajuste.
+
 
 ``` stan
 // The model to be estimated. We model the output
@@ -44,7 +54,7 @@ model {
 Para ejemplificar el uso del modelo `stan` ya definido arriba, sólo nos resta preparar algunos datos de prueba, activar la biblioteca `rstan` y realizar el ajuste.
 
 
-```{r}
+```{r class.source="bg-danger"}
 library(rstan)
 library(tibble)
 
@@ -69,5 +79,4 @@ head(ajuste)
 mean(ajuste$mu)
 
 ```
-
 
